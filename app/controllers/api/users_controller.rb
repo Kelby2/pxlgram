@@ -13,12 +13,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    
+
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :username, :fullname);
+    params.require(:user).permit(:username, :password, :username, :fullname, :email);
   end
 end
