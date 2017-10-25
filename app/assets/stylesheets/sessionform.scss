@@ -1,0 +1,52 @@
+body {
+  height: 100%;
+}
+
+div {
+  height: 100%;
+}
+
+.entry-screen {
+  width: 80%;
+  height: 90%;
+  margin: auto;
+  justify-content: center;
+  background-color: blue;
+}
+
+.entry-form {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  float: right;
+  width: 350px;
+  height: 530px;
+  margin-right: 16em;
+  margin-top: 3em;
+}
+
+.entry-form:first-child {
+  text-align: center;
+}
+
+.session-form {
+  margin: 15px;
+}
+
+.session-form input {
+  padding: 9px 0 7px 8px;
+  width: 80%;
+  margin: 5px;
+}
+
+.submitButton {
+  background-color: #3D94F0;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  width: 84% !important;
+}
+
+.title {
+  font-size: 45px;
+  font-family: Billabong;
+}

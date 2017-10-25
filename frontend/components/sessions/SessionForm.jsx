@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
 
     let emailInput;
     let fullNameInput;
-    
+
     if (this.url === '/signup') {
       emailInput = (
         <div>
@@ -75,29 +75,35 @@ class SessionForm extends React.Component {
                 'Already have an account?' : "Don't have an account?"
 
     return (
-      <div className='entry-screen'>
-        <form onSubmit={this.handleSubmit} className='session-form'>
-          {fullNameInput}
-          {emailInput}
-          <input
-            type='text'
-            value={this.state.username}
-            onChange={this.handleChange('username')}
-            placeholder={placeholder} >
-          </input>
-          <br />
-          <input
-            type='password'
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            placeholder='Password'>
-          </input>
-          <br />
-          <input type="submit" value={buttonText} />
-        </form>
+      <article className='entry-screen'>
+        <div className='entry-form'>
+          <h2 className='title'>pxlgram beta</h2>
+          <span>Sign up to see amazing photos from your friends!</span>
+          <form onSubmit={this.handleSubmit} className='session-form'>
+            {fullNameInput}
+            {emailInput}
+            <input
+              type='text'
+              value={this.state.username}
+              onChange={this.handleChange('username')}
+              placeholder={placeholder} >
+            </input>
+            <br />
+            <input
+              type='password'
+              value={this.state.password}
+              onChange={this.handleChange('password')}
+              placeholder='Password'>
+            </input>
+            <br />
+            <input className='submitButton' type='submit' value={buttonText} />
+          </form>
 
-        {alternateEntryText} {alternateEntryLink}
-      </div>
+          <span>
+            {alternateEntryText} {alternateEntryLink}
+          </span>
+        </div>
+      </article>
     );
   }
 
