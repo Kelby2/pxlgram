@@ -10,37 +10,38 @@ export const receiveCurrentUser = user => {
   };
 };
 
-export const receiveErrors = errors => {
+export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors: errors.responseJSON
+});
+
+
+export const signup = user => dispatch => {
+  return SessionApiUtil.signup(user)
+    .then((user) => {
+      dispatch(receiveCurrentUser(user));
+    },
+    (errors) => {
+      dispatch(receiveErrors(errors));
+    });
 };
 
 export const login = user => dispatch => {
   return SessionApiUtil.login(user)
     .then(user => {
-      return dispatch(receiveCurrentUser(user));
+      dispatch(receiveCurrentUser(user));
     },
     (errors) => {
-      return dispatch(receiveErrors(errors));
+      dispatch(receiveErrors(errors));
     });
 };
 
 export const logout = user => dispatch => {
   return SessionApiUtil.logout()
     .then(res => {
-      return dispatch(receiveCurrentUser(null));
+      dispatch(receiveCurrentUser(null));
     },
     (errors) => {
-      return dispatch(receiveErrors(errors));
+      dispatch(receiveErrors(errors));
     })
-};
-
-export const signup = user => dispatch => {
-  return SessionApiUtil.signup()
-    .then((user) => {
-      return dispatch(receiveCurrentUser(user));
-    },
-    (errors) => {
-      return dispatch(receiveErrors(errors));
-    });
 };

@@ -13,12 +13,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :username, :fullname, :email);
+    params.require(:user).permit(:username, :password, :email, :fullname)
   end
+
 end
