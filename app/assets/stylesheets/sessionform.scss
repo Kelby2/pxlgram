@@ -11,7 +11,6 @@ div {
   height: 90%;
   margin: auto;
   justify-content: center;
-  background-color: blue;
 }
 
 .entry-form {
@@ -19,12 +18,12 @@ div {
   border: 1px solid #e6e6e6;
   float: right;
   width: 350px;
-  height: 530px;
+  height: 575px;
   margin-right: 16em;
   margin-top: 3em;
 }
 
-.entry-form:first-child {
+.entry-form {
   text-align: center;
 }
 
@@ -36,17 +35,33 @@ div {
   padding: 9px 0 7px 8px;
   width: 80%;
   margin: 5px;
+  border-radius: 1px;
+  font-size: 13px;
 }
 
 .submitButton {
-  background-color: #3D94F0;
   color: white;
-  font-weight: bold;
-  font-size: 11px;
-  width: 84% !important;
+  background-color: #3D94F0;
+  font-family: sans-serif;
+  font-size: 14px;
+  width: 84% !important
 }
 
 .title {
-  font-size: 45px;
+  font-size: 5em;
   font-family: Billabong;
+  margin-top: 25px;
+}
+
+.entry-form-text {
+  display: block;
+  width: 200px;
+  margin: auto;
+  font-size: 15px;
+  word-wrap: break-word;
+  justify-content: center;
+}
+
+span a {
+  text-decoration: none;
 }

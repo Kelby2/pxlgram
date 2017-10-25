@@ -14,13 +14,16 @@ class SessionForm extends React.Component {
     this.url = this.props.match.path;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
     const user = this.state;
+    this.setState({ email: "" })
+    this.setState({ fullname: "" })
+    this.setState({ username: "" })
+    this.setState({ password: "" })
     this.props.processForm(user);
   }
 
@@ -34,8 +37,22 @@ class SessionForm extends React.Component {
 
     let emailInput;
     let fullNameInput;
+    let signUpWelcomeText;
+    let signUpAgreementText;
 
     if (this.url === '/signup') {
+      signUpWelcomeText = (
+        <span className='entry-form-text'>
+          Sign up and see amazing photos from your friends!
+        </span>
+      )
+
+      signUpAgreementText = (
+        <span className='entry-form-text'>
+          By signing up, you agree to our <Link to={"/"}>Terms & Privacy Policy</Link>
+        </span>
+      )
+
       emailInput = (
         <div>
           <input
@@ -59,7 +76,6 @@ class SessionForm extends React.Component {
           <br />
         </div>
       )
-
     };
 
     const buttonText = (this.url === '/signup') ?
@@ -68,17 +84,18 @@ class SessionForm extends React.Component {
     const placeholder = (this.url === '/signup') ?
                             'Username' : 'Username, or email'
 
-    const alternateEntryLink = (this.url === '/signup') ?
-      <Link to={'/login'}>Log In</Link> : <Link to={'/signup'}>Sign up</Link>
-
     const alternateEntryText = (this.url === '/signup') ?
                 'Already have an account?' : "Don't have an account?"
+
+    const alternateEntryLink = (this.url === '/signup') ?
+      <Link to={'/login'}>Log In</Link> :
+        <Link to={'/signup'}>Sign up</Link>
 
     return (
       <article className='entry-screen'>
         <div className='entry-form'>
-          <h2 className='title'>pxlgram beta</h2>
-          <span>Sign up to see amazing photos from your friends!</span>
+          <h2 className='title'>pxlgram</h2>
+          {signUpWelcomeText}
           <form onSubmit={this.handleSubmit} className='session-form'>
             {fullNameInput}
             {emailInput}
@@ -96,9 +113,13 @@ class SessionForm extends React.Component {
               placeholder='Password'>
             </input>
             <br />
-            <input className='submitButton' type='submit' value={buttonText} />
+            <input
+              className='submitButton'
+              type='submit'
+              value={buttonText} />
           </form>
-
+            { signUpAgreementText }
+          <br />
           <span>
             {alternateEntryText} {alternateEntryLink}
           </span>
