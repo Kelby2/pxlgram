@@ -16,6 +16,18 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  renderErrors() {
+    return (
+      this.props.errors.session.map((error, idx) => {
+        return <li
+          className='errorMessages'
+          key={`${idx}`}>
+          {error}
+        </li>
+      })
+    )
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -118,7 +130,8 @@ class SessionForm extends React.Component {
               type='submit'
               value={buttonText} />
           </form>
-            { signUpAgreementText }
+          {this.renderErrors()}
+          {signUpAgreementText}
           <br />
           <span>
             {alternateEntryText} {alternateEntryLink}
