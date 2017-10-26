@@ -68,6 +68,7 @@ class SessionForm extends React.Component {
       emailInput = (
         <div>
           <input
+            className='session-form-input'
             type='text'
             value={this.state.email}
             onChange={this.handleChange('email')}
@@ -80,6 +81,7 @@ class SessionForm extends React.Component {
       fullNameInput = (
         <div>
           <input
+            className='session-form-input'
             type='text'
             value={this.state.fullname}
             onChange={this.handleChange('fullname')}
@@ -94,7 +96,7 @@ class SessionForm extends React.Component {
                             'Sign Up' : 'Log In'
 
     const placeholder = (this.url === '/signup') ?
-                            'Username' : 'Username, or email'
+                            'Username' : 'Username or email'
 
     const alternateEntryText = (this.url === '/signup') ?
                 'Already have an account?' : "Don't have an account?"
@@ -107,11 +109,13 @@ class SessionForm extends React.Component {
       <article className='entry-screen'>
         <div className='entry-form'>
           <h2 className='title'>pxlgram</h2>
+          <br />
           {signUpWelcomeText}
           <form onSubmit={this.handleSubmit} className='session-form'>
             {fullNameInput}
             {emailInput}
             <input
+              className='session-form-input'
               type='text'
               value={this.state.username}
               onChange={this.handleChange('username')}
@@ -119,6 +123,7 @@ class SessionForm extends React.Component {
             </input>
             <br />
             <input
+              className='session-form-input'
               type='password'
               value={this.state.password}
               onChange={this.handleChange('password')}
@@ -130,10 +135,13 @@ class SessionForm extends React.Component {
               type='submit'
               value={buttonText} />
           </form>
-          {this.renderErrors()}
+          <ul>
+            {this.renderErrors()}
+            <br />
+          </ul>
           {signUpAgreementText}
           <br />
-          <span>
+          <span className='entry-form-text'>
             {alternateEntryText} {alternateEntryLink}
           </span>
         </div>

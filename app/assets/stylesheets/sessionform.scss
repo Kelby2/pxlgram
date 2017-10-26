@@ -31,20 +31,29 @@ div {
   margin: 15px;
 }
 
-.session-form input {
+.session-form-input {
   padding: 9px 0 7px 8px;
   width: 80%;
   margin: 5px;
   border-radius: 1px;
   font-size: 13px;
+  border: 1px solid #ccc;
 }
 
 .submitButton {
-  color: white;
+  color: #FFFFFF;
+  padding: 9px 0 7px 8px;
+  margin: 5px;
   background-color: #3D94F0;
+  border-radius: 1px;
+  border: 1px solid #CCC;
   font-family: sans-serif;
   font-size: 14px;
   width: 84% !important
+}
+
+.submitButton:hover {
+  cursor: pointer;
 }
 
 .title {
@@ -55,11 +64,13 @@ div {
 
 .entry-form-text {
   display: block;
-  width: 200px;
+  width: 220px;
   margin: auto;
   font-size: 15px;
   word-wrap: break-word;
   justify-content: center;
+  font-family: sans-serif;
+  color: gray;
 }
 
 .errorMessages {
