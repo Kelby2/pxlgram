@@ -50,12 +50,14 @@ body {
 }
 
 .session-form-input {
+  background-color: #FAFAFA;
   padding: 9px 0 7px 8px;
   width: 80%;
   margin: 5px;
-  border-radius: 1px;
+  border-radius: 5px;
   font-size: 13px;
   border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 .submitButton {
@@ -63,8 +65,8 @@ body {
   padding: 9px 0 7px 8px;
   margin: 5px;
   background-color: #3D94F0;
-  border-radius: 1px;
-  border: 1px solid #CCC;
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
   font-family: sans-serif;
   font-size: 14px;
   width: 84% !important
@@ -93,6 +95,7 @@ body {
 }
 
 .alternate-form-text {
+  color: #262626;
   margin-top: 25px;
 }
 
@@ -105,4 +108,10 @@ body {
 
 span a {
   text-decoration: none;
+  color: #62B3F5;
+}
+
+.policy-terms {
+  font-weight: 600;
+  color: #999999;
 }

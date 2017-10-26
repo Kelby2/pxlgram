@@ -17,10 +17,6 @@ class SessionForm extends React.Component {
     this.handleFormChange = this.handleFormChange.bind(this);
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
   renderErrors() {
     return (
       this.props.errors.session.map((error, idx) => {
@@ -48,13 +44,10 @@ class SessionForm extends React.Component {
     };
   }
 
-  componentWillReceiveProps(newProps) {
-
-  }
-
   handleFormChange(event) {
     const newType = (this.state.formType === 'signup') ? 'login' : 'signup';
     event.preventDefault();
+    this.props.clearErrors();
     this.setState({formType: newType})
   }
 
@@ -101,7 +94,8 @@ class SessionForm extends React.Component {
 
       signUpAgreementText = (
         <span className='entry-form-text'>
-          By signing up, you agree to our <Link to={"/"}>Terms & Privacy Policy</Link>
+          By signing up, you agree to our <Link className='policy-terms'
+          to={"/"}>Terms & Privacy Policy</Link>
         </span>
       )
 

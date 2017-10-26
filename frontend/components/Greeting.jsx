@@ -17,11 +17,11 @@ class Greeting extends React.Component {
     } else {
       return (
         <div>
-          <Link to={"/signup"}>Sign up...</Link>
         </div>
       );
     }
   }
+
 }
 
 export default Greeting;
