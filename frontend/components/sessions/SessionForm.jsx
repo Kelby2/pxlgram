@@ -16,6 +16,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   renderErrors() {
     return (
       this.props.errors.session.map((error, idx) => {
@@ -106,46 +110,51 @@ class SessionForm extends React.Component {
         <Link to={'/signup'}>Sign up</Link>
 
     return (
-      <article className='entry-screen'>
-        <div className='entry-form'>
-          <h2 className='title'>pxlgram</h2>
-          <br />
-          {signUpWelcomeText}
-          <form onSubmit={this.handleSubmit} className='session-form'>
-            {fullNameInput}
-            {emailInput}
-            <input
-              className='session-form-input'
-              type='text'
-              value={this.state.username}
-              onChange={this.handleChange('username')}
-              placeholder={placeholder} >
-            </input>
+      <div>
+        <article className='entry-screen-container'>
+          <div className='entry-photo-container'>
+            <div className='entry-photo'></div>
+          </div>
+          <div className='entry-form-container'>
+            <h2 className='title'>pxlgram</h2>
             <br />
-            <input
-              className='session-form-input'
-              type='password'
-              value={this.state.password}
-              onChange={this.handleChange('password')}
-              placeholder='Password'>
-            </input>
+            {signUpWelcomeText}
+            <form onSubmit={this.handleSubmit} className='session-form'>
+              {fullNameInput}
+              {emailInput}
+              <input
+                className='session-form-input'
+                type='text'
+                value={this.state.username}
+                onChange={this.handleChange('username')}
+                placeholder={placeholder} >
+              </input>
+              <br />
+              <input
+                className='session-form-input'
+                type='password'
+                value={this.state.password}
+                onChange={this.handleChange('password')}
+                placeholder='Password'>
+              </input>
+              <br />
+              <input
+                className='submitButton'
+                type='submit'
+                value={buttonText} />
+            </form>
+            <ul>
+              {this.renderErrors()}
+              <br />
+            </ul>
+            {signUpAgreementText}
             <br />
-            <input
-              className='submitButton'
-              type='submit'
-              value={buttonText} />
-          </form>
-          <ul>
-            {this.renderErrors()}
-            <br />
-          </ul>
-          {signUpAgreementText}
-          <br />
-          <span className='entry-form-text'>
-            {alternateEntryText} {alternateEntryLink}
-          </span>
-        </div>
-      </article>
+            <span className='entry-form-text'>
+              {alternateEntryText} {alternateEntryLink}
+            </span>
+          </div>
+        </article>
+      </div>
     );
   }
 

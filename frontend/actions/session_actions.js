@@ -45,3 +45,7 @@ export const logout = user => dispatch => {
       dispatch(receiveErrors(errors));
     })
 };
+
+export const clearErrors = (currentUser) => dispatch => {
+  dispatch(receiveCurrentUser(currentUser));
+}

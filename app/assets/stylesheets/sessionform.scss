@@ -2,29 +2,32 @@ body {
   height: 100%;
 }
 
-div {
-  height: 100%;
-}
-
-.entry-screen {
-  width: 80%;
-  height: 90%;
+.entry-screen-container {
+  width: 1500px;
+  height: 700px;
+  display: flex;
   margin: auto;
   justify-content: center;
+  background-color: inherit;
 }
 
-.entry-form {
+.entry-form-container {
   background-color: #fff;
   border: 1px solid #e6e6e6;
-  float: right;
   width: 350px;
+
   height: 575px;
-  margin-right: 16em;
+  margin-right: 8em;
   margin-top: 3em;
+  text-align: center;
 }
 
-.entry-form {
-  text-align: center;
+.entry-photo-container {
+  width: 425px;
+  height: 625px;
+  left: 22em;
+  top: 5em;
+  background-image: image-url('instagram_stock_photo.png');
 }
 
 .session-form {
@@ -75,7 +78,9 @@ div {
 
 .errorMessages {
   color: red;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: sans-serif;
+  padding: 3px;
 }
 
 span a {
