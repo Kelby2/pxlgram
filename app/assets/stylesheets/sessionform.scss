@@ -7,19 +7,34 @@ body {
   height: 700px;
   display: flex;
   margin: auto;
+  margin-top: 50px;
   justify-content: center;
   background-color: inherit;
 }
 
 .entry-form-container {
+}
+
+.main-form {
   background-color: #fff;
+  position: relative;
   border: 1px solid #e6e6e6;
   width: 350px;
-
-  height: 575px;
+  height: auto;
   margin-right: 8em;
   margin-top: 3em;
+  padding-bottom: 20px;
   text-align: center;
+}
+
+.alternate-form {
+  background-color: #fff;
+  position: relative;
+  width: 350px;
+  height: 75px;
+  text-align: center;
+  margin-top: 10px;
+  border: 1px solid #e6e6e6;
 }
 
 .entry-photo-container {
@@ -30,7 +45,7 @@ body {
   background-image: image-url('instagram_stock_photo.png');
 }
 
-.session-form {
+.entry-form {
   margin: 15px;
 }
 
@@ -65,7 +80,7 @@ body {
   margin-top: 25px;
 }
 
-.entry-form-text {
+.entry-form-text, .alternate-form-text {
   display: block;
   width: 220px;
   margin: auto;
@@ -74,6 +89,11 @@ body {
   justify-content: center;
   font-family: sans-serif;
   color: gray;
+  line-height: 20px;
+}
+
+.alternate-form-text {
+  margin-top: 25px;
 }
 
 .errorMessages {

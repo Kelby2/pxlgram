@@ -34,12 +34,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     const user = this.state;
-    this.setState({ email: "" })
-    this.setState({ fullname: "" })
-    this.setState({ username: "" })
-    this.setState({ password: "" })
     this.props.processForm(user);
   }
 
@@ -103,7 +98,7 @@ class SessionForm extends React.Component {
                             'Username' : 'Username or email'
 
     const alternateEntryText = (this.url === '/signup') ?
-                'Already have an account?' : "Don't have an account?"
+                'Have an account?' : "Don't have an account?"
 
     const alternateEntryLink = (this.url === '/signup') ?
       <Link to={'/login'}>Log In</Link> :
@@ -112,47 +107,54 @@ class SessionForm extends React.Component {
     return (
       <div>
         <article className='entry-screen-container'>
+
           <div className='entry-photo-container'>
             <div className='entry-photo'></div>
           </div>
+
           <div className='entry-form-container'>
-            <h2 className='title'>pxlgram</h2>
-            <br />
-            {signUpWelcomeText}
-            <form onSubmit={this.handleSubmit} className='session-form'>
-              {fullNameInput}
-              {emailInput}
-              <input
-                className='session-form-input'
-                type='text'
-                value={this.state.username}
-                onChange={this.handleChange('username')}
-                placeholder={placeholder} >
-              </input>
+            <div className='main-form'>
+              <h2 className='title'>pxlgram</h2>
               <br />
-              <input
-                className='session-form-input'
-                type='password'
-                value={this.state.password}
-                onChange={this.handleChange('password')}
-                placeholder='Password'>
-              </input>
-              <br />
-              <input
-                className='submitButton'
-                type='submit'
-                value={buttonText} />
-            </form>
-            <ul>
-              {this.renderErrors()}
-              <br />
-            </ul>
-            {signUpAgreementText}
-            <br />
-            <span className='entry-form-text'>
-              {alternateEntryText} {alternateEntryLink}
-            </span>
+              {signUpWelcomeText}
+              <form onSubmit={this.handleSubmit} className='entry-form'>
+                {fullNameInput}
+                {emailInput}
+                <input
+                  className='session-form-input'
+                  type='text'
+                  value={this.state.username}
+                  onChange={this.handleChange('username')}
+                  placeholder={placeholder} >
+                </input>
+                <br />
+                <input
+                  className='session-form-input'
+                  type='password'
+                  value={this.state.password}
+                  onChange={this.handleChange('password')}
+                  placeholder='Password'>
+                </input>
+                <br />
+                <input
+                  className='submitButton'
+                  type='submit'
+                  value={buttonText} />
+              </form>
+              <ul>
+                {this.renderErrors()}
+                <br />
+              </ul>
+              {signUpAgreementText}
+            </div>
+
+            <div className='alternate-form'>
+              <span className='alternate-form-text'>
+                {alternateEntryText} {alternateEntryLink}
+              </span>
+            </div>
           </div>
+
         </article>
       </div>
     );
