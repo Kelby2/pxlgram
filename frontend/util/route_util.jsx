@@ -1,6 +1,6 @@
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import React from 'React';
+import React from 'react';
 
 
 const mapStateToProps = state => {
