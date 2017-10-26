@@ -1,1 +1,10 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render(
+      'api/users/user',
+      user: current_user
+    ).html_safe %>
+  <% end %>
+</script>
+
 <div id="root"></div>

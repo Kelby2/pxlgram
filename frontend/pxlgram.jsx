@@ -9,11 +9,20 @@ import { login, logout, signup } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
-  const store = configureStore();
-
+  let store;
+  if (window.currentUser) {
+    const preloadedState = { session:
+      { currentUser: window.currentUser }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   ReactDOM.render(<Root store={ store } />, rootEl);
 
   //FUNCS FOR TESTING//
+
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.login = login;

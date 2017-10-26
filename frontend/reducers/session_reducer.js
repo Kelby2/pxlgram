@@ -8,7 +8,7 @@ const SessionReducer = (initialState = { current_user: null }, action) => {
       newState = Object.assign(
         {},
         initialState,
-        { current_user: action.user }
+        { currentUser: action.user }
       );
       return newState;
     default:

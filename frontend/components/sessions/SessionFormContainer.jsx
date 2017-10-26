@@ -7,8 +7,8 @@ import { withRouter } from 'react-router-dom';
 let currentUser;
 
 const mapStateToProps = (state, ownProps) => {
-  currentUser = state.session.current_user;
-  const loggedIn = (state.session.current_user) ? true : false;
+  currentUser = state.session.currentUser;
+  const loggedIn = (state.session.currentUser) ? true : false;
   const formType =
   (ownProps.location.pathname === "/signup") ? "signup" : "login"
   const errors = state.errors;
