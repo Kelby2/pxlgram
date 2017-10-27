@@ -6,8 +6,8 @@ import GreetingContainer from './GreetingContainer';
 import PhotoIndexContainer from './photos/photo_index_container';
 
 const App = () => (
-  <div>
-    <header>
+  <div className='appDiv'>
+    <header className='header'>
       <GreetingContainer />
       {/* <PhotoIndexContainer /> */}
     </header>

@@ -2,6 +2,10 @@ body {
   height: 100%;
 }
 
+.session-form-input:focus {
+  outline: none;
+}
+
 .entry-screen-container {
   width: 1500px;
   height: 700px;
@@ -10,9 +14,6 @@ body {
   margin-top: 50px;
   justify-content: center;
   background-color: inherit;
-}
-
-.entry-form-container {
 }
 
 .main-form {
@@ -60,11 +61,15 @@ body {
   border-radius: 3px;
 }
 
+.session-form-input:focus {
+  border: 1px solid gray;
+}
+
 .submitButton {
   color: #FFFFFF;
   padding: 9px 0 7px 8px;
   margin: 5px;
-  background-color: #3D94F0;
+  background-color: #3997f0;
   border-radius: 5px;
   border: 1px solid #FFFFFF;
   font-family: sans-serif;

@@ -7,19 +7,29 @@ class Greeting extends React.Component {
   }
 
   render() {
+
     if (this.props.currentUser) {
       return (
-        <div>
-          <h1> Welcome, {this.props.currentUser.username }!</h1>
-          <form>
-            <input
-              className='searchUsers'
-              type='text'
-              placeholder='Search' />
+        <article className='fixed-header'>
+          <div className='header-bar'>
+            <div className='pxlgLogo'>logo</div>
 
-          </form>
-          <button onClick={() => this.props.logout()}>Logout</button>
-        </div>
+            <div className='user-search-bar'>
+
+              <i class="icon-search"></i>
+              <span className='searchText'>Search</span>
+
+            </div>
+
+
+            <div className='nav-bar'>
+              <button onClick={() => this.props.logout()}>tempLogout</button>
+              <button onClick={'/upload'}>add_photo</button>
+              <button>all_photos</button>
+              <button>current_user_profile</button>
+            </div>
+          </div>
+        </article>
       );
     } else {
       return (
