@@ -4,7 +4,6 @@ import PhotoIndex from './photo_index';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-  debugger
   return ({
     photos: Object.keys(state.photos).map(id => state.photos[id])
   });
