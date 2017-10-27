@@ -11,6 +11,13 @@ class Greeting extends React.Component {
       return (
         <div>
           <h1> Welcome, {this.props.currentUser.username }!</h1>
+          <form>
+            <input
+              className='searchUsers'
+              type='text'
+              placeholder='Search' />
+
+          </form>
           <button onClick={() => this.props.logout()}>Logout</button>
         </div>
       );

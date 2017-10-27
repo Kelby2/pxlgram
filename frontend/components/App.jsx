@@ -9,7 +9,7 @@ const App = () => (
   <div>
     <header>
       <GreetingContainer />
-      <PhotoIndexContainer />
+      {/* <PhotoIndexContainer /> */}
     </header>
 
     <AuthRoute path='/' component={SessionFormContainer} />
