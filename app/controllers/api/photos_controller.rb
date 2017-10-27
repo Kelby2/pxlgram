@@ -4,6 +4,10 @@ class Api::PhotosController < ApplicationController
     @photos = Photo.all
   end
 
+  def show
+    @photo = Photo.find(params[:id])
+  end
+
   def create
     @photo = current_user.photos.new(photo_params)
 
@@ -24,10 +28,6 @@ class Api::PhotosController < ApplicationController
       render json: @photo.errors.full_messages, status: 422
     end
 
-  end
-
-  def show
-    @photo = Photo.find(params[:id])
   end
 
   def destroy

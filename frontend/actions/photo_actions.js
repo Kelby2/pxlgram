@@ -4,9 +4,10 @@ export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS'
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO'
 export const REMOVE_PHOTO = 'REMOVE_PHOTO'
 
+//photos, photo, photoId is moved to the reducer under action
 export const fetchPhotos = photos => {
   return ({
-    type: RECEIVE_PHOTOS,
+    type: RECEIVE_ALL_PHOTOS,
     photos
   })
 }

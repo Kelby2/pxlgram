@@ -6,7 +6,7 @@ import PhotosReducer from './photos_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   errors: ErrorsReducer,
-  photos: PhotoReducer,
+  photos: PhotosReducer,
 });
 
 export default RootReducer;

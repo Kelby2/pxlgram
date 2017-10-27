@@ -5,6 +5,9 @@ import Root from './components/root';
 
 //TEST IMPORT
 import { login, logout, signup } from './actions/session_actions';
+import { getPhotos,
+          getPhoto,
+          addPhoto } from './actions/photo_actions';
 //END
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.getPhoto = getPhoto;
+  window.getPhotos = getPhotos;
+  window.addPhoto = addPhoto;
   window.login = login;
   window.logout = logout;
   window.signup = signup;
