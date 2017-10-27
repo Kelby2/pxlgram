@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::PhotosController < ApplicationController
 
   def index
@@ -20,23 +22,24 @@ class Api::PhotosController < ApplicationController
   end
 
   def update
-    @photo = current_user.photos.find(params[:id])
+    @photo = current_user.photos.find_by(id: params[:id])
 
-    if @photo && @photo.update(photo_params)
+    if @photo
+      @photo.update(photo_params)
       render :show
     else
-      render json: @photo.errors.full_messages, status: 422
+      render json: ['You are not authorized to edit this'], status: 401
     end
 
   end
 
   def destroy
-    @photo = current_user.photos.find(params[:id])
-
-    if @photo && @photo.destroy
-      render :show
+    @photo = current_user.photos.find_by(id: params[:id])
+    if @photo
+      @photo.destroy
     else
-      render json: @photo.errors.full_messages, status: 422
+      render json: ['You cannot delete this photo'],
+      status: 401
     end
 
 
