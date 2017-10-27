@@ -4,12 +4,10 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-export const receiveCurrentUser = user => {
-  return {
+export const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user,
-  };
-};
+});
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
@@ -19,7 +17,7 @@ export const receiveErrors = errors => ({
 export const clearAllErrors = () => ({
   type: CLEAR_ERRORS,
   errors: [],
-})
+});
 
 
 export const signup = user => dispatch => {
@@ -44,7 +42,7 @@ export const login = user => dispatch => {
 
 export const logout = user => dispatch => {
   return SessionApiUtil.logout()
-    .then(res => {
+    .then(result => {
       dispatch(receiveCurrentUser(null));
     },
     (errors) => {
