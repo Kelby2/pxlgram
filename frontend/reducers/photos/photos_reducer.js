@@ -11,7 +11,7 @@ const PhotosReducer = (oldState = {}, action) => {
       newState = Object.assign(
         {},
         oldState,
-        { photos: action.photos }
+        action.photos
       );
       return newState;
     case RECEIVE_PHOTO:
