@@ -11,6 +11,10 @@ class Header extends React.Component {
 
   }
 
+  goHome(event) {
+
+  }
+
   render() {
 
     if (this.props.currentUser) {
@@ -18,10 +22,10 @@ class Header extends React.Component {
         <article className='fixed-header'>
           <div className='header-bar'>
 
-            <div className='logo-container'>
+            <a href="/" className='logo-container'>
               <span className='logo-icon'>logo</span>
               <span className='logo'>pxlGram</span>
-            </div>
+            </a>
 
             {/*<div onClick={this.toggleSearchBar} className='user-search-bar'>
 
@@ -29,6 +33,7 @@ class Header extends React.Component {
               <span className='searchText'>Search</span>
 
             </div> */}
+            
 
             <input className='user-search-bar'
                     type='text'

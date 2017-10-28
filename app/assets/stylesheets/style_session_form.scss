@@ -1,8 +1,3 @@
-body {
-  height: 100%;
-  background-color: inherit;
-}
-
 .session-form-input:focus {
   outline: none;
 }
@@ -15,6 +10,7 @@ body {
   margin-top: 50px;
   justify-content: center;
   background-color: inherit;
+  overflow: hidden;
 }
 
 .main-form {

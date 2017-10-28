@@ -8,13 +8,15 @@ import PhotoIndexContainer from './photos/photo_index_container';
 const App = () => (
   <div className='appDiv'>
     <header className='header'>
-      <PhotoIndexContainer />
+      <HeaderContainer />
       {/*
-        <HeaderContainer />
+
       */}
     </header>
 
+
     <AuthRoute path='/' component={SessionFormContainer} />
+    <PhotoIndexContainer />
   </div>
 );
 

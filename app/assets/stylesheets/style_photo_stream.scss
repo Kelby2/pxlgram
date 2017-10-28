@@ -1,0 +1,19 @@
+.photo-stream-container {
+  width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.photo-stream-post {
+  width: 100%;
+}
+
+.photo {
+  display: block;
+  width: 600px;
+  height: 750px;
+  margin-top: 60px;
+  background-color: #ffffff;
+  border: 1px dashed red;
+}
