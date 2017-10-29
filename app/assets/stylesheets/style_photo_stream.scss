@@ -9,11 +9,15 @@
   width: 100%;
 }
 
+.photo-post {
+  margin-top: 60px;
+  background-color: #ffffff;
+}
+
 .photo {
   display: block;
   width: 600px;
   height: 750px;
-  margin-top: 60px;
   background-color: #ffffff;
   border: 1px dashed red;
 }
