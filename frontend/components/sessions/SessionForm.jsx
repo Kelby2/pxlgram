@@ -21,6 +21,10 @@ class SessionForm extends React.Component {
   renderErrors() {
     return (
       this.props.errors.session.map((error, idx) => {
+        if (error === "Fullname can't be blank") {
+          error = "Full name can't be blank"
+        };
+
         return <li
           className='errorMessages'
           key={`${idx}`}>

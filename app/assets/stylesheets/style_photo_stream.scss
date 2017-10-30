@@ -5,7 +5,7 @@
   margin-top: 100px;
 }
 
-.photo-stream-post {
+.photo-post-container {
   width: 100%;
 }
 
@@ -14,10 +14,19 @@
   background-color: #ffffff;
 }
 
-.photo {
+.photo-container {
   display: block;
   width: 600px;
-  height: 750px;
+  height: 600px;
   background-color: #ffffff;
-  border: 1px dashed red;
+  align-items: center;
+  overflow: hidden;
+}
+
+.photo-author {
+  font-weight: bolder;
+}
+
+.photo {
+  width: inherit;
 }

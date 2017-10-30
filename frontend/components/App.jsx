@@ -10,13 +10,10 @@ const App = () => (
     <header className='header'>
       <HeaderContainer />
       {/*
-
       */}
     </header>
-
-
-    <AuthRoute path='/' component={SessionFormContainer} />
-    <PhotoIndexContainer />
+      <AuthRoute path='/' component={SessionFormContainer} />
+      <Route path='/' component={PhotoIndexContainer} />
   </div>
 );
 

@@ -8,6 +8,7 @@ const mapStateToProps = state => {
 };
 
 //redirects to landing page if you are already logged in
+//will not see login page if you are already logged in
 
 const Auth = ({component: Component, path, loggedIn}) => {
   return (
