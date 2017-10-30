@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { login, signup, clearErrors } from '../../actions/session_actions';
-import SessionForm from './SessionForm';
+import SessionForm from './session_form';
 import { withRouter } from 'react-router-dom';
 
 //passing in current state to the session form
