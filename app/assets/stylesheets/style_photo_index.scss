@@ -7,19 +7,23 @@
 
 .photo-post-container {
   width: 100%;
+  height: auto;
 }
 
 .photo-post {
   margin-top: 60px;
   background-color: #ffffff;
   width: 100%;
+  border: 1px solid #e6e6e6;
+  box-sizing: content-box;
 }
 
 .photo-container {
   display: block;
   width: 600px;
-  height: 600px;
-  background-color: #ffffff;
+  height: auto;
+  max-height: 750px;
+  background-color: inherit;
   align-items: center;
   overflow: hidden;
 }
@@ -29,13 +33,16 @@
   width: 100%;
   display: flex;
   align-items: center;
-  .author-username {
+  a {
     font-weight: bolder;
+    color: black;
     font-family: sans-serif;
     font-size: 14px;
+    text-decoration: none;
   }
 }
 
 .photo {
   width: inherit;
+  height: auto;
 }

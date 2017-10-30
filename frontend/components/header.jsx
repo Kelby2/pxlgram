@@ -6,15 +6,6 @@ class Header extends React.Component {
     super(props);
   }
 
-  toggleSearchBar(event) {
-    event.preventDefault();
-
-  }
-
-  goHome(event) {
-
-  }
-
   render() {
 
     if (this.props.currentUser) {
@@ -33,7 +24,7 @@ class Header extends React.Component {
               <span className='searchText'>Search</span>
 
             </div> */}
-            
+
 
             <input className='user-search-bar'
                     type='text'
@@ -41,16 +32,19 @@ class Header extends React.Component {
 
 
             <div className='nav-bar'>
-              <icons className="fa fa-upload fa-lg"></icons>
-              {/* <icons className="fa fa-compass fa-lg"></icons> */}
-              <icons className="fa fa-heart fa-lg"></icons>
-              <icons className="fa fa-user fa-lg"></icons>
+
+              <Link className="fa fa-upload fa-lg"
+                to={'/upload'} />
+              <Link className="fa fa-compass fa-lg"
+                to={'/explore'} />
+              <Link className= 'fa fa-user fa-lg'
+                to={`/${this.props.currentUser.username}`} />
             </div>
 
           </div>
 
 
-          <button onClick={() => this.props.logout()}>tempLogout</button>
+          <Link onClick={() => this.props.logout()} to={'/'}>tempLogout</Link>
         </article>
       );
     } else {

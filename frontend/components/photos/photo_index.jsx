@@ -16,11 +16,13 @@ class PhotoIndex extends React.Component {
       <div className='photo-stream-container'>
         <ul className='photo-stream'>
           {
-            this.props.photos.map(photo => (
-              <PhotoIndexItem
-                key={photo.id}
-                photo={photo} />
-            ))
+            this.props.photos.map(photo => {
+              return(
+                <PhotoIndexItem
+                  key={ photo.id }
+                  photo={ photo } />
+              )
+            })
           }
         </ul>
       </div>

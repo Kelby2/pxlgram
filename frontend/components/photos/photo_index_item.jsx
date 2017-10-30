@@ -1,13 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const PhotoIndexItem = ({ photo }) => {
+const PhotoIndexItem = ({ photo, user }) => {
   return (
     <li className='photo-post-container'>
       <div className='photo-post'>
-        {/*temp author placement*/}
         <div className='photo-author-info'>
           {/*<div>{avatar}</div>*/}
-          <div className='author-username'>{photo.author.username}</div>
+          <div className='author-username'>
+            <Link to={`/${photo.author_name}`} id={photo.author_id}>
+              {photo.author_name}
+            </Link>
+          </div>
         </div>
         {}
         <div className='photo-container'>

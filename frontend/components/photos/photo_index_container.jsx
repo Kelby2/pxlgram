@@ -6,13 +6,14 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state) => {
   return ({
     photos: Object.keys(state.entities.photos)
-    .map(id => state.entities.photos[id])
+    .map(id => state.entities.photos[id]),
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     getPhotos: () => dispatch(getPhotos()),
+    getUsers: () => dispatch(getUsers())
   });
 };
 
