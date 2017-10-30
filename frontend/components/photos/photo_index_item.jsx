@@ -8,7 +8,7 @@ const PhotoIndexItem = ({ photo, user }) => {
         <div className='photo-author-info'>
           {/*<div>{avatar}</div>*/}
           <div className='author-username'>
-            <Link to={`/${photo.author_name}`} id={photo.author_id}>
+            <Link to={`/users/${photo.author_id}`} id={photo.author_id}>
               {photo.author_name}
             </Link>
           </div>

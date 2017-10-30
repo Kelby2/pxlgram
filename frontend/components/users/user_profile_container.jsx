@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { getUser } from '../../actions/user_actions'
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
-  const user = (ownProps.match.params.username)
+
+  const user = state.entities.users[ownProps.match.params.id]
   return ({
     user
   });
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    getUser: (user) => dispatch(getUser(user)),
+    getUser: (userId) => dispatch(getUser(userId)),
   });
 }
 

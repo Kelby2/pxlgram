@@ -15,7 +15,7 @@ const App = () => (
         <Route path='/' component={PhotoIndexContainer} />
       */}
       <Switch>
-        <Route exact path='/:username' component={ UserContainer } />
+        <Route exact path='/users/:id' component={ UserContainer } />
         <Route path='/' component={LandingPageContainer} />
       </Switch>
     </header>
