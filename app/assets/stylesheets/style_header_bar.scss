@@ -21,15 +21,16 @@
 
 .user-search-bar {
   width: 215px;
-  height: 25px;
+  height: 27px;
   border: 1px solid #dbdbdb;
+  border-radius: 5px;
   background-color: #fafafa;
   color: #999999;
   justify-content: center;
   align-items: center;
   display: flex;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   padding: 0 0 0 8px;
   color: black;
   .fa-search {
@@ -37,8 +38,14 @@
   }
 }
 
-.user-search-bar:hover {
+.user-search-bar:click {
   cursor: text;
+}
+
+.user-search-bar:focus {
+  border: 1px solid gray;
+  outline: none;
+  background-color: #ffffff;
 }
 
 .search-icon {
