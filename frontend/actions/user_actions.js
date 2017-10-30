@@ -21,8 +21,8 @@ export const getUsers = () => dispatch => (
   UserApiUtil.getUsers().then(users => dispatch(fetchUsers(users)))
 )
 
-export const getUser = (user) => dispatch => (
-  UserApiUtil.getUser(user).then(user => dispatch(fetchUser(user)))
+export const getUser = (id) => dispatch => (
+  UserApiUtil.getUser(id).then(user => dispatch(fetchUser(user)))
 )
 
 export const editUser = (user) => dispatch => (

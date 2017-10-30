@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::PhotosController < ApplicationController
 
   def index
