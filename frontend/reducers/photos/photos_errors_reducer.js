@@ -1,5 +1,5 @@
 import { RECEIVE_ERRORS,
-        RECEIVE_CURRENT_USER,
+        RECEIVE_PHOTO,
         CLEAR_ERRORS
       } from '../../actions/session_actions';
 
@@ -8,7 +8,7 @@ const PhotosErrorsReducer = (initialState = [], action) => {
   switch (action.type) {
     case RECEIVE_ERRORS:
       return action.errors
-    case RECEIVE_CURRENT_USER:
+    case RECEIVE_PHOTO:
     case CLEAR_ERRORS:
       return [];
     default:
