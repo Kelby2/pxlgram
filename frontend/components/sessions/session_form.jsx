@@ -66,7 +66,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    debugger
     let emailInput;
     let fullNameInput;
     let signUpWelcomeText;

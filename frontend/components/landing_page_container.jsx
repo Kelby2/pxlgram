@@ -4,12 +4,14 @@ import LandingPage from './landing_page.jsx';
 
 
 const mapStateToProps = (state, ownProps) => {
-  const loggedIn = (state.session.curentUser) ? true: false;
-  const errors = state.errors;
-
+  let loggedIn;
+  if (state.session.currentUser) {
+    loggedIn = true;
+  } else {
+    loggedIn = false;
+  };
   return ({
-    loggedIn,
-    errors
+    loggedIn
   })
 }
 
