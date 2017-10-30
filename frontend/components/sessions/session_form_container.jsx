@@ -3,11 +3,9 @@ import { login, signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 import { withRouter } from 'react-router-dom';
 
-//passing in current state to the session form
-let currentUser;
+
 
 const mapStateToProps = (state, ownProps) => {
-  currentUser = state.session.currentUser;
   const loggedIn = (state.session.currentUser) ? true : false;
   const formType = 'signup'
   const errors = state.errors;
@@ -21,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 
+  debugger
   return ({
     signup: user => dispatch(signup(user)),
     login: user => dispatch(login(user)),

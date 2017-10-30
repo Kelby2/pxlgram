@@ -37,7 +37,6 @@ class SessionForm extends React.Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const user = this.state;
-
     const processForm = (this.state.formType === 'signup') ?
                 this.props.signup : this.props.login
     processForm(user);
@@ -67,7 +66,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
+    debugger
     let emailInput;
     let fullNameInput;
     let signUpWelcomeText;
