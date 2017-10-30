@@ -10,6 +10,7 @@ import { getPhotos,
         addPhoto,
         deletePhoto,
         editPhoto } from './actions/photo_actions';
+import { getUsers, getUser } from './actions/user_actions';
 //END
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.getUsers = getUsers;
+  window.getUser = getUser;
   window.editPhoto = editPhoto;
   window.getPhoto = getPhoto;
   window.getPhotos = getPhotos;

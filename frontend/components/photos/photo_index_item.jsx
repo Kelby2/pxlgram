@@ -5,7 +5,10 @@ const PhotoIndexItem = ({ photo }) => {
     <li className='photo-post-container'>
       <div className='photo-post'>
         {/*temp author placement*/}
-        <div className='photo-author'>{photo.author.username}</div>
+        <div className='photo-author-info'>
+          {/*<div>{avatar}</div>*/}
+          <div className='author-username'>{photo.author.username}</div>
+        </div>
         {}
         <div className='photo-container'>
           <img className='photo' src={photo.image_url} />
