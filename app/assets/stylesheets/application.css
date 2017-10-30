@@ -28,6 +28,11 @@ body {
 .appDiv {
   display: flex;
   height: 100%;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
 }
 
 html {
