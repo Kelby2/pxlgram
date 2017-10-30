@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SessionForm from './sessions/session_form';
+import SessionPage from './sessions/session_entry_page';
 import PhotoIndexContainer from './photos/photo_index_container';
 
 class LandingPage extends React.Component {
@@ -10,7 +10,7 @@ class LandingPage extends React.Component {
 
   render() {
     return (this.props.loggedIn) ? <PhotoIndexContainer /> :
-                                      <SessionForm />
+                                      <SessionPage />
   }
 }
 

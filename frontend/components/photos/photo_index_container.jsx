@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
   return ({
-    photos: Object.keys(state.photos).map(id => state.photos[id])
+    photos: Object.keys(state.entities.photos)
+    .map(id => state.entities.photos[id])
   });
 };
 

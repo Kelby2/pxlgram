@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SignUpFormContainer from './signup_form_container'
 import LoginFormContainer from './login_form_container'
 
-class SessionForm extends React.Component {
+class SessionPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {formType: 'signup'};
@@ -51,4 +51,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SessionPage;
