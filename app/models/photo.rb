@@ -8,7 +8,9 @@ class Photo < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-  # has_many :likes
+  has_many :likes,
+    foreign_key: :photo_id,
+    class_name: :Like
   # has_many :comments
 
 end

@@ -29,7 +29,7 @@ class SessionPage extends React.Component {
         <Link onClick={this.toggleForm} to={'/'}>Sign up</Link>
 
     return (
-      <div>
+      <div className='entry-screen'>
         <article className='entry-screen-container'>
 
           <div className='entry-photo-container'>

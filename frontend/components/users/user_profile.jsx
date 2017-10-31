@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';;
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
@@ -12,7 +11,6 @@ class UserProfile extends React.Component {
   }
 
   render () {
-
     const user = this.props.user
 
     if (!user) {
@@ -21,8 +19,39 @@ class UserProfile extends React.Component {
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>
-            <h2 className='test'>under construction</h2>
+
+            <article className='user-profile-header'>
+
+              <div className='user-avatar-container'>
+                <div className='user-avatar'>
+                  <img className='avatar' src={user.avatarUrl} />
+                </div>
+              </div>
+
+              <div className='user-info-container'>
+                <span className='user-name'>{user.username}</span>
+                <button className='toggleFollowButton'>Follow</button>
+
+                <span className='user-stats'>
+                  {user.photoIds.length} posts
+                  24 followers
+                  13 following
+                </span>
+
+                <span className='user-bio'>
+                  <div className='user-full-name'>{user.fullname}</div>
+                  <div> this will be my bio </div>
+                </span>
+              </div>
+
+            </article>
+
+            <article className='user-photos'>
+              <h2> ello </h2>
+            </article>
+
           </div>
+
         </main>
       )
     };

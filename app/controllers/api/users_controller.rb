@@ -28,7 +28,7 @@ class Api::UsersController < ApplicationController
     else
       render json: @users.errors.full_messages, status: 422
     end
-    
+
   end
 
   private

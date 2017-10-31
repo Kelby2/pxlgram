@@ -2,6 +2,6 @@
   json.set! photo.id do
     json.extract! photo, :id, :caption, :author_id
     json.author_name photo.author.username
-    json.image_url asset_path(photo.image.url)
+    json.imageUrl asset_path(photo.image.url)
   end
 end

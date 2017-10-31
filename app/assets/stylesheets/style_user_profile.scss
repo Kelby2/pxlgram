@@ -2,19 +2,79 @@
   margin-top: 70px;
   width: 100%;
   height: 100%;
-  border: 1px solid red;
-  display: flex;
+  border: 1px solid blue;
   justify-content: center;
 }
 
 .user-profile {
   width: 950px;
-  padding: 20px;
   height: 100%;
-  display: flex;
-  align-items: center;
+  padding-top: 50px;
+  border: red 1px solid;
+  // display: flex;
+  margin: 0 auto;
 }
 
-.test {
-  z-index: 5;
+.user-profile-header {
+  width: 950px;
+  height: 175px;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.user-avatar-container, .user-photos, .user-name, .toggleFollowButton,
+.user-stats, .user-bio {
+    display: inline-block;
+  }
+
+.user-avatar-container {
+  width: 300px;
+  height: 150px;
+  min-width: 150px;
+}
+
+.user-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.user-info-container {
+  width: 650px;
+  height: 150px;
+}
+
+.user-name {
+  font-size: 32px;
+  font-family: Helvetica, Arial;
+  font-weight: 100;
+  width: 45%;
+  margin-bottom: 30px;
+}
+
+.toggleFollowButton {
+  width: 45%;
+}
+
+.user-stats {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.user-full-name {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+.user-photos {
+  padding-top: 50px;
+  border-top: 1px solid red;
+  width: 950px;
+  height: 500px;
 }

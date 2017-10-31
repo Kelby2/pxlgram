@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :email, :username, :session_token, presence: true,
    uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  has_attached_file :avatar, default_url: "default-user-avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   before_validation :ensure_session_token
   attr_reader :password
@@ -11,6 +13,10 @@ class User < ApplicationRecord
   has_many :photos,
     foreign_key: :author_id,
     class_name: :Photo
+
+  has_many :likes,
+    foreign_key: :user_id,
+    class_name: :Like
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)

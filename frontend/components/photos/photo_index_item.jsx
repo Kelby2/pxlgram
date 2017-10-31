@@ -15,7 +15,7 @@ const PhotoIndexItem = ({ photo, user }) => {
         </div>
         {}
         <div className='photo-container'>
-          <img className='photo' src={photo.image_url} />
+          <img className='photo' src={photo.imageUrl} />
         </div>
         {photo.caption}
       </div>
