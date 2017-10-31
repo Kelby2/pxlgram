@@ -29,19 +29,28 @@ class UserProfile extends React.Component {
               </div>
 
               <div className='user-info-container'>
-                <span className='user-name'>{user.username}</span>
-                <button className='toggleFollowButton'>Follow</button>
-                <div className="fa fa-gear fa-lg edit-dropdown"></div>
-                <span className='user-stats'>
-                  {user.photoIds.length} posts
-                  24 followers
-                  13 following
-                </span>
+                
+                <div className='info-1'>
+                  <span className='user-name'>{user.username}</span>
+                  <button className='toggleFollowButton'>Follow</button>
+                  <div className="fa fa-gear fa-lg edit-dropdown"></div>
+                </div>
 
-                <span className='user-bio'>
-                  <div className='user-full-name'>{user.fullname}</div>
-                  <div> this will be my bio </div>
-                </span>
+                <div className='info-2'>
+                  <span className='user-stats'>
+                    {user.photoIds.length} posts
+                    24 followers
+                    13 following
+                  </span>
+                </div>
+
+                <div className='info-3'>
+                  <span className='user-bio'>
+                    <div className='user-full-name'>{user.fullname}</div>
+                    <div> this will be my bio </div>
+                  </span>
+                </div>
+
               </div>
 
             </article>
