@@ -10,8 +10,6 @@
   width: 950px;
   height: 100%;
   padding-top: 50px;
-  border: red 1px solid;
-  // display: flex;
   margin: 0 auto;
 }
 
@@ -19,7 +17,7 @@
   width: 950px;
   height: 175px;
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .user-avatar-container, .user-photos, .user-name, .toggleFollowButton,
@@ -50,15 +48,29 @@
 }
 
 .user-name {
-  font-size: 32px;
+  font-size: 28px;
   font-family: Helvetica, Arial;
   font-weight: 100;
-  width: 45%;
+  letter-spacing: -2px;
+  width: auto;
   margin-bottom: 30px;
 }
 
+.edit-dropdown:hover {
+  cursor: pointer;
+}
+
 .toggleFollowButton {
-  width: 45%;
+  width: 100px;
+  height: 30px;
+  color: #FFFFFF;
+  padding: 0 auto;
+  margin: 5px;
+  background-color: #3997f0;
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
 .user-stats {
@@ -74,7 +86,7 @@
 
 .user-photos {
   padding-top: 50px;
-  border-top: 1px solid red;
+  border-top: 1px solid #efefef;
   width: 950px;
   height: 500px;
 }

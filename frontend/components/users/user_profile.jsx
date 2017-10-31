@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
               <div className='user-info-container'>
                 <span className='user-name'>{user.username}</span>
                 <button className='toggleFollowButton'>Follow</button>
-
+                <div className="fa fa-gear fa-lg edit-dropdown"></div>
                 <span className='user-stats'>
                   {user.photoIds.length} posts
                   24 followers
