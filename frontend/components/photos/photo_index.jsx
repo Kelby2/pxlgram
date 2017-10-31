@@ -8,10 +8,12 @@ class PhotoIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.getUsers();
     this.props.getPhotos();
   }
 
   render() {
+
     return (
       <div className='photo-stream-container'>
         <ul className='photo-stream'>
@@ -20,7 +22,8 @@ class PhotoIndex extends React.Component {
               return(
                 <PhotoIndexItem
                   key={ photo.id }
-                  photo={ photo } />
+                  photo={ photo }
+                  user={ this.props.users[photo.author_id-1]}/>
               )
             })
           }

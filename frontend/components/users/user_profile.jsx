@@ -13,7 +13,7 @@ class UserProfile extends React.Component {
   render () {
     const user = this.props.user
 
-    if (!user) {
+    if (!user || !user.photoIds) {
       return null;
     } else {
       return (
@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
               </div>
 
               <div className='user-info-container'>
-                
+
                 <div className='info-1'>
                   <span className='user-name'>{user.username}</span>
                   <button className='toggleFollowButton'>Follow</button>

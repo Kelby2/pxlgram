@@ -33,13 +33,26 @@
   width: 100%;
   display: flex;
   align-items: center;
-  a {
-    font-weight: bolder;
-    color: black;
-    font-family: sans-serif;
-    font-size: 14px;
-    text-decoration: none;
-  }
+}
+
+.stream-avatar-container {
+  width: 30px;
+  height: 30px;
+  margin: 0 14px 0 11px;
+}
+
+.stream-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.author-username a {
+  font-weight: 600;
+  color: black;
+  font-family: Helvetica, Arial;;
+  font-size: 14px;
+  text-decoration: none;
 }
 
 .photo {
