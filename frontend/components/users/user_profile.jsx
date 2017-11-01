@@ -5,20 +5,35 @@ import PhotoGridItem from '../photos/photo_grid_item';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: this.props.user,
+      photos: []
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params !== nextProps.match.params) {
+      this.props.clearAllPhotos();
+      const user = this.props.getUser(nextProps.match.params.id);
+      const photos = this.props.getUserPhotos(nextProps.match.params.id);
+      this.setState({
+        user,
+        photos
+      })
+    }
   }
 
   componentDidMount() {
-    this.props.getUserPhotos(this.props.match.params.id)
-    this.props.getUser(this.props.match.params.id)
+    this.props.getUser(this.props.match.params.id);
+    this.props.getUserPhotos(this.props.match.params.id);
   }
 
   render () {
     const user = this.props.user
 
-    if (!user || !user.photoIds) {
+    if (!(user && user.photoIds)) {
       return null;
     } else {
-
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>

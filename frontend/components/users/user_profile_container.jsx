@@ -1,6 +1,6 @@
 import UserProfile from './user_profile';
 import { connect } from 'react-redux';
-import { getUser } from '../../actions/user_actions';
+import { getUser, clearAllUsers } from '../../actions/user_actions';
 import { getUserPhotos, clearAllPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     getUser: (userId) => dispatch(getUser(userId)),
     getUserPhotos: (userId) => dispatch(getUserPhotos(userId)),
+    clearAllUsers: () => dispatch(clearAllUsers()),
     clearAllPhotos: () => dispatch(clearAllPhotos())
   });
 }

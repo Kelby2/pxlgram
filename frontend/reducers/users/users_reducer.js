@@ -1,5 +1,6 @@
 import { RECEIVE_USER,
-        RECEIVE_ALL_USERS } from '../../actions/user_actions';
+        RECEIVE_ALL_USERS,
+        CLEAR_USERS } from '../../actions/user_actions';
 
 const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -15,6 +16,8 @@ const UsersReducer = (oldState = {}, action) => {
         oldState,
         { [action.user.id]: action.user });
       return newState;
+    case CLEAR_USERS:
+      return {};
     default:
       return oldState;
   }

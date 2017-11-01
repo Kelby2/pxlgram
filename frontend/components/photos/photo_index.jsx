@@ -14,6 +14,7 @@ class PhotoIndex extends React.Component {
 
   componentWillUnmount() {
     this.props.clearAllPhotos();
+    this.props.clearAllUsers();
   }
 
   render() {
