@@ -27,7 +27,7 @@ Photo.destroy_all
 Photo.create!(author: User.find_by(username: 'kelbylu'), caption: 'sourced from jayz ig', image: File.open('app/assets/images/jayz.jpg'))
 Photo.create!(author: User.find_by(username: 'jayz'), caption: 'big duomo', image: File.open('app/assets/images/beyonce.jpg'))
 Photo.create!(author: User.find_by(username: 'beyonce'), caption: 'sourced from beyonce ig', image: File.open('app/assets/images/jayz.jpg'))
-Photo.create!(author: User.find_by(username: 'admin'), caption: 'the go to spot', image: File.open('app/assets/images/duomo.jpg'))
+Photo.create!(author: User.find_by(username: 'admin'), caption: 'the go to spot', image: File.open('app/assets/images/duomo.png'))
 Photo.create!(author: User.find_by(username: 'admin'), caption: 'This will be a great photo', image: File.open('app/assets/images/cafe.jpg'))
 Photo.create!(author: User.find_by(username: 'kelbylu'), caption: 'this is photo #7', image: File.open('app/assets/images/missing.jpg'))
 Photo.create!(author: User.find_by(username: 'kobe'), caption: 'this is from beyonce ig', image: File.open('app/assets/images/lbj.jpg'))
