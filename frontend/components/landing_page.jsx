@@ -10,7 +10,7 @@ class LandingPage extends React.Component {
 
   render() {
     return (this.props.loggedIn) ? <PhotoIndexContainer /> :
-                                      <SessionPage />
+                      <SessionPage clearErrors={ this.props.clearErrors }/>
   }
 }
 

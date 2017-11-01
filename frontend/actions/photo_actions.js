@@ -3,6 +3,7 @@ import * as PhotoApiUtil from '../util/photo_api_util';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS'
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO'
 export const REMOVE_PHOTO = 'REMOVE_PHOTO'
+export const CLEAR_PHOTOS = 'CLEAR_PHOTOS'
 
 //photos, photo, photoId is moved to the reducer under action
 export const fetchPhotos = photos => {
@@ -25,6 +26,17 @@ export const removePhoto = photoId => {
     photoId,
   })
 }
+
+export const clearAllPhotos = () => {
+  return ({
+    type: CLEAR_PHOTOS,
+    photos: [],
+  })
+}
+
+export const clearPhotos = () => dispatch => (
+  dispatch(clearAllPhotos())
+)
 
 export const getUserPhotos = (userId) => dispatch => (
   PhotoApiUtil.getUserPhotos(userId).then(photos => dispatch(fetchPhotos(photos)))

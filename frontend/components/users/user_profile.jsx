@@ -5,10 +5,12 @@ import PhotoGridItem from '../photos/photo_grid_item';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+    debugger
   }
 
-  componentWillReceiveProps(nextProps) {
-
+  componentWillMount() {
+    debugger
+    this.setState({ entities: { photos: [], users: [] }} )
   }
 
   componentDidMount() {
@@ -22,7 +24,7 @@ class UserProfile extends React.Component {
     if (!user || !user.photoIds) {
       return null;
     } else {
-      
+
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>

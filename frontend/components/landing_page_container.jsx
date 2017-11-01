@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import LandingPage from './landing_page.jsx';
+import { clearErrors } from '../actions/session_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,4 +16,11 @@ const mapStateToProps = (state, ownProps) => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, null)(LandingPage));
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    clearErrors: () => dispatch(clearErrors())
+  })
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)
+                            (LandingPage));
