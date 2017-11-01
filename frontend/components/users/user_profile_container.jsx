@@ -4,7 +4,6 @@ import { getUser } from '../../actions/user_actions';
 import { getUserPhotos, clearAllPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const user = state.entities.users[ownProps.match.params.id]
   const photos = state.entities.photos
   return ({

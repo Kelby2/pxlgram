@@ -5,12 +5,6 @@ import PhotoGridItem from '../photos/photo_grid_item';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    debugger
-  }
-
-  componentWillMount() {
-    debugger
-    this.setState({ entities: { photos: [], users: [] }} )
   }
 
   componentDidMount() {

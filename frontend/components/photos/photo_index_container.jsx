@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotos } from '../../actions/photo_actions';
+import { getPhotos, clearAllPhotos } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import PhotoIndex from './photo_index';
 import { withRouter } from 'react-router-dom';
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     getPhotos: () => dispatch(getPhotos()),
-    getUsers: () => dispatch(getUsers())
+    getUsers: () => dispatch(getUsers()),
+    clearAllPhotos: () => dispatch(clearAllPhotos())
   });
 };
 
