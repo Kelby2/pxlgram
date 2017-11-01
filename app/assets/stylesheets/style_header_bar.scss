@@ -4,6 +4,9 @@
   background-color: #FFFFFF;
   width: 100%;
   position: fixed;
+  * {
+    z-index: 10000 !important;
+  }
 }
 
 .header-bar {

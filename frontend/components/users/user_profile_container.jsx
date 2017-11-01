@@ -4,11 +4,12 @@ import { getUser } from '../../actions/user_actions';
 import { getUserPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const user = state.entities.users[ownProps.match.params.id]
-  const photos = state.entities.photos
+  
+  const user = Object.assign({}, state.entities.users[ownProps.match.params.id])
+  const photos = Object.assign({}, state.entities.photos)
   return ({
     user,
-    photos
+    photos: Object.keys(state.entities.photos).map(id => state.entities.photos[id])
   });
 }
 

@@ -1,14 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';;
+import { Link } from 'react-router-dom';
+import PhotoGridItem from '../photos/photo_grid_item';
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentWillReceiveProps(nextProps) {
+
+  }
+
   componentDidMount() {
-    this.props.getUser(this.props.match.params.id)
     this.props.getUserPhotos(this.props.match.params.id)
+    this.props.getUser(this.props.match.params.id)
   }
 
   render () {
@@ -17,6 +22,7 @@ class UserProfile extends React.Component {
     if (!user || !user.photoIds) {
       return null;
     } else {
+      
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>
@@ -56,8 +62,18 @@ class UserProfile extends React.Component {
 
             </article>
 
-            <article className='user-photos'>
-              <h2> ello </h2>
+            <article className='user-photos-container'>
+              <ul className='user-photos'>
+                {
+                  this.props.photos.map(photo => {
+                    return(
+                      <PhotoGridItem
+                        key={ photo.id }
+                        photo={ photo }/>
+                    )
+                  })
+                }
+              </ul>
             </article>
 
           </div>

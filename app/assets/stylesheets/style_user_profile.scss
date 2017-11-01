@@ -84,9 +84,35 @@
 }
 
 
-.user-photos {
+.user-photos-container {
   padding-top: 50px;
   border-top: 1px solid #efefef;
   width: 950px;
   height: 500px;
+
+}
+
+.user-photos {
+  width: 925px;
+  height: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-photo {
+  width: 290px;
+  height: 290px;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: blue;
+}
+
+.user-photo-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
