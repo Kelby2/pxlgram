@@ -10,10 +10,6 @@ const App = () => (
   <div className='appDiv'>
     <header className='header'>
 
-      {/*
-        <AuthRoute path='/' component={SessionFormContainer} />
-        <Route path='/' component={PhotoIndexContainer} />
-      */}
       <HeaderContainer />
       <Switch>
 
