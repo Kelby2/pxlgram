@@ -8,6 +8,7 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     this.props.getUser(this.props.match.params.id)
+    this.props.getUserPhotos(this.props.match.params.id)
   }
 
   render () {

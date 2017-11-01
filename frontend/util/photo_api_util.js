@@ -5,6 +5,13 @@ export const getPhotos = () => {
   })
 }
 
+export const getUserPhotos = (userId) => {
+  return $.ajax({
+    method: 'get',
+    url: `api/users/${userId}/photos`
+  })
+}
+
 export const getPhoto = (id) => {
   return $.ajax({
     method: 'get',
