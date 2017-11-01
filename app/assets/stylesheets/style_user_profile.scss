@@ -2,7 +2,6 @@
   margin-top: 70px;
   width: 100%;
   height: 100%;
-  border: 1px solid blue;
   justify-content: center;
 }
 
@@ -93,17 +92,18 @@
 }
 
 .user-photos {
-  width: 925px;
+  width: 950px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
 }
 
 .user-photo {
   width: 290px;
   height: 290px;
   margin-bottom: 25px;
+  margin-right: 18px;
   overflow: hidden;
   text-align: center;
   background-color: #ffffff;
