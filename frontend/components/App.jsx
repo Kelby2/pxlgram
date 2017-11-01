@@ -9,12 +9,14 @@ import UserContainer from './users/user_profile_container';
 const App = () => (
   <div className='appDiv'>
     <header className='header'>
-      <HeaderContainer />
+
       {/*
         <AuthRoute path='/' component={SessionFormContainer} />
         <Route path='/' component={PhotoIndexContainer} />
       */}
+      <HeaderContainer />
       <Switch>
+
         <Route exact path='/users/:id' component={ UserContainer } />
         <Route path='/' component={LandingPageContainer} />
       </Switch>
