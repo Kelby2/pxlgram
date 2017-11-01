@@ -29,7 +29,7 @@ Photo.create!(author: User.find_by(username: 'jayz'), caption: 'big duomo', imag
 Photo.create!(author: User.find_by(username: 'beyonce'), caption: 'sourced from beyonce ig', image: File.open('app/assets/images/jayz.jpg'))
 Photo.create!(author: User.find_by(username: 'admin'), caption: 'the go to spot', image: File.open('app/assets/images/duomo.png'))
 Photo.create!(author: User.find_by(username: 'admin'), caption: 'This will be a great photo', image: File.open('app/assets/images/cafe.jpg'))
-Photo.create!(author: User.find_by(username: 'kelbylu'), caption: 'this is photo #7', image: File.open('app/assets/images/missing.jpg'))
+Photo.create!(author: User.find_by(username: 'kelbylu'), caption: 'this is photo #7', image: File.open('app/assets/images/missing.png'))
 Photo.create!(author: User.find_by(username: 'kobe'), caption: 'this is from beyonce ig', image: File.open('app/assets/images/lbj.jpg'))
 Photo.create!(author: User.find_by(username: 'pixelgram'), caption: 'This will be a great photo', image: File.open('app/assets/images/monkey.jpg'))
 Photo.create!(author: User.find_by(username: 'beyonce'), caption: 'This will be a great photo', image: File.open('app/assets/images/jayz.jpg'))
