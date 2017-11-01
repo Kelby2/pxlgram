@@ -24,7 +24,7 @@ User.create!(username: 'ladygaga', password: 'password', fullname: 'stafani germ
 
 Photo.destroy_all
 
-Photo.create!(author_id: 2, caption: 'sourced from jayz ig')
+Photo.create!(author_id: 2, caption: 'sourced from jayz ig', image: File.open('app/assets/images/jayz.jpg'))
 Photo.create!(author_id: 3, caption: 'big duomo')
 Photo.create!(author_id: 4, caption: 'sourced from beyonce ig')
 Photo.create!(author_id: 5, caption: 'the go to spot')
