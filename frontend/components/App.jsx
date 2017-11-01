@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util'
+import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import HeaderContainer from './header_container';
 import PhotoIndexContainer from './photos/photo_index_container';
 import LandingPageContainer from './landing_page_container';
@@ -17,7 +17,7 @@ const App = () => (
       <HeaderContainer />
       <Switch>
 
-        <Route exact path='/users/:id' component={ UserContainer } />
+        <ProtectedRoute exact path='/users/:id' component={ UserContainer } />
         <Route path='/' component={LandingPageContainer} />
       </Switch>
     </header>
