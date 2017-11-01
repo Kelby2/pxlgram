@@ -10,7 +10,7 @@ User.destroy_all
 
 User.create!(username: 'admin', password: 'password', fullname: 'admin', email: 'admin@pxlgram.com', avatar: File.open('app/assets/images/kelby.jpg'))
 User.create!(username: 'kelbylu', password: 'password', fullname: 'kelby', email: 'user2@pxlgram.com', avatar: File.open('app/assets/images/kelby.jpg'))
-User.create!(username: 'taylorswift', password: 'password', fullname: 'taylor swift', email: 'user3@pxlgram.com', avatar: File.open('app/assets/images/taylorswift.jpg'))
+User.create!(username: 'taylorswift', password: 'password', fullname: 'taylor swift', email: 'user3@pxlgram.com', avatar: File.open('app/assets/images/taylor.jpg'))
 User.create!(username: 'beyonce', password: 'password', fullname: 'beyonce knowles', email: 'user4@pxlgram.com', avatar: File.open('app/assets/images/beyonce.jpg'))
 User.create!(username: 'jayz', password: 'password', fullname: 'shawn carter', email: 'user5@pxlgram.com', avatar: File.open('app/assets/images/jayz.jpg'))
 User.create!(username: 'pixelgram', password: 'password', fullname: 'pxlg', email: 'user6@pxlgram.com')
