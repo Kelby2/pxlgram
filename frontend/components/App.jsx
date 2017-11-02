@@ -4,6 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import HeaderContainer from './header_container';
 import PhotoIndexContainer from './photos/photo_index_container';
 import LandingPageContainer from './landing_page_container';
+import PhotoUploadContainer from './photos/photo_upload_container';
 import UserContainer from './users/user_profile_container';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
       <Switch>
 
         <ProtectedRoute exact path='/users/:id' component={ UserContainer } />
+        <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
         <Route path='/' component={LandingPageContainer} />
       </Switch>
     </header>

@@ -4,6 +4,7 @@ export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS'
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO'
 export const REMOVE_PHOTO = 'REMOVE_PHOTO'
 export const CLEAR_PHOTOS = 'CLEAR_PHOTOS'
+import { fetchUser } from './user_actions'
 
 //photos, photo, photoId is moved to the reducer under action
 export const fetchPhotos = photos => {
@@ -51,7 +52,7 @@ export const getPhoto = (photo) => dispatch => (
 )
 
 export const addPhoto = (photo) => dispatch => (
-  PhotoApiUtil.addPhoto(photo).then(photo => dispatch(fetchPhoto(photo)))
+  PhotoApiUtil.addPhoto(photo).then(user => dispatch(fetchUser(user)))
 )
 
 export const editPhoto = (photo) => dispatch => (

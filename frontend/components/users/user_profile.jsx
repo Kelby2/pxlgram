@@ -34,6 +34,7 @@ class UserProfile extends React.Component {
     if (!(user && user.photoIds)) {
       return null;
     } else {
+      debugger
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>
@@ -77,6 +78,7 @@ class UserProfile extends React.Component {
               <ul className='user-photos'>
                 {
                   this.props.photos.map(photo => {
+                    debugger
                     return(
                       <PhotoGridItem
                         key={ photo.id }

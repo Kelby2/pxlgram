@@ -5,6 +5,10 @@ import PhotoIndexItem from './photo_index_item'
 class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      photos: this.props.photos,
+      users: this.props.users
+    }
   }
 
   componentDidMount() {
@@ -18,7 +22,8 @@ class PhotoIndex extends React.Component {
   }
 
   render() {
-
+    
+    if (this.props.photos.length > 1 ) {
     return (
       <div className='photo-stream-container'>
         <ul className='photo-stream'>
@@ -34,7 +39,9 @@ class PhotoIndex extends React.Component {
           }
         </ul>
       </div>
-    )
+    )} else {
+      return null;
+    }
   }
 }
 

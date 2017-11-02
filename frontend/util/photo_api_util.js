@@ -23,7 +23,10 @@ export const addPhoto = photo => {
   return $.ajax({
     method: 'post',
     url: 'api/photos',
-    data: { photo },
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    data: photo,
   })
 };
 
