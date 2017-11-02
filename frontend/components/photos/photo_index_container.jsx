@@ -18,6 +18,8 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     getPhotos: () => dispatch(getPhotos()),
     getUsers: () => dispatch(getUsers()),
+    addLike: (photo_id) => dispatch(addLike(photo_id)),
+    deleteLike: () => dispatch(deleteLike(id))
   });
 };
 

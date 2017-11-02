@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LikeContainer } from '../likes/like_container'
 
-const PhotoIndexItem = ({ photo, user }) => {
+const likeHandler = (photo_id, current_user_likes, addLike, deleteLike) => {
+  if (current_user_likes) {
+    deleteLike(photo_id)
+  } else {
+    addLike(photo_id)
+  }
+}
+
+const PhotoIndexItem = ({ photo, user, addLike, deleteLike }) => {
 
   if (photo.likeIds && photo.caption) {
     return (
@@ -32,8 +41,8 @@ const PhotoIndexItem = ({ photo, user }) => {
 
           <article className='photo-info-container'>
             <div className='icon-container'>
-              <div className='fa fa-heart-o fa-lg likes-icon'/>
-              <div className='fa fa-heart fa-lg liked-icon hidden'/>
+              <div onClick={(event) => likeHandler(photo.id, false, addLike, deleteLike)} className='fa fa-heart-o fa-lg likes-icon'/>
+              <div onClick={(event) => likeHandler(photo.id, true, addLike, deleteLike)} className='fa fa-heart fa-lg liked-icon hidden'/>
                <div className='fa fa-comment-o fa-lg comments-icon'>
                </div>
             </div>

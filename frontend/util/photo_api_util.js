@@ -44,3 +44,11 @@ export const deletePhoto = photo => {
     url: `api/photos/${photo.id}`
   })
 }
+
+export const addLike = (photo_id) => {
+  return $.ajax({
+    method: 'post',
+    url: 'api/likes',
+    data: photo_id
+  })
+}
