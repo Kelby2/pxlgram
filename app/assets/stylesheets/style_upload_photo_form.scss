@@ -15,6 +15,9 @@
 .photo-preview {
   width: 100%;
   height: auto;
+  max-width: 600px;
+  max-height: 750px;
+  object-fit: cover;
 }
 
 .form-container {
@@ -75,12 +78,12 @@
   color: white;
   background-color: #3997f0;
   display: block;
-  width: 97%;
+  width: 96%;
   border-radius: 5px;
   padding: 9px 0 9px 8px;
   text-align: center;
   margin-bottom: 15px;
-  margin-left: 14px;
+  margin-left: 15px;
 }
 
 .file-submit-button {
@@ -91,9 +94,9 @@
   border-radius: 5px;
   font-size: 14px;
   border: 1px solid #FFFFFF;
-  width: 75%;
+  width: 74%;
   margin-bottom: 10px;
-  margin-left: 14px;
+  margin-left: 15px;
 }
 .file-submit-button:hover, .file-label:hover {
   cursor: pointer;
