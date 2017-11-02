@@ -45,6 +45,7 @@
 .user-info-container {
   width: 650px;
   height: 150px;
+  margin-top: 20px;
 }
 
 .info-section-1 {
@@ -108,9 +109,11 @@
 }
 
 .user-bio {
-  width: 320px;
+  width: 500px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
   .user-full-name {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bolder;
   }
 }
