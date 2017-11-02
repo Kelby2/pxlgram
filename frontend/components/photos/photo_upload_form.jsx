@@ -41,7 +41,6 @@ class PhotoUpload extends React.Component {
     formData.append('photo[image]', this.state.imageFile);
 
     this.props.addPhoto(formData).then((res) => {
-      debugger
       this.props.history.push(`/users/${res.user.id}`)
     })
   }

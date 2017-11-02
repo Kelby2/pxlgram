@@ -7,19 +7,13 @@ class UserProfile extends React.Component {
     super(props);
     this.state = {
       user: this.props.user,
-      photos: []
+      photos: this.props.photos
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.match.params !== nextProps.match.params) {
-      this.props.clearAllPhotos();
-      const user = this.props.getUser(nextProps.match.params.id);
-      const photos = this.props.getUserPhotos(nextProps.match.params.id);
-      this.setState({
-        user,
-        photos
-      })
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      this.props.getUser(nextProps.match.params.id);
     }
   }
 
@@ -34,7 +28,7 @@ class UserProfile extends React.Component {
     if (!(user && user.photoIds)) {
       return null;
     } else {
-      debugger
+
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>
@@ -78,7 +72,6 @@ class UserProfile extends React.Component {
               <ul className='user-photos'>
                 {
                   this.props.photos.map(photo => {
-                    debugger
                     return(
                       <PhotoGridItem
                         key={ photo.id }

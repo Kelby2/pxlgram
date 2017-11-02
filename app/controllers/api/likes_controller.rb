@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @photo = Photo.find(params[:photo_id])
 
     @like = @user.likes.create(@photo.id)
-    
+
     if @like.save
       render 'api/photos/show'
     else
