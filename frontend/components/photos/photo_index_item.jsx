@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PhotoIndexItem = ({ photo, user }) => {
-
-
+  debugger
   return (
+
     <li className='photo-post-container'>
       <div className='photo-post'>
         <article className='photo-author-info'>
@@ -29,7 +29,28 @@ const PhotoIndexItem = ({ photo, user }) => {
         <div className='photo-container'>
           <img className='photo' src={photo.imageUrl} />
         </div>
-        {user.username} {photo.caption}
+
+        <article className='photo-info-container'>
+          <div className='icon-container'>
+            <div className='fa fa-heart-o fa-lg likes-icon'/>
+            <div className='fa fa-heart fa-lg liked-icon hidden'/>
+             <div className='fa fa-comment-o fa-lg comments-icon'>
+             </div>
+          </div>
+
+          <div className='like-count'>
+            {photo.likeIds.length} {(photo.likeIds.length === 1) ? 'like' : 'likes'}
+          </div>
+
+          <div className='caption-container'>
+            <div className='caption-username'>
+              {(photo.caption.length > 0) ? user.username : ""}
+            </div>
+            <div className='caption'>
+              {photo.caption}
+            </div>
+          </div>
+        </article>
       </div>
     </li>
   )

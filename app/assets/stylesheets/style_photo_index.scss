@@ -60,3 +60,76 @@
   width: inherit;
   height: auto;
 }
+
+.photo-info-container {
+  padding-left: 10px;
+  font-family: sans-serif;
+}
+
+.icon-container {
+  margin-top: 12px;
+  height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 70px;
+  vertical-align: center;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  position: relative;
+  .caption-username, .caption {
+    text-decoration: none;
+    color: black;
+    width: 21.33px;
+    height: 21px;
+  }
+}
+
+.likes-icon, .liked-icon {
+  position: absolute;
+  left: 0px;
+  bottom: 6px;
+  z-index: 0;
+}
+
+.liked-icon {
+  color: red;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.comments-icon {
+  position: absolute;
+  right: 11px;
+  bottom: 8px;
+  z-index: 0;
+}
+
+.like-count, .caption-container {
+  margin-bottom: 10px;
+}
+
+.like-count {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.caption-container {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  .caption-username {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  .caption {
+    font-size: 14px;
+  }
+}
+
+.likes-icon:hover, .comments-icon:hover, .liked-icon:hover {
+  cursor: pointer;
+}

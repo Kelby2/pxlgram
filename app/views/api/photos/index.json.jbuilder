@@ -3,5 +3,6 @@
     json.extract! photo, :id, :caption, :author_id
     json.author_name photo.author.username
     json.imageUrl asset_path(photo.image.url)
+    json.likeIds photo.likes.map(&:id)
   end
 end

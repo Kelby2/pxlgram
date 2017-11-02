@@ -21,14 +21,6 @@ class Header extends React.Component {
               <span className='logo'>pxlGram</span>
             </a>
 
-            {/*<div onClick={this.toggleSearchBar} className='user-search-bar'>
-
-              <icons className="fa fa-search"></icons>
-              <span className='searchText'>Search</span>
-
-            </div> */}
-
-
             <input className='user-search-bar'
                     type='text'
                     placeholder='Search' />
