@@ -7,7 +7,7 @@ class PhotoUpload extends React.Component {
     this.state = {
       photoCaption: "",
       imageFile: null,
-      imageUrl: null,
+      imageUrl: 'https://images.unsplash.com/photo-1504619988368-2911f094bac5?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -49,48 +49,51 @@ class PhotoUpload extends React.Component {
   render() {
     return (
       <div className='photo-upload-form-container'>
-        <div>
-          <h2>Share your photo</h2>
-        </div>
-        <article className='photo-upload-form'>
+        <article className='form-container'>
 
-          <div className='photo-caption-container'>
-            <div>
-              <textarea
-                className='user-caption'
-                value={this.state.caption}
-                onChange={this.handleInputChange('photoCaption')}
-                placeholder={'Write a caption'}
-              />
-            </div>
+          <div className='form-banner'>
 
-            <div className='label-container'>
-              <input
-                type='file'
-                id='file'
-                className='file-selector'
-                onChange={this.updateFile}>
-              </input>
-
-              <label
-                className='file-label'
-                htmlFor='file'>
-                Choose a file
-              </label>
-            </div>
-
-            <div>
-              <button className='file-submit-button'
-                onClick={this.handleFormSubmit}>
-                Share
-              </button>
-            </div>
           </div>
 
-          <div className='photo-preview-container'>
-            <img className='photo-preview' src={this.state.imageUrl} />
-          </div>
+          <article className='photo-upload-form'>
 
+            <div className='photo-caption-container'>
+              <div>
+                <textarea
+                  className='user-caption'
+                  value={this.state.caption}
+                  onChange={this.handleInputChange('photoCaption')}
+                  placeholder='Write a caption...'
+                />
+              </div>
+
+              <div className='label-container'>
+                <input
+                  type='file'
+                  id='file'
+                  className='file-selector'
+                  onChange={this.updateFile}>
+                </input>
+
+                <label
+                  className='file-label'
+                  htmlFor='file'>
+                  Choose a file
+                </label>
+              </div>
+
+              <div>
+                <button className='file-submit-button'
+                  onClick={this.handleFormSubmit}>
+                  Share
+                </button>
+              </div>
+            </div>
+
+            <div className='photo-preview-container'>
+              <img className='photo-preview' src={this.state.imageUrl} />
+            </div>
+          </article>
         </article>
       </div>
     )

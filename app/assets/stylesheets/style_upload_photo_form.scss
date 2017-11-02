@@ -6,15 +6,29 @@
 .photo-upload-form {
   width: 900px;
   height: 100%;
-  padding-top: 100px;
+  padding-top: 25px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .photo-preview {
   width: 100%;
   height: auto;
+}
+
+.form-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.form-banner {
+  width: 850px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+  justify-content: center;
+  display: flex;
 }
 
 .photo-preview-container {
