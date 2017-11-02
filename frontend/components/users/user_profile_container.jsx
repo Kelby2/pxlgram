@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   })
   return ({
     user,
+    currentUser: state.session.currentUser,
     photos: Object.keys(photos).map(
       id => photos[id])
       .reverse()

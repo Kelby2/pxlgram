@@ -7,7 +7,7 @@ class UserProfile extends React.Component {
     super(props);
     this.state = {
       user: this.props.user,
-      photos: this.props.photos
+      photos: this.props.photos,
     }
   }
 
@@ -23,11 +23,31 @@ class UserProfile extends React.Component {
   }
 
   render () {
-    const user = this.props.user
+    const user = this.props.user;
+    let logOutButton;
+    let profileButton = (
+      <button
+        className='toggle-follow-button'>
+        Follow
+      </button>
+    )
 
-    if (!(user && user.photoIds)) {
-      return null;
-    } else {
+    if (user && user.photoIds) {
+      if (user.id === this.props.currentUser.id) {
+        logOutButton = (
+          <div
+            onClick={() => this.props.logout()}
+            className="fa fa-sign-out fa-lg">
+          </div>
+        )
+
+        profileButton = (
+          <button
+            className='edit-profile-button'>
+            Edit Profile
+          </button>
+        )
+      }
 
       return (
         <main className='user-profile-container'>
@@ -43,24 +63,21 @@ class UserProfile extends React.Component {
 
               <div className='user-info-container'>
 
-                <div className='info-1'>
+                <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
-                  <button className='toggleFollowButton'>Follow</button>
-                  <div
-                    onClick={() => this.props.logout()}
-                    className="fa fa-sign-out fa-lg">
-                  </div>
+                  {profileButton}
+                  {logOutButton}
                 </div>
 
-                <div className='info-2'>
+                <div className='info-section-2'>
                   <span className='user-stats'>
-                    {user.photoIds.length} posts
-                    24 followers
-                    13 following
+                    <div className='stat photo-count'>{user.photoIds.length}</div> posts
+                    <div className='stat follower-count'>{Math.floor(Math.random()*100)}</div> followers
+                    <div className='stat following-count'>{Math.floor(Math.random()*100)}</div> following
                   </span>
                 </div>
 
-                <div className='info-3'>
+                <div className='info-section-3'>
                   <span className='user-bio'>
                     <div className='user-full-name'>{user.fullname}</div>
                     <div> this will be my bio </div>
@@ -79,18 +96,18 @@ class UserProfile extends React.Component {
                       <PhotoGridItem
                         key={ photo.id }
                         photo={ photo }/>
-                    )
+                      )
                   })
                 }
               </ul>
-            </article>
-
-          </div>
-
-        </main>
-      )
-    };
+              </article>
+            </div>
+          </main>
+        )} else {
+      return null;
+    }
   }
+
 }
 
 export default UserProfile;

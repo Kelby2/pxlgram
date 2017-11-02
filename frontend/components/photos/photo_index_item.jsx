@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PhotoIndexItem = ({ photo, user }) => {
-  debugger
+  
   return (
 
     <li className='photo-post-container'>

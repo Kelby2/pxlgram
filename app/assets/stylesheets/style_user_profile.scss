@@ -47,35 +47,64 @@
   height: 150px;
 }
 
+.info-section-1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .user-name {
   font-size: 28px;
   font-family: Helvetica, Arial;
   font-weight: 100;
   letter-spacing: -2px;
   width: auto;
-  margin-bottom: 30px;
+  margin-right: 30px;
 }
 
-.edit-dropdown:hover, .user-photo:hover, .toggleFollowButton:hover {
+.user-photo:hover,
+.toggle-follow-button:hover,
+.edit-profile-button:hover {
   cursor: pointer;
 }
 
-.toggleFollowButton {
-  width: 100px;
-  height: 30px;
-  color: #FFFFFF;
+.toggle-follow-button, .edit-profile-button {
   padding: 0 auto;
-  margin: 5px;
-  background-color: #3997f0;
   border-radius: 5px;
-  border: 1px solid #FFFFFF;
   font-family: sans-serif;
   font-size: 12px;
 }
 
+.toggle-follow-button {
+  width: 90px;
+  height: 30px;
+  color: #ffffff;
+  background-color: #3997f0;
+  border: 1px solid #ffffff;
+}
+
+.edit-profile-button {
+  width: 125px;
+  height: 35px;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.info-section-2 {
+  margin-bottom: 20px;
+}
+
 .user-stats {
-  width: 100%;
-  margin-bottom: 30px;
+  width: 320px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  .stat {
+    font-weight: bold;
+  }
 }
 
 .user-full-name {
@@ -122,7 +151,7 @@
 }
 
 .fa-sign-out {
-  margin-left: 10px;
+  margin-left: 19px;
   text-decoration: none;
   color: #000000;
 }

@@ -12,9 +12,6 @@ class PhotoIndex extends React.Component {
     this.props.getPhotos();
   }
 
-  componentWillUnmount() {
-  }
-
   render() {
     if (this.props.photos.length > 1 && this.props.users.length > 1) {
     return (
