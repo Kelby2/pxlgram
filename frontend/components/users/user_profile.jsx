@@ -78,10 +78,9 @@ class UserProfile extends React.Component {
                 </div>
 
                 <div className='info-section-3'>
-                  <span className='user-bio'>
-                    <div className='user-full-name'>{user.fullname}</div>
-                    <div> this will be my bio </div>
-                  </span>
+                  <p className='user-bio'>
+                      <span className='user-full-name'>{user.fullname} </span>  {user.bio}
+                  </p>
                 </div>
 
               </div>

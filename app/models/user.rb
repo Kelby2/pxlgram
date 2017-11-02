@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :fullname, :password_digest, presence: true
   validates :email, :username, :session_token, presence: true,
    uniqueness: true
+  validates :bio, length: { maximum: 150 }
   validates :password, length: { minimum: 6, allow_nil: true }
   has_attached_file :avatar, default_url: "default-user-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

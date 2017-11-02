@@ -107,11 +107,13 @@
   }
 }
 
-.user-full-name {
-  font-size: 13px;
-  font-weight: bold;
+.user-bio {
+  width: 320px;
+  .user-full-name {
+    font-size: 15px;
+    font-weight: bolder;
+  }
 }
-
 
 .user-photos-container {
   padding-top: 50px;
