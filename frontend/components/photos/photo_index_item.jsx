@@ -7,7 +7,7 @@ const PhotoIndexItem = ({ photo, user }) => {
   return (
     <li className='photo-post-container'>
       <div className='photo-post'>
-        <div className='photo-author-info'>
+        <article className='photo-author-info'>
 
           <div className='stream-avatar-container'>
             <Link to={`/users/${photo.author_id}`}>
@@ -24,12 +24,12 @@ const PhotoIndexItem = ({ photo, user }) => {
             </Link>
 
           </div>
-        </div>
-        {}
+        </article>
+
         <div className='photo-container'>
           <img className='photo' src={photo.imageUrl} />
         </div>
-        {photo.caption}
+        {user.username} {photo.caption}
       </div>
     </li>
   )
