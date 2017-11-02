@@ -4,12 +4,13 @@ import { getUser, clearAllUsers } from '../../actions/user_actions';
 import { getUserPhotos, clearAllPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
-   
+
   const user = state.entities.users[ownProps.match.params.id]
   const photos = state.entities.photos
   return ({
     user,
-    photos: Object.keys(state.entities.photos).map(id => state.entities.photos[id])
+    photos: Object.keys(state.entities.photos)
+                  .map(id => state.entities.photos[id]).reverse()
   });
 }
 
