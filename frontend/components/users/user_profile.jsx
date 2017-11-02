@@ -46,7 +46,10 @@ class UserProfile extends React.Component {
                 <div className='info-1'>
                   <span className='user-name'>{user.username}</span>
                   <button className='toggleFollowButton'>Follow</button>
-                  <div className="fa fa-gear fa-lg edit-dropdown"></div>
+                  <div
+                    onClick={() => this.props.logout()}
+                    className="fa fa-sign-out fa-lg">
+                  </div>
                 </div>
 
                 <div className='info-2'>

@@ -18,8 +18,6 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     getPhotos: () => dispatch(getPhotos()),
     getUsers: () => dispatch(getUsers()),
-    clearAllUsers: () => dispatch(clearAllUsers()),
-    clearAllPhotos: () => dispatch(clearAllPhotos())
   });
 };
 

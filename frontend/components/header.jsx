@@ -37,8 +37,6 @@ class Header extends React.Component {
             </div>
 
           </div>
-
-          <Link onClick={() => this.props.logout()} to={'/'}>tempLogout</Link>
         </article>
       );
     } else {
