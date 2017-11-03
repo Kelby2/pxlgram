@@ -12,18 +12,16 @@ class Like extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.photo.likerIds.length > this.props.photo.likerIds.length) {
+    if (nextProps.photo.likerIds.length !== this.props.photo.likerIds.length) {
       this.setState({ like_state: !this.state.like_state })
     }
-
   }
 
   handleLike(event) {
     if (this.state.like_state) {
-      debugger
-      this.props.deleteLike()
+      this.props.deleteLike(this.props.photo_id)
     } else {
-      this.props.addLike(this.props.id)
+      this.props.addLike(this.props.photo_id)
     }
   }
 

@@ -55,6 +55,10 @@ export const addLike = (photo_id) => dispatch => {
   PhotoApiUtil.addLike(photo_id).then(photo => dispatch(fetchPhoto(photo)))
 }
 
+export const deleteLike = (photo_id) => dispatch => {
+  PhotoApiUtil.deleteLike(photo_id).then(photo => dispatch(fetchPhoto(photo)))
+}
+
 export const addPhoto = (photo) => dispatch => (
   PhotoApiUtil.addPhoto(photo).then(user => dispatch(fetchUser(user)))
 )

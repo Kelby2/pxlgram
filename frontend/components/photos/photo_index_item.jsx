@@ -33,7 +33,7 @@ const PhotoIndexItem = ({ photo, user}) => {
 
           <article className='photo-info-container'>
             <div className='icon-container'>
-              <LikeContainer id={photo.id}/>
+              <LikeContainer photo_id={photo.id}/>
               <div className='fa fa-comment-o fa-lg comments-icon'>
               </div>
             </div>
