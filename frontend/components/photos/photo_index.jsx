@@ -10,10 +10,11 @@ class PhotoIndex extends React.Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.getPhotos();
+    this.props.getComments();
   }
 
   render() {
-    
+
     if (this.props.photos.length > 0 && this.props.users.length > 0) {
     return (
       <div className='photo-stream-container'>

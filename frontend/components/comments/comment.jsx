@@ -22,7 +22,11 @@ class Comment extends React.Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render () {
+    debugger
     return (
       <article>
         <div className='photo-comments'>

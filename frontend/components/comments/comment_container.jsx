@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { addComment, deleteComment, getPhoto } from '../../actions/photo_actions';
+import { getComments } from '../../actions/comment_actions'
 import Comment from './comment';
 import { withRouter } from 'react-router-dom';
 
@@ -15,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
   return ({
     addComment: (id) => dispatch(addComment(id)),
     deleteComment: (id) => dispatch(deleteComment(id)),
-    getPhoto: (id) => dispatch(getPhoto(id))
+    getPhoto: (id) => dispatch(getPhoto(id)),
+    getComments: () => dispatch(getComments())
   })
 }
 
