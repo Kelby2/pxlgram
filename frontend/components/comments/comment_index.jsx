@@ -29,7 +29,7 @@ class Comment extends React.Component {
   }
 
   render () {
-    
+
     return (
       <article>
         <div className='photo-comments'>
@@ -45,6 +45,8 @@ class Comment extends React.Component {
             }
           </ul>
         </div>
+
+        <div className='comment-form'>
           <input
             type='text'
             className='add-comment-form'
@@ -52,6 +54,7 @@ class Comment extends React.Component {
             onChange={this.handleInputChange('commentBody')}
             placeholder='Add a comment...'
           />
+        </div>
       </article>
     )
   }
