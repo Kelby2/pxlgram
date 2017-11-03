@@ -6,6 +6,7 @@ class Comment extends React.Component {
     this.state = {
 
     }
+    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
