@@ -1,7 +1,13 @@
 class Api::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    if params[:photo_id]
+      photo = Photo.find(params[:photo_id])
+      @comments = photo.comments
+    else
+      @comments = Comment.all
+    end
+
   end
 
   def create
