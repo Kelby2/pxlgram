@@ -42,7 +42,7 @@ class UserProfile extends React.Component {
         )
 
         profileButton = (
-          <Link to={`/users/${user.id}/edit`}>
+          <Link to={`/users/${user.id}`}>
           <button
             className='edit-profile-button'>
             Edit Profile

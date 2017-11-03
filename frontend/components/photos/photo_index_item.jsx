@@ -8,7 +8,7 @@ const handleComment = (event) => {
 }
 
 const PhotoIndexItem = ({ photo, user}) => {
-
+  debugger
   if (photo.likerIds) {
 
     return (
