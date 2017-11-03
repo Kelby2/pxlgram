@@ -53,6 +53,10 @@ const PhotoIndexItem = ({ photo, user}) => {
                 {photo.caption}
               </div>
             </div>
+
+            <div className='comments-container'>
+              <div>HI!</div>  
+            </div>
           </article>
         </div>
       </li>

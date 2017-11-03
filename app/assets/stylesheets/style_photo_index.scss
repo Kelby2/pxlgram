@@ -61,6 +61,8 @@
   height: auto;
 }
 
+// ###### BELOW PHOTO #######
+
 .photo-info-container {
   padding-left: 10px;
   font-family: sans-serif;
@@ -110,8 +112,6 @@
 }
 
 .caption-container {
-  border-bottom: 1px solid #efefef;
-  padding-bottom: 10px;
   display: flex;
   align-items: flex-end;
   .caption-username {
@@ -130,4 +130,11 @@
 
 .likes-icon:hover, .comments-icon:hover, .liked-icon:hover {
   cursor: pointer;
+}
+
+// ###### COMMENTS #######
+
+.comments-container {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 10px;
 }
