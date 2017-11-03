@@ -1,18 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LikeContainer } from '../likes/like_container'
+import LikeContainer from '../likes/like_container'
 
-const likeHandler = (photo_id, current_user_likes, addLike, deleteLike) => {
-  if (current_user_likes) {
-    deleteLike(photo_id)
-  } else {
-    addLike(photo_id)
-  }
-}
+const PhotoIndexItem = ({ photo, user}) => {
 
-const PhotoIndexItem = ({ photo, user, addLike, deleteLike }) => {
-
-  if (photo.likeIds && photo.caption) {
+  if (photo.likerIds && photo.caption) {
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
@@ -41,14 +33,13 @@ const PhotoIndexItem = ({ photo, user, addLike, deleteLike }) => {
 
           <article className='photo-info-container'>
             <div className='icon-container'>
-              <div onClick={(event) => likeHandler(photo.id, false, addLike, deleteLike)} className='fa fa-heart-o fa-lg likes-icon'/>
-              <div onClick={(event) => likeHandler(photo.id, true, addLike, deleteLike)} className='fa fa-heart fa-lg liked-icon hidden'/>
-               <div className='fa fa-comment-o fa-lg comments-icon'>
-               </div>
+              <LikeContainer photo_id={photo.id}/>
+              <div className='fa fa-comment-o fa-lg comments-icon'>
+              </div>
             </div>
 
             <div className='like-count'>
-              {photo.likeIds.length} {(photo.likeIds.length === 1) ? 'like' : 'likes'}
+              {photo.likerIds.length} {(photo.likerIds.length === 1) ? 'like' : 'likes'}
             </div>
 
             <div className='caption-container'>

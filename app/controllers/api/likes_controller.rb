@@ -1,10 +1,11 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
 
   def create
+    debugger
     @user = current_user
     @photo = Photo.find(params[:photo_id])
 
-    @like = @user.likes.create(@photo.id)
+    @like = @user.likes.create(photo_id: @photo.id)
 
     if @like.save
       render 'api/photos/show'
