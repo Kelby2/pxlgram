@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container'
+import CommentContainer from '../comments/comment_container'
 
 const PhotoIndexItem = ({ photo, user}) => {
 
@@ -34,7 +35,7 @@ const PhotoIndexItem = ({ photo, user}) => {
 
           <article className='photo-info-container'>
             <div className='icon-container'>
-              <LikeContainer photo_id={photo.id}/>
+              <LikeContainer photo_id={photo.id} />
               <div className='fa fa-comment-o fa-lg comments-icon'>
               </div>
             </div>
@@ -55,9 +56,10 @@ const PhotoIndexItem = ({ photo, user}) => {
             </div>
 
             <div className='comments-container'>
-              <div>HI!</div>  
+              <CommentContainer photo_id={photo.id} />
             </div>
           </article>
+          
         </div>
       </li>
     )} else {
