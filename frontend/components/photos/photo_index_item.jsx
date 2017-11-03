@@ -4,7 +4,8 @@ import LikeContainer from '../likes/like_container'
 
 const PhotoIndexItem = ({ photo, user}) => {
 
-  if (photo.likerIds && photo.caption) {
+  if (photo.likerIds) {
+
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
@@ -18,9 +19,9 @@ const PhotoIndexItem = ({ photo, user}) => {
 
             <div className='author-username'>
 
-              <Link to={`/users/${photo.author_id}`}>
+              <Link to={`/users/${user.id}`}>
                  <div className='stream-username'>
-                   {photo.author_name}
+                   {user.username}
                   </div>
               </Link>
 
@@ -44,7 +45,9 @@ const PhotoIndexItem = ({ photo, user}) => {
 
             <div className='caption-container'>
               <div className='caption-username'>
-                {(photo.caption.length > 0) ? user.username : ""}
+                <Link to={`/users/${user.id}`}>
+                  {(photo.caption && photo.caption.length > 0) ? user.username : ""}
+                </Link>
               </div>
               <div className='caption'>
                 {photo.caption}

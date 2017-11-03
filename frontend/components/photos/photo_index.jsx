@@ -13,7 +13,8 @@ class PhotoIndex extends React.Component {
   }
 
   render() {
-    if (this.props.photos.length > 1 && this.props.users.length > 1) {
+    
+    if (this.props.photos.length > 0 && this.props.users.length > 0) {
     return (
       <div className='photo-stream-container'>
         <ul className='photo-stream'>

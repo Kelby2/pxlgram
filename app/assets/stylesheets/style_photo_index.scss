@@ -76,12 +76,6 @@
   justify-content: space-around;
   margin-bottom: 5px;
   position: relative;
-  .caption-username, .caption {
-    text-decoration: none;
-    color: black;
-    width: 21.33px;
-    height: 21px;
-  }
 }
 
 .likes-icon, .liked-icon {
@@ -124,6 +118,10 @@
     font-size: 15px;
     font-weight: bold;
     margin-right: 5px;
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
   }
   .caption {
     font-size: 14px;
