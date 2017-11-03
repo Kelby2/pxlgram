@@ -52,7 +52,6 @@ export const getPhoto = (photo) => dispatch => (
 )
 
 export const addLike = (photo_id) => dispatch => {
-  debugger
   PhotoApiUtil.addLike(photo_id).then(photo => dispatch(fetchPhoto(photo)))
 }
 

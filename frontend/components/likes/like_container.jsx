@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { addLike, deleteLike } from '../../actions/photo_actions';
+import { addLike, deleteLike, getPhoto } from '../../actions/photo_actions';
 import Like from './like';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  const photo = state.entities.photos[ownProps.photo_id]
+  const photo = state.entities.photos[ownProps.id]
   return {
     photo,
     currentUser: state.session.currentUser
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     addLike: (id) => dispatch(addLike(id)),
-    deleteLike: () => dispatch(deleteLike())
+    deleteLike: () => dispatch(deleteLike()),
+    getPhoto: (id) => dispatch(getPhoto(id))
   })
 }
 

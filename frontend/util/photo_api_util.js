@@ -46,7 +46,6 @@ export const deletePhoto = photo => {
 }
 
 export const addLike = (photo_id) => {
-  debugger
   return $.ajax({
     method: 'post',
     url: 'api/likes',
