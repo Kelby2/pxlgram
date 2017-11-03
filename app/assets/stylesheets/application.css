@@ -21,14 +21,6 @@ html {
   background-color: #fafafa;
 }
 
-@font-face {
-  font-family: 'Billabong';
-  font-style: normal;
-  font-weight: normal;
-  src: asset-path('Billabong'), url('./Billabong.woff') format('woff');
-  src: asset-url('Billabong.woff') format('woff');
-}
-
 body {
   height: 100%;
   background-color: inherit;
