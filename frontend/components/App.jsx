@@ -6,6 +6,7 @@ import PhotoIndexContainer from './photos/photo_index_container';
 import LandingPageContainer from './landing_page_container';
 import PhotoUploadContainer from './photos/photo_upload_container';
 import UserContainer from './users/user_profile_container';
+import UserEditContainer from './users/edit_user_container';
 
 const App = () => (
   <div className='appDiv'>
@@ -13,7 +14,6 @@ const App = () => (
 
       <HeaderContainer />
       <Switch>
-
         <ProtectedRoute exact path='/users/:id' component={ UserContainer } />
         <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
         <Route path='/' component={LandingPageContainer} />

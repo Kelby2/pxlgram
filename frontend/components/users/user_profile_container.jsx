@@ -1,8 +1,8 @@
 import UserProfile from './user_profile';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions'
-import { getUser, clearAllUsers } from '../../actions/user_actions';
-import { getUserPhotos, clearAllPhotos } from '../../actions/photo_actions';
+import { getUser } from '../../actions/user_actions';
+import { getUserPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[ownProps.match.params.id]

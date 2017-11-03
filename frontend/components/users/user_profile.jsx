@@ -9,7 +9,6 @@ class UserProfile extends React.Component {
       user: this.props.user,
       photos: this.props.photos,
     }
-    this.pushEditForm = this.pushEditForm.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -19,12 +18,8 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.match.params.id);
-    this.props.getUserPhotos(this.props.match.params.id);
-  }
-
-  pushEditForm() {
-    this.props.history.push(`/users/${this.props.user.id}/edit`)
+      this.props.getUser(this.props.match.params.id);
+      this.props.getUserPhotos(this.props.match.params.id);
   }
 
   render () {
@@ -47,11 +42,12 @@ class UserProfile extends React.Component {
         )
 
         profileButton = (
+          <Link to={`/users/${user.id}/edit`}>
           <button
-
             className='edit-profile-button'>
             Edit Profile
           </button>
+          </Link>
         )
       }
 
