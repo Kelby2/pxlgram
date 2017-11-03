@@ -8,6 +8,7 @@
 
 User.destroy_all
 
+user0 = User.create!(username: 'friend', password: 'password', fullname: 'friend', email: 'friend@pxlgram.com')
 user1 = User.create!(username: 'admin', password: 'password', fullname: 'administrator', email: 'admin@pxlgram.com', avatar: File.open('app/assets/images/monkey.jpg'), bio: 'I am the moderator here, thank you for checking out pixelgram.')
 user2 = User.create!(username: 'kelbylu', password: 'password', fullname: 'kelby lu', email: 'user2@pxlgram.com', avatar: File.open('app/assets/images/kelby.jpg'), bio: 'Thanks for stopping by!')
 user3 = User.create!(username: 'taylorswift', password: 'password', fullname: 'taylor swift', email: 'user3@pxlgram.com', avatar: File.open('app/assets/images/taylor.jpg'), bio: 'This is the new me. The old me is dead.')

@@ -12,8 +12,10 @@ const mapStateToProps = (state, ownProps) => {
   const comments = Object.values(state.entities.comments).filter((comment) => {
     return (comment.photo_id === parseInt(ownProps.photo_id))
   })
+  const users = state.entities.users
   return {
     photo,
+    users,
     comments,
     currentUser: state.session.currentUser
   }
@@ -21,7 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    addComment: (id) => dispatch(addComment(id)),
+    addComment: (comment) => dispatch(addComment(comment)),
     deleteComment: (id) => dispatch(deleteComment(id)),
     getPhoto: (id) => dispatch(getPhoto(id)),
     getPhotoComments: (photo_id) => dispatch(getPhotoComments(photo_id))

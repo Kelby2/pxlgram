@@ -67,3 +67,11 @@ export const getPhotoComments = (photo_id) => {
     data: { photo_id }
   })
 }
+
+export const addComment = (comment) => {
+  return $.ajax({
+    method: 'post',
+    url: `api/photos/${comment.photo_id}/comments`,
+    data: { body: comment.commentBody }
+  })
+}

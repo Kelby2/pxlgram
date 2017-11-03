@@ -5,6 +5,7 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      photo_id: this.props.photo_id,
       commentBody: "",
     }
 
@@ -15,7 +16,9 @@ class Comment extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const comment = this.state
-    this.props.addComment(this.props.photo_id);
+    this.props.addComment(comment).then(() => this.setState({
+      commentBody: ""
+    }));
   }
 
   componentDidMount() {
@@ -39,7 +42,8 @@ class Comment extends React.Component {
                 return (
                   <CommentItem
                     key={ comment.id }
-                    comment={ comment } />
+                    comment={ comment }
+                    user={ this.props.users[comment.user_id] }/>
                 )
               })
             }
@@ -47,13 +51,18 @@ class Comment extends React.Component {
         </div>
 
         <div className='comment-form'>
-          <input
-            type='text'
-            className='add-comment-form'
-            onSubmit={this.handleSubmit}
-            onChange={this.handleInputChange('commentBody')}
-            placeholder='Add a comment...'
-          />
+          <form
+            className='form'
+            onSubmit={this.handleSubmit}>
+            <input
+              id='chat'
+              type='text'
+              value={this.state.commentBody}
+              className='add-comment-form'
+              onChange={this.handleInputChange('commentBody')}
+              placeholder='Add a comment...'
+            />
+          </form>
         </div>
       </article>
     )

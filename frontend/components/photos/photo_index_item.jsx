@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container'
 import CommentContainer from '../comments/comment_container'
 
+const handleComment = (event) => {
+  document.getElementById('chat').focus();
+}
+
 const PhotoIndexItem = ({ photo, user}) => {
 
   if (photo.likerIds) {
@@ -36,7 +40,9 @@ const PhotoIndexItem = ({ photo, user}) => {
           <article className='photo-info-container'>
             <div className='icon-container'>
               <LikeContainer photo_id={photo.id} />
-              <div className='fa fa-comment-o fa-lg comments-icon'>
+              <div
+                className='fa fa-comment-o fa-lg comments-icon'
+                onClick={(event) => handleComment()}>
               </div>
             </div>
 
@@ -59,7 +65,7 @@ const PhotoIndexItem = ({ photo, user}) => {
               <CommentContainer photo_id={photo.id} />
             </div>
           </article>
-          
+
         </div>
       </li>
     )} else {

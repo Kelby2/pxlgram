@@ -133,6 +133,20 @@
   border-bottom: 1px solid #efefef;
 }
 
+.comment {
+  display: flex;
+  align-items: flex-end;
+  .comment-author {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+}
+
 .likes-icon:hover, .comments-icon:hover, .liked-icon:hover {
   cursor: pointer;
 }

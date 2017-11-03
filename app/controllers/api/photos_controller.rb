@@ -14,6 +14,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
+    
     @user = current_user
     @photo = @user.photos.create(photo_params)
 

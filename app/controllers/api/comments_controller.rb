@@ -14,10 +14,10 @@ class Api::CommentsController < ApplicationController
     @user = current_user
     @photo = Photo.find(params[:photo_id])
 
-    @comment = @user.comments.create(photo_id: @photo.id)
+    @comment = @user.comments.create(photo_id: @photo.id, body: params[:body])
 
     if @comment.save
-      render 'api/photos/show'
+      render 'api/comments/show'
     else
       render json: @comments.errors.full_messages, status: 422
     end
@@ -33,8 +33,8 @@ class Api::CommentsController < ApplicationController
     render 'api/photos/show'
   end
 
-  def like_params
-    params.require(:comment).permit(:body)
+  def comment_params
+    params.require(:comment).permit(:body, :photo_id)
   end
 
 end
