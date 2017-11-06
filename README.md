@@ -27,7 +27,7 @@ text box. Clicking the chat bubble will also bring focus to the text box for tha
 particular photo. Comments are submitted via the enter key, which will then add the
 comment immediately under the photo.
 
-### To Be Added
+## To Be Added
 
 These are additional features that I would be adding to the project as time goes on:
 
