@@ -1,6 +1,6 @@
 # Pxlgram
 
-[Pxlgram site](http://pxlgram.herokuapp.com)
+[Pxlgram](http://pxlgram.herokuapp.com)
 
 Pixelgram is an image sharing site inspired by Instagram. Built with Ruby on Rails on the backend,
 a PostgreSQL database, and React.js with Redux framework on the frontend.
