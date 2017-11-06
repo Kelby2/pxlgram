@@ -8,7 +8,7 @@
 
 User.destroy_all
 
-user0 = User.create!(username: 'friend', password: 'password', fullname: 'friend user', email: 'friend@pxlgram.com')
+user0 = User.create!(username: 'friend', password: 'password', fullname: 'guest user', email: 'friend@pxlgram.com')
 user1 = User.create!(username: 'admin', password: 'password', fullname: 'administrator', email: 'admin@pxlgram.com', avatar: File.open('app/assets/images/monkey.jpg'), bio: 'I am the moderator here, thank you for checking out pixelgram.')
 user2 = User.create!(username: 'kelbylu', password: 'password', fullname: 'kelby lu', email: 'user2@pxlgram.com', avatar: File.open('app/assets/images/kelby.jpg'), bio: 'Thanks for stopping by!')
 user3 = User.create!(username: 'taylorswift', password: 'password', fullname: 'taylor swift', email: 'user3@pxlgram.com', avatar: File.open('app/assets/images/taylor.jpg'), bio: 'This is the new me. The old me is dead.')
@@ -24,9 +24,7 @@ user11 = User.create!(username: 'kobe', password: 'password', fullname: 'kobe be
 
 Photo.destroy_all
 
-photo1 = Photo.create!(author: User.find_by(username: 'beyonce'), image: File.open('app/assets/images/jayz.jpg'), caption: 'We get it done')
 photo2 = Photo.create!(author: User.find_by(username: 'beyonce'), image: File.open('app/assets/images/jayz.jpg'), caption: "We get it done, this image was taken from Shawn's instagram")
-photo3 = Photo.create!(author: User.find_by(username: 'beyonce'), image: File.open('app/assets/images/jayz.jpg'), caption: 'He put on a ring on me')
 photo4 = Photo.create!(author: User.find_by(username: 'kelbylu'), image: File.open('app/assets/images/jayz.jpg'), caption: "The Empire State Of Mind, this image was taken from Shawn's instagram")
 photo5 = Photo.create!(author: User.find_by(username: 'jayz'), image: File.open('app/assets/images/beyonce.jpg'), caption: "The Bonnie to my Clyde, taken from Bey's intsta")
 photo6 = Photo.create!(author: User.find_by(username: 'kelbylu'), image: File.open('app/assets/images/duomo.png'), caption: 'We out here at the Duomo! @Milan')
@@ -43,8 +41,6 @@ photo16 = Photo.create!(author: User.find_by(username: 'pxlg'), caption: "We are
 photo17 = Photo.create!(author: User.find_by(username: 'pxlg'), caption: "We're the better version though", image: File.open('app/assets/images/instagram2.jpg'))
 photo18 = Photo.create!(author: User.find_by(username: 'pxlg'), caption: "Join us today!", image: File.open('app/assets/images/instagram3.jpg'))
 photo19 = Photo.create!(author: User.find_by(username: 'admin'), caption: "We are a clone of the big boys", image: File.open('app/assets/images/instagram.jpg'))
-photo20 = Photo.create!(author: User.find_by(username: 'admin'), caption: "We're the better version though", image: File.open('app/assets/images/instagram2.jpg'))
-photo21 = Photo.create!(author: User.find_by(username: 'admin'), caption: "Join us today!", image: File.open('app/assets/images/instagram3.jpg'))
 photo22 = Photo.create!(author: User.find_by(username: 'friend'), caption: "This is so good!", image: File.open('app/assets/images/macaroons.jpg'))
 photo23 = Photo.create!(author: User.find_by(username: 'friend'), caption: "I want these new shoes", image: File.open('app/assets/images/nike2.jpg'))
 photo24 = Photo.create!(author: User.find_by(username: 'nike'), caption: "Just do it", image: File.open('app/assets/images/nike2.jpg'))

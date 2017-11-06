@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
-                  {profileButton}
+                  {/*{profileButton}*/}
                   {logOutButton}
                 </div>
 
