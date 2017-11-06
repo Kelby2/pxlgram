@@ -4,11 +4,11 @@ import LikeContainer from '../likes/like_container'
 import CommentContainer from '../comments/comment_container'
 
 const handleComment = (event) => {
-  document.getElementById('chat').focus();
+  
+  document.getElementById(event).focus();
 }
 
 const PhotoIndexItem = ({ photo, user}) => {
-  debugger
   if (photo.likerIds) {
 
     return (
@@ -42,7 +42,7 @@ const PhotoIndexItem = ({ photo, user}) => {
               <LikeContainer photo_id={photo.id} />
               <div
                 className='fa fa-comment-o fa-lg comments-icon'
-                onClick={(event) => handleComment()}>
+                onClick={(event) => handleComment(photo.id)}>
               </div>
             </div>
 

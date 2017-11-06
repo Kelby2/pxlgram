@@ -32,7 +32,7 @@ class Comment extends React.Component {
   }
 
   render () {
-
+    
     return (
       <article>
         <div className='photo-comments'>
@@ -55,7 +55,7 @@ class Comment extends React.Component {
             className='form'
             onSubmit={this.handleSubmit}>
             <input
-              id='chat'
+              id={this.props.photo.id}
               type='text'
               value={this.state.commentBody}
               className='add-comment-form'

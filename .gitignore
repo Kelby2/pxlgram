@@ -14,9 +14,8 @@
 !/tmp/.keep
 
 /node_modules
-/yarn-error.log
 
-.byebug_history
+/yarn-error.log
 
 node_modules/
 bundle.js*
