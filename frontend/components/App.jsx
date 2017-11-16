@@ -11,7 +11,6 @@ import UserEditContainer from './users/edit_user_container';
 const App = () => (
   <div className='appDiv'>
     <header className='header'>
-
       <HeaderContainer />
       <Switch>
         <ProtectedRoute exact path='/users/:id' component={ UserContainer } />
