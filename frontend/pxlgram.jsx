@@ -1,17 +1,7 @@
- import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-
-//TEST IMPORT
-import { login, logout, signup } from './actions/session_actions';
-import { getPhotos,
-        getPhoto,
-        addPhoto,
-        deletePhoto,
-        editPhoto } from './actions/photo_actions';
-import { getUsers, getUser } from './actions/user_actions';
-//END
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
@@ -27,19 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   ReactDOM.render(<Root store={ store } />, rootEl);
 
-  //FUNCS FOR TESTING//
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.getUsers = getUsers;
-  window.getUser = getUser;
-  window.editPhoto = editPhoto;
-  window.getPhoto = getPhoto;
-  window.getPhotos = getPhotos;
-  window.addPhoto = addPhoto;
-  window.deletePhoto = deletePhoto;
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
-  //TESTING END//
 });
