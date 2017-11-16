@@ -48,15 +48,11 @@ class PhotoUpload extends React.Component {
   render() {
     return (
       <div className='photo-upload-form-container'>
-        <article className='form-container'>
-
-          <div className='form-banner'>
-
-          </div>
 
           <article className='photo-upload-form'>
 
             <div className='photo-caption-container'>
+
               <div>
                 <textarea
                   className='user-caption'
@@ -81,19 +77,20 @@ class PhotoUpload extends React.Component {
                 </label>
               </div>
 
-              <div>
+              <div className='file-submit-button-container'>
                 <button className='file-submit-button'
                   onClick={this.handleFormSubmit}>
                   Share
                 </button>
               </div>
+
             </div>
 
             <div className='photo-preview-container'>
               <img className='photo-preview' src={this.state.imageUrl} />
             </div>
+
           </article>
-        </article>
       </div>
     )
   }
