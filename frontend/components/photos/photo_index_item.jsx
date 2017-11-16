@@ -4,7 +4,6 @@ import LikeContainer from '../likes/like_container'
 import CommentContainer from '../comments/comment_container'
 
 const handleComment = (event) => {
-  
   document.getElementById(event).focus();
 }
 
