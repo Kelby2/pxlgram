@@ -1,10 +1,12 @@
 .fixed-header {
   height: 75px;
+  overflow: hidden;
   border-bottom: 1px solid #e6e6e6;
   background-color: #FFFFFF;
   width: 100%;
   position: fixed;
   z-index: 1;
+  transition:height .7s ease;
   * {
     z-index: 2 !important;
   }
@@ -13,13 +15,23 @@
 .header-bar {
   left: 300px;
   height: 100%;
-  width: 1000px;
+  width: 70%;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   .logo-container:hover, icons {
     cursor: pointer;
+  }
+}
+
+.mini-header {
+  height: 50px;
+  .logo {
+    display: none;
+  }
+  .logo-container {
+    margin-left: 25px;
   }
 }
 
@@ -40,10 +52,6 @@
   .fa-search {
     margin-right: 5px;
   }
-}
-
-.user-search-bar:click {
-  cursor: text;
 }
 
 .user-search-bar:focus {
@@ -76,11 +84,12 @@
 }
 
 .logo-container {
-  width: 150px;
+  width: 65px;
   display: flex;
   vertical-align: bottom;
   justify-content: space-between;
   align-items: center;
+  transition:all 1s ease;
 }
 
 .logo {

@@ -6,6 +6,16 @@ class Header extends React.Component {
     super(props);
   }
 
+  handleScroll(event) {
+    const header = $(".fixed-header");
+    const distanceFromTop = $(window).scrollTop()
+    header.toggleClass("mini-header", distanceFromTop > 120);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
   render() {
 
     if (this.props.currentUser) {
@@ -16,14 +26,15 @@ class Header extends React.Component {
             <a href="/" className='logo-container'>
               <span className='logo-icon'>
                 <img src={'http://is5.mzstatic.com/image/thumb/Purple117/v4/23/90/61/2390617c-b581-1b75-b0bb-f899350b6bba/source/175x175bb.jpg'}
-                  alt='sourced from mzstatic.com'/>
+                  alt='Logo from mzstatic.com'/>
               </span>
-              <span className='logo'>pxlGram</span>
+              <span><div className='logo'>pxlGram</div></span>
             </a>
 
-            <input className='user-search-bar'
-                    type='text'
-                    placeholder='Search' />
+            <input
+              className='user-search-bar'
+              type='text'
+              placeholder='Search' />
 
 
             <div className='nav-bar'>
@@ -34,6 +45,7 @@ class Header extends React.Component {
                 to={'/'} />
               <Link className='fa fa-user fa-lg'
                 to={`/${this.props.currentUser.username}`} />
+
             </div>
 
           </div>
