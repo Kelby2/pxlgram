@@ -1,9 +1,9 @@
-import EditUser from './user_profile';
+import EditUser from './edit_user';
 import { connect } from 'react-redux';
 import { getUser } from '../../actions/user_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const user = state.entities.users[ownProps.match.params.id]
+  const user = state.entities.users[ownProps.match.params.username]
   return ({
     user,
   });
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    getUser: (userId) => dispatch(getUser(userId)),
+    getUser: (username) => dispatch(getUser(username)),
   });
 }
 

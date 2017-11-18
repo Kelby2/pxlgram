@@ -5,10 +5,10 @@ export const getPhotos = () => {
   })
 }
 
-export const getUserPhotos = (userId) => {
+export const getUserPhotos = (user_id) => {
   return $.ajax({
     method: 'get',
-    url: `api/users/${userId}/photos`
+    url: `api/users/${user_id}/photos`
   })
 }
 
@@ -29,14 +29,6 @@ export const addPhoto = photo => {
     data: photo,
   })
 };
-
-export const editPhoto = photo => {
-  return $.ajax({
-    method: 'patch',
-    url: `api/photos/${photo.id}`,
-    data: { photo },
-  })
-}
 
 export const deletePhoto = photo => {
   return $.ajax({

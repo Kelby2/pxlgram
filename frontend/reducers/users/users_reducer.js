@@ -5,7 +5,6 @@ import { RECEIVE_USER,
 const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let newState;
-
   switch (action.type) {
     case RECEIVE_ALL_USERS:
       newState = Object.assign({}, oldState, action.users);
@@ -14,7 +13,7 @@ const UsersReducer = (oldState = {}, action) => {
       newState = Object.assign(
         {},
         oldState,
-        { [action.user.id]: action.user });
+        { [action.user.username]: action.user });
       return newState;
     case CLEAR_USERS:
       return {};

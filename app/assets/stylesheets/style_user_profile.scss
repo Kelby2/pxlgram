@@ -177,7 +177,7 @@
   max-width: 100%;
   margin: auto;
   object-fit: cover;
-  z-index: 1;
+  z-index: 0;
 }
 
 .user-photo-stats {
@@ -185,7 +185,7 @@
   height: 100%;
   background-color: black;
   opacity: .7px;
-  z-index: 2;
+  z-index: 0;
 }
 
 .fa-sign-out {

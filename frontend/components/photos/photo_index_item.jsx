@@ -13,30 +13,31 @@ const PhotoIndexItem = ({ photo, user}) => {
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
+
           <article className='photo-author-info'>
 
             <div className='stream-avatar-container'>
-              <Link to={`/users/${photo.author_id}`}>
+              <Link to={`/${photo.author_name}`}>
                 <img className='stream-avatar' src={user.avatarUrl} />
               </Link>
             </div>
 
             <div className='author-username'>
-
-              <Link to={`/users/${user.id}`}>
+              <Link to={`${user.username}`}>
                  <div className='stream-username'>
                    {user.username}
-                  </div>
+                </div>
               </Link>
-
             </div>
+
           </article>
 
-          <div className='photo-container'>
+          <article className='photo-container'>
             <img className='photo' src={photo.imageUrl} />
-          </div>
+          </article>
 
           <article className='photo-info-container'>
+
             <div className='icon-container'>
               <LikeContainer photo_id={photo.id} />
               <div
@@ -50,19 +51,20 @@ const PhotoIndexItem = ({ photo, user}) => {
             </div>
 
             <div className='caption-container'>
-              <div className='caption-username'>
-                <Link to={`/users/${user.id}`}>
+              <span className='author-username'>
+                <Link to={`${user.username}`}>
                   {(photo.caption && photo.caption.length > 0) ? user.username : ""}
                 </Link>
-              </div>
-              <div className='caption'>
+              </span>
+              <span className='caption'>
                 {photo.caption}
-              </div>
+              </span>
             </div>
 
             <div className='comments-container'>
               <CommentContainer photo_id={photo.id} />
             </div>
+
           </article>
 
         </div>

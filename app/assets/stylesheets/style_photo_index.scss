@@ -48,12 +48,13 @@
   object-fit: cover;
 }
 
-.author-username a {
+.author-username a, .comment a {
   font-weight: 600;
   color: black;
   font-family: Helvetica, Arial;
   font-size: 14px;
   text-decoration: none;
+  margin-right: 5px;
 }
 
 .photo {
@@ -111,40 +112,23 @@
   font-weight: 600;
 }
 
-.caption-container {
-  display: flex;
-  align-items: flex-end;
-  .caption-username {
-    font-size: 15px;
-    font-weight: bold;
-    margin-right: 5px;
-    a {
-      text-decoration: none;
-      color: #000000;
-    }
+.caption-username {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 5px;
+  a {
+    text-decoration: none;
+    color: #000000;
   }
-  .caption {
-    font-size: 14px;
-  }
+}
+
+.caption {
+  font-size: 14px;
 }
 
 .photo-comments {
   padding-bottom: 10px;
   border-bottom: 1px solid #efefef;
-}
-
-.comment {
-  display: flex;
-  align-items: flex-end;
-  .comment-author {
-    font-size: 15px;
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  a {
-    color: #000000;
-    text-decoration: none;
-  }
 }
 
 .likes-icon:hover, .comments-icon:hover, .liked-icon:hover {

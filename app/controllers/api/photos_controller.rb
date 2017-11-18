@@ -2,7 +2,7 @@ class Api::PhotosController < ApplicationController
 
   def index
     if params[:user_id]
-      user = User.find(params[:user_id])
+      user = User.find_by(username: params[:user_id])
       @photos = user.photos
     else
       @photos = Photo.all
@@ -14,7 +14,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-    
+
     @user = current_user
     @photo = @user.photos.create(photo_params)
 

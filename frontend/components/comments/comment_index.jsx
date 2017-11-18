@@ -15,7 +15,7 @@ class Comment extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const comment = this.state
+    const comment = this.state;
     this.props.addComment(comment).then(() => this.setState({
       commentBody: ""
     }));
@@ -32,9 +32,9 @@ class Comment extends React.Component {
   }
 
   render () {
-    
     return (
       <article>
+
         <div className='photo-comments'>
           <ul>
             {
@@ -43,7 +43,7 @@ class Comment extends React.Component {
                   <CommentItem
                     key={ comment.id }
                     comment={ comment }
-                    user={ this.props.users[comment.user_id] }/>
+                    user={ this.props.users[comment.author] }/>
                 )
               })
             }
@@ -64,6 +64,7 @@ class Comment extends React.Component {
             />
           </form>
         </div>
+
       </article>
     )
   }

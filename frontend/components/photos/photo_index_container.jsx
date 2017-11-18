@@ -6,15 +6,18 @@ import PhotoIndex from './photo_index';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
+  const photos = Object.keys(state.entities.photos)
+  .map(id => state.entities.photos[id]).reverse()
+
+  const users = state.entities.users
+
+  const comments = Object.keys(state.entities.comments)
+  .map(id => state.entities.comments[id])
+  
   return ({
-    photos: Object.keys(state.entities.photos)
-    .map(id => state.entities.photos[id]).reverse(),
-
-    users: Object.keys(state.entities.users)
-    .map(id => state.entities.users[id]),
-
-    comments: Object.keys(state.entities.comments)
-    .map(id => state.entities.comments[id])
+    photos,
+    users,
+    comments
   });
 };
 

@@ -39,9 +39,8 @@ class PhotoUpload extends React.Component {
 
     formData.append('photo[caption]', this.state.photoCaption);
     formData.append('photo[image]', this.state.imageFile);
-
     this.props.addPhoto(formData).then((res) => {
-      this.props.history.push(`/users/${res.user.id}`)
+      this.props.history.push(`/${res.user.username}`)
     })
   }
 
@@ -53,7 +52,7 @@ class PhotoUpload extends React.Component {
 
             <div className='photo-caption-container'>
 
-              <div>
+              <div className='caption-container'>
                 <textarea
                   className='user-caption'
                   value={this.state.caption}

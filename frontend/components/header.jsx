@@ -33,7 +33,7 @@ class Header extends React.Component {
               <Link className="fa fa-compass fa-lg"
                 to={'/'} />
               <Link className='fa fa-user fa-lg'
-                to={`/users/${this.props.currentUser.id}`} />
+                to={`/${this.props.currentUser.username}`} />
             </div>
 
           </div>

@@ -12,14 +12,14 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.id !== this.props.match.params.id) {
-      this.props.getUser(nextProps.match.params.id);
+    if (nextProps.match.params.username !== this.props.match.params.username) {
+      this.props.getUser(nextProps.match.params.username);
     }
   }
 
   componentDidMount() {
-      this.props.getUser(this.props.match.params.id);
-      this.props.getUserPhotos(this.props.match.params.id);
+    this.props.getUser(this.props.match.params.username);
+    this.props.getUserPhotos(this.props.match.params.username);
   }
 
   render () {
@@ -33,7 +33,7 @@ class UserProfile extends React.Component {
     )
 
     if (user && user.photoIds) {
-      if (user.id === this.props.currentUser.id) {
+      if (user.username === this.props.currentUser.username) {
         logOutButton = (
           <div
             onClick={() => this.props.logout()}
@@ -42,11 +42,11 @@ class UserProfile extends React.Component {
         )
 
         profileButton = (
-          <Link to={`/users/${user.id}`}>
-          <button
-            className='edit-profile-button'>
-            Edit Profile
-          </button>
+          <Link to={`/${user.username}/edit`}>
+            <button
+              className='edit-profile-button'>
+              Edit Profile
+            </button>
           </Link>
         )
       }
@@ -67,7 +67,7 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
-                  {/*{profileButton}*/}
+                  {profileButton}
                   {logOutButton}
                 </div>
 

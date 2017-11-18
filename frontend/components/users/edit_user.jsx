@@ -6,9 +6,32 @@ class EditUser extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.match.params.username);
+  }
+
   render() {
     return (
-      <h1>We Under Construction</h1>
+      <main className="edit-page-container" >
+        <div className="edit-page" >
+
+          <article className>
+
+          </article>
+
+          <article className="user-info">
+
+            <div className="fullname-edit">
+
+            </div>
+
+            <div className="bio-edit">
+
+            </div>
+          </article>
+
+        </div>
+      </main>
     )
   }
 

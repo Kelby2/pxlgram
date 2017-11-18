@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const CommentItem = ({ comment, user }) => {
   return (
     <li className='comment'>
-      <Link to={`/users/${user.id}`}>
-      <div className='comment-author'>{user.username}</div>
+      <Link to={`${user.username}`}>
+        <span className='comment-author'>{user.username}</span>
       </Link>
-      <div className='comment-body'>{comment.body}</div>
+      <span className='comment-body'>{comment.body}</span>
     </li>
   )
 }

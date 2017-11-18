@@ -76,10 +76,6 @@ export const addPhoto = (photo) => dispatch => (
   PhotoApiUtil.addPhoto(photo).then(user => dispatch(fetchUser(user)))
 )
 
-export const editPhoto = (photo) => dispatch => (
-  PhotoApiUtil.editPhoto(photo).then(photo => dispatch(fetchPhoto(photo)))
-)
-
 export const deletePhoto = (photo) => dispatch => (
   PhotoApiUtil.deletePhoto(photo).then(photo => dispatch(removePhoto(photo)))
 )
