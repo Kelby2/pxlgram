@@ -43,8 +43,8 @@ class LoginForm extends React.Component {
   }
 
   handleInputChange(formField) {
-    return (e) => {
-      this.setState({ [formField]: e.target.value });
+    return (event) => {
+      this.setState({ [formField]: event.target.value });
     };
   }
 
