@@ -4,12 +4,22 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      search: "",
+    }
+
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleScroll(event) {
     const header = $(".fixed-header");
     const distanceFromTop = $(window).scrollTop()
     header.toggleClass("mini-header", distanceFromTop > 120);
+  }
+
+  handleSearch(event) {
+    this.setState({ search: event.target.value });
+    console.log(this.state.search);
   }
 
   componentDidMount() {
@@ -32,12 +42,12 @@ class Header extends React.Component {
             </a>
 
             <input
-              className='user-search-bar'
-              type='text'
-              placeholder='Search' />
+              className="user-search-bar"
+              type="text"
+              placeholder="Search"
+              onChange={ this.handleSearch } />
 
-
-            <div className='nav-bar'>
+            <div className="nav-bar">
 
               <Link className="fa fa-upload fa-lg"
                 to={'/upload'} id={this.props.currentUser.id}/>
@@ -49,13 +59,15 @@ class Header extends React.Component {
             </div>
 
           </div>
+
+          <div className="search-results-container">
+            <ul className="search-results-list">
+            </ul>
+          </div>
         </article>
       );
     } else {
-      return (
-        <div>
-        </div>
-      );
+      return null;
     }
   }
 
