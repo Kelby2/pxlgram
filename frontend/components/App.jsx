@@ -15,7 +15,7 @@ const App = () => (
       <Switch>
         <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
         <ProtectedRoute exact path ='/:username/edit' component= { UserEditContainer } />
-        <ProtectedRoute exact path='/:username' component={ UserContainer } />
+        <ProtectedRoute path='/:username' component={ UserContainer } />
         <Route path='/' component={LandingPageContainer} />
       </Switch>
     </header>

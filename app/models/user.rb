@@ -13,13 +13,14 @@ class User < ApplicationRecord
 
   has_many :photos,
     foreign_key: :author_id,
-    class_name: :Photo
+    class_name: :Photo,
+    dependent: :destroy
 
   has_many :likes,
-    foreign_key: :user_id,
-    class_name: :Like
+    dependent: :destroy
 
-  has_many :comments
+  has_many :comments,
+    dependent: :destroy
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)

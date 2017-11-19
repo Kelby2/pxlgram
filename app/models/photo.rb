@@ -9,16 +9,14 @@ class Photo < ApplicationRecord
     class_name: :User
 
   has_many :likes,
-    foreign_key: :photo_id,
-    class_name: :Like
+    dependent: :destroy
 
   has_many :likers,
     through: :likes,
     source: :user
 
   has_many :comments,
-    foreign_key: :photo_id,
-    class_name: :Comment
+    dependent: :destroy
 
   has_many :commenters,
     through: :comments,
