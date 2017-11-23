@@ -1,4 +1,5 @@
 .fixed-header {
+  display: block;
   height: 75px;
   overflow: hidden;
   border-bottom: 1px solid #e6e6e6;
@@ -6,7 +7,6 @@
   width: 100%;
   position: fixed;
   z-index: 1;
-  transition:height .7s ease;
   * {
     z-index: 2 !important;
   }
@@ -25,7 +25,8 @@
   }
 }
 
-.mini-header {
+.fixed-header.mini-header {
+  transition: height .7s linear;
   height: 50px;
   .logo {
     display: none;
@@ -33,9 +34,9 @@
   .logo-container {
     margin-left: 25px;
   }
-  .search-results-list {
-    left: 49%;
-  }
+  // .search-results-list {
+  //   left: 49%;
+  // }
 }
 
 .user-search-bar {
@@ -75,7 +76,6 @@
   left: 48%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  transition:all 1s ease;
 }
 
 .results {
@@ -116,7 +116,7 @@
   vertical-align: bottom;
   justify-content: space-between;
   align-items: center;
-  transition:all 1s ease;
+
 }
 
 .logo {

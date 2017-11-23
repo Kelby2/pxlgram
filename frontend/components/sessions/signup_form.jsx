@@ -88,8 +88,8 @@ class SignUpForm extends React.Component {
 
     const signUpAgreementText = (
       <span className='entry-form-text'>
-        By signing up, you agree to our <Link className='policy-terms'
-        to={"/"}>Terms & Privacy Policy</Link>
+        By signing up, you agree to our <div className='policy-terms'
+        to={"/"}>Terms & Privacy Policy</div>
       </span>
     )
 
