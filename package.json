@@ -9,10 +9,8 @@
     "react": "^16.0.0",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^16.0.0",
-    "react-modal": "^3.1.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-search-box": "0.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.8.1"
