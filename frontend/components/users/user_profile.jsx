@@ -15,7 +15,7 @@ class UserProfile extends React.Component {
     debugger
     if (nextProps.match.params.username !== this.props.match.params.username) {
       this.props.getUser(nextProps.match.params.username);
-      this.props.getUserPhotos(nextProps.match.params.username);
+      this.props.getUserPhotos(this.props.match.params.username);
     }
   }
 
@@ -28,7 +28,6 @@ class UserProfile extends React.Component {
   render () {
     debugger
     const user = this.props.user;
-    const photos = this.props.photos;
     let logOutButton;
     let profileButton = (
       <button
@@ -37,7 +36,7 @@ class UserProfile extends React.Component {
       </button>
     )
 
-    if (user && photos) {
+    if (user && user.photoIds) {
       if (user.username === this.props.currentUser.username) {
         logOutButton = (
           <div
@@ -77,7 +76,7 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-2'>
                   <span className='user-stats'>
-                    <div className='stat photo-count'>{photos.length}</div> posts
+                    <div className='stat photo-count'>{user.photoIds.length}</div> posts
                     <div className='stat follower-count'>{Math.floor(Math.random()*100)}</div> followers
                     <div className='stat following-count'>{Math.floor(Math.random()*100)}</div> following
                   </span>
@@ -95,7 +94,7 @@ class UserProfile extends React.Component {
             <article className='user-photos-container'>
               <ul className='user-photos'>
                 {
-                  photos.map(photo => {
+                  this.props.photos.map(photo => {
                     return(
                       <PhotoGridItem
                         key={ photo.id }

@@ -5,11 +5,11 @@ import { getUser } from '../../actions/user_actions';
 import { getUserPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const user = state.entities.users[ownProps.match.params.username]
   const photos = Object.values(state.entities.photos).filter((photo) => {
     return (photo.author_name === ownProps.match.params.username)
   })
+  debugger
   return ({
     user,
     currentUser: state.session.currentUser,
