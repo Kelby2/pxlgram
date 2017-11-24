@@ -15,7 +15,7 @@ class UserProfile extends React.Component {
     debugger
     if (nextProps.match.params.username !== this.props.match.params.username) {
       this.props.getUser(nextProps.match.params.username);
-      this.props.getUserPhotos(this.props.match.params.username);
+      this.props.getUserPhotos(nextProps.match.params.username);
     }
   }
 
