@@ -1,22 +1,28 @@
 import React from 'react';
+import debounce from 'debounce';
 
 class Searchbar extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSearch = this.handleSearch.bind(this);
+    this.state = {
+      searchTerm: ""
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSearch() {
-    
+  handleInputChange(event) {
+    this.setState({ searchTerm: event.target.value })
+    this.props.searchUsers(this.state.searchTerm)
   }
 
   render() {
     return (
       <input
         className="user-search-bar"
-        type="text"
+        type="search"
         placeholder="Search"
-        onChange={ this.handleSearch }
+        value={ this.state.searchTerm }
+        onChange={ this.handleInputChange }
       />
     )
   }

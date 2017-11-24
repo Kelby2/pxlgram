@@ -12,18 +12,23 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     if (nextProps.match.params.username !== this.props.match.params.username) {
       this.props.getUser(nextProps.match.params.username);
+      this.props.getUserPhotos(nextProps.match.params.username);
     }
   }
 
   componentDidMount() {
+    debugger
     this.props.getUser(this.props.match.params.username);
     this.props.getUserPhotos(this.props.match.params.username);
   }
 
   render () {
+    debugger
     const user = this.props.user;
+    const photos = this.props.photos;
     let logOutButton;
     let profileButton = (
       <button
@@ -32,7 +37,7 @@ class UserProfile extends React.Component {
       </button>
     )
 
-    if (user && user.photoIds) {
+    if (user && photos) {
       if (user.username === this.props.currentUser.username) {
         logOutButton = (
           <div
@@ -64,7 +69,6 @@ class UserProfile extends React.Component {
               </div>
 
               <div className='user-info-container'>
-
                 <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
                   {profileButton}
@@ -73,7 +77,7 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-2'>
                   <span className='user-stats'>
-                    <div className='stat photo-count'>{user.photoIds.length}</div> posts
+                    <div className='stat photo-count'>{photos.length}</div> posts
                     <div className='stat follower-count'>{Math.floor(Math.random()*100)}</div> followers
                     <div className='stat following-count'>{Math.floor(Math.random()*100)}</div> following
                   </span>
@@ -81,10 +85,9 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-3'>
                   <p className='user-bio'>
-                      <span className='user-full-name'>{user.fullname} </span>  {user.bio}
+                      <span className='user-full-name'>{user.fullname} </span>  {this.props.user.bio}
                   </p>
                 </div>
-
               </div>
 
             </article>
@@ -92,7 +95,7 @@ class UserProfile extends React.Component {
             <article className='user-photos-container'>
               <ul className='user-photos'>
                 {
-                  this.props.photos.map(photo => {
+                  photos.map(photo => {
                     return(
                       <PhotoGridItem
                         key={ photo.id }
