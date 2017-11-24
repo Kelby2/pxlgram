@@ -19,3 +19,11 @@ export const editUser = (user) => {
     data: { user }
   })
 }
+
+export const searchUsers = (query) => {
+  return $.ajax({
+    method: 'get',
+    url: `api/users`,
+    data: { query }
+  })
+}

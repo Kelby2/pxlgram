@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getPhotos, clearAllPhotos } from '../../actions/photo_actions';
-import { getUsers, clearAllUsers } from '../../actions/user_actions';
+import { getUsers } from '../../actions/user_actions';
 import { getComments } from '../../actions/comment_actions'
 import PhotoIndex from './photo_index';
 import { withRouter } from 'react-router-dom';
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
   const comments = Object.keys(state.entities.comments)
   .map(id => state.entities.comments[id])
-  
+
   return ({
     photos,
     users,

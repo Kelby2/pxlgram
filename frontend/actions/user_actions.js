@@ -2,7 +2,7 @@ import * as UserApiUtil from '../util/user_api_util';
 
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS'
 export const RECEIVE_USER = 'RECEIVE_USER'
-export const CLEAR_USERS = 'CLEAR_USERS'
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS'
 
 export const fetchUsers = users => {
   return ({
@@ -18,25 +18,25 @@ export const fetchUser = user => {
   })
 }
 
-export const clearAllUsers = () => {
+export const fetchSearch = users => {
   return ({
-    type: CLEAR_USERS,
-    user: {}
+    type: RECEIVE_SEARCH_RESULTS,
+    users
   })
 }
-
-export const clearUsers = () => dispatch => (
-  dispatch(clearAllUsers())
-)
 
 export const getUsers = () => dispatch => (
   UserApiUtil.getUsers().then(users => dispatch(fetchUsers(users)))
 )
 
-export const getUser = (username) => dispatch => (
+export const getUser = username => dispatch => (
   UserApiUtil.getUser(username).then(user => dispatch(fetchUser(user)))
 )
 
-export const editUser = (user) => dispatch => (
+export const editUser = user => dispatch => (
   UserApiUtil.editUser(user).then(user => dispatch(fetchUser(user)))
+)
+
+export const searchUsers = query => dispatch => (
+  UserApiUtil.searchUsers(query).then(users => dispatch(fetchSearch(users)))
 )
