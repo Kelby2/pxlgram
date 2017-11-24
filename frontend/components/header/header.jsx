@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBarContainer from '../search/search_bar_container';
 import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -41,11 +42,7 @@ class Header extends React.Component {
               <span><div className='logo'>pxlGram</div></span>
             </a>
 
-            <input
-              className="user-search-bar"
-              type="text"
-              placeholder="Search"
-              onChange={ this.handleSearch } />
+            <SearchBarContainer/>
 
             <div className="nav-bar">
 
