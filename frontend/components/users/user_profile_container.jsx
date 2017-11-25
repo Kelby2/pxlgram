@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   const photos = Object.values(state.entities.photos).filter((photo) => {
     return (photo.author_name === ownProps.match.params.username)
   })
-  debugger
   return ({
     user,
     currentUser: state.session.currentUser,

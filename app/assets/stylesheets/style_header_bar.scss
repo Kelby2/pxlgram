@@ -20,9 +20,6 @@
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
-  .logo-container:hover, icons {
-    cursor: pointer;
-  }
 }
 
 .fixed-header.mini-header {
@@ -110,18 +107,12 @@
 }
 
 .logo-container {
-  width: 65px;
+  width: auto;
+  min-width: 190px;
   display: flex;
   vertical-align: bottom;
   justify-content: space-between;
   align-items: center;
-
-}
-
-.logo {
-  font-family: 'Leckerli One', cursive;
-  font-size: 30px;
-  margin-left: 10px;
 }
 
 .logo-icon {
@@ -129,6 +120,11 @@
   img {
     width: 65px;
   }
+}
+
+.logo {
+  font-family: 'Leckerli One', cursive;
+  font-size: 30px;
 }
 
 .header-bar a {

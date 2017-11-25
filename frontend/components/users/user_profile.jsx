@@ -8,7 +8,6 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (nextProps.match.params.username !== this.props.match.params.username) {
       this.props.getUser(nextProps.match.params.username);
       this.props.getUserPhotos(nextProps.match.params.username);
@@ -16,13 +15,11 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.getUser(this.props.match.params.username);
     this.props.getUserPhotos(this.props.match.params.username);
   }
 
   render () {
-    debugger
     const user = this.props.user;
     let logOutButton;
     let profileButton = (
