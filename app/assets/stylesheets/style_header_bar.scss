@@ -44,22 +44,21 @@
   height: 27px;
   border: 1px solid #dbdbdb;
   border-radius: 2px;
+  color: #999;
   background-color: #fafafa;
-  color: #999999;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   font-family: sans-serif;
+  font-style: normal;
   font-size: 15px;
   padding: 0 8px 0 8px;
-  color: black;
+  text-align: center;
   .fa-search {
     margin-right: 5px;
   }
 }
 
 .user-search-bar:focus {
-  border: 1px solid gray;
+  text-align: left;
+  color: black;
   outline: none;
   background-color: #ffffff;
 }
