@@ -5,10 +5,6 @@ import PhotoGridItem from '../photos/photo_grid_item';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: this.props.user,
-      photos: this.props.photos,
-    }
   }
 
   componentWillReceiveProps(nextProps) {

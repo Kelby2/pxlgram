@@ -5,22 +5,12 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      search: "",
-    }
-
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleScroll(event) {
     const header = $(".fixed-header");
     const distanceFromTop = $(window).scrollTop()
     header.toggleClass("mini-header", distanceFromTop > 120);
-  }
-
-  handleSearch(event) {
-    this.setState({ search: event.target.value });
-    console.log(this.state.search);
   }
 
   componentDidMount() {
@@ -34,7 +24,7 @@ class Header extends React.Component {
         <article className='fixed-header'>
           <div className='header-bar'>
 
-            <a href="/" className='logo-container'>
+            <a href="#/" className='logo-container'>
               <span className='logo-icon'>
                 <img src={'http://is5.mzstatic.com/image/thumb/Purple117/v4/23/90/61/2390617c-b581-1b75-b0bb-f899350b6bba/source/175x175bb.jpg'}
                   alt='Logo from mzstatic.com'/>

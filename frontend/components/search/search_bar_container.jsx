@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Searchbar from './search_bar';
+import { searchUsers } from '../../actions/user_actions';
 
 const mapDispatchToProps = dispatch => {
   return ({
