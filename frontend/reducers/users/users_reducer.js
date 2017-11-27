@@ -6,7 +6,6 @@ const UsersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let newState;
   switch (action.type) {
-    case RECEIVE_SEARCH_RESULTS:
     case RECEIVE_ALL_USERS:
       newState = Object.assign({}, oldState, action.users);
       return newState;
