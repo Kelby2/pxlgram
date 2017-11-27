@@ -32,7 +32,7 @@ class Header extends React.Component {
 
             <div className='logo-container'>
               <a href="#/" onClick={ this.scrollUp } className='logo-icon'>
-                <img src={'http://is5.mzstatic.com/image/thumb/Purple117/v4/23/90/61/2390617c-b581-1b75-b0bb-f899350b6bba/source/175x175bb.jpg'}
+                <img src={'https://is5.mzstatic.com/image/thumb/Purple117/v4/23/90/61/2390617c-b581-1b75-b0bb-f899350b6bba/source/175x175bb.jpg'}
                   alt='Logo from mzstatic.com'/>
               </a>
 
