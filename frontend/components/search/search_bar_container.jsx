@@ -1,11 +1,20 @@
 import { connect } from 'react-redux';
 import Searchbar from './search_bar';
-import { searchUsers } from '../../actions/user_actions';
+import { searchUsers, clearSearch } from '../../actions/user_actions';
+
+const mapStateToProps = (state) => {
+    const searchResults = state.ui.searchResults;
+    return ({
+      searchResults,
+    })
+}
 
 const mapDispatchToProps = dispatch => {
   return ({
-    searchUsers: (query) => dispatch(searchUsers(query)),
+    searchUsers: (searchQuery) => dispatch(searchUsers(searchQuery)),
+    clearSearch: () => dispatch(clearSearch()),
   })
 }
 
-export default connect(null, mapDispatchToProps)(Searchbar);
+export default connect(mapStateToProps, mapDispatchToProps)
+                            (Searchbar);

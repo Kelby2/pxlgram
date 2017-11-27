@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoIndexItem from './photo_index_item'
+import PhotoIndexItem from './photo_index_item';
+import HeaderContainer from '../header/header_container';
 
 class PhotoIndex extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class PhotoIndex extends React.Component {
   }
 
   render() {
+
     if (this.props.photos.length > 0 && Object.keys(this.props.users).length > 0) {
 
     return (

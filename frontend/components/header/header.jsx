@@ -48,7 +48,7 @@ class Header extends React.Component {
               <Link className="fa fa-upload fa-lg"
                 to={'/upload'} id={this.props.currentUser.id}/>
               <Link className="fa fa-compass fa-lg"
-                to={'#/'} />
+                to={'/'} />
               <Link className='fa fa-user fa-lg'
                 to={`/${this.props.currentUser.username}`} onClick={ this.scrollUp } />
 
@@ -56,10 +56,6 @@ class Header extends React.Component {
 
           </div>
 
-          <div className="search-results-container">
-            <ul className="search-results-list">
-            </ul>
-          </div>
         </article>
       );
     } else {

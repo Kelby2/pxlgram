@@ -5,7 +5,6 @@ import { addComment,
         getPhoto } from '../../actions/photo_actions';
 import { getComments } from '../../actions/comment_actions'
 import Comment from './comment_index';
-import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photo_id]
