@@ -27,7 +27,11 @@ text box. Clicking the chat bubble will also bring focus to the text box for tha
 particular photo. Comments are submitted via the enter key, which will then add the
 comment immediately under the photo.
 
-## To Be Added
+### User Search
+
+Users are able to use the search bar to look for specific users by name.
+
+## Future Directions for the Project
 
 These are additional features that I would be adding to the project as time goes on:
 
@@ -36,7 +40,3 @@ These are additional features that I would be adding to the project as time goes
 Users will be able to follow other users so that their main page will only populate
 with photos from the users they are following. An explore page will be available to
 show photos from all users.
-
-### User Search
-
-Users will be able to use the search bar to look for specific users by name.
