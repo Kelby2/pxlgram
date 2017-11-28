@@ -1,5 +1,4 @@
 import React from 'react';
-import debounce from 'debounce';
 import SearchResultsIndexItem from './search_result_index_item'
 
 class Searchbar extends React.Component {
@@ -7,29 +6,30 @@ class Searchbar extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
-      active: false
+      active: false,
+      queue: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.searchUsers = this.props.searchUsers.bind(this);
+    this.fire = this.fire.bind(this);
+
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    this._clearUsers = this._clearUsers.bind(this);
     this._toggleDropdown = this._toggleDropdown.bind(this);
-    this.searchUsers = debounce(this.props.searchUsers, 1000);
   }
 
   handleInputChange(event) {
-    event.preventDefault();
-    this.setState( {searchTerm: event.currentTarget.value } )
-    const query = event.currentTarget.value;
 
-    if (query.length > 0) {
-      this.setState( { active: true } )
-      this._callSearch(query)
+    event.preventDefault();
+    const query = event.currentTarget.value;
+    if (event.currentTarget.value.length > 0) {
+      this.setState( {searchTerm: event.currentTarget.value }, this._callSearch(query) )
     } else {
-      this.setState( { active: false } );
-      this._clearUsers();
+      this.setState( {searchTerm: event.currentTarget.value});
+      this.props.clearSearch();
     }
+
   }
 
   handleFocus(e) {
@@ -38,7 +38,7 @@ class Searchbar extends React.Component {
   }
 
   handleBlur() {
-    setTimeout(this._toggleDropdown, 100);
+    setTimeout(this._toggleDropdown, 120);
   }
 
   _toggleDropdown() {
@@ -46,11 +46,23 @@ class Searchbar extends React.Component {
   }
 
   _callSearch(query) {
-    this.searchUsers(query)
+
+    if (!this.state.queue) {
+      this.setState( {queue: true },
+        () =>
+        this.what = window.setTimeout(this.fire, 750)
+      )
+    } else {
+      window.clearTimeout(this.what);
+      this.what = window.setTimeout(this.fire, 750);
+    }
   }
 
-  _clearUsers() {
-    setTimeout(this.props.clearSearch, 1001);
+  fire() {
+    if (this.state.searchTerm.length > 0) {
+      this.searchUsers(this.state.searchTerm);
+    }
+    this.setState({queue: false})
   }
 
   render() {
