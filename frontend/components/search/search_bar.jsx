@@ -1,75 +1,89 @@
 import React from 'react';
 import SearchResultsIndexItem from './search_result_index_item'
 
+const SEARCH_DELAY = 750;
+const SHOW_DROPDOWN_DELAY = 120;
+
 class Searchbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "",
-      active: false,
-      queue: false
+      usernameQuery: "",
+      showResults: false,
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.startSearch = this.startSearch.bind(this);
     this.searchUsers = this.props.searchUsers.bind(this);
-    this.fire = this.fire.bind(this);
 
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    this._toggleDropdown = this._toggleDropdown.bind(this);
+    this._toggleShowResults = this._toggleShowResults.bind(this);
   }
 
-  handleInputChange(event) {
+  //Clear the search bar if we move to a different page, update pathURL
+  componentWillReceiveProps(newProps) {
+    if (this.props.pathURL !== newProps.location.pathname ) {
+      this.setState(
+        { usernameQuery: "" },
+      () => this.props.clearSearch() );
+    }
+  }
 
-    event.preventDefault();
-    const query = event.currentTarget.value;
-    if (event.currentTarget.value.length > 0) {
-      this.setState( {searchTerm: event.currentTarget.value }, this._callSearch(query) )
+  //Checks on every input to see if we should start a search to the database.
+  //If the search bar is empty, we do not want to query the database and want
+  //to clear our search results to null.
+  handleInputChange(e) {
+    e.preventDefault();
+    const usernameQuery = e.currentTarget.value;
+    this.setState( { usernameQuery } )
+
+    if (usernameQuery.length > 0) {
+      this._callSearch(usernameQuery)
     } else {
-      this.setState( {searchTerm: event.currentTarget.value});
       this.props.clearSearch();
     }
-
   }
 
+  //Highlights text in the search bar and activates display for results.
   handleFocus(e) {
     e.currentTarget.select()
-    this._toggleDropdown();
+    this._toggleShowResults();
   }
 
+  // Hides display for results when we click away from the search bar.
+  // Delay added so user can click on the search results and navigate
+  // to user profile.
   handleBlur() {
-    setTimeout(this._toggleDropdown, 120);
+    setTimeout(this._toggleShowResults, SHOW_DROPDOWN_DELAY);
   }
 
-  _toggleDropdown() {
-    this.setState( {active: !this.state.active} )
-  }
-
+  // Debouncing search with setTimeout to limit the number of calls to
+  // the database. If user makes another input within the delay, the
+  // previous search is cleared and the delay restarts for a new search
   _callSearch(query) {
+    clearTimeout(this.queueSearch);
+    this.queueSearch = setTimeout(this.startSearch, SEARCH_DELAY);
+  }
 
-    if (!this.state.queue) {
-      this.setState( {queue: true },
-        () =>
-        this.what = window.setTimeout(this.fire, 750)
-      )
-    } else {
-      window.clearTimeout(this.what);
-      this.what = window.setTimeout(this.fire, 750);
+  // Dispatches search to the database with the query. As this was an
+  // asynchronous call, we need to check that the current state is not
+  // empty.
+  startSearch() {
+    if (this.state.usernameQuery.length > 0) {
+      this.searchUsers(this.state.usernameQuery);
     }
   }
 
-  fire() {
-    if (this.state.searchTerm.length > 0) {
-      this.searchUsers(this.state.searchTerm);
-    }
-    this.setState({queue: false})
+  _toggleShowResults() {
+    this.setState( {showResults: !this.state.showResults} )
   }
 
   render() {
     const searchResults = this.props.searchResults;
     let resultsIndex;
 
-    if (this.state.searchTerm.length > 0 && searchResults && this.state.active) {
+    if (searchResults && this.state.showResults) {
 
       if (searchResults.length > 0) {
         resultsIndex = (
@@ -100,7 +114,7 @@ class Searchbar extends React.Component {
           className="user-search-bar"
           type="search"
           placeholder="Search"
-          value={ this.state.searchTerm }
+          value={ this.state.usernameQuery }
           onFocus={ this.handleFocus }
           onBlur={ this.handleBlur }
           onChange={ this.handleInputChange }

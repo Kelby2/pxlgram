@@ -17,7 +17,7 @@ const UIReducer = (oldState = {}, action) => {
 
     case CLEAR_USERS_SEARCH:
       newState = Object.assign({}, oldState);
-      newState.searchResults = 0;
+      newState.searchResults = null;
       return newState;
 
     default:

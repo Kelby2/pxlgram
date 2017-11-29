@@ -1,9 +1,9 @@
 class Api::UsersController < ApplicationController
 
   def index
-    searchTerm = params[:query]
-    if searchTerm
-      @users = User.where("username LIKE ?", "#{searchTerm}%")
+    userQuery = params[:query]
+    if userQuery
+      @users = User.where("username LIKE ?", "#{userQuery}%")
     else
       @users = User.all
     end
