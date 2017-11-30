@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :fullname, :password_digest, presence: true
   validates :email, :username, :session_token, presence: true,
    uniqueness: true
+  validates :username, format: { with: /\A[a-zA-Z0-9_.]+\Z/,
+    message: "can only use letters, numbers, underscores and periods." }
   validates :bio, length: { maximum: 150 }
   validates :password, length: { minimum: 6, allow_nil: true }
   has_attached_file :avatar, default_url: "default-user-avatar.png"

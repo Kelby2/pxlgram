@@ -52,7 +52,7 @@ class PhotoUpload extends React.Component {
 
             <div className='photo-caption-container'>
 
-              <div className='caption-container'>
+              <div className='update-caption-container'>
                 <textarea
                   className='user-caption'
                   value={this.state.caption}

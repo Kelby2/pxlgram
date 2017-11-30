@@ -102,9 +102,10 @@
   width: 320px;
   font-family: sans-serif;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   .stat {
     font-weight: bold;
+    margin-right: 5px;
   }
 }
 

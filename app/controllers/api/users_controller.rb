@@ -3,7 +3,8 @@ class Api::UsersController < ApplicationController
   def index
     userQuery = params[:query]
     if userQuery
-      @users = User.where("username LIKE ?", "#{userQuery}%")
+      @users = User.where("username LIKE ? OR fullname LIKE ?",
+                            "#{userQuery}%", "#{userQuery}%")
     else
       @users = User.all
     end
@@ -20,8 +21,14 @@ class Api::UsersController < ApplicationController
     if @user.save
       login!(@user)
       render :show
+    elsif @user.username.empty?
+      errors = @user.errors.full_messages
+      errors.delete("Username can only use letters, numbers, underscores and periods.")
+      render json: errors, status: 422
     else
-      render json: @user.errors.full_messages, status: 422
+      errors = @user.errors.full_messages
+      errors.delete("Username can't be empty")
+      render json: errors, status: 422
     end
 
   end

@@ -69,9 +69,9 @@ class UserProfile extends React.Component {
 
                 <div className='info-section-2'>
                   <span className='user-stats'>
-                    <div className='stat photo-count'>{user.photoIds.length}</div> posts
-                    <div className='stat follower-count'>{Math.floor(50*Math.random())}</div> followers
-                    <div className='stat following-count'>{Math.floor(50*Math.random())}</div> following
+                    <div className='stat photo-count'>{user.photoIds.length} </div> posts
+                    <div className='stat follower-count'></div>
+                    <div className='stat following-count'></div>
                   </span>
                 </div>
 
