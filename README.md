@@ -5,7 +5,7 @@ Live site: [Pxlgram](http://pxlgram.herokuapp.com)!
 Pixelgram is an single-paged photo sharing web-app inspired by Instagram. Built with Ruby on Rails on the backend,
 a PostgreSQL database, and React.js with Redux framework on the frontend.
 
-![Pxlgram](./assets/images/readme/pxlgram.gif)
+![Pxlgram](./app/assets/images/readme/pxlgram.gif)
 
 ## Features and Implementation
 
@@ -13,14 +13,14 @@ a PostgreSQL database, and React.js with Redux framework on the frontend.
 
 Users are able to use the search bar to look for specific users by name. The search is implemented with with a custom debounce to reduce the number of queries sent to the database.
 
-![Pxlgram](./assets/images/readme/search.gif)
+![Pxlgram](./app/assets/images/readme/search.gif)
 
 ### Photo Likes
 
 On the photo feed index, users have the option to commend each photo with a like. Likes are limited to 1 per user on each photo, and can be created or removed by clicking the heart located right under the photo. Liking the photo will display a red heart to show the
 current user that this photo has already been liked.
 
-![LikeAndComment](./assets/images/readme/likecomment.gif)
+![LikeAndComment](./app/assets/images/readme/likecomment.gif)
 
 ### Photo Comments
 
