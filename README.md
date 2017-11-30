@@ -1,9 +1,8 @@
 # Pxlgram
 
-Live site: [Pxlgram](http://pxlgram.herokuapp.com)!
+Live site: [Pxlgram](http://pxlgram.herokuapp.com)
 
-Pixelgram is an single-paged photo sharing web-app inspired by Instagram. Built with Ruby on Rails on the backend,
-a PostgreSQL database, and React.js with Redux framework on the frontend.
+Pxlgram is an single-paged photo sharing web-app inspired by Instagram. Built with Ruby on Rails on the backend, PostgreSQL database, and React.js with Redux framework on the frontend.
 
 ![Pxlgram](./app/assets/images/readme/pxlgram.gif)
 
@@ -11,7 +10,7 @@ a PostgreSQL database, and React.js with Redux framework on the frontend.
 
 ### User Search
 
-Users are able to use the search bar to look for specific users by name. The search is implemented with with a custom debounce to reduce the number of queries sent to the database.
+Users are able to use the search bar to look for specific users by username. The search is implemented with with a custom debounce to reduce the number of queries sent to the database.
 
 ![Pxlgram](./app/assets/images/readme/search.gif)
 
