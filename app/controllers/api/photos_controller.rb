@@ -14,7 +14,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-
     @user = current_user
     @photo = @user.photos.create(photo_params)
 
@@ -23,19 +22,6 @@ class Api::PhotosController < ApplicationController
     else
       render json: @photo.errors.full_messages, status: 422
     end
-
-  end
-
-  def update
-    @photo = current_user.photos.find_by(id: params[:id])
-
-    if @photo
-      @photo.update(photo_params)
-      render :show
-    else
-      render json: ['You are not authorized to edit this'], status: 401
-    end
-
   end
 
   def destroy
@@ -46,8 +32,6 @@ class Api::PhotosController < ApplicationController
       render json: ['You cannot delete this photo'],
       status: 401
     end
-
-
   end
 
   private

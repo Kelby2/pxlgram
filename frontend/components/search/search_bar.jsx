@@ -24,8 +24,7 @@ class Searchbar extends React.Component {
   //Clear the search bar if we move to a different page, update pathURL
   componentWillReceiveProps(newProps) {
     if (this.props.pathURL !== newProps.location.pathname ) {
-      this.setState(
-        { usernameQuery: "" },
+      this.setState( { usernameQuery: "" },
       () => this.props.clearSearch() );
     }
   }
