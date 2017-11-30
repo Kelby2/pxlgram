@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-10.times do |n|
+20.times do |n|
   char_firstname = Faker::Name.unique.first_name
   char_lastname = Faker::Name.last_name
   char_fullname = "#{char_firstname} #{char_lastname}"
@@ -16,7 +16,7 @@ User.destroy_all
                 bio: Faker::Simpsons.quote, avatar: Faker::LoremPixel.image)
 end
 
-40.times do |n|
+25.times do |n|
   char_firstname = Faker::Name.unique.first_name
   char_lastname = Faker::Name.last_name
   char_fullname = "#{char_firstname} #{char_lastname}"
@@ -27,7 +27,6 @@ end
 
 
 
-user0 = User.create!(username: 'friend', password: 'password', fullname: 'guest user', email: 'friend@pxlgram.com')
 user1 = User.create!(username: 'admin', password: 'password', fullname: 'administrator', email: 'admin@pxlgram.com', avatar: File.open('app/assets/images/monkey.png'), bio: 'I am the moderator here, thank you for checking out pixelgram.')
 user2 = User.create!(username: 'kelbylu', password: 'password', fullname: 'Kelby Lu', email: 'kelbylu@pxlgram.com', avatar: File.open('app/assets/images/kelby.jpg'), bio: 'Thanks for stopping by!')
 user3 = User.create!(username: 'taylorswift', password: 'password', fullname: 'Taylor Swift', email: 'taylorswift@pxlgram.com', avatar: File.open('app/assets/images/taylor.jpg'), bio: 'This is the new me. The old me is dead.')
@@ -40,6 +39,7 @@ user8 = User.create!(username: 'kevinhart4real', password: 'password', fullname:
 user9 = User.create!(username: 'nba', password: 'password', fullname: 'National Basketball Association', email: 'nba@pxlgram.com', avatar: File.open('app/assets/images/nike.jpg'))
 user10 = User.create!(username: 'kingjames', password: 'password', fullname: 'Lebron Raymone James', email: 'kingjames@pxlgram.com', avatar: File.open('app/assets/images/cavs.png'), bio: '#23')
 user11 = User.create!(username: 'kobe', password: 'password', fullname: 'Kobe Bean Bryant', email: 'kobe@pxlgram.com', avatar: File.open('app/assets/images/lakers-ava.jpg'), bio: "Publisher, Investor, Producer. I produce points.")
+user12 = User.create!(username: 'friend', password: 'password', fullname: 'guest user', email: 'friend@pxlgram.com', avatar: File.open('app/assets/images/avatar.jpg'), bio: "Welcome to your page! You can see all the photos that you've posted below! They're lookin great!")
 
 Photo.destroy_all
 
@@ -65,24 +65,32 @@ photo18 = Photo.create!(author: User.find_by(username: 'friend'), caption: "This
 photo19 = Photo.create!(author: User.find_by(username: 'nike'), caption: "Just do it", image: File.open('app/assets/images/nike2.jpg'))
 photo20 = Photo.create!(author: User.find_by(username: 'nike'), caption: "Cop these new shoes, available at your local store", image: File.open('app/assets/images/nike3.jpg'))
 photo21 = Photo.create!(author: User.find_by(username: 'nike'), caption: "This the good stuff", image: File.open('app/assets/images/nike4.jpg'))
+photo22 = Photo.create!(author: User.find_by(username: 'friend'), caption: "Top of the world kinda feeling", image: File.open('app/assets/images/bliss.jpg'))
+photo23 = Photo.create!(author: User.find_by(username: 'friend'), caption: "Something about this wall...", image: File.open('app/assets/images/brickwall.jpg'))
+photo24 = Photo.create!(author: User.find_by(username: 'friend'), caption: "Keep your head up!", image: File.open('app/assets/images/lookup.jpg'))
+photo25 = Photo.create!(author: User.find_by(username: 'friend'), caption: "Woke up early to get this photo", image: File.open('app/assets/images/brooklynbridge.jpg'))
+photo26 = Photo.create!(author: User.find_by(username: 'friend'), caption: "Candid AF", image: File.open('app/assets/images/girl.jpg'))
 
 Like.destroy_all
 
-(1..21).each do |photo_id|
+
+(1..15).each do |photo_id|
   Like.create!(user_id: user1.id, photo_id: photo_id)
   Like.create!(user_id: user2.id, photo_id: photo_id)
-  Like.create!(user_id: user9.id, photo_id: photo_id)
-  Like.create!(user_id: user10.id, photo_id: photo_id)
-end
-
-(13..21).each do |photo_id|
   Like.create!(user_id: user3.id, photo_id: photo_id)
-  Like.create!(user_id: user4.id, photo_id: photo_id)
-  Like.create!(user_id: user6.id, photo_id: photo_id)
 end
 
-(1..8).each do |photo_id|
-  Like.create!(user_id: user5.id, photo_id: photo_id)
+(8..26).each do |photo_id|
+  Like.create!(user_id: user6.id, photo_id: photo_id)
   Like.create!(user_id: user7.id, photo_id: photo_id)
   Like.create!(user_id: user8.id, photo_id: photo_id)
+end
+
+(6..18).each do |photo_id|
+  Like.create!(user_id: user9.id, photo_id: photo_id)
+  Like.create!(user_id: user10.id, photo_id: photo_id)
+  Like.create!(user_id: user11.id, photo_id: photo_id)
+  Like.create!(user_id: user4.id, photo_id: photo_id)
+  Like.create!(user_id: user5.id, photo_id: photo_id)
+  Like.create!(user_id: User.find(2).id, photo_id: photo_id)
 end
