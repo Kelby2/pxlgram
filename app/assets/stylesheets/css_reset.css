@@ -25,6 +25,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+html {
+		min-width: 750px;
+}
+
 body {
 	line-height: 1;
 	z-index: 0;

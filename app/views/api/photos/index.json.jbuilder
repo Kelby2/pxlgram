@@ -7,6 +7,5 @@
 
     json.commentIds photo.comments.map(&:id)
     json.commenterIds photo.commenters.map(&:id)
-
   end
 end

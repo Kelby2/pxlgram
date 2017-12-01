@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'rails_12factor'
 gem 'faker'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -5,6 +5,7 @@ class Api::PhotosController < ApplicationController
       user = User.find_by(username: params[:user_id])
       @photos = user.photos
     else
+      debugger
       @photos = Photo.all
     end
   end
