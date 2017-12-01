@@ -1,8 +1,18 @@
+.loader {
+}
+
 .photo-stream-container {
   width: 600px;
   height: 100%;
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  .photo-stream-container {
+    width: 100%;
+  }
 }
 
 .photo-post-container {
@@ -11,16 +21,16 @@
 }
 
 .photo-post {
-  margin-top: 60px;
+  margin-bottom: 60px;
   background-color: #ffffff;
   width: 100%;
-  border: 1px solid #e6e6e6;
+  outline: 1px solid #e6e6e6;
   box-sizing: content-box;
 }
 
 .photo-container {
   display: block;
-  width: 600px;
+  width: 100%;
   height: auto;
   max-height: 750px;
   background-color: inherit;

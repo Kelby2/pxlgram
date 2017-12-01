@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
 import HeaderContainer from '../header/header_container';
+import { BeatLoader } from 'react-spinners';
 
 class PhotoIndex extends React.Component {
   constructor(props) {
@@ -19,22 +20,30 @@ class PhotoIndex extends React.Component {
     this.props.getUsers();
     this.props.getPhotosByPage(this.state.page);
     this.props.getComments();
-
     window.addEventListener('scroll', this.handleScroll)
   }
 
   handleScroll(event) {
     const distanceFromTop = $(window).scrollTop();
-    const breakpointForFetch = $(document).height() - 125;
+    const breakpointForFetch = $(document).height() - 100;
     if (distanceFromTop + $(window).height() > breakpointForFetch) {
       this.setState( { page: this.state.page + 1 },
-      this.props.getPhotosByPage(this.state.page) )
+      this.getAdditionalPhotos)
     }
   }
 
-  render() {
+  getAdditionalPhotos() {
+    this.props.getPhotosByPage(this.state.page);
+  }
 
-    if (this.props.photos.length > 0 && Object.keys(this.props.users).length > 0) {
+  render() {
+    let content = (
+      <div className='loader'>
+        <BeatLoader
+          color={'#FF1100'}
+          loading={ this.state.loading }/>
+      </div>
+    )
 
     return (
       <div className='photo-stream-container'>
@@ -50,11 +59,11 @@ class PhotoIndex extends React.Component {
             })
           }
         </ul>
+        {content}
       </div>
-    )} else {
-      return null;
-    }
+    )
   }
+
 }
 
 export default PhotoIndex;
