@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotos, clearAllPhotos } from '../../actions/photo_actions';
+import { getPhotos, getPhotosByPage } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import { getComments } from '../../actions/comment_actions'
 import PhotoIndex from './photo_index';
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     getComments: () => dispatch(getComments()),
-    getPhotos: () => dispatch(getPhotos()),
+    getPhotosByPage: (page) => dispatch(getPhotosByPage(page)),
     getUsers: () => dispatch(getUsers()),
     addLike: (photo_id) => dispatch(addLike(photo_id)),
     deleteLike: () => dispatch(deleteLike(id))

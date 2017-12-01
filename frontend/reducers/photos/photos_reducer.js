@@ -1,4 +1,5 @@
-import { RECEIVE_ALL_PHOTOS,
+import { RECEIVE_PHOTO_PAGE,
+        RECEIVE_ALL_PHOTOS,
         RECEIVE_PHOTO,
         REMOVE_PHOTO,
         CLEAR_PHOTOS } from '../../actions/photo_actions';
@@ -10,6 +11,13 @@ const PhotosReducer = (oldState = {}, action) => {
   let newState;
 
   switch (action.type) {
+    case RECEIVE_PHOTO_PAGE:
+      newState = Object.assign(
+        {},
+        oldState,
+        action.photos
+      );
+      return newState;
     case RECEIVE_ALL_PHOTOS:
       newState = Object.assign(
         {},

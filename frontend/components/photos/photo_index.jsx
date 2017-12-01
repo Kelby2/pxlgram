@@ -6,12 +6,30 @@ import HeaderContainer from '../header/header_container';
 class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      page: 1,
+      loading: false
+    }
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
     this.props.getUsers();
-    this.props.getPhotos();
+    this.props.getPhotosByPage(this.state.page);
     this.props.getComments();
+
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll(event) {
+    const distanceFromTop = $(window).scrollTop();
+    const breakpointForFetch = $(document).height() - 125;
+    if (distanceFromTop + $(window).height() > breakpointForFetch) {
+      this.setState( { page: this.state.page + 1 },
+      this.props.getPhotosByPage(this.state.page) )
+    }
   }
 
   render() {

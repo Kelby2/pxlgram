@@ -5,8 +5,7 @@ class Api::PhotosController < ApplicationController
       user = User.find_by(username: params[:user_id])
       @photos = user.photos
     else
-      debugger
-      @photos = Photo.all
+      @photos = Photo.order(created_at: :desc).paginate(:page => params[:page], per_page: 5)
     end
   end
 

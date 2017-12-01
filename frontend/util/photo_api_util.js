@@ -5,6 +5,13 @@ export const getPhotos = () => {
   })
 }
 
+export const getPhotosByPage = (pageNumber) => {
+  return $.ajax({
+    method: 'get',
+    url: `api/photos?page=${pageNumber}`
+  })
+}
+
 export const getUserPhotos = (user_id) => {
   return $.ajax({
     method: 'get',
