@@ -10,7 +10,7 @@ class PhotoIndex extends React.Component {
 
     this.state = {
       page: 1,
-      loading: false
+      loading: true
     }
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -26,9 +26,10 @@ class PhotoIndex extends React.Component {
   handleScroll(event) {
     const distanceFromTop = $(window).scrollTop();
     const breakpointForFetch = $(document).height() - 100;
-    if (distanceFromTop + $(window).height() > breakpointForFetch) {
+
+    if (window.scrollY + window.innerHeight > document.body.clientHeight - 100) {
       this.setState( { page: this.state.page + 1 },
-      this.getAdditionalPhotos)
+      this.getAdditionalPhotos )
     }
   }
 
@@ -37,10 +38,10 @@ class PhotoIndex extends React.Component {
   }
 
   render() {
-    let content = (
+    let loader = (
       <div className='loader'>
         <BeatLoader
-          color={'#FF1100'}
+          color={'#efefef'}
           loading={ this.state.loading }/>
       </div>
     )
@@ -59,7 +60,7 @@ class PhotoIndex extends React.Component {
             })
           }
         </ul>
-        {content}
+        {loader}
       </div>
     )
   }

@@ -170,8 +170,11 @@
 
 .logo-icon {
   border-radius: 75%;
-  img {
+  div {
     width: 65px;
+    height: 65px;
+    background-image: image-url('logo.png');
+    background-size: cover;
   }
 }
 

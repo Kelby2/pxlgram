@@ -6,12 +6,12 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.scrollUp = this.scrollUp.bind(this)
+    this.scrollUp = this.scrollUp.bind(this);
   }
 
   handleScroll(event) {
     const header = $(".fixed-header");
-    const distanceFromTop = $(window).scrollTop()
+    const distanceFromTop = window.scrollY;
     header.toggleClass("mini-header", distanceFromTop > 120);
   }
 
@@ -32,8 +32,7 @@ class Header extends React.Component {
 
             <div className='logo-container'>
               <a href="#/" onClick={ this.scrollUp } className='logo-icon'>
-                <img src={'https://is5.mzstatic.com/image/thumb/Purple117/v4/23/90/61/2390617c-b581-1b75-b0bb-f899350b6bba/source/175x175bb.jpg'}
-                  alt='Logo from mzstatic.com'/>
+                <div></div>
               </a>
 
               <div>
