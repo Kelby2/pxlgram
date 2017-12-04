@@ -5,6 +5,7 @@ class User < ApplicationRecord
    uniqueness: true
   validates :username, format: { with: /\A[a-zA-Z0-9_.]+\Z/,
     message: "can only use letters, numbers, underscores and periods." }
+  validates_exclusion_of :username, in: %w(explore upload), message: "has already been taken"
   validates :bio, length: { maximum: 150 }
   validates :password, length: { minimum: 6, allow_nil: true }
   has_attached_file :avatar, default_url: "default-user-avatar.png"
