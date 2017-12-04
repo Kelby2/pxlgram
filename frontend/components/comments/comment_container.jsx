@@ -4,7 +4,7 @@ import { addComment,
         getPhotoComments,
         getPhoto } from '../../actions/photo_actions';
 import { getComments } from '../../actions/comment_actions'
-import Comment from './comment_index';
+import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photo_id]
@@ -30,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps,
-                        mapDispatchToProps)(Comment)
+                        mapDispatchToProps)(CommentIndex)

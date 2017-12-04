@@ -6,6 +6,7 @@
   width: 600px;
   height: 100%;
   margin: 100px auto;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -76,7 +77,7 @@
 // ###### BELOW PHOTO #######
 
 .photo-info-container {
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
   font-family: sans-serif;
 }
 
@@ -150,26 +151,21 @@
 // ###### COMMENTS #######
 
 .comments-container {
-  border-bottom: 1px solid #efefef;
   padding-bottom: 5px;
 }
 
 .add-comment-form {
   width: 90%;
+  min-height: 28px;
   border: none;
-  overflow: auto;
   outline: none;
-
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+  font-size: 14px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .comment-body {
   font-size: 14px;
   font-family: sans-serif;
-}
-
-.add-comment-form {
-  font-size: 14px;
 }

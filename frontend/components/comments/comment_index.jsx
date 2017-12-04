@@ -56,7 +56,7 @@ class Comment extends React.Component {
             onSubmit={this.handleSubmit}>
             <input
               id={this.props.photo.id}
-              type='text'
+              type='textarea'
               value={this.state.commentBody}
               className='add-comment-form'
               onChange={this.handleInputChange('commentBody')}

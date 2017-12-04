@@ -10,6 +10,7 @@ module Fsp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    config.time_zone = "Eastern Time (US & Canada)"
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.paperclip_defaults = {
       :storage => :s3,

@@ -10,7 +10,7 @@ class PhotoIndex extends React.Component {
 
     this.state = {
       page: 1,
-      loading: true
+      loading: false
     }
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -28,7 +28,7 @@ class PhotoIndex extends React.Component {
     const breakpointForFetch = $(document).height() - 100;
 
     if (window.scrollY + window.innerHeight > document.body.clientHeight - 100) {
-      this.setState( { page: this.state.page + 1 },
+      this.setState( { page: this.state.page + 1, loading: true },
       this.getAdditionalPhotos )
     }
   }
@@ -60,7 +60,7 @@ class PhotoIndex extends React.Component {
             })
           }
         </ul>
-        {loader}
+      
       </div>
     )
   }
