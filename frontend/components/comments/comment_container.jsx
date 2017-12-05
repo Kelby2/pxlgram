@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
-import { addComment,
-        deleteComment,
-        getPhotoComments,
-        getPhoto } from '../../actions/photo_actions';
-import { getComments } from '../../actions/comment_actions'
+import { getPhoto } from '../../actions/photo_actions';
+import { getComments, addComment, getPhotoComments } from '../../actions/comment_actions'
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {

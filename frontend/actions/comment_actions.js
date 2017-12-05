@@ -17,7 +17,22 @@ export const fetchComment = comment => {
   })
 }
 
-export const getComments = () => dispatch => (
-  CommentApiUtil.getComments()
+export const getComments = () => dispatch => {
+  return CommentApiUtil.getComments()
       .then(comments => dispatch(fetchComments(comments)))
-)
+}
+
+export const getPhotoComments = (photo_id) => dispatch => {
+  return CommentApiUtil.getPhotoComments(photo_id)
+              .then(comments => dispatch(fetchComments(comments)))
+}
+
+export const addComment = comment => dispatch => {
+  return CommentApiUtil.addComment(comment)
+              .then(comment => dispatch(fetchComment(comment)))
+}
+
+export const deleteComments = photo_id => dispatch => {
+  return PhotoApiUtil.deleteComment(photo_id)
+              .then(photo => dispatch(fetchPhoto(photo)))
+}

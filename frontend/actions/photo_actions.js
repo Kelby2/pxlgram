@@ -6,7 +6,6 @@ export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const CLEAR_PHOTOS = 'CLEAR_PHOTOS';
 import { fetchUser } from './user_actions';
-import { fetchComments, fetchComment } from './comment_actions';
 
 //photos, photo, photoId is moved to the reducer under action
 export const fetchPhotos = photos => {
@@ -64,21 +63,6 @@ export const addLike = photo_id => dispatch => {
 
 export const deleteLike = (photo_id) => dispatch => {
   PhotoApiUtil.deleteLike(photo_id)
-              .then(photo => dispatch(fetchPhoto(photo)))
-}
-
-export const getPhotoComments = (photo_id) => dispatch => {
-  PhotoApiUtil.getPhotoComments(photo_id)
-              .then(comments => dispatch(fetchComments(comments)))
-}
-
-export const addComment = comment => dispatch => {
-  return PhotoApiUtil.addComment(comment)
-              .then(comment => dispatch(fetchComment(comment)))
-}
-
-export const deleteComments = photo_id => dispatch => {
-  PhotoApiUtil.deleteComment(photo_id)
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 

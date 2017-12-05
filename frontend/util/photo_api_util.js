@@ -58,19 +58,3 @@ export const deleteLike = (photo_id) => {
     url: `api/likes/${photo_id}`
   })
 }
-
-export const getPhotoComments = (photo_id) => {
-  return $.ajax({
-    method: 'get',
-    url: 'api/comments',
-    data: { photo_id }
-  })
-}
-
-export const addComment = (comment) => {
-  return $.ajax({
-    method: 'post',
-    url: `api/photos/${comment.photo_id}/comments`,
-    data: { body: comment.commentBody }
-  })
-}
