@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container'
-import CommentContainer from '../comments/comment_container'
+import CommentIndexContainer from '../comments/comment_index_container'
 
 const handleComment = (event) => {
   document.getElementById(event).focus();
@@ -62,7 +62,7 @@ const PhotoIndexItem = ({ photo, user}) => {
             </div>
 
             <div className='comments-container'>
-              <CommentContainer photo_id={photo.id} />
+              <CommentIndexContainer photo_id={photo.id} />
             </div>
 
           </article>

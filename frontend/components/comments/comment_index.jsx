@@ -42,8 +42,7 @@ class Comment extends React.Component {
                 return (
                   <CommentItem
                     key={ comment.id }
-                    comment={ comment }
-                    user={ this.props.users[comment.author] }/>
+                    comment={ comment }/>
                 )
               })
             }

@@ -16,9 +16,12 @@ class PhotoIndex extends React.Component {
 
   componentDidMount() {
     this.props.getUsers();
-    this.props.getComments();
     this.props.getPhotosByPage(this.state.page);
     window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll(event) {

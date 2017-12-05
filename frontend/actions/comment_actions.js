@@ -1,12 +1,20 @@
 import * as CommentApiUtil from '../util/comment_api_util';
 
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
+export const RECEIVE_PHOTO_COMMENTS = 'RECEIVE_PHOTO_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 
 export const fetchComments = comments => {
   return ({
     type: RECEIVE_ALL_COMMENTS,
     comments
+  })
+}
+
+export const fetchPhotoComments = comments => {
+  return ({
+    type: RECEIVE_PHOTO_COMMENTS,
+    comments,
   })
 }
 
@@ -24,7 +32,7 @@ export const getComments = () => dispatch => {
 
 export const getPhotoComments = (photo_id) => dispatch => {
   return CommentApiUtil.getPhotoComments(photo_id)
-              .then(comments => dispatch(fetchComments(comments)))
+              .then(comments => dispatch(fetchPhotoComments(comments)))
 }
 
 export const addComment = comment => dispatch => {
