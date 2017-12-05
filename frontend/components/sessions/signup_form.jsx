@@ -13,6 +13,7 @@ class SignUpForm extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   renderErrors() {
@@ -51,6 +52,12 @@ class SignUpForm extends React.Component {
                     password: "",
                     fullname: "",
                     email: ""})
+  }
+
+  handleDemoLogin(event) {
+    event.preventDefault();
+    const user = { username: 'friend', password: 'password' };
+    this.props.login(user);
   }
 
   render () {
@@ -133,6 +140,11 @@ class SignUpForm extends React.Component {
             className='submitButton'
             type='submit'
             value='Sign Up' />
+          <input
+            onClick={this.handleDemoLogin}
+            className='submitButton'
+            type='submit'
+            value='Demo Login' />
         </form>
         <ul>
           {this.renderErrors()}
