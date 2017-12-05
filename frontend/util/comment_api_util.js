@@ -20,3 +20,10 @@ export const addComment = (comment) => {
     data: { body: comment.commentBody }
   })
 }
+
+export const deleteComment = (comment) => {
+  return $.ajax([
+    method: 'delete',
+    url: `api/comments/${comment.id}`
+  ])
+}
