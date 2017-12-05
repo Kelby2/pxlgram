@@ -84,22 +84,23 @@ class UserProfile extends React.Component {
 
             </article>
 
-            <article className='user-photos-container'>
-              <ul className='user-photos'>
-                {
-                  this.props.photos.map(photo => {
-                    return(
-                      <PhotoGridItem
-                        key={ photo.id }
-                        photo={ photo }/>
-                      )
-                  })
-                }
-              </ul>
+              <article className='user-photos-container'>
+                <ul className='user-photos'>
+                  {
+                    this.props.photos.map(photo => {
+                      return(
+                        <PhotoGridItem
+                          key={ photo.id }
+                          photo={ photo }/>
+                        )
+                    })
+                  }
+                </ul>
               </article>
-            </div>
-          </main>
-        )} else {
+          </div>
+        </main>
+      )
+    } else {
       return null;
     }
   }
