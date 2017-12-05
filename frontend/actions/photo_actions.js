@@ -42,8 +42,8 @@ export const getPhotosByPage = page => dispatch => {
               .then(photos => dispatch(fetchPhotoPage(photos)))
 }
 
-export const getUserPhotos = userId => dispatch => (
-  PhotoApiUtil.getUserPhotos(userId)
+export const getUserPhotos = username => dispatch => (
+  PhotoApiUtil.getUserPhotos(username)
               .then(photos => dispatch(fetchPhotos(photos)))
 )
 

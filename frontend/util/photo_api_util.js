@@ -12,14 +12,14 @@ export const getPhotosByPage = (pageNumber) => {
   })
 }
 
-export const getUserPhotos = (user_id) => {
+export const getUserPhotos = user_id => {
   return $.ajax({
     method: 'get',
     url: `api/users/${user_id}/photos`
   })
 }
 
-export const getPhoto = (id) => {
+export const getPhoto = id => {
   return $.ajax({
     method: 'get',
     url: `api/photos/${id}`,

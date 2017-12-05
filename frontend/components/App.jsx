@@ -14,8 +14,8 @@ const App = () => (
     <ProtectedRoute path='/' component={ HeaderContainer }/>
     <header className='header'>
       <Switch>
-        <ProtectedRoute exact path='/explore' component={ PhotoGridContainer } />
         <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
+        <ProtectedRoute exact path='/explore' component={ PhotoGridContainer } />
         <ProtectedRoute exact path='/:username/edit' component= { UserEditContainer } />
         <ProtectedRoute path='/:username' component={ UserContainer } />
         <Route path='/' component={LandingPageContainer} />
