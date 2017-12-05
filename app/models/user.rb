@@ -8,8 +8,9 @@ class User < ApplicationRecord
   validates_exclusion_of :username, in: %w(explore upload), message: "has already been taken"
   validates :bio, length: { maximum: 150 }
   validates :password, length: { minimum: 6, allow_nil: true }
+
   has_attached_file :avatar, default_url: "default-user-avatar.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/, matches: [/png\z/, /jpe?g\z/]
 
   before_validation :ensure_session_token
   attr_reader :password
