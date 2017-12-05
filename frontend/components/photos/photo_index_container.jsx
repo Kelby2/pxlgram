@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { getPhotos, getPhotosByPage } from '../../actions/photo_actions';
+import { getPhotosByPage } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import { getComments } from '../../actions/comment_actions'
 import PhotoIndex from './photo_index';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const photos = Object.keys(state.entities.photos)
   .map(id => state.entities.photos[id]).reverse()
 
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
   });
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return ({
     getComments: () => dispatch(getComments()),
     getPhotosByPage: (page) => dispatch(getPhotosByPage(page)),
@@ -32,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps,
-                        mapDispatchToProps)(PhotoIndex)
+                        mapDispatchToProps)(PhotoIndex);
