@@ -5,7 +5,7 @@ export const getComments = () => {
   })
 }
 
-export const getPhotoComments = (photo_id) => {
+export const getPhotoComments = photo_id => {
   return $.ajax({
     method: 'get',
     url: 'api/comments',
@@ -13,7 +13,7 @@ export const getPhotoComments = (photo_id) => {
   })
 }
 
-export const addComment = (comment) => {
+export const addComment = comment => {
   return $.ajax({
     method: 'post',
     url: `api/photos/${comment.photo_id}/comments`,
@@ -21,9 +21,9 @@ export const addComment = (comment) => {
   })
 }
 
-export const deleteComment = (comment) => {
-  return $.ajax([
+export const deleteComment = comment => {
+  return $.ajax({
     method: 'delete',
     url: `api/comments/${comment.id}`
-  ])
+  })
 }
