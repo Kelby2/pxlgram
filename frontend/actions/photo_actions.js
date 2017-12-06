@@ -2,6 +2,7 @@ import * as PhotoApiUtil from '../util/photo_api_util';
 
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO_PAGE = 'RECEIVE_PHOTO_PAGE';
+export const RECEIVE_PHOTO_GRID = 'RECEIVE_PHOTO_GRID';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const CLEAR_PHOTOS = 'CLEAR_PHOTOS';
@@ -18,6 +19,13 @@ export const fetchPhotos = photos => {
 export const fetchPhotoPage = photos => {
   return ({
     type: RECEIVE_PHOTO_PAGE,
+    photos,
+  })
+}
+
+export const fetchPhotoGrid = photos => {
+  return ({
+    type: RECEIVE_PHOTO_GRID,
     photos,
   })
 }
@@ -39,6 +47,11 @@ export const removePhoto = photoId => {
 export const getPhotosByPage = page => dispatch => {
   PhotoApiUtil.getPhotosByPage(page)
               .then(photos => dispatch(fetchPhotoPage(photos)))
+}
+
+export const getPhotosByGrid = page => dispatch => {
+  PhotoApiUtil.getPhotosByGrid(page)
+              .then(photos => dispatch(fetchPhotoGrid(photos)))
 }
 
 export const getUserPhotos = username => dispatch => (

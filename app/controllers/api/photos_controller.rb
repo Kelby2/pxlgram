@@ -12,6 +12,15 @@ class Api::PhotosController < ApplicationController
     end
   end
 
+  def grid
+    @photos = Photo
+    .order(created_at: :desc)
+    .paginate(:page => params[:page], per_page: 12)
+
+    render 'api/photos/index'
+    # .paginate(:page => params[:page], per_page: 12)
+  end
+
   def show
     @photo = Photo.find(params[:id])
   end

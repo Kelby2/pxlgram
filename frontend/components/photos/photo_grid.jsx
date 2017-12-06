@@ -4,11 +4,35 @@ import PhotoGridItem from './photo_grid_item';
 class PhotoGrid extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      page: 1
+    }
+
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    this.props.getPhotos();
     $('html').scrollTop(0);
+    this.props.getPhotosByGrid(this.state.page);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    const distanceFromTop = $(window).scrollTop();
+    const breakpointForFetch = $(document).height() - 100;
+
+    if (window.scrollY + window.innerHeight > document.body.clientHeight - 100) {
+      this.setState( { page: this.state.page + 1 },
+      this.getAdditionalPhotos );
+    }
+  }
+
+  getAdditionalPhotos() {
+    this.props.getPhotosByGrid(this.state.page)
   }
 
   render() {

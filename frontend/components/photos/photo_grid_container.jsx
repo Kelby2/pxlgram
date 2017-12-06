@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotos } from '../../actions/photo_actions';
+import { getPhotosByGrid } from '../../actions/photo_actions';
 import PhotoGrid from './photo_grid';
 
 const mapStateToProps = state => {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    getPhotos: () => dispatch(getPhotos()),
+    getPhotosByGrid: (pageNumber) => dispatch(getPhotosByGrid(pageNumber)),
   });
 };
 

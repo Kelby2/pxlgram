@@ -5,17 +5,24 @@ export const getPhotos = () => {
   })
 }
 
-export const getPhotosByPage = (pageNumber) => {
+export const getPhotosByPage = pageNumber => {
   return $.ajax({
     method: 'get',
     url: `api/photos?page=${pageNumber}`
   })
 }
 
-export const getUserPhotos = user_id => {
+export const getPhotosByGrid = pageNumber => {
   return $.ajax({
     method: 'get',
-    url: `api/users/${user_id}/photos`
+    url: `api/photos/grid?page=${pageNumber}`
+  })
+}
+
+export const getUserPhotos = username => {
+  return $.ajax({
+    method: 'get',
+    url: `api/users/${username}/photos`
   })
 }
 
@@ -44,7 +51,7 @@ export const deletePhoto = photo => {
   })
 }
 
-export const addLike = (photo_id) => {
+export const addLike = photo_id => {
   return $.ajax({
     method: 'post',
     url: 'api/likes',
@@ -52,7 +59,7 @@ export const addLike = (photo_id) => {
   })
 }
 
-export const deleteLike = (photo_id) => {
+export const deleteLike = photo_id => {
   return $.ajax({
     method: 'delete',
     url: `api/likes/${photo_id}`

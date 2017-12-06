@@ -18,14 +18,14 @@ const PhotoIndexItem = ({ photo, user}) => {
 
             <div className='stream-avatar-container'>
               <Link to={`/${photo.author_name}`}>
-                <img className='stream-avatar' src={user.avatarUrl} />
+                <img className='stream-avatar' src={photo.author_avatar} />
               </Link>
             </div>
 
             <div className='author-username'>
-              <Link to={`${user.username}`}>
+              <Link to={`${photo.author_name}`}>
                  <div className='stream-username'>
-                   {user.username}
+                   {photo.author_name}
                 </div>
               </Link>
             </div>
@@ -52,8 +52,8 @@ const PhotoIndexItem = ({ photo, user}) => {
 
             <div className='caption-container'>
               <span className='author-username'>
-                <Link to={`${user.username}`}>
-                  {(photo.caption && photo.caption.length > 0) ? user.username : ""}
+                <Link to={`${photo.author_name}`}>
+                  {(photo.caption && photo.caption.length > 0) ? photo.author_name : ""}
                 </Link>
               </span>
               <span className='caption'>
