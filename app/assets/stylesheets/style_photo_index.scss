@@ -30,6 +30,14 @@
   overflow: hidden;
 }
 
+.photo {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  max-height: 750px;
+  object-fit: cover;
+}
+
 .photo-author-info {
   height: 60px;
   width: 100%;
@@ -57,14 +65,6 @@
   font-size: 14px;
   text-decoration: none;
   margin-right: 5px;
-}
-
-.photo {
-  width: 100%;
-  height: auto;
-  max-width: 600px;
-  max-height: 700px;
-  object-fit: cover;
 }
 
 // ###### BELOW PHOTO #######
@@ -166,7 +166,7 @@
   .photo-stream-container {
     width: 100%;
   }
-  .photo-container {
+  .photo, .photo-container {
     max-height: 125vw;
   }
 }
