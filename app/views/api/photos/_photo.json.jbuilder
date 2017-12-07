@@ -2,7 +2,7 @@ json.extract! photo, :id, :author_id, :caption
 
 json.seconds_ago Time.now.minus_with_coercion(photo.created_at).round
 json.author_name photo.author.username
-json.author_avatar photo.author.avatar
+json.author_avatar asset_path(photo.author.avatar.url)
 
 json.likerIds photo.likers.map(&:id)
 

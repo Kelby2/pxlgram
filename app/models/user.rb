@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_attached_file :avatar, default_url: "default-user-avatar.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/, matches: [/png\z/, /jpe?g\z/]
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   before_validation :ensure_session_token
   attr_reader :password
