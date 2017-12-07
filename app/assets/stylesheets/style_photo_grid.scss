@@ -1,22 +1,132 @@
-.explore-container {
-
+.explore-page {
+  margin-top: 100px;
 }
 
-.explore {
-  margin: 100px auto;
+.user-photos-container {
+  border-top: 1px solid #efefef;
   width: 950px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
 }
 
-.explore-title {
+.explore-photos-container {
+  width: 950px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.explore-header {
   font-size: 16px;
   color: #999999;
   font-family: sans-serif;
   font-weight: 600;
+  margin-bottom: 2%;
 }
 
-.photo-grid {
-  padding-top: 20px;
+.photos-grid-container {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: left;
+}
+
+.loader {
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.grid-photo {
+  width: 290px;
+  height: 290px;
+  position: relative;
+  margin-bottom: 25px;
+  margin-right: 18px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #ffffff;
+  display: flex;
+  vertical-align: middle;
+}
+
+//User photo stats are hidden until user hovers over photo
+.grid-photo .grid-photo-stats {
+  display: none;
+}
+
+.grid-photo:hover .grid-photo-stats {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.stat-line {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.grid-photo-image {
+  width: 100%;
   height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.grid-photo-stats {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .7px;
+  z-index: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .explore-photos-container, .user-photos-container {
+    width: 100vw;
+  }
+  .grid-photo {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grid-photo {
+    margin: 0;
+    border: 1px solid white;
+  }
+  .photos-grid-container {
+
+  }
+  .stat-line {
+    width: 25%;
+    height: auto;
+    flex-wrap: wrap;
+    .fa-heart {
+      margin-bottom: 7%;
+    }
+  }
 }

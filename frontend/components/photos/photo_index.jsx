@@ -24,11 +24,11 @@ class PhotoIndex extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll(event) {
-    const distanceFromTop = $(window).scrollTop();
-    const breakpointForFetch = $(document).height() - 100;
-
-    if (window.scrollY + window.innerHeight > document.body.clientHeight - 100) {
+  handleScroll() {
+    const nearBottom = (window.scrollY
+                          + window.innerHeight
+                          + 200 > document.body.clientHeight)
+    if (nearBottom) {
       this.setState( { page: this.state.page + 1, loading: true },
       this.getAdditionalPhotos );
     }

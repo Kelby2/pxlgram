@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    getPhotosByGrid: (pageNumber) => dispatch(getPhotosByGrid(pageNumber)),
+    getPhotosByGrid: pageNumber => dispatch(getPhotosByGrid(pageNumber)),
   });
 };
 

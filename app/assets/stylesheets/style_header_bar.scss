@@ -34,8 +34,8 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-  .search-container {
+@media screen and (max-width: 750px) {
+  .search-container, .logo {
     display: none;
   }
 }

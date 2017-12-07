@@ -1,46 +1,75 @@
 import React from 'react';
 import PhotoGridItem from './photo_grid_item';
+import { BeatLoader } from 'react-spinners';
+
+const FETCH_DELAY = 500;
 
 class PhotoGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1
+      page: 1,
+      loading: false
     }
 
     this.handleScroll = this.handleScroll.bind(this);
+    this.getPhotosByGrid = this.props.getPhotosByGrid.bind(this);
+    this.getAdditionalPhotos = this.getAdditionalPhotos.bind(this);
   }
 
   componentDidMount() {
     $('html').scrollTop(0);
     this.props.getPhotosByGrid(this.state.page);
-    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll(event) {
-    const distanceFromTop = $(window).scrollTop();
-    const breakpointForFetch = $(document).height() - 100;
-
-    if (window.scrollY + window.innerHeight > document.body.clientHeight - 100) {
-      this.setState( { page: this.state.page + 1 },
-      this.getAdditionalPhotos );
+  componentWillReceiveProps(newProps) {
+    if (this.props.photos.length === newProps.photos.length) {
+      this.setState( { loading: false },
+      window.removeEventListener('scroll', this.handleScroll));
+    } else {
+      window.addEventListener('scroll', this.handleScroll)
     }
   }
 
+  handleScroll() {
+    const nearBottom = (window.scrollY
+                          + window.innerHeight
+                          + 200 > document.body.clientHeight)
+    if (nearBottom) {
+      this.setState( { page: this.state.page + 1, loading: true },
+      this.queueAdditionalPhotos );
+    }
+  }
+
+  queueAdditionalPhotos() {
+    // Removes listener so the page does not double load
+    window.removeEventListener('scroll', this.handleScroll);
+    this.queuePhotos = setTimeout(this.getAdditionalPhotos, FETCH_DELAY)
+  }
+
   getAdditionalPhotos() {
-    this.props.getPhotosByGrid(this.state.page)
+    this.getPhotosByGrid(this.state.page);
   }
 
   render() {
+    let loader = (
+      <div className='loader'>
+        <BeatLoader
+          color={'#e2e2e2'}
+          loading={ this.state.loading }/>
+      </div>
+    )
+
     return (
-      <article className='explore-container'>
-        <div className='explore'>
-          <div className='explore-title'>Explore</div>
-          <ul className='photo-grid'>
+      <article className='explore-page'>
+        <div className='explore-photos-container'>
+          <div className='explore-header'>Explore</div>
+
+          <ul className='photos-grid-container'>
             {
               this.props.photos.map(photo => {
                 return (
@@ -51,6 +80,7 @@ class PhotoGrid extends React.Component {
               })
             }
           </ul>
+          {loader}
         </div>
       </article>
     )

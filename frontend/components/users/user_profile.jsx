@@ -85,7 +85,7 @@ class UserProfile extends React.Component {
             </article>
 
               <article className='user-photos-container'>
-                <ul className='user-photos'>
+                <ul className='photos-grid-container'>
                   {
                     this.props.photos.map(photo => {
                       return(
