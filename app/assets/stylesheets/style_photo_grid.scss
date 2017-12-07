@@ -6,14 +6,11 @@
   border-top: 1px solid #efefef;
   width: 950px;
   margin: 0 auto;
-  margin-bottom: 50px;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding: 10px;
+  padding-top: 20px;
 }
 
 .explore-photos-container {
@@ -57,6 +54,10 @@
   background-color: #ffffff;
   display: flex;
   vertical-align: middle;
+}
+
+.photos-grid-container li:nth-child(3){
+  margin-right: 0;
 }
 
 //User photo stats are hidden until user hovers over photo
