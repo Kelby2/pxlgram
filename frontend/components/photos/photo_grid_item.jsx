@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PhotoGridItem = ( { photo } ) => {
   return (
     <li className='grid-photo'>
-      <img className='grid-photo-image' src={ photo.imageUrl } />
+      <Link to={`${photo.author_name}/photos/${photo.id}`}>
+        <img className='grid-photo-image' src={ photo.imageUrl } />
         <div className='grid-photo-stats'>
           <article className='stat-line'>
             <div className='fa fa-heart fa-lg'></div> { photo.likerIds.length }
-            <div className='fa fa-comment fa-lg'></div> { photo.commenterIds.length }
+            <div className='fa fa-comment fa-lg'></div> { photo.commentIds.length }
           </article>
         </div>
+      </Link>
     </li>
   )
 }

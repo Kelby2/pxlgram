@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import PhotoGridItem from '../photos/photo_grid_item';
-import Modal from 'react-modal';
+import PhotoModalContainer from '../photos/photo_modal_container';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -51,6 +51,8 @@ class UserProfile extends React.Component {
 
       return (
         <main className='user-profile-container'>
+          <Route exact path='/:username/photos/:photoId'
+            component={ PhotoModalContainer }/>
           <div className='user-profile'>
             <article className='user-profile-header'>
               <div className='user-avatar-container'>
@@ -89,7 +91,8 @@ class UserProfile extends React.Component {
                     return(
                       <PhotoGridItem
                         key={ photo.id }
-                        photo={ photo }/>
+                        photo={ photo }
+                        />
                       )
                   })
                 }

@@ -12,7 +12,7 @@ class Header extends React.Component {
   handleScroll(event) {
     const header = $(".fixed-header");
     const distanceFromTop = window.scrollY;
-    header.toggleClass("mini-header", distanceFromTop > 120);
+    header.toggleClass("mini-header", distanceFromTop > 20);
   }
 
   componentDidMount() {
