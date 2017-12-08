@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PhotoGridItem from '../photos/photo_grid_item';
+import Modal from 'react-modal';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -51,9 +52,7 @@ class UserProfile extends React.Component {
       return (
         <main className='user-profile-container'>
           <div className='user-profile'>
-
             <article className='user-profile-header'>
-
               <div className='user-avatar-container'>
                 <div className='user-avatar'>
                   <img className='avatar' src={user.avatarUrl} />
@@ -81,22 +80,21 @@ class UserProfile extends React.Component {
                   </p>
                 </div>
               </div>
-
             </article>
 
-              <article className='user-photos-container'>
-                <ul className='photos-grid-container'>
-                  {
-                    this.props.photos.map(photo => {
-                      return(
-                        <PhotoGridItem
-                          key={ photo.id }
-                          photo={ photo }/>
-                        )
-                    })
-                  }
-                </ul>
-              </article>
+            <article className='user-photos-container'>
+              <ul className='photos-grid-container'>
+                {
+                  this.props.photos.map(photo => {
+                    return(
+                      <PhotoGridItem
+                        key={ photo.id }
+                        photo={ photo }/>
+                      )
+                  })
+                }
+              </ul>
+            </article>
           </div>
         </main>
       )

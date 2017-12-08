@@ -16,7 +16,6 @@ const PhotoIndexItem = ({ photo, user}) => {
         <div className='photo-post'>
 
           <article className='photo-author-info'>
-
             <div className='stream-avatar-container'>
               <Link to={`/${photo.author_name}`}>
                 <img className='stream-avatar' src={photo.author_avatar} />
@@ -30,7 +29,6 @@ const PhotoIndexItem = ({ photo, user}) => {
                 </div>
               </Link>
             </div>
-
           </article>
 
           <article className='photo-container'>
@@ -38,7 +36,6 @@ const PhotoIndexItem = ({ photo, user}) => {
           </article>
 
           <article className='photo-info-container'>
-
             <div className='icon-container'>
               <LikeContainer photo_id={photo.id} />
               <div
@@ -65,7 +62,6 @@ const PhotoIndexItem = ({ photo, user}) => {
             <div className='comments-container'>
               <CommentIndexContainer photo_id={photo.id} />
             </div>
-
           </article>
 
         </div>
