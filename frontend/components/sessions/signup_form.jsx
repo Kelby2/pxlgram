@@ -127,13 +127,13 @@ class SignUpForm extends React.Component {
     )
 
     return (
-      <div className='main-form'>
+      <div className="main-entry-form" id='main-form'>
         <h2 className='title'>pxlgram</h2>
         <br />
         {signUpWelcomeText}
         <form onSubmit={this.handleFormSubmit} className='entry-form'>
-          {fullNameInput}
           {emailInput}
+          {fullNameInput}
           {usernameInput}
           {passwordInput}
           <input

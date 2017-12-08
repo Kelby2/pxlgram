@@ -1,5 +1,5 @@
 .photo-modal  {
-  z-index: 3;
+  z-index: 105 !important;
   border: 1px solid red;
 }
 
@@ -7,5 +7,26 @@
   border: 1px solid blue;
   width: 500px;
   height: 500px;
-  z-index: 3;
 }
+
+.base, .afterOpen {
+  z-index: 3 !important;
+}
+
+.overlay-default {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(40, 40, 40, 0.75)
+}
+
+// overlayClassName={
+//   {
+//     base: '.overlay-default',
+//     afterOpen: '.overlay-default',
+//     beforeClose: '.overlay-default'
+//   }
+// }

@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
 
     return (
 
-        <div className='main-form'>
+        <div className='main-entry-form' id="main-form">
           <h2 className='title'>pxlgram</h2>
           <br />
           <form onSubmit={this.handleFormSubmit} className='entry-form'>

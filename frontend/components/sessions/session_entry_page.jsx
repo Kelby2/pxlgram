@@ -32,20 +32,24 @@ class SessionPage extends React.Component {
     return (
       <div className='entry-screen'>
         <article className='entry-screen-container'>
+          <aside className='entry-photo-container'>
+            <div className='background-photo'>
+              <img src="/assets/ig-backdrop.png"></img>
+              <div className='pxlgram-photo'>
+                <img src="/assets/pxlgram_content.png"></img>
+              </div>
+            </div>
+          </aside>
 
-          <div className='entry-photo-container'>
-            <div className='entry-photo'></div>
-          </div>
-          <div className='entry-form-container'>
+          <aside className='entry-form-container'>
             {formToRender}
 
-            <div className='alternate-form'>
+            <div id='alternate-form' className="main-entry-form">
               <span className='alternate-form-text'>
                 {alternateEntryText} {alternateEntryLink}
               </span>
             </div>
-          </div>
-
+          </aside>
         </article>
       </div>
     )

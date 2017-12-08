@@ -16,7 +16,8 @@
   margin-bottom: 60px;
   background-color: #ffffff;
   width: 100%;
-  outline: 1px solid #e6e6e6;
+  border: 1px solid #efefef;
+  border-radius: 3px;
   box-sizing: content-box;
 }
 
@@ -43,6 +44,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #efefef;
 }
 
 .stream-avatar-container {
