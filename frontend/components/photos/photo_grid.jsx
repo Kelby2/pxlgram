@@ -20,6 +20,7 @@ class PhotoGrid extends React.Component {
   componentDidMount() {
     $('html').scrollTop(0);
     this.props.getPhotosByGrid(this.state.page);
+    console.log('i am mounted')
   }
 
   componentWillUnmount() {

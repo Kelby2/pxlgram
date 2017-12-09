@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const PhotoGridItem = ( { photo } ) => {
   return (
-    <li className='grid-photo'>
-      <Link to={`${photo.author_name}/photos/${photo.id}`}>
+    
+      <Link className='grid-photo' to={`/${photo.author_name}/photos/${photo.id}`}>
         <img className='grid-photo-image' src={ photo.imageUrl } />
         <div className='grid-photo-stats'>
           <article className='stat-line'>
@@ -13,7 +13,7 @@ const PhotoGridItem = ( { photo } ) => {
           </article>
         </div>
       </Link>
-    </li>
+    
   )
 }
 
