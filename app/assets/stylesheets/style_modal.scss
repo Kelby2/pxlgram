@@ -3,18 +3,11 @@
   border: 1px solid red;
 }
 
-.modal-header {
-  border: 1px solid blue;
-  width: 500px;
-  height: 500px;
-}
-
-.base, .afterOpen {
-  z-index: 3 !important;
+.base {
+  z-index: 1 !important;
 }
 
 .overlay-default {
-  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,10 +16,27 @@
   background-color: rgba(40, 40, 40, 0.75)
 }
 
-// overlayClassName={
-//   {
-//     base: '.overlay-default',
-//     afterOpen: '.overlay-default',
-//     beforeClose: '.overlay-default'
-//   }
-// }
+.baseClass {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  right: 15%;
+  bottom: 10%;
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+}
+
+#close-button {
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2 !important;
+}
+
+#close-button:hover {
+  cursor: pointer;
+}

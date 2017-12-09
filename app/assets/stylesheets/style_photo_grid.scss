@@ -43,7 +43,7 @@
   margin-top: 1em;
 }
 
-.grid-photo {
+.grid-photo a {
   width: 290px;
   height: 290px;
   position: relative;
@@ -54,10 +54,7 @@
   background-color: #ffffff;
   display: flex;
   vertical-align: middle;
-}
-
-.photos-grid-container li:nth-child(3){
-  margin-right: 0;
+  outline: none;
 }
 
 //User photo stats are hidden until user hovers over photo

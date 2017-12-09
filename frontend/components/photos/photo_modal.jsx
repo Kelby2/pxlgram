@@ -14,17 +14,29 @@ class PhotoModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  closeModal() {
+  closeModal(event) {
+    event.preventDefault();
     this.setState( { modalOpen: false } )
-    debugger
     this.props.history.push(`/${this.props.match.params.username}`)
   }
 
   render() {
     return (
       <div>
+        <div
+          className="fa fa-times fa-lg"
+          id="close-button"
+          onClick={ this.closeModal }>
+        </div>
         <Modal
           onRequestClose={ this.closeModal }
+          className={
+            {
+              base: 'baseClass',
+              afterOpen: 'afterOpen',
+              beforeClose: 'beforeClose'
+            }
+          }
           overlayClassName={
             {
               base: 'base',
@@ -33,12 +45,8 @@ class PhotoModal extends React.Component {
             }
           }
           isOpen={ this.state.modalOpen }>
-          <h1>hello</h1>
           <p>modal</p>
-          <Link to={`/friend`}>friend!</Link>
-          <button onClick={ this.closeModal }>
-            close
-          </button>
+
         </Modal>
       </div>
     )

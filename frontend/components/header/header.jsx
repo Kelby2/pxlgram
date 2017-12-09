@@ -29,12 +29,10 @@ class Header extends React.Component {
       return (
         <article className='fixed-header'>
           <div className='header-bar'>
-
             <div className='logo-container'>
               <a href="#/" onClick={ this.scrollUp } className='logo-icon'>
                 <div></div>
               </a>
-
               <div>
                 <a href="#/" onClick={ this.scrollUp } className='logo'>pxlGram</a>
               </div>
@@ -43,18 +41,14 @@ class Header extends React.Component {
             <SearchBarContainer/>
 
             <div className="nav-bar">
-
               <Link className="fa fa-upload fa-lg"
                 to={'/upload'} id={this.props.currentUser.id}/>
               <Link className="fa fa-compass fa-lg"
                 to={'/explore'} />
               <Link className='fa fa-user fa-lg'
                 to={`/${this.props.currentUser.username}`} onClick={ this.scrollUp } />
-
             </div>
-
           </div>
-
         </article>
       );
     } else {
