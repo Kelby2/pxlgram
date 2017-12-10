@@ -9,7 +9,6 @@ class PhotoIndexItem extends React.Component {
     super(props)
 
     this.photo = this.props.photo;
-    this.focusComment = this.focusComment.bind(this);
   }
 
   focusComment(id) {
@@ -81,12 +80,6 @@ const mapStateToProps = (state, ownProps) => {
 
   return ({
     user
-  })
-}
-
-const mapDispatchToProps = dispatch => {
-  return ({
-    getUser: username => dispatch(getUser(username))
   })
 }
 
