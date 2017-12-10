@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotosByPage } from '../../actions/photo_actions';
+import { getPhotosPage } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import PhotoIndex from './photo_index';
 
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    getPhotosByPage: (page) => dispatch(getPhotosByPage(page)),
+    getPhotosPage: (page) => dispatch(getPhotosPage(page)),
     getUsers: () => dispatch(getUsers()),
   });
 };

@@ -9,50 +9,48 @@ class PhotoGrid extends React.Component {
     super(props);
     this.state = {
       page: 1,
-      loading: false,
-      end: false,
+      loadingPhotos: false,
     }
 
     this.handleScroll = this.handleScroll.bind(this);
-    this.getPhotosByGrid = this.props.getPhotosByGrid.bind(this);
+    this.getPhotosGrid = this.props.getPhotosGrid.bind(this);
     this.getAdditionalPhotos = this.getAdditionalPhotos.bind(this);
   }
 
   componentDidMount() {
     $('html').scrollTop(0);
-    this.props.getPhotosByGrid(this.state.page);
+    this.props.getPhotosGrid(this.state.page);
     window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  componentWillReceiveProps(newProps) {
-    const lastPhotos = (this.props.photos.length === newProps.photos.length);
-    if (lastPhotos) {
-      this.setState( { loading: false,  end: true } );
-    }
-  }
-
   handleScroll() {
     const nearBottom = (window.scrollY
                           + window.innerHeight
                           + 100 > document.body.clientHeight)
-    if (nearBottom && !this.state.loading && !this.state.end) {
-      this.setState( { page: this.state.page + 1 } );
+    if (nearBottom
+      && !this.state.loadingPhotos) {
+      this.setState( { page: this.state.page + 1, loadingPhotos: true } )
       this.queueAdditionalPhotos();
     }
   }
 
   queueAdditionalPhotos() {
-    this.queuePhotos = setTimeout(this.getAdditionalPhotos, FETCH_DELAY)
+    this.queuePhotos = setTimeout(() => {
+      this.getAdditionalPhotos();
+    }, FETCH_DELAY)
   }
 
   getAdditionalPhotos() {
-    clearTimeout(this.queuePhotos);
-    this.setState( { loading: false } );
-    this.getPhotosByGrid(this.state.page);
+    this.getPhotosGrid(this.state.page)
+    .then(()=> this.setState( { loadingPhotos: false } ))
   }
 
   render() {
@@ -60,7 +58,7 @@ class PhotoGrid extends React.Component {
       <div className='loader'>
         <BeatLoader
           color={'#e2e2e2'}
-          loading={ this.state.loading }/>
+          loading={ this.state.loadingPhotos }/>
       </div>
     )
 

@@ -17,7 +17,7 @@ class PhotoIndex extends React.Component {
 
   componentDidMount() {
     this.props.getUsers();
-    this.props.getPhotosByPage(this.state.page).then(
+    this.props.getPhotosPage(this.state.page).then(
       () => { this.setState( { photosFetched: true } ) }
     );
     window.addEventListener('scroll', this.handleScroll);
@@ -38,7 +38,7 @@ class PhotoIndex extends React.Component {
   }
 
   getAdditionalPhotos() {
-    this.props.getPhotosByPage(this.state.page);
+    this.props.getPhotosPage(this.state.page);
   }
 
   render() {

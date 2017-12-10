@@ -5,14 +5,14 @@ export const getPhotos = () => {
   })
 }
 
-export const getPhotosByPage = (pageNumber) => {
+export const getPhotosPage = (pageNumber) => {
   return $.ajax({
     method: 'get',
     url: `api/photos?page=${pageNumber}`
   })
 }
 
-export const getPhotosByGrid = pageNumber => {
+export const getPhotosGrid = pageNumber => {
   return $.ajax({
     method: 'get',
     url: `api/photos?page=${pageNumber}&explore=true`

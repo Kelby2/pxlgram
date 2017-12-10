@@ -45,9 +45,26 @@ class Searchbar extends React.Component {
     }
   }
 
-  //Blurs on escape key
+  // Debouncing search with setTimeout to limit the number of calls to
+  // the database. If user makes another input within the delay, the
+  // previous search is cleared and the delay restarts for a new search
+  _callSearch(query) {
+    clearTimeout(this.queueSearch);
+    this.queueSearch = setTimeout(this.startSearch, SEARCH_DELAY);
+  }
+
+  // Dispatches search to the database with the query. As this was an
+  // asynchronous call, we need to check that the current state is not
+  // empty.
+  startSearch() {
+    if (this.state.usernameQuery.length > 0) {
+      this.searchUsers(this.state.usernameQuery);
+    }
+  }
+
+  //Blurs instead of deleting form when escape key is pressed
   handleEsc(e) {
-    if (e.key === 'Escape') {
+    if (e.keyCode === 27) {
       e.preventDefault();
       $('.user-search-bar').blur();
     }
@@ -64,23 +81,6 @@ class Searchbar extends React.Component {
   // to user profile.
   handleBlur() {
     setTimeout(this._toggleShowResults, SHOW_DROPDOWN_DELAY);
-  }
-
-  // Debouncing search with setTimeout to limit the number of calls to
-  // the database. If user makes another input within the delay, the
-  // previous search is cleared and the delay restarts for a new search
-  _callSearch(query) {
-    clearTimeout(this.queueSearch);
-    this.queueSearch = setTimeout(this.startSearch, SEARCH_DELAY);
-  }
-
-  // Dispatches search to the database with the query. As this was an
-  // asynchronous call, we need to check that the current state is not
-  // empty.
-  startSearch() {
-    if (this.state.usernameQuery.length > 0) {
-      this.searchUsers(this.state.usernameQuery);
-    }
   }
 
   _toggleShowResults() {

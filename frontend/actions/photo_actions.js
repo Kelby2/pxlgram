@@ -52,13 +52,13 @@ export const removePhoto = photoId => {
   })
 }
 
-export const getPhotosByPage = page => dispatch => {
-  return PhotoApiUtil.getPhotosByPage(page)
+export const getPhotosPage = page => dispatch => {
+  return PhotoApiUtil.getPhotosPage(page)
               .then(photos => dispatch(fetchPhotoPage(photos)))
 }
 
-export const getPhotosByGrid = page => dispatch => {
-  return PhotoApiUtil.getPhotosByGrid(page)
+export const getPhotosGrid = page => dispatch => {
+  return PhotoApiUtil.getPhotosGrid(page)
               .then(photos => dispatch(fetchPhotoGrid(photos)))
 }
 
