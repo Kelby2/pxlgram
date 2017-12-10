@@ -65,7 +65,7 @@ class PhotoIndexItem extends React.Component {
             </div>
 
             <div className='comments-container'>
-              <CommentIndexContainer photo_id={this.photo.id} />
+              <CommentIndexContainer photoId={this.photo.id} />
             </div>
           </article>
 

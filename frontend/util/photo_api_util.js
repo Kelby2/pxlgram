@@ -5,7 +5,7 @@ export const getPhotos = () => {
   })
 }
 
-export const getPhotosByPage = pageNumber => {
+export const getPhotosByPage = (pageNumber) => {
   return $.ajax({
     method: 'get',
     url: `api/photos?page=${pageNumber}`
@@ -15,7 +15,7 @@ export const getPhotosByPage = pageNumber => {
 export const getPhotosByGrid = pageNumber => {
   return $.ajax({
     method: 'get',
-    url: `api/photos/grid?page=${pageNumber}`
+    url: `api/photos?page=${pageNumber}&explore=true`
   })
 }
 

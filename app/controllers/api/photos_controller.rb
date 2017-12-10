@@ -4,21 +4,16 @@ class Api::PhotosController < ApplicationController
     if params[:user_id]
       user = User.find_by(username: params[:user_id])
       @photos = user.photos
+    elsif params[:explore]
+      @photos = Photo
+      .order(created_at: :desc)
+      .paginate(:page => params[:page], per_page: 12)
     else
       @photos = Photo
       .includes(:author, :likes, :comments, :likers, :commenters)
       .order(created_at: :desc)
       .paginate(:page => params[:page], per_page: 5)
     end
-  end
-
-  def grid
-    @photos = Photo
-    .order(created_at: :desc)
-    .paginate(:page => params[:page], per_page: 12)
-
-    render 'api/photos/index'
-    # .paginate(:page => params[:page], per_page: 12)
   end
 
   def show

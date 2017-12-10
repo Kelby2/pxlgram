@@ -5,7 +5,6 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photo_id: this.props.photo_id,
       commentBody: "",
     }
 
@@ -22,7 +21,7 @@ class Comment extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPhotoComments(this.props.photo_id)
+    this.props.getPhotoComments(this.props.photoId)
   }
 
   handleInputChange(formField) {
@@ -42,7 +41,8 @@ class Comment extends React.Component {
                 return (
                   <CommentItem
                     key={ comment.id }
-                    comment={ comment }/>
+                    comment={ comment }
+                  />
                 )
               })
             }

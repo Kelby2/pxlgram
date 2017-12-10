@@ -12,9 +12,6 @@ Rails.application.routes.draw do
 
     resources :photos, only: [:index, :show, :create, :destroy] do
       resources :comments, only: [:index, :create]
-      collection do
-        get :grid
-      end
     end
 
     resources :likes, only: [:create, :destroy]
