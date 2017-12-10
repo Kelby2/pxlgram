@@ -62,8 +62,7 @@ class PhotoIndex extends React.Component {
               return(
                 <PhotoIndexItem
                   key={ photo.id }
-                  photo={ photo }
-                  user={ this.props.users[photo.author_name]}/>
+                  photo={ photo } />
               )
             })
           }

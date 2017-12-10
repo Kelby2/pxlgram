@@ -1,74 +1,93 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container'
 import CommentIndexContainer from '../comments/comment_index_container'
 
-const focusComment = photoId => {
-  const commentForm = document.getElementById(photoId)
-  commentForm.focus();
-}
+class PhotoIndexItem extends React.Component {
+  constructor(props) {
+    super(props)
 
-const PhotoIndexItem = ( { photo, user} ) => {
-  if (photo.likerIds) {
+    this.photo = this.props.photo;
+    this.focusComment = this.focusComment.bind(this);
+  }
 
+  focusComment(id) {
+    document.getElementById(id).focus();
+  }
+
+  render() {
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
 
           <article className='photo-author-info'>
             <div className='stream-avatar-container'>
-              <Link to={`/${photo.author_name}`}>
-                <img className='stream-avatar' src={photo.author_avatar} />
+              <Link to={`/${this.photo.author_name}`}>
+                <img className='stream-avatar' src={this.photo.author_avatar} />
               </Link>
             </div>
 
             <div className='author-username'>
-              <Link to={`${photo.author_name}`}>
+              <Link to={`${this.photo.author_name}`}>
                  <div className='stream-username'>
-                   {photo.author_name}
+                   {this.photo.author_name}
                 </div>
               </Link>
             </div>
           </article>
 
           <article className='photo-container'>
-            <img className='photo' src={photo.imageUrl} />
+            <img className='photo' src={this.photo.imageUrl} />
           </article>
 
           <article className='photo-info-container'>
             <div className='icon-container'>
-              <LikeContainer photo_id={photo.id} />
+              <LikeContainer photo_id={this.photo.id} />
               <div
                 className='fa fa-comment-o fa-lg comments-icon'
-                onClick={ () => focusComment(photo.id)}>
+                onClick={ () => this.focusComment(this.photo.id) }>
               </div>
             </div>
 
             <div className='like-count'>
-              {photo.likerIds.length} {(photo.likerIds.length === 1) ? 'like' : 'likes'}
+              {this.photo.likerIds.length} {(this.photo.likerIds.length === 1) ? 'like' : 'likes'}
             </div>
 
             <div className='caption-container'>
               <span className='author-username'>
-                <Link to={`${photo.author_name}`}>
-                  {(photo.caption && photo.caption.length > 0) ? photo.author_name : ""}
+                <Link to={`${this.photo.author_name}`}>
+                  {(this.photo.caption && this.photo.caption.length > 0) ? this.photo.author_name : ""}
                 </Link>
               </span>
               <span className='caption'>
-                {photo.caption}
+                {this.photo.caption}
               </span>
             </div>
 
             <div className='comments-container'>
-              <CommentIndexContainer photo_id={photo.id} />
+              <CommentIndexContainer photo_id={this.photo.id} />
             </div>
           </article>
 
         </div>
       </li>
-    )} else {
-      return null;
-    }
+    )
+  }
 };
 
-export default PhotoIndexItem;
+const mapStateToProps = (state, ownProps) => {
+  let user = state.entities.users[ownProps.photo.author_name]
+
+  return ({
+    user
+  })
+}
+
+const mapDispatchToProps = dispatch => {
+  return ({
+    getUser: username => dispatch(getUser(username))
+  })
+}
+
+export default connect(mapStateToProps)(PhotoIndexItem);
