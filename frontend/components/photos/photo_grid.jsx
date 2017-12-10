@@ -9,7 +9,8 @@ class PhotoGrid extends React.Component {
     super(props);
     this.state = {
       page: 1,
-      loading: false
+      loading: false,
+      end: false,
     }
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -20,7 +21,7 @@ class PhotoGrid extends React.Component {
   componentDidMount() {
     $('html').scrollTop(0);
     this.props.getPhotosByGrid(this.state.page);
-    console.log('i am mounted')
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
@@ -28,31 +29,29 @@ class PhotoGrid extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.photos.length === newProps.photos.length) {
-      this.setState( { loading: false },
-      window.removeEventListener('scroll', this.handleScroll));
-    } else {
-      window.addEventListener('scroll', this.handleScroll)
+    const lastPhotos = (this.props.photos.length === newProps.photos.length);
+    if (lastPhotos) {
+      this.setState( { loading: false,  end: true } );
     }
   }
 
   handleScroll() {
     const nearBottom = (window.scrollY
                           + window.innerHeight
-                          + 200 > document.body.clientHeight)
-    if (nearBottom) {
-      this.setState( { page: this.state.page + 1, loading: true },
-      this.queueAdditionalPhotos );
+                          + 100 > document.body.clientHeight)
+    if (nearBottom && !this.state.loading && !this.state.end) {
+      this.setState( { page: this.state.page + 1 } );
+      this.queueAdditionalPhotos();
     }
   }
 
   queueAdditionalPhotos() {
-    // Removes listener so the page does not double load
-    window.removeEventListener('scroll', this.handleScroll);
     this.queuePhotos = setTimeout(this.getAdditionalPhotos, FETCH_DELAY)
   }
 
   getAdditionalPhotos() {
+    clearTimeout(this.queuePhotos);
+    this.setState( { loading: false } );
     this.getPhotosByGrid(this.state.page);
   }
 

@@ -26,8 +26,6 @@ const mapDispatchToProps = dispatch => {
     getComments: () => dispatch(getComments()),
     getPhotosByPage: (page) => dispatch(getPhotosByPage(page)),
     getUsers: () => dispatch(getUsers()),
-    addLike: (photo_id) => dispatch(addLike(photo_id)),
-    deleteLike: () => dispatch(deleteLike(id))
   });
 };
 

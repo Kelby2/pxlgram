@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PhotoGridItem from '../photos/photo_grid_item';
 import PhotoModalContainer from '../photos/photo_modal_container';
 
@@ -51,8 +51,6 @@ class UserProfile extends React.Component {
 
       return (
         <main className='user-profile-container'>
-          <Route exact path='/:username/photos/:photoId'
-            component={ PhotoModalContainer }/>
           <div className='user-profile'>
             <article className='user-profile-header'>
               <div className='user-avatar-container'>

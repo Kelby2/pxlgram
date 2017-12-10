@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { browserHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
 class PhotoModal extends React.Component {
@@ -16,8 +17,7 @@ class PhotoModal extends React.Component {
 
   closeModal(event) {
     event.preventDefault();
-    this.setState( { modalOpen: false } )
-    this.props.history.push(`/${this.props.match.params.username}`)
+    this.props.history.goBack();
   }
 
   render() {

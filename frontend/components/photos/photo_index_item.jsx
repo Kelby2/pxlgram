@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container'
 import CommentIndexContainer from '../comments/comment_index_container'
 
-const focusComment = (event) => {
-  const commentForm = document.getElementById(event)
+const focusComment = photoId => {
+  const commentForm = document.getElementById(photoId)
   commentForm.focus();
 }
 
-const PhotoIndexItem = ({ photo, user}) => {
+const PhotoIndexItem = ( { photo, user} ) => {
   if (photo.likerIds) {
 
     return (
@@ -40,7 +40,7 @@ const PhotoIndexItem = ({ photo, user}) => {
               <LikeContainer photo_id={photo.id} />
               <div
                 className='fa fa-comment-o fa-lg comments-icon'
-                onClick={ (event) => focusComment(photo.id)}>
+                onClick={ () => focusComment(photo.id)}>
               </div>
             </div>
 

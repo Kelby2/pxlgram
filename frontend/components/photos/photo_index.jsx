@@ -8,7 +8,8 @@ class PhotoIndex extends React.Component {
     super(props);
     this.state = {
       page: 1,
-      loading: true
+      loading: true,
+      photosFetched: false
     }
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -16,7 +17,9 @@ class PhotoIndex extends React.Component {
 
   componentDidMount() {
     this.props.getUsers();
-    this.props.getPhotosByPage(this.state.page);
+    this.props.getPhotosByPage(this.state.page).then(
+      () => { this.setState( { photosFetched: true } ) }
+    );
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -46,6 +49,10 @@ class PhotoIndex extends React.Component {
           loading={ this.state.loading }/>
       </div>
     )
+
+    if (!this.state.photosFetched) {
+      return null;
+    }
 
     return (
       <div className='photo-stream-container'>

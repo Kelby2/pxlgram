@@ -5,7 +5,7 @@ import PhotoGrid from './photo_grid';
 const mapStateToProps = state => {
   const photos = Object.keys(state.entities.photos)
   .map(id => state.entities.photos[id]).reverse()
-
+  
   return ({
     photos
   });

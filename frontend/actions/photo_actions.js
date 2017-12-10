@@ -3,6 +3,7 @@ import * as PhotoApiUtil from '../util/photo_api_util';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO_PAGE = 'RECEIVE_PHOTO_PAGE';
 export const RECEIVE_PHOTO_GRID = 'RECEIVE_PHOTO_GRID';
+export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const CLEAR_PHOTOS = 'CLEAR_PHOTOS';
@@ -19,6 +20,13 @@ export const fetchPhotos = photos => {
 export const fetchPhotoPage = photos => {
   return ({
     type: RECEIVE_PHOTO_PAGE,
+    photos,
+  })
+}
+
+export const fetchUserPhotos = photos => {
+  return ({
+    type: RECEIVE_USER_PHOTOS,
     photos,
   })
 }
@@ -45,46 +53,46 @@ export const removePhoto = photoId => {
 }
 
 export const getPhotosByPage = page => dispatch => {
-  PhotoApiUtil.getPhotosByPage(page)
+  return PhotoApiUtil.getPhotosByPage(page)
               .then(photos => dispatch(fetchPhotoPage(photos)))
 }
 
 export const getPhotosByGrid = page => dispatch => {
-  PhotoApiUtil.getPhotosByGrid(page)
+  return PhotoApiUtil.getPhotosByGrid(page)
               .then(photos => dispatch(fetchPhotoGrid(photos)))
 }
 
-export const getUserPhotos = username => dispatch => (
-  PhotoApiUtil.getUserPhotos(username)
-              .then(photos => dispatch(fetchPhotos(photos)))
-)
+export const getUserPhotos = username => dispatch => {
+  return PhotoApiUtil.getUserPhotos(username)
+              .then(photos => dispatch(fetchUserPhotos(photos)))
+}
 
-export const getPhotos = () => dispatch => (
-  PhotoApiUtil.getPhotos()
+export const getPhotos = () => dispatch => {
+  return PhotoApiUtil.getPhotos()
               .then(photos => dispatch(fetchPhotos(photos)))
-)
+}
 
-export const getPhoto = photo => dispatch => (
-  PhotoApiUtil.getPhoto(photo.id)
+export const getPhoto = photo => dispatch => {
+  return PhotoApiUtil.getPhoto(photo.id)
               .then(photo => dispatch(fetchPhoto(photo)))
-)
+}
 
 export const addLike = photo_id => dispatch => {
-  PhotoApiUtil.addLike(photo_id)
+  return PhotoApiUtil.addLike(photo_id)
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 
 export const deleteLike = (photo_id) => dispatch => {
-  PhotoApiUtil.deleteLike(photo_id)
+  return PhotoApiUtil.deleteLike(photo_id)
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 
-export const addPhoto = (photo) => dispatch => (
-  PhotoApiUtil.addPhoto(photo)
+export const addPhoto = (photo) => dispatch => {
+  return PhotoApiUtil.addPhoto(photo)
               .then(user => dispatch(fetchUser(user)))
-)
+}
 
-export const deletePhoto = (photo) => dispatch => (
-  PhotoApiUtil.deletePhoto(photo)
+export const deletePhoto = (photo) => dispatch => {
+  return PhotoApiUtil.deletePhoto(photo)
               .then(photo => dispatch(removePhoto(photo)))
-)
+}

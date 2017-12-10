@@ -13,6 +13,7 @@ class Searchbar extends React.Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleEsc = this.handleEsc.bind(this);
     this.startSearch = this.startSearch.bind(this);
     this.searchUsers = this.props.searchUsers.bind(this);
 
@@ -41,6 +42,14 @@ class Searchbar extends React.Component {
       this._callSearch(usernameQuery)
     } else {
       this.props.clearSearch();
+    }
+  }
+
+  //Blurs on escape key
+  handleEsc(e) {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      $('.user-search-bar').blur();
     }
   }
 
@@ -117,6 +126,7 @@ class Searchbar extends React.Component {
           onFocus={ this.handleFocus }
           onBlur={ this.handleBlur }
           onChange={ this.handleInputChange }
+          onKeyDown={ this.handleEsc }
         />
         {resultsIndex}
 
