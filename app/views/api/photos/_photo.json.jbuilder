@@ -4,7 +4,7 @@ json.seconds_ago Time.now.minus_with_coercion(photo.created_at).round
 json.author_name photo.author.username
 json.author_avatar asset_path(photo.author.avatar.url)
 
-json.likerIds photo.likers.map(&:id)
+json.likers photo.likers.map(&:username)
 
 json.commentIds photo.comments.map(&:id)
 json.commenterIds photo.commenters.map(&:id)

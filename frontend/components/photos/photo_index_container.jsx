@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { getPhotosByPage } from '../../actions/photo_actions';
 import { getUsers } from '../../actions/user_actions';
 import PhotoIndex from './photo_index';
-import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
   const users = state.entities.users

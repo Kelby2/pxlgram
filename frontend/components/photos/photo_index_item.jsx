@@ -50,7 +50,7 @@ class PhotoIndexItem extends React.Component {
             </div>
 
             <div className='like-count'>
-              {this.photo.likerIds.length} {(this.photo.likerIds.length === 1) ? 'like' : 'likes'}
+              {this.photo.likers.length} {(this.photo.likers.length === 1) ? 'like' : 'likes'}
             </div>
 
             <div className='caption-container'>

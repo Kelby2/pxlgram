@@ -3,16 +3,16 @@ import React from 'react';
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    const like_state = this.props.photo.likerIds
-                        .includes(this.props.currentUser.id)
+
     this.state = {
-      like_state
+      like_state: this.props.photo.likers
+                        .includes(this.props.currentUser.username)
     }
     this.handleLike = this.handleLike.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.photo.likerIds.length !== this.props.photo.likerIds.length) {
+    if (nextProps.photo.likers.length !== this.props.photo.likers.length) {
       this.setState({ like_state: !this.state.like_state })
     }
   }
