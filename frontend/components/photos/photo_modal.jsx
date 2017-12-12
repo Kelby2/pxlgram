@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import PhotoModalItem from './photo_modal_item';
 import { browserHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 
@@ -15,14 +16,20 @@ class PhotoModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getPhoto(this.props.match.params.photoId)
+  }
+
   closeModal(event) {
     event.preventDefault();
     this.props.history.goBack();
   }
 
   render() {
+    if (!this.props.photo) { return null }
+
     return (
-      <div>
+      <main>
         <div
           className="fa fa-times fa-lg"
           id="close-button"
@@ -33,22 +40,21 @@ class PhotoModal extends React.Component {
           className={
             {
               base: 'baseClass',
-              afterOpen: 'afterOpen',
-              beforeClose: 'beforeClose'
+              afterOpen: '',
+              beforeClose: ''
             }
           }
           overlayClassName={
             {
-              base: 'base',
+              base: 'overlay-base',
               afterOpen: 'overlay-default',
-              beforeClose: 'close'
+              beforeClose: ''
             }
           }
           isOpen={ this.state.modalOpen }>
-          <p>modal</p>
-
+          <PhotoModalItem photo={ this.props.photo }/>
         </Modal>
-      </div>
+      </main>
     )
   }
 }

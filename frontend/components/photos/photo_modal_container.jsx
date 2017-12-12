@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 import { addComment, getPhotocomments } from '../../actions/comment_actions';
+import { getPhoto } from '../../actions/photo_actions';
 import PhotoModal from './photo_modal.jsx';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
 
+  const photo = state.entities.photos[ownProps.match.params.photoId]
+  
+  return {
+    photo
   }
 }
 

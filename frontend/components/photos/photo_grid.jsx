@@ -1,6 +1,8 @@
 import React from 'react';
 import PhotoGridItem from './photo_grid_item';
 import { BeatLoader } from 'react-spinners';
+import { Route } from 'react-router-dom';
+import PhotoModalContainer from '../photos/photo_modal_container';
 
 const FETCH_DELAY = 500;
 
@@ -21,10 +23,6 @@ class PhotoGrid extends React.Component {
     $('html').scrollTop(0);
     this.props.getPhotosGrid(this.state.page);
     window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    
   }
 
   componentWillUnmount() {

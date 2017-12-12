@@ -1,34 +1,3 @@
-.photo-modal  {
-  z-index: 105 !important;
-  border: 1px solid red;
-}
-
-.base {
-  z-index: 1 !important;
-}
-
-.overlay-default {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(40, 40, 40, 0.75)
-}
-
-.baseClass {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  right: 15%;
-  bottom: 10%;
-  border: 1px solid #ccc;
-  background: #fff;
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-}
-
 #close-button {
   color: white;
   position: fixed;
@@ -37,6 +6,76 @@
   z-index: 2 !important;
 }
 
+.overlay-base {
+  z-index: 1 !important;
+}
+
+.overlay-default {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(40, 40, 40, 0.7)
+}
+
+.baseClass {
+  display: flex;
+  position: relative;
+  max-width: 935px;
+  width: 100%;
+  height: auto;
+  max-height: 80%;
+  margin: auto;
+  background: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+  outline: none;
+}
+
+#modal-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
 #close-button:hover {
   cursor: pointer;
+}
+
+#modal-photo-container {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  min-width: 600px;
+  min-height: 450px;
+  max-width: 600px;
+  overflow: hidden;
+  background-color: #000;
+  justify-content: center;
+}
+
+#modal-photo {
+  width: auto;
+  height: auto;
+  min-width: 480px;
+  max-width: 600px;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+#modal-photo-org {
+  width: auto;
+  height: 100%;
+  min-width: 480px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+#modal-photo-information {
+  width: 335px;
+  padding: 25px;
 }
