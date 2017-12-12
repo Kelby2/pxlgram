@@ -49,8 +49,8 @@
   display: flex;
   width: auto;
   height: auto;
-  min-width: 600px;
-  min-height: 450px;
+  min-width: 480px;
+  min-height: 480px;
   max-width: 600px;
   overflow: hidden;
   background-color: #000;
@@ -62,7 +62,7 @@
   height: auto;
   min-width: 480px;
   max-width: 600px;
-  max-height: 600px;
+  max-height: 750px;
   object-fit: cover;
 }
 
