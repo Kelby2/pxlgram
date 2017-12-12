@@ -30,7 +30,7 @@ export const getComments = () => dispatch => {
       .then(comments => dispatch(fetchComments(comments)))
 }
 
-export const getPhotoComments = (photo_id) => dispatch => {
+export const getPhotoComments = photo_id => dispatch => {
   return CommentApiUtil.getPhotoComments(photo_id)
               .then(comments => dispatch(fetchPhotoComments(comments)))
 }

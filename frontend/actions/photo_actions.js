@@ -72,8 +72,8 @@ export const getPhotos = () => dispatch => {
               .then(photos => dispatch(fetchPhotos(photos)))
 }
 
-export const getPhoto = photo => dispatch => {
-  return PhotoApiUtil.getPhoto(photo.id)
+export const getPhoto = photoId => dispatch => {
+  return PhotoApiUtil.getPhoto(photoId)
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 
@@ -82,17 +82,17 @@ export const addLike = photo_id => dispatch => {
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 
-export const deleteLike = (photo_id) => dispatch => {
+export const deleteLike = photo_id => dispatch => {
   return PhotoApiUtil.deleteLike(photo_id)
               .then(photo => dispatch(fetchPhoto(photo)))
 }
 
-export const addPhoto = (photo) => dispatch => {
+export const addPhoto = photo => dispatch => {
   return PhotoApiUtil.addPhoto(photo)
               .then(user => dispatch(fetchUser(user)))
 }
 
-export const deletePhoto = (photo) => dispatch => {
+export const deletePhoto = photo => dispatch => {
   return PhotoApiUtil.deletePhoto(photo)
               .then(photo => dispatch(removePhoto(photo)))
 }

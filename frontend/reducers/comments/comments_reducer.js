@@ -2,6 +2,7 @@ import { RECEIVE_PHOTO_COMMENTS, RECEIVE_ALL_COMMENTS, RECEIVE_COMMENT } from '.
 
 const CommentsReducer = (initialState = [], action) => {
   let newState;
+  
   switch (action.type) {
     case RECEIVE_COMMENT:
       newState = Object.assign(
