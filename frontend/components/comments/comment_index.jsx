@@ -6,6 +6,7 @@ class Comment extends React.Component {
     super(props);
     this.state = {
       commentBody: "",
+      photo_id: this.props.photo.id,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,9 +16,9 @@ class Comment extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const comment = this.state;
-    this.props.addComment(comment).then(() => this.setState({
-      commentBody: ""
-    }));
+    this.props.addComment(comment).then(() =>
+      this.setState( { commentBody: "" } )
+    );
   }
 
   componentDidMount() {
@@ -33,7 +34,6 @@ class Comment extends React.Component {
   render () {
     return (
       <article>
-
         <div className='photo-comments'>
           <ul>
             {

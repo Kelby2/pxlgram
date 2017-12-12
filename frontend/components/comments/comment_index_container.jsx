@@ -4,10 +4,10 @@ import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photoId]
+  
   const comments = Object.values(state.entities.comments).filter((comment) => {
-    return (comment.photo_id === parseInt(ownProps.photo_id))
+    return (comment.photo_id === parseInt(ownProps.photoId))
   })
-
   return {
     photo,
     comments,
