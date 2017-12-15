@@ -9,7 +9,21 @@ const PhotoModalItem = ( { photo } ) => {
       </aside>
 
       <aside id="modal-photo-information">
-        { photo.author_name }
+        <article className='photo-author-info'>
+          <div className='stream-avatar-container'>
+            <Link to={`/${photo.author_name}`}>
+              <img className='stream-avatar' src={photo.author_avatar} />
+            </Link>
+          </div>
+
+          <div className='author-username'>
+            <Link to={`/${photo.author_name}`}>
+               <div className='stream-username'>
+                 {photo.author_name}
+              </div>
+            </Link>
+          </div>
+        </article>
       </aside>
     </main>
   )
