@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import LikeContainer from '../likes/like_container'
-import CommentIndexContainer from '../comments/comment_index_container'
+import LikeContainer from '../likes/like_container';
+import CommentIndexContainer from '../comments/comment_index_container';
+import CommentForm from '../comments/comment_form';
 
 class PhotoIndexItem extends React.Component {
   constructor(props) {
@@ -66,6 +67,10 @@ class PhotoIndexItem extends React.Component {
 
             <div className='comments-container'>
               <CommentIndexContainer photoId={this.photo.id} />
+            </div>
+
+            <div className='comment-form-container'>
+              <CommentForm id={this.photo.id} photo={ this.photo }/>
             </div>
           </article>
 

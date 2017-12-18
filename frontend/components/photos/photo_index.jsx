@@ -3,16 +3,20 @@ import { Link } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
 import { BeatLoader } from 'react-spinners';
 
+const FETCH_DELAY = 500;
+
 class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       page: 1,
-      loading: true,
+      loadingPhotos: false,
       photosFetched: false
     }
 
     this.handleScroll = this.handleScroll.bind(this);
+    this.getPhotosPage = this.props.getPhotosPage.bind(this);
+    this.getAdditionalPhotos = this.getAdditionalPhotos.bind(this);
   }
 
   componentDidMount() {
@@ -31,14 +35,22 @@ class PhotoIndex extends React.Component {
     const nearBottom = (window.scrollY
                           + window.innerHeight
                           + 200 > document.body.clientHeight)
-    if (nearBottom) {
-      this.setState( { page: this.state.page + 1, loading: true },
-      this.getAdditionalPhotos );
+    if (nearBottom
+      && !this.state.loadingPhotos) {
+      this.setState( { page: this.state.page + 1, loadingPhotos: true } )
+      this.queueAdditionalPhotos();
     }
   }
 
+  queueAdditionalPhotos() {
+    this.queuePhotos = setTimeout(() => {
+      this.getAdditionalPhotos();
+    }, FETCH_DELAY)
+  }
+
   getAdditionalPhotos() {
-    this.props.getPhotosPage(this.state.page);
+    this.getPhotosPage(this.state.page)
+    .then(() => this.setState( { loadingPhotos: false } ))
   }
 
   render() {
@@ -46,7 +58,7 @@ class PhotoIndex extends React.Component {
       <div className='loader'>
         <BeatLoader
           color={'#efefef'}
-          loading={ this.state.loading }/>
+          loading={ this.state.loadingPhotos }/>
       </div>
     )
 
