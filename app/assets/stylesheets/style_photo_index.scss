@@ -72,7 +72,7 @@
 // ###### BELOW PHOTO #######
 
 .photo-info-container {
-  padding: 0 10px 0 10px;
+  padding: 0 10px 3px 10px;
   font-family: sans-serif;
 }
 
@@ -144,13 +144,9 @@
 
 // ###### COMMENTS #######
 
-.comments-container {
-  padding-bottom: 5px;
-}
-
-.add-comment-form {
+.add-comment-input {
   width: 90%;
-  min-height: 28px;
+  min-height: 32px;
   border: none;
   outline: none;
   font-size: 14px;
