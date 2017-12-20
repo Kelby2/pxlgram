@@ -44,7 +44,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #efefef;
+  // border-bottom: 1px solid #efefef;
 }
 
 .stream-avatar-container {
@@ -110,12 +110,14 @@
 }
 
 .like-count {
-  margin-bottom: 10px;
-}
-
-.like-count {
   font-size: 13px;
   font-weight: 600;
+}
+
+.comments-container {
+  padding: 10px 0;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 
 .caption-username {
@@ -134,8 +136,8 @@
 }
 
 .photo-comments {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #efefef;
+  // padding-bottom: 10px;
+  // border-bottom: 1px solid #efefef;
 }
 
 .likes-icon:hover, .comments-icon:hover, .liked-icon:hover {
