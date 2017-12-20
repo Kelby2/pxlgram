@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LikeContainer from '../likes/like_container';
+import CommentForm from '../comments/comment_form';
 import CommentIndexContainer from '../comments/comment_index_container';
 
 const PhotoModalItem = ( { photo } ) => {
@@ -27,23 +29,22 @@ const PhotoModalItem = ( { photo } ) => {
           </div>
         </article>
 
-        <div className='caption-container'>
-          <span className='author-username'>
-            <Link to={`${photo.author_name}`}>
-              {(photo.caption && photo.caption.length > 0) ? photo.author_name : ""}
-            </Link>
-          </span>
-          <span className='caption'>
-            {photo.caption}
-          </span>
-        </div>
+        <CommentIndexContainer photoId={photo.id} />
 
-        <div className='comments-container'>
-          <CommentIndexContainer photoId={photo.id} />
+        <div className='icon-container'>
+          <LikeContainer photo_id={photo.id} />
+          <div
+            className='fa fa-comment-o fa-lg comments-icon'
+            onClick={ () => this.focusComment(photo.id) }>
+          </div>
         </div>
 
         <div className='like-count'>
           { photo.likers.length} {( photo.likers.length === 1) ? 'like' : 'likes'}
+        </div>
+
+        <div className='comment-form-container'>
+          <CommentForm id={photo.id} photo={ photo }/>
         </div>
 
       </aside>

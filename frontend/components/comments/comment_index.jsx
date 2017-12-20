@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CommentItem from './comment_item'
 
 class CommentIndex extends React.Component {
@@ -15,19 +16,41 @@ class CommentIndex extends React.Component {
   }
 
   render () {
+
+    let photoCaption;
+
+    if (this.props.photo.caption) {
+      photoCaption = (
+        <li className='caption-container'>
+          <span className='author-username'>
+            <Link to={`${this.props.photo.author_name}`}>
+              {(this.props.photo.caption && this.props.photo.caption.length > 0) ? this.props.photo.author_name : null}
+            </Link>
+          </span>
+          <span className='caption'>
+            {this.props.photo.caption}
+          </span>
+        </li>
+      )
+    }
+
     return (
-      <ul className='photo-comments'>
-        {
-          this.props.comments.map(comment => {
-            return (
-              <CommentItem
-                key={ comment.id }
-                comment={ comment }
-              />
-            )
-          })
-        }
-      </ul>
+      <div className='comments-container'>
+
+        <ul className='photo-comments'>
+          { photoCaption }
+          {
+            this.props.comments.map(comment => {
+              return (
+                <CommentItem
+                  key={ comment.id }
+                  comment={ comment }
+                />
+              )
+            })
+          }
+        </ul>
+      </div>
     )
   }
 }

@@ -54,24 +54,10 @@ class PhotoIndexItem extends React.Component {
               {this.photo.likers.length} {(this.photo.likers.length === 1) ? 'like' : 'likes'}
             </div>
 
-            <div className='caption-container'>
-              <span className='author-username'>
-                <Link to={`${this.photo.author_name}`}>
-                  {(this.photo.caption && this.photo.caption.length > 0) ? this.photo.author_name : ""}
-                </Link>
-              </span>
-              <span className='caption'>
-                {this.photo.caption}
-              </span>
-            </div>
+            <CommentIndexContainer photoId={this.photo.id} />
 
-            <div className='comments-container'>
-              <CommentIndexContainer photoId={this.photo.id} />
-            </div>
+            <CommentForm id={this.photo.id} photo={ this.photo }/>
 
-            <div className='comment-form-container'>
-              <CommentForm id={this.photo.id} photo={ this.photo }/>
-            </div>
           </article>
 
         </div>
