@@ -69,5 +69,10 @@
 #modal-photo-information {
   width: 335px;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
   font-family: sans-serif;
+  .comments-container {
+    border-bottom: 1px solid #efefef;
+  }
 }

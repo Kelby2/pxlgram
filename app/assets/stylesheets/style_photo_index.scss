@@ -44,7 +44,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  // border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 
 .stream-avatar-container {
@@ -116,8 +116,7 @@
 
 .comments-container {
   padding: 10px 0;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
+  flex-grow: 1;
 }
 
 .caption-username {
@@ -160,6 +159,10 @@
 .comment-body {
   font-size: 14px;
   font-family: sans-serif;
+}
+
+.comment-form-container {
+  border-top: 1px solid #efefef;
 }
 
 @media screen and (max-width: 600px) {
