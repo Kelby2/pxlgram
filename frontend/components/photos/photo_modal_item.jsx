@@ -4,7 +4,12 @@ import LikeContainer from '../likes/like_container';
 import CommentForm from '../comments/comment_form';
 import CommentIndexContainer from '../comments/comment_index_container';
 
+const focusComment = id => {
+  document.getElementById(id).focus();
+}
+
 const PhotoModalItem = ( { photo } ) => {
+
   return (
     <main id="modal-container">
       <aside id="modal-photo-container">
@@ -35,7 +40,7 @@ const PhotoModalItem = ( { photo } ) => {
           <LikeContainer photo_id={photo.id} />
           <div
             className='fa fa-comment-o fa-lg comments-icon'
-            onClick={ () => this.focusComment(photo.id) }>
+            onClick={ () => focusComment(photo.id) }>
           </div>
         </div>
 
@@ -43,9 +48,7 @@ const PhotoModalItem = ( { photo } ) => {
           { photo.likers.length} {( photo.likers.length === 1) ? 'like' : 'likes'}
         </div>
 
-        <div className='comment-form-container'>
-          <CommentForm id={photo.id} photo={ photo }/>
-        </div>
+        <CommentForm id={photo.id} photo={ photo }/>
 
       </aside>
     </main>
