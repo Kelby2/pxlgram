@@ -34,9 +34,9 @@ class SessionPage extends React.Component {
         <article className='entry-screen-container'>
           <aside className='entry-photo-container'>
             <div className='background-photo'>
-              <img src="/assets/ig-backdrop.png"></img>
+              <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/ig-backdrop.png"></img>
               <div className='pxlgram-photo'>
-                <img src="/assets/pxlgram_content.png"></img>
+                <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/pxlgram_content.png"></img>
               </div>
             </div>
           </aside>
