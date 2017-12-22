@@ -45,10 +45,10 @@
 
 .pxlgram-photo {
   position: absolute;
-  width: 247px;
-  height: 429px;
-  right: 33px;
-  top: 110px;
+  width: 59%;
+  height: 67%;
+  right: 8%;
+  top: 17%;
 }
 
 .pxlgram-photo img {
@@ -134,4 +134,13 @@
 .policy-terms {
   font-weight: 600;
   color: #999999;
+}
+
+@media screen and (max-width: 900px) {
+  .entry-photo-container {
+    display: none;
+  }
+  .entry-form-container {
+    margin: 0 auto;
+  }
 }
