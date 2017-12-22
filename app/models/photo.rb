@@ -21,5 +21,4 @@ class Photo < ApplicationRecord
   has_many :commenters,
     through: :comments,
     source: :user
-
 end

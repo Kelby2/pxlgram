@@ -1,6 +1,5 @@
-json.extract! photo, :id, :author_id, :caption
+json.extract! photo, :id, :author_id, :caption, :created_at
 
-# json.seconds_ago Time.now.minus_with_coercion(photo.created_at).round
 json.author_name photo.author.username
 json.author_avatar asset_path(photo.author.avatar.url)
 
