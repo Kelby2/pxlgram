@@ -77,12 +77,11 @@
 }
 
 .icon-container {
-  margin-top: 12px;
   height: 24px;
   display: flex;
   width: 70px;
-  vertical-align: center;
   justify-content: space-around;
+  margin-top: 12px;
   margin-bottom: 5px;
   position: relative;
 }
@@ -134,11 +133,6 @@
   height: auto;
 }
 
-.photo-comments {
-  // padding-bottom: 10px;
-  // border-bottom: 1px solid #efefef;
-}
-
 .likes-icon:hover, .comments-icon:hover, .liked-icon:hover {
   cursor: pointer;
 }
@@ -159,6 +153,13 @@
 .comment-body {
   font-size: 14px;
   font-family: sans-serif;
+}
+
+.photo-creation-timestamp {
+  font-size: 11px;
+  color: #afafaf;
+  padding-bottom: 6px;
+  letter-spacing: .2px;
 }
 
 .comment-form-container {
