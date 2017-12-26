@@ -18,7 +18,6 @@ class PhotoIndexItem extends React.Component {
   }
 
   render() {
-
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
@@ -57,7 +56,7 @@ class PhotoIndexItem extends React.Component {
             </div>
 
             <CommentIndexContainer photoId={this.photo.id} />
-            <TimeStamp creationTime={this.photo.created_at} />
+            <TimeStamp photoCreationTime={this.photo.created_at} />
             <CommentForm id={this.photo.id} photo={ this.photo } />
           </article>
 

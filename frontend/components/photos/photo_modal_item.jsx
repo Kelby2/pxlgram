@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container';
 import CommentForm from '../comments/comment_form';
+import TimeStamp from '../photos/photo_time_stamp';
 import CommentIndexContainer from '../comments/comment_index_container';
 
 const focusComment = id => {
@@ -48,6 +49,7 @@ const PhotoModalItem = ( { photo } ) => {
           { photo.likers.length} {( photo.likers.length === 1) ? 'like' : 'likes'}
         </div>
 
+        <TimeStamp photoCreationTime={photo.created_at}/>
         <CommentForm id={photo.id} photo={ photo }/>
 
       </aside>

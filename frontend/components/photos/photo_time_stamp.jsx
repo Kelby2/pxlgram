@@ -1,18 +1,23 @@
 import React from 'react';
-var moment = require('moment');
+import moment from 'moment';
 
-const TimeStamp = ( { creationTime } ) => {
-  let timeStamp;
+const TimeStamp = ( { photoCreationTime } ) => {
 
-  let createdAtTimeStamp = moment(creationTime).fromNow();
+  let creationTimeStamp;
+  const createdAtTime = moment(photoCreationTime);
+  const stampCreationLimit = moment().subtract(7, 'days');
 
-  if (moment(creationTime).format() < moment().subtract(25, 'days').format()) {
-    createdAtTimeStamp = moment(creationTime).format('ll');
+  //creationTimeStamp shows the date if the photo was created
+  //more than a week (7 days) ago
+  if (createdAtTime.format() < stampCreationLimit.format()) {
+    creationTimeStamp = createdAtTime.format('LL').split(',')[0].toUpperCase();
+  } else {
+    creationTimeStamp = createdAtTime.fromNow().toUpperCase();
   }
 
   return (
     <div className='photo-creation-timestamp'>
-      { createdAtTimeStamp }
+      { creationTimeStamp }
     </div>
   )
 }
