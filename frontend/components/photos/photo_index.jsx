@@ -54,13 +54,6 @@ class PhotoIndex extends React.Component {
   }
 
   render() {
-    let loader = (
-      <div className='loader'>
-        <BeatLoader
-          color={'#efefef'}
-          loading={ this.state.loadingPhotos }/>
-      </div>
-    )
 
     if (!this.state.photosFetched) {
       return null;

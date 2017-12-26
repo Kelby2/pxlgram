@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentForm from '../comments/comment_form';
+import TimeStamp from './photo_time_stamp'
 
 class PhotoIndexItem extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class PhotoIndexItem extends React.Component {
   }
 
   render() {
+
     return (
       <li className='photo-post-container'>
         <div className='photo-post'>
@@ -55,9 +57,8 @@ class PhotoIndexItem extends React.Component {
             </div>
 
             <CommentIndexContainer photoId={this.photo.id} />
-
-            <CommentForm id={this.photo.id} photo={ this.photo }/>
-
+            <TimeStamp creationTime={this.photo.created_at} />
+            <CommentForm id={this.photo.id} photo={ this.photo } />
           </article>
 
         </div>
