@@ -10,7 +10,7 @@ const focusComment = id => {
 }
 
 const PhotoModalItem = ( { photo } ) => {
-
+  
   return (
     <main id="modal-container">
       <aside id="modal-photo-container">

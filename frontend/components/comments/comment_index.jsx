@@ -16,7 +16,6 @@ class CommentIndex extends React.Component {
   }
 
   render () {
-
     let photoCaption;
 
     if (this.props.photo.caption) {
