@@ -2,8 +2,8 @@ import { RECEIVE_PHOTO_PAGE, RECEIVE_PHOTO_GRID,
         RECEIVE_ALL_PHOTOS, RECEIVE_USER_PHOTOS,
         RECEIVE_PHOTO, REMOVE_PHOTO,
         CLEAR_PHOTOS } from '../../actions/photo_actions';
-import { RECEIVE_COMMENT } from '../../actions/comment_actions'
-
+import { RECEIVE_COMMENT } from '../../actions/comment_actions';
+import { ADD_LIKE, REMOVE_LIKE } from '../../actions/like_actions';
 
 const PhotosReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -20,6 +20,8 @@ const PhotosReducer = (oldState = {}, action) => {
         action.photos
       );
       return newState;
+    case ADD_LIKE:
+    case REMOVE_LIKE:
     case RECEIVE_PHOTO:
       newState = Object.assign(
         {},
