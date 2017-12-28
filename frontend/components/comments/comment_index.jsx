@@ -35,7 +35,6 @@ class CommentIndex extends React.Component {
 
     return (
       <div className='comments-container'>
-
         <ul className='photo-comments'>
           { photoCaption }
           {

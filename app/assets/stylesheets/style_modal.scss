@@ -74,6 +74,7 @@
   font-family: sans-serif;
   .comments-container {
     border-bottom: 1px solid #efefef;
+    max-height: calc(100% - 193px);
   }
   .like-count {
     padding-bottom: 6px;
