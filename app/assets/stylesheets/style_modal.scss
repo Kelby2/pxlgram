@@ -74,6 +74,9 @@
   font-family: sans-serif;
   .comments-container {
     border-bottom: 1px solid #efefef;
+    overflow-y: auto;
+  }
+  .photo-comments {
     max-height: calc(100% - 193px);
   }
   .like-count {
