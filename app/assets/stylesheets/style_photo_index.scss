@@ -114,10 +114,15 @@
 }
 
 .comments-container {
-  padding: 10px 0;
+  margin: 10px 0;
   flex-grow: 1;
+  overflow-y: hidden;
+}
+
+.photo-comments {
   max-height: 150px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  line-height: normal;
 }
 
 .caption-username {
