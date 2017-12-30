@@ -64,7 +64,6 @@ class PhotoGrid extends React.Component {
       <article className='explore-page'>
         <div className='explore-photos-container'>
 
-
           <ul className='photos-grid-container'>
             <div className='explore-header'>Explore</div>
             {
