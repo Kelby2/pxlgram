@@ -63,9 +63,10 @@ class PhotoGrid extends React.Component {
     return (
       <article className='explore-page'>
         <div className='explore-photos-container'>
-          <div className='explore-header'>Explore</div>
+
 
           <ul className='photos-grid-container'>
+            <div className='explore-header'>Explore</div>
             {
               this.props.photos.map(photo => {
                 return (

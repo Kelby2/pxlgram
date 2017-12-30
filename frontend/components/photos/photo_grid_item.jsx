@@ -8,8 +8,12 @@ const PhotoGridItem = ( { photo } ) => {
         <img className='grid-photo-image' src={ photo.imageUrl } />
         <div className='grid-photo-stats'>
           <article className='stat-line'>
-            <div className='fa fa-heart fa-lg'></div> { photo.likers.length }
-            <div className='fa fa-comment fa-lg'></div> { photo.commentIds.length }
+            <div className='like-stat'>
+              <span className='fa fa-heart fa-lg'></span> { photo.likers.length }
+            </div>
+            <div className='comment-stat'>
+              <span className='fa fa-comment fa-lg'></span> { photo.commentIds.length }
+            </div>
           </article>
         </div>
       </Link>
