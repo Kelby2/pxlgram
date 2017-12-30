@@ -7,6 +7,10 @@ const CommentItem = ({ comment }) => {
       <Link to={`/${comment.author_name}`}>
         <span className='comment-author'>{comment.author_name}</span>
       </Link>
+      <div
+        className="fa fa-times fa-lg"
+        id="delete-comment-button">
+      </div>
       <span className='comment-body'>{comment.body}</span>
     </li>
   )
