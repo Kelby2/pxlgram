@@ -1,5 +1,5 @@
 .user-profile-container {
-  margin-top: 70px;
+  margin-top: 76px;
   width: 100%;
   height: auto;
   justify-content: center;
@@ -14,9 +14,9 @@
 
 .user-profile-header {
   width: 950px;
-  height: 175px;
+  height: auto;
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .user-avatar-container, .user-name, .toggleFollowButton,
@@ -25,7 +25,7 @@
   }
 
 .user-avatar-container {
-  width: 300px;
+  width: 31%;
   height: 150px;
   min-width: 150px;
 }
@@ -33,6 +33,8 @@
 .user-avatar {
   width: 150px;
   height: 150px;
+  min-width: 100px;
+  min-height: 100px;
   margin: 0 auto;
   .avatar {
     object-fit: cover;
@@ -43,7 +45,7 @@
 }
 
 .user-info-container {
-  width: 650px;
+  width: 69%;
   height: 150px;
   margin-top: 20px;
 }
@@ -110,9 +112,10 @@
 }
 
 .user-bio {
-  width: 500px;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
+  line-height: 20px;
   .user-full-name {
     font-size: 16px;
     font-weight: bolder;
@@ -135,14 +138,28 @@
   }
   .user-avatar-container {
     width: 30%;
-    height: 15vw
-  }
-  .user-avatar {
-    width: 15vw;
-    height: 15vw;
   }
   .user-info-container {
     width: 70%;
     height: 15vw;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .user-profile-header {
+    flex-direction: column;
+  }
+  .user-info-container {
+    width: 95%;
+    height: auto;
+    margin-left: 5%;
+  }
+  .user-avatar-container {
+    margin: 0 auto;
+    height: auto;
+  }
+  .user-avatar {
+    width: 110px;
+    height: 110px;
   }
 }

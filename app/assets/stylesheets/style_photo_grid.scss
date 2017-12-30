@@ -5,12 +5,8 @@
 .user-photos-container {
   border-top: 1px solid #efefef;
   width: 950px;
-  margin: 0 auto;
   height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 .explore-photos-container {
@@ -23,19 +19,20 @@
 }
 
 .explore-header {
+  grid-column: 1/4;
   font-size: 16px;
   color: #999999;
   font-family: sans-serif;
   font-weight: 600;
-  margin-bottom: 2%;
 }
 
 .photos-grid-container {
   width: 100%;
   height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
+  display: grid;
+  grid-template-columns: repeat(3, 290px);
+  grid-gap: 28px;
+  justify-content: center;
 }
 
 .loader {
@@ -47,13 +44,11 @@
   width: 290px;
   height: 290px;
   position: relative;
-  margin-bottom: 25px;
-  margin-right: 18px;
-  overflow: hidden;
-  text-align: center;
-  background-color: #ffffff;
   display: flex;
-  vertical-align: middle;
+  // overflow: hidden;
+  // text-align: center;
+  // background-color: #ffffff;
+  // vertical-align: middle;
 }
 
 //User photo stats are hidden until user hovers over photo
@@ -75,9 +70,16 @@
 .stat-line {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: sans-serif;
   font-weight: bolder;
+}
+
+.like-stat, .comment-stat {
+  vertical-align: baseline;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .grid-photo-image {
@@ -102,29 +104,31 @@
 }
 
 @media screen and (max-width: 950px) {
-  .explore-photos-container, .user-photos-container {
-    width: 100vw;
+  .explore-photos-container,
+  .user-photos-container {
+    width: 100%;
   }
   .grid-photo {
     width: 30vw;
     height: 30vw;
   }
+  .photos-grid-container {
+    grid-template-columns: repeat(3, 30vw);
+  }
 }
 
-@media screen and (max-width: 700px) {
-  .grid-photo {
-    margin: 0;
-    border: 1px solid white;
-  }
+@media screen and (max-width: 750px) {
   .photos-grid-container {
-
+    grid-gap: 0;
   }
   .stat-line {
-    width: 25%;
+    width: auto;
     height: auto;
-    flex-wrap: wrap;
-    .fa-heart {
-      margin-bottom: 7%;
-    }
+    flex-direction: column;
+  }
+  .like-stat, .comment-stat {
+    width: 100%;
+    min-width: 40px;
+    margin-bottom: 5px;
   }
 }
