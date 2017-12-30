@@ -4,8 +4,10 @@ class Api::PhotosController < ApplicationController
     if params[:user_id]
       user = User.find_by(username: params[:user_id])
       @photos = user.photos
+      .includes(:author, :likers, :commenters)
     elsif params[:explore]
       @photos = Photo
+      .includes(:author, :likers, :commenters)
       .order(created_at: :desc)
       .paginate(:page => params[:page], per_page: 12)
     else
