@@ -6,13 +6,12 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentBody: "",
-      photo_id: this.props.photo.id,
+      commentBody: ""
     }
   }
 
   componentDidMount() {
-    this.props.getPhotoComments(this.props.photoId)
+    this.props.getPhotoComments(this.props.photoId);
   }
 
   render () {
