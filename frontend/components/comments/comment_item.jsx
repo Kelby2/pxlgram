@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { deleteComment } from '../../actions/comment_actions';
 
 class CommentItem extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class CommentItem extends React.Component {
 
   handleDelete(event) {
     event.preventDefault();
-
+    //this.props.deleteComment(this.props.comment.id)
   }
 
   render() {
