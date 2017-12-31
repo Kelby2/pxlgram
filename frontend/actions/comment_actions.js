@@ -40,7 +40,7 @@ export const addComment = comment => dispatch => {
               .then(comment => dispatch(fetchComment(comment)))
 }
 
-export const deleteComments = photo_id => dispatch => {
-  return PhotoApiUtil.deleteComment(photo_id)
+export const deleteComment = comment_id => dispatch => {
+  return CommentApiUtil.deleteComment(comment_id)
               .then(photo => dispatch(fetchPhoto(photo)))
 }

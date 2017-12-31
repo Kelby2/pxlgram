@@ -12,7 +12,7 @@ class CommentItem extends React.Component {
 
   handleDelete(event) {
     event.preventDefault();
-    //this.props.deleteComment(this.props.comment.id)
+    this.props.deleteComment(this.props.comment.id)
   }
 
   render() {
@@ -51,7 +51,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    deleteComment: id => dispatch(deleteComment(id)),
+    deleteComment: comment_id => dispatch(deleteComment(comment_id)),
   })
 }
 export default connect(mapStateToProps, mapDispatchToProps)

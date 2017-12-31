@@ -28,7 +28,7 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     #find the specific comment through current_users comments?
-    @comment = current_user.comments.find_by(photo_id: params[:id])
+    @comment = current_user.comments.find_by(id: params[:id])
     @photo = Photo.find(@comment.photo_id)
 
     @comment.destroy!
