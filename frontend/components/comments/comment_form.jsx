@@ -1,5 +1,5 @@
 import React from 'react';
-import { addComment, deleteComment } from '../../actions/comment_actions';
+import { addComment } from '../../actions/comment_actions';
 import { connect } from 'react-redux';;
 
 class CommentForm extends React.Component {
@@ -53,7 +53,6 @@ class CommentForm extends React.Component {
 const mapDispatchToProps = dispatch => {
   return ({
     addComment: comment => dispatch(addComment(comment)),
-    deleteComment: id => dispatch(deleteComment(id)),
   })
 }
 
