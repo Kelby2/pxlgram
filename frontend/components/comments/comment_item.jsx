@@ -2,26 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// const CommentItem = ({ comment }) => {
-//   return (
-//     <li className='comment'>
-//       <Link to={`/${comment.author_name}`}>
-//         <span className='comment-author'>{comment.author_name}</span>
-//       </Link>
-//       <div
-//         className="fa fa-times"
-//         id="delete-comment-button">
-//       </div>
-//       <span className='comment-body'>{comment.body}</span>
-//     </li>
-//   )
-// }
-
 class CommentItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleDelete = this.handleDelete.bind(this);  
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(e) {
