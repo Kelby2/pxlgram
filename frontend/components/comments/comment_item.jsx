@@ -8,7 +8,7 @@ const CommentItem = ({ comment }) => {
         <span className='comment-author'>{comment.author_name}</span>
       </Link>
       <div
-        className="fa fa-times fa-lg"
+        className="fa fa-times"
         id="delete-comment-button">
       </div>
       <span className='comment-body'>{comment.body}</span>
