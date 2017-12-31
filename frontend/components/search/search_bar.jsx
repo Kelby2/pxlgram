@@ -63,16 +63,16 @@ class Searchbar extends React.Component {
   }
 
   //Blurs instead of deleting form when escape key is pressed
-  handleEsc(e) {
-    if (e.keyCode === 27) {
-      e.preventDefault();
+  handleEsc(event) {
+    if (event.keyCode === 27) {
+      event.preventDefault();
       $('.user-search-bar').blur();
     }
   }
 
   //Highlights text in the search bar and activates display for results.
-  handleFocus(e) {
-    e.currentTarget.select()
+  handleFocus(event) {
+    event.currentTarget.select()
     this._toggleShowResults();
   }
 

@@ -9,9 +9,9 @@ class CommentItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  handleDelete(e) {
-    e.preventDefault();
-    console.log('BAM got deleted!')
+  handleDelete(event) {
+    event.preventDefault();
+
   }
 
   render() {
