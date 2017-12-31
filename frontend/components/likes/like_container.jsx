@@ -10,10 +10,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return ({
-    addLike: (id) => dispatch(addLike(id)),
-    deleteLike: (id) => dispatch(deleteLike(id)),
+    addLike: id => dispatch(addLike(id)),
+    deleteLike: id => dispatch(deleteLike(id)),
   })
 }
 
