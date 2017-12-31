@@ -157,6 +157,18 @@
   box-shadow: none;
 }
 
+.comment {
+  position: relative;
+  padding-right: 4%;
+}
+
+#delete-comment-button {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  color: #afafaf;
+}
+
 .comment-body {
   font-size: 14px;
   font-family: sans-serif;
