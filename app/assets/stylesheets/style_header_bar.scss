@@ -72,11 +72,10 @@
 .search-results-index {
   position: absolute;
   min-width: 225px;
+  width: 100%;
   top: 45px;
-  right: -60%;
   height: auto;
   max-height: 300px;
-  -webkit-transform: translateX(-55%);
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   border: 1px solid #e6e6e6;
   border-radius: 2%;

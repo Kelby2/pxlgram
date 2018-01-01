@@ -129,7 +129,6 @@ class Searchbar extends React.Component {
           onKeyDown={ this.handleEsc }
         />
         {resultsIndex}
-
       </div>
     )
   }
