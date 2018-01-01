@@ -42,6 +42,7 @@ class CommentIndex extends React.Component {
                 <CommentItem
                   key={ comment.id }
                   comment={ comment }
+                  photoAuthor= { this.props.photo.author_name }
                 />
               )
             })

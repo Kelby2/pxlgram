@@ -19,7 +19,8 @@ class CommentItem extends React.Component {
 
     let deleteCommentButton;
 
-    if (this.props.comment.author_name === this.props.currentUser) {
+    if (this.props.comment.author_name === this.props.currentUser
+        || this.props.photoAuthor === this.props.currentUser) {
       deleteCommentButton = (
         <div
           className="fa fa-times"
