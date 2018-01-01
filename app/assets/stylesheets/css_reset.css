@@ -49,6 +49,6 @@ table {
 	border-spacing: 0;
 }
 
-button:focus {
+button:focus, a {
 	outline: none;
 }
