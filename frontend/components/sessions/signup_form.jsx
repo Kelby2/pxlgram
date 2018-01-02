@@ -19,11 +19,6 @@ class SignUpForm extends React.Component {
   renderErrors() {
     return (
       this.props.errors.session.map((error, idx) => {
-        if (error === "Fullname can't be blank") {
-          error = "Full name can't be blank"
-        };
-
-
         return <li
           className='errorMessages'
           key={`${idx}`}>
@@ -120,7 +115,7 @@ class SignUpForm extends React.Component {
           type='text'
           value={this.state.fullname}
           onChange={this.handleInputChange('fullname')}
-          placeholder='Full name'>
+          placeholder='Full Name'>
         </input>
         <br />
       </div>

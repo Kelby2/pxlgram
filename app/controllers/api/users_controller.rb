@@ -17,17 +17,16 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    
     if @user.save
       login!(@user)
       render :show
-    elsif @user.username.empty?
-      errors = @user.errors.full_messages
-      errors.delete("Username can only use letters, numbers, underscores and periods.")
-      render json: errors, status: 422
     else
-      errors = @user.errors.full_messages
-      errors.delete("Username can't be empty")
+      # takes first error message for each field
+      errors = []
+      @user.errors.keys.each do |error|
+        errors.push(@user.errors.full_messages_for(error).first)
+      end
       render json: errors, status: 422
     end
 

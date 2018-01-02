@@ -1,13 +1,17 @@
 class User < ApplicationRecord
 
-  validates :fullname, :password_digest, presence: true
-  validates :email, :username, :session_token, presence: true,
-   uniqueness: true
+  auto_strip_attributes :email, :fullname, :username,
+    nullify: false, squish: true
+
+  validates :email, :fullname, :username, :password_digest, :session_token, presence: true
+  validates :email, :username, :session_token, uniqueness: true
   validates :username, format: { with: /\A[a-zA-Z0-9_.]+\Z/,
     message: "can only use letters, numbers, underscores and periods." }
   validates_exclusion_of :username, in: %w(explore upload), message: "has already been taken"
-  validates :bio, length: { maximum: 150 }
+  validates :fullname, :username, length: { minimum: 3, maximum: 32 }
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  validates :bio, length: { maximum: 150, message: "%{count} character limit" }
 
   has_attached_file :avatar, default_url: "default-user-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
@@ -54,4 +58,5 @@ class User < ApplicationRecord
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
+
 end
