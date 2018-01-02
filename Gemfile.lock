@@ -44,6 +44,8 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
+    auto_strip_attributes (2.2.0)
+      activerecord (>= 3.0)
     aws-sdk (2.10.73)
       aws-sdk-resources (= 2.10.73)
     aws-sdk-core (2.10.73)
@@ -226,6 +228,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  auto_strip_attributes (~> 2.2)
   aws-sdk (< 3.0)
   bcrypt (~> 3.1.7)
   better_errors

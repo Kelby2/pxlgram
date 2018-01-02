@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem 'rails_12factor'
 gem 'faker'
 gem 'will_paginate', '~> 3.1.0'
+gem "auto_strip_attributes", "~> 2.2"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
