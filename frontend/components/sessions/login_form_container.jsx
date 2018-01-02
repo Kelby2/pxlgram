@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
-import { login, clearErrors } from '../../actions/session_actions';
+import { login, clearSessionErrors } from '../../actions/session_actions';
 import LoginForm from './login_form';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-  const errors = state.errors;
+  const sessionsErrors = state.errors.sessionsErrors;
+
   return ({
-    errors
+    sessionsErrors
   });
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     login: user => dispatch(login(user)),
-    clearErrors: () => dispatch(clearErrors())
+    clearSessionErrors: () => dispatch(clearSessionErrors())
   })
 };
 

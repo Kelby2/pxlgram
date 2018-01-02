@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      this.props.errors.session.map((error, idx) => {
+      this.props.sessionsErrors.map((error, idx) => {
         return <li
           className='errorMessages'
           key={`${idx}`}>
@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
 
   toggleForm(event) {
     event.preventDefault();
-    this.props.clearErrors();
+    this.props.clearSessionErrors();
     this.setState({ username: "",
                     password: "",
                     fullname: "",

@@ -12,7 +12,7 @@ class SessionPage extends React.Component {
 
   toggleForm(event) {
     event.preventDefault();
-    this.props.clearErrors();
+    this.props.clearSessionErrors();
     const newType = (this.state.formType === 'signup') ? 'login' : 'signup';
     this.setState({ formType: newType })
   }

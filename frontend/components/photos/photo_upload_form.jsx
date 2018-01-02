@@ -14,6 +14,18 @@ class PhotoUpload extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
+  renderErrors() {
+    return (
+      this.props.photoErrors.map((error, idx) => {
+        return <li
+          className='errorMessages'
+          key={`${idx}`}>
+          { error }
+        </li>
+      })
+    )
+  }
+
   updateFile(e) {
     const newFile = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -60,6 +72,10 @@ class PhotoUpload extends React.Component {
                   placeholder='Write a caption...'
                 />
               </div>
+
+              <ul>
+                { this.renderErrors() }
+              </ul>
 
               <div className='label-container'>
                 <input
