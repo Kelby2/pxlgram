@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  # errors:
+  #   format: "%{attribute} %{message}"
+  activerecord:
+    attributes:
+      user:
+        fullname: "Full name"
