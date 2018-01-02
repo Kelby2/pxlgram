@@ -4,14 +4,17 @@ import { addPhoto } from '../../actions/photo_actions';
 import PhotoUploadForm from './photo_upload_form';
 
 const mapStateToProps = (state) => {
-  return ({
+  const errors = state.errors;
 
+  return ({
+    errors
   })
 }
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    addPhoto: (photo) => dispatch(addPhoto(photo))
+    addPhoto: photo => dispatch(addPhoto(photo))
+    clearErrors: () => dispatch(clearErrors())
   })
 }
 
