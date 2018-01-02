@@ -5,21 +5,21 @@ export const RECEIVE_PHOTO_COMMENTS = 'RECEIVE_PHOTO_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
 
-export const fetchPhotoComments = comments => {
+const fetchPhotoComments = comments => {
   return ({
     type: RECEIVE_PHOTO_COMMENTS,
     comments,
   })
 }
 
-export const fetchComment = comment => {
+const fetchComment = comment => {
   return ({
     type: RECEIVE_COMMENT,
     comment
   })
 }
 
-export const removeComment = comment => {
+const removeComment = comment => {
   return ({
     type: DELETE_COMMENT,
     comment,

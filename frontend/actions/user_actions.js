@@ -5,28 +5,28 @@ export const RECEIVE_USER = 'RECEIVE_USER'
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS'
 export const CLEAR_USERS_SEARCH = 'CLEAR_USERS_SEARCH'
 
-export const fetchUsers = users => {
+const fetchUsers = users => {
   return ({
     type: RECEIVE_ALL_USERS,
     users
   })
 }
 
-export const fetchUser = user => {
+const fetchUser = user => {
   return ({
     type: RECEIVE_USER,
     user
   })
 }
 
-export const fetchSearch = users => {
+const fetchSearch = users => {
   return ({
     type: RECEIVE_SEARCH_RESULTS,
     users
   })
 }
 
-export const clearUsersSearch = () => {
+const clearUsersSearch = () => {
   return ({
     type: CLEAR_USERS_SEARCH,
   })

@@ -3,14 +3,14 @@ import * as LikeApiUtil from '../util/like_api_util';
 export const ADD_LIKE = 'ADD_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 
-export const addNewLike = photo => {
+const addNewLike = photo => {
   return ({
     type: ADD_LIKE,
     photo
   })
 }
 
-export const removeLike = photo => {
+const removeLike = photo => {
   return ({
     type: REMOVE_LIKE,
     photo,

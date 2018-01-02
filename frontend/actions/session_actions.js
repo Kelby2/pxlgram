@@ -4,17 +4,17 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
-export const receiveCurrentUser = user => ({
+const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user,
 });
 
-export const receiveErrors = errors => ({
+const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors: errors.responseJSON
 });
 
-export const clearAllErrors = () => ({
+const removeSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS,
   errors: [],
 });
@@ -50,6 +50,6 @@ export const logout = () => dispatch => {
     })
 };
 
-export const clearErrors = () => dispatch => {
-  dispatch(clearAllErrors());
+export const clearSessionErrors = () => dispatch => {
+  dispatch(removeSessionErrors());
 }
