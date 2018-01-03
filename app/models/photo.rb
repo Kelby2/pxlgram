@@ -2,7 +2,11 @@ class Photo < ApplicationRecord
 
   validates :author_id, presence: true
   has_attached_file :image, default_url: "default.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates :image, attachment_presence: { message: "Please upload a photo to share"}
+
+  validates_attachment :image,
+    content_type: { content_type: /\Aimage\/.*\Z/, message: 'Invalid content type, please choose an image' },
+    size: { in: 0..1.megabytes, message: "File size too large (Limit 1 MB)" }
 
   belongs_to :author,
     foreign_key: :author_id,

@@ -1,10 +1,3 @@
-export const getComments = () => {
-  return $.ajax({
-    method: 'get',
-    url: 'api/comments',
-  })
-}
-
 export const getPhotoComments = photo_id => {
   return $.ajax({
     method: 'get',

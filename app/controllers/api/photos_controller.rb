@@ -24,12 +24,21 @@ class Api::PhotosController < ApplicationController
 
   def create
     @user = current_user
-    @photo = @user.photos.create(photo_params)
+    if photo_params[:image] == "null"
+      @photo = @user.photos.create(caption: photo_params[:caption], image: nil)
+    else
+      @photo = @user.photos.create(photo_params)
+    end
 
     if @photo.save
-      render 'api/users/show'
+      render :show
     else
-      render json: @photo.errors.full_messages, status: 422
+      errors = []
+      @photo.errors.keys.each do |error|
+        errors.push(@photo.errors.full_messages_for(error).first) unless
+          error == :image_content_type
+      end
+      render json: errors, status: 422
     end
   end
 

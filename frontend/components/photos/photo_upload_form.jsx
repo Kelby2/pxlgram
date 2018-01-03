@@ -14,6 +14,10 @@ class PhotoUpload extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearPhotoErrors();
+  }
+
   renderErrors() {
     return (
       this.props.photoErrors.map((error, idx) => {
@@ -29,6 +33,7 @@ class PhotoUpload extends React.Component {
   updateFile(e) {
     const newFile = e.currentTarget.files[0];
     const fileReader = new FileReader();
+    this.props.clearPhotoErrors();
 
     fileReader.onloadend = () => {
       this.setState({imageFile: newFile, imageUrl: fileReader.result })
@@ -39,73 +44,73 @@ class PhotoUpload extends React.Component {
     }
   }
 
-  handleInputChange(formField) {
+  handleInputChange() {
     return (e) => {
-      this.setState({ [formField]: e.target.value });
+      this.setState({ photoCaption: e.target.value });
     };
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append('photo[caption]', this.state.photoCaption);
     formData.append('photo[image]', this.state.imageFile);
-    this.props.addPhoto(formData).then((res) => {
-      this.props.history.push(`/${res.user.username}`)
-    })
+
+    this.props.addPhoto(formData).then((result) => {
+      this.props.history.push(`/${result.photo.author_name}`)
+    });
   }
 
   render() {
     return (
       <div className='photo-upload-form-container'>
 
-          <article className='photo-upload-form'>
-
+          <main className='photo-upload-form'>
             <div className='photo-caption-container'>
 
-              <div className='update-caption-container'>
+              <article className='update-caption-container'>
                 <textarea
                   className='user-caption'
-                  value={this.state.caption}
-                  onChange={this.handleInputChange('photoCaption')}
+                  value={ this.state.caption }
+                  onChange={ this.handleInputChange() }
                   placeholder='Write a caption...'
                 />
-              </div>
+              </article>
 
               <ul>
                 { this.renderErrors() }
               </ul>
 
-              <div className='label-container'>
-                <input
-                  type='file'
-                  id='file'
-                  className='file-selector'
-                  onChange={this.updateFile}>
-                </input>
+              <article
+                className='upload-buttons'>
 
-                <label
-                  className='file-label'
-                  htmlFor='file'>
-                  Choose a file
-                </label>
-              </div>
+                <div className='label-container'>
+                  <input
+                    type='file'
+                    id='file-selector'
+                    onChange={this.updateFile}>
+                  </input>
+                  <label
+                    className='file-upload-buttons'
+                    htmlFor='file-selector'>
+                    Choose a file
+                  </label>
+                </div>
 
-              <div className='file-submit-button-container'>
-                <button className='file-submit-button'
-                  onClick={this.handleFormSubmit}>
-                  Share
-                </button>
-              </div>
+                <div className='file-submit-button-container'>
+                  <button className='file-upload-buttons'
+                    onClick={this.handleFormSubmit}>
+                    Share
+                  </button>
+                </div>
 
+              </article>
             </div>
 
             <div className='photo-preview-container'>
               <img className='photo-preview' src={this.state.imageUrl} />
             </div>
-
-          </article>
+          </main>
       </div>
     )
   }

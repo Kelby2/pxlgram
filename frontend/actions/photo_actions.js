@@ -1,5 +1,4 @@
 import * as PhotoApiUtil from '../util/photo_api_util';
-import { fetchUser } from './user_actions';
 
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO_PAGE = 'RECEIVE_PHOTO_PAGE';
@@ -7,6 +6,7 @@ export const RECEIVE_PHOTO_GRID = 'RECEIVE_PHOTO_GRID';
 export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
+export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
 export const CLEAR_PHOTO_ERRORS = 'CLEAR_PHOTO_ERRORS';
 
 //photos, photo, photoId is moved to the reducer under action
@@ -52,10 +52,19 @@ const removePhoto = photoId => {
   })
 }
 
-const removePhotoErrors = () => ({
-  type: CLEAR_PHOTO_ERRORS,
-  errors: [],
-})
+const receivePhotoErrors = errors => {
+  return ({
+    type: RECEIVE_PHOTO_ERRORS,
+    errors: errors.responseJSON
+  })
+}
+
+const removePhotoErrors = () => {
+  return ({
+    type: CLEAR_PHOTO_ERRORS,
+    errors: [],
+  })
+}
 
 export const getPhotosPage = page => dispatch => {
   return PhotoApiUtil.getPhotosPage(page)
@@ -84,7 +93,9 @@ export const getPhoto = photoId => dispatch => {
 
 export const addPhoto = photo => dispatch => {
   return PhotoApiUtil.addPhoto(photo)
-              .then(user => dispatch(fetchUser(user)))
+    .then(photo => dispatch(fetchPhoto(photo)),
+          errors => dispatch(receivePhotoErrors(errors))
+        )
 }
 
 export const deletePhoto = photo => dispatch => {
@@ -93,5 +104,5 @@ export const deletePhoto = photo => dispatch => {
 }
 
 export const clearPhotoErrors = () => dispatch => {
-  dispatch(removeSessionErrors());
+  return dispatch(removePhotoErrors());
 }
