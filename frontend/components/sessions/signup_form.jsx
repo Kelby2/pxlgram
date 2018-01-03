@@ -65,7 +65,6 @@ class SignUpForm extends React.Component {
           onChange={this.handleInputChange('username')}
           placeholder='Username'>
         </input>
-        <br />
       </div>
     )
 
@@ -78,7 +77,6 @@ class SignUpForm extends React.Component {
           onChange={this.handleInputChange('password')}
           placeholder='Password'>
         </input>
-        <br />
       </div>
     )
 
@@ -104,7 +102,6 @@ class SignUpForm extends React.Component {
           onChange={this.handleInputChange('email')}
           placeholder='Email'>
         </input>
-        <br />
       </div>
     )
 
@@ -117,7 +114,6 @@ class SignUpForm extends React.Component {
           onChange={this.handleInputChange('fullname')}
           placeholder='Full Name'>
         </input>
-        <br />
       </div>
     )
 

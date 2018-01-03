@@ -67,7 +67,6 @@ class LoginForm extends React.Component {
           onChange={this.handleInputChange('username')}
           placeholder='Username'>
         </input>
-        <br />
       </div>
     )
 
@@ -80,7 +79,6 @@ class LoginForm extends React.Component {
           onChange={this.handleInputChange('password')}
           placeholder='Password'>
         </input>
-        <br />
       </div>
     )
 
