@@ -37,3 +37,5 @@ en:
     attributes:
       user:
         fullname: "Full name"
+      photo:
+        image: ""
