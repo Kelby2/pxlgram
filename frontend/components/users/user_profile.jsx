@@ -23,12 +23,7 @@ class UserProfile extends React.Component {
   render () {
     const user = this.props.user;
     let logOutButton;
-    let profileButton = (
-      <button
-        className='toggle-follow-button'>
-        Follow
-      </button>
-    )
+    let profileButton;
 
     if (user && user.photoIds) {
       if (user.username === this.props.currentUser.username) {
@@ -63,7 +58,7 @@ class UserProfile extends React.Component {
               <div className='user-info-container'>
                 <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
-                  {/*{profileButton}*/}
+                  {profileButton}
                   {logOutButton}
                 </div>
 
