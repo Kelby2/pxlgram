@@ -34,12 +34,6 @@
   }
 }
 
-@media screen and (max-width: 750px) {
-  .search-container, .logo {
-    display: none;
-  }
-}
-
 .search-container {
   position: relative;
 }
@@ -185,4 +179,10 @@
 .header-bar a {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 750px) {
+  .search-container, .logo {
+    display: none;
+  }
 }

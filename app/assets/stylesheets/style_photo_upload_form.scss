@@ -1,16 +1,20 @@
 .photo-upload-form-container {
-  width: 100vw;
-  height: 80vh;
+  width: 100%;
+  height: 100%;
 }
 
 .photo-upload-form {
   width: 80%;
   height: auto;
-  padding-top: 25px;
-  margin: 0 auto;
-  margin-top: 100px;
+  padding-top: 5%;
+  margin: 100px auto;
   display: flex;
   justify-content: space-around;
+}
+
+.photo-preview-container {
+  width: 45%;
+  height: auto;
 }
 
 .photo-preview {
@@ -21,32 +25,12 @@
   object-fit: cover;
 }
 
-.photo-preview-container {
-  width: 45%;
-  height: auto;
-}
-
-.form-container {
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 100px;
-}
-
-.form-banner {
-  width: 850px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 100px;
-  justify-content: center;
-  display: flex;
-}
-
 .photo-caption-container {
   width: 45%;
-  height: auto;
+  height: 350px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -55,6 +39,7 @@
   display: flex;
   overflow: hidden;
 }
+
 .user-caption {
   resize: none;
   width: 100%;
@@ -62,48 +47,56 @@
   padding: 8px;
   font-size: 14px;
   font-family: sans-serif;
-  margin-bottom: 30px;
 }
 
-.file-selector {
-  margin-bottom: 30px;
-  border: 1px solid red;
-  width: 0.1px;
-	height: 0.1px;
+.upload-buttons {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+#file-selector {
+  width: 0px;
+	height: 0px;
 	opacity: 0;
-	overflow: hidden;
 	position: absolute;
 	z-index: -1;
 }
 
 .file-submit-button-container, .label-container {
-  width: 75%;
+  width: 100%;
 }
 
-.file-label {
+.file-upload-buttons {
+  width: 100%;
+  color: #ffffff;
+  padding: 9px 0px;
+  background-color: #3997f0;
   font-size: 15px;
   font-family: sans-serif;
-  color: white;
-  background-color: #3997f0;
   display: block;
-  width: 97%;
+  border: none;
   border-radius: 5px;
-  padding: 9px 0 9px 10px;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.file-submit-button {
-  color: #FFFFFF;
-  padding: 9px 0 7px 8px;
-  background-color: #3997f0;
-  font-family: sans-serif;
-  border-radius: 5px;
-  font-size: 14px;
-  border: 1px solid #FFFFFF;
-  width: 100%;
-  margin-bottom: 10px;
-}
-.file-submit-button:hover, .file-label:hover {
+.file-upload-buttons:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .photo-upload-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photo-caption-container, .photo-preview-container {
+    width: 85%;
+  }
+
+  .photo-caption-container {
+    height: 300px;
+    margin-bottom: 50px;
+  }
 }
