@@ -52,3 +52,7 @@ table {
 button:focus, a, input, textarea {
 	outline: none;
 }
+
+button:hover {
+	cursor: pointer;
+}

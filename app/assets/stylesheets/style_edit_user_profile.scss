@@ -1,0 +1,90 @@
+.edit-page-container {
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
+}
+
+.edit-page {
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  .user-avatar-container {
+    margin-bottom: 20px;
+    .avatar {
+      border: 1px solid #efefef;
+    }
+    .avatar:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.user-info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-section {
+  width: 95%;
+  display: flex;
+}
+
+.form-field {
+  position: relative;
+  width: 200px;
+  height: auto;
+  text-align: right;
+  margin-top: 14px;
+  padding-right: 30px;
+  label {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+  }
+}
+
+.edit-form-input {
+  background-color: #fafafa;
+  padding: 9px 8px;
+  width: 95%;
+  margin: 5px;
+  font-size: 13px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+}
+
+#bio-input {
+  resize: none;
+  height: 100px;
+}
+
+.edit-page-buttons-container {
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 12px;
+  margin-top: 20px;
+}
+.edit-page-buttons {
+  width: 100%;
+  color: #ffffff;
+  padding: 9px 0px;
+  background-color: #3997f0;
+  font-size: 15px;
+  font-family: sans-serif;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
