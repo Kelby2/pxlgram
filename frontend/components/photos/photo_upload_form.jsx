@@ -108,7 +108,7 @@ class PhotoUpload extends React.Component {
             </div>
 
             <div className='photo-preview-container'>
-              <img className='photo-preview' src={this.state.imageUrl} />
+              <img className='photo-preview' src={ this.state.imageUrl } />
             </div>
           </main>
       </div>
