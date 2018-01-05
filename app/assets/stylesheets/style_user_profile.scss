@@ -37,12 +37,15 @@
   min-height: 100px;
   margin: 0 auto;
   position: relative;
-  .avatar {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
+}
+
+.avatar {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid #efefef;
 }
 
 .user-info-container {
