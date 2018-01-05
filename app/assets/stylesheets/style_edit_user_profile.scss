@@ -8,9 +8,10 @@
   width: 600px;
   height: auto;
   margin: 0 auto;
-  padding: 30px 10px;
+  padding: 30px 10px 20px 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
   border: 1px solid #efefef;
@@ -32,6 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .edit-section {
@@ -56,9 +58,9 @@
 .edit-form-input {
   background-color: #fafafa;
   padding: 9px 8px;
-  width: 95%;
+  width: 100%;
   margin: 5px;
-  font-size: 13px;
+  font-size: 14px;
   border: 1px solid #efefef;
   border-radius: 3px;
 }
@@ -68,13 +70,33 @@
   height: 100px;
 }
 
+.user-errors {
+  align-items: center;
+  width: 300px;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 3px;
+  text-align: center;
+}
+
+.success-message.hidden {
+  opacity: 0;
+  transition: opacity 2s linear;
+}
+
 .edit-page-buttons-container {
   width: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 12px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
+
 .edit-page-buttons {
   width: 100%;
   color: #ffffff;

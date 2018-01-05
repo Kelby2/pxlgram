@@ -6,31 +6,22 @@ class EditUser extends React.Component {
     super(props);
 
     this.state = {
-      userLoaded: false,
+      updateSuccess: false,
       avatarFile: null,
-      avatarUrl: null,
-      fullname: "",
-      username: "",
-      email: "",
-      bio: ""
+      avatarUrl: this.props.user.avatarUrl,
+      fullname: this.props.user.fullname,
+      username: this.props.user.username,
+      email: this.props.user.email,
+      bio: this.props.user.bio,
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handleSave = this.handleSave.bind(this);
+    this.handleBack = this.handleBack.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getUser(this.props.match.params.username).then(
-      () => { this.setState( {
-        userLoaded: true,
-        avatarUrl: this.props.user.avatarUrl,
-        fullname: this.props.user.fullname,
-        username: this.props.user.username,
-        email: this.props.user.email,
-        bio: this.props.user.bio
-      } ) }
-    );
+  componentWillUnmount() {
+    this.props.clearUserErrors();
   }
 
   handleInputChange(formField) {
@@ -39,21 +30,42 @@ class EditUser extends React.Component {
     };
   }
 
-  handleSave() {
-    event.preventDefault();
-    
+  renderMessage() {
+    if (this.state.updateSuccess) {
+      return (
+        <li
+          className='success-message'>
+          Profile updated!
+        </li>
+      )
+    } else {
+      return (
+        this.props.userErrors.map((error, idx) => {
+          return <li
+            className='error-messages'
+            key={`${idx}`}>
+            { error }
+          </li>
+        })
+      )
+    }
   }
 
-  handleCancel() {
+  handleUpdate() {
+    event.preventDefault();
+    this.props.clearUserErrors();
+    this.props.editUser(this.state).then(
+      success => this.setState( { updateSuccess: true } ),
+      errors => this.setState( { updateSuccess: false } )
+    )
+  }
+
+  handleBack() {
     event.preventDefault();
     this.props.history.push(`/${this.props.user.username}`)
   }
 
   render() {
-
-    if (!this.state.userLoaded) {
-      return null;
-    }
 
     return (
       <div className='edit-page-container' >
@@ -108,17 +120,21 @@ class EditUser extends React.Component {
             </div>
           </article>
 
+          <ul className='user-errors'>
+            { this.renderMessage()}
+          </ul>
+
           <article
             className='edit-page-buttons-container'>
             <button
-              onClick={ this.handleSave }
+              onClick={ this.handleUpdate }
               className='edit-page-buttons'>
-              Save
+              Submit
             </button>
             <button
               className='edit-page-buttons'
-              onClick={ this.handleCancel }>
-              Cancel
+              onClick={ this.handleBack }>
+              Back
             </button>
           </article>
 
