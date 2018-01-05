@@ -8,7 +8,7 @@ class PhotoUpload extends React.Component {
       uploadingPhoto: false,
       photoCaption: "",
       imageFile: null,
-      imageUrl: 'https://images.unsplash.com/photo-1504619988368-2911f094bac5?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'
+      imageUrl: 'https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-dev/users/avatars/000/000/photo-upload.jpeg'
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
