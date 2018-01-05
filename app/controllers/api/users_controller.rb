@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   def index
     userQuery = params[:query]
     if userQuery
-      @users = User.where("username LIKE ? OR fullname LIKE ?",
+      @users = User.where("username LIKE ? OR LOWER(fullname) LIKE ?",
                             "#{userQuery}%", "#{userQuery}%")
     else
       @users = User.all
@@ -33,7 +33,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = current_user
-    debugger
+
     if @user.update(user_params)
       render :show
     else
@@ -46,7 +46,10 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fullname, :email, :username, :password, :bio, :avatar)
+    params.require(:user)
+      .permit(:fullname, :email, :username, :password, :bio, :avatar, :prevUsername)
+      #reject prevents updating when avatar is unchanged (comes in as null)
+      #.reject { |key, value| value == "null" }
   end
 
 end
