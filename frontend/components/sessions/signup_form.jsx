@@ -20,7 +20,7 @@ class SignUpForm extends React.Component {
     return (
       this.props.sessionsErrors.map((error, idx) => {
         return <li
-          className='errorMessages'
+          className='error-messages'
           key={`${idx}`}>
           {error}
         </li>
