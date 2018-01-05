@@ -47,7 +47,7 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user)
-      .permit(:fullname, :email, :username, :password, :bio, :avatar, :prevUsername)
+      .permit(:fullname, :email, :username, :password, :bio, :avatar)
       #reject prevents updating when avatar is unchanged (comes in as null)
       #.reject { |key, value| value == "null" }
   end
