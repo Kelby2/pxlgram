@@ -16,15 +16,22 @@
   background-color: #ffffff;
   border: 1px solid #efefef;
   border-radius: 5px;
-  .user-avatar-container {
-    margin-bottom: 20px;
-    .avatar {
-      border: 1px solid #efefef;
-    }
-    .avatar:hover {
-      cursor: pointer;
-    }
+  .avatar {
+    box-sizing: border-box;
+    border: 1px solid #efefef;
   }
+}
+
+#avatar-file-selector {
+  width: 100%;
+	height: 100%;
+	opacity: 0;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#avatar-file-selector:hover {
+  cursor: pointer;
 }
 
 .user-info {
@@ -33,7 +40,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
 }
 
 .edit-section {

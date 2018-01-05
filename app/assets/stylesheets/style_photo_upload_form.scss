@@ -67,7 +67,7 @@
   width: 100%;
 }
 
-.file-upload-buttons {
+.photo-upload-buttons {
   width: 100%;
   color: #ffffff;
   padding: 9px 0px;
@@ -81,9 +81,9 @@
   margin-bottom: 10px;
 }
 
-// .file-upload-buttons:hover {
-//   cursor: pointer;
-// }
+.photo-upload-buttons:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 900px) {
   .photo-upload-form {
