@@ -97,10 +97,6 @@
   color: red;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .comments-icon {
   position: absolute;
   right: 11px;
@@ -167,6 +163,10 @@
   top: 1px;
   right: 2px;
   color: #afafaf;
+}
+
+#delete-comment-button:hover {
+  cursor: pointer;
 }
 
 .comment-body {
