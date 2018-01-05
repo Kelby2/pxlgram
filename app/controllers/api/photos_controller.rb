@@ -33,11 +33,7 @@ class Api::PhotosController < ApplicationController
     if @photo.save
       render :show
     else
-      errors = []
-      @photo.errors.keys.each do |error|
-        errors.push(@photo.errors.full_messages_for(error).first) unless
-          error == :image_content_type
-      end
+      errors = first_message_for_each_error(@photo.errors)
       render json: errors, status: 422
     end
   end
