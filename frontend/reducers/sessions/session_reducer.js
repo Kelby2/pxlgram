@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { UPDATE_USER } from '../../actions/user_actions';
 
 const SessionReducer = (oldState = { currentUser: null }, action) => {
   Object.freeze(oldState);
@@ -11,6 +12,13 @@ const SessionReducer = (oldState = { currentUser: null }, action) => {
         oldState,
         { currentUser: action.user }
       );
+      return newState;
+    case UPDATE_USER:
+      newState = Object.assign(
+        {},
+        oldState,
+        { currentUser: action.user }
+      )
       return newState;
     default:
       return oldState;
