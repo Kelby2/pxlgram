@@ -42,7 +42,7 @@ class Header extends React.Component {
 
             <div className="nav-bar">
               <Link className="fa fa-upload fa-lg"
-                to={'/upload'} id={this.props.currentUser.id}/>
+                to={'/upload'}/>
               <Link className="fa fa-compass fa-lg"
                 to={'/explore'} />
               <Link className='fa fa-user fa-lg'

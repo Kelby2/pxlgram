@@ -81,7 +81,7 @@
   outline: none;
 }
 
-.submitButton {
+.submit-button {
   color: #FFFFFF;
   padding: 9px 0 7px 8px;
   margin: 5px;
@@ -131,6 +131,10 @@
 .policy-terms {
   font-weight: 600;
   color: #999999;
+}
+
+.submit-button:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {

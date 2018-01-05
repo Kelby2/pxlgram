@@ -91,12 +91,12 @@ class LoginForm extends React.Component {
             {usernameInput}
             {passwordInput}
             <input
-              className='submitButton'
+              className='submit-button'
               type='submit'
               value='Log In' />
             <input
               onClick={this.handleDemoLogin}
-              className='submitButton'
+              className='submit-button'
               type='submit'
               value='Demo Login' />
           </form>
