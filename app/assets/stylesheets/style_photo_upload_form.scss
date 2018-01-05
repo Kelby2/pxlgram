@@ -85,6 +85,11 @@
   cursor: pointer;
 }
 
+.locked {
+  pointer-events: none;
+  background-color: #efefef;
+}
+
 @media screen and (max-width: 900px) {
   .photo-upload-form {
     flex-direction: column;

@@ -4,7 +4,7 @@ import { RECEIVE_USER_ERRORS,
 const UsersErrorsReducer = (initialState = [], action) => {
   Object.freeze(initialState);
   let newState;
-  
+
   switch (action.type) {
     case RECEIVE_USER_ERRORS:
       return action.errors;

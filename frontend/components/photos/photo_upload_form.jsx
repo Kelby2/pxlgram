@@ -5,6 +5,7 @@ class PhotoUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      uploadingPhoto: false,
       photoCaption: "",
       imageFile: null,
       imageUrl: 'https://images.unsplash.com/photo-1504619988368-2911f094bac5?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'
@@ -52,13 +53,15 @@ class PhotoUpload extends React.Component {
 
   handleFormSubmit() {
     event.preventDefault();
+    this.setState({ uploadingPhoto: true })
     const formData = new FormData();
     formData.append('photo[caption]', this.state.photoCaption);
     formData.append('photo[image]', this.state.imageFile);
 
     this.props.addPhoto(formData).then((result) => {
+      this.setState({ uploadingPhoto: false })
       this.props.history.push(`/${result.photo.author_name}`)
-    });
+    }, error => this.setState({ uploadingPhoto: false }));
   }
 
   render() {
@@ -98,7 +101,8 @@ class PhotoUpload extends React.Component {
                 </div>
 
                 <div className='file-submit-button-container'>
-                  <button className='photo-upload-buttons'
+                  <button className={ this.state.uploadingPhoto ?
+                    'photo-upload-buttons locked' : 'photo-upload-buttons'}
                     onClick={this.handleFormSubmit}>
                     Share
                   </button>

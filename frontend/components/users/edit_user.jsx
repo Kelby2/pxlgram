@@ -8,11 +8,12 @@ class EditUser extends React.Component {
     this.state = {
       updateSuccess: false,
       avatar: null,
+      updatingUser: false,
       avatarUrl: this.props.user.avatarUrl,
       fullname: this.props.user.fullname,
       username: this.props.user.username,
       email: this.props.user.email,
-      bio: this.props.user.bio,
+      bio: this.props.user.bio || "",
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -71,15 +72,18 @@ class EditUser extends React.Component {
 
   handleUpdate() {
     event.preventDefault();
+    this.setState( { updatingUser: true } )
     const formData = new FormData();
     const that = this;
     Object.keys(this.state).forEach((attr) => {
-      formData.append(`user[${attr}]`, that.state[attr])
+      if (that.state[attr] !== null) {
+        formData.append(`user[${attr}]`, that.state[attr])
+      }
     })
     this.props.clearUserErrors();
     this.props.editUser(formData).then(
-      success => this.setState( { updateSuccess: true } ),
-      errors => this.setState( { updateSuccess: false } )
+      success => this.setState( { updateSuccess: true, updatingUser: false } ),
+      errors => this.setState( { updateSuccess: false, updatingUser: false } )
     )
   }
 
@@ -155,8 +159,9 @@ class EditUser extends React.Component {
           <article
             className='edit-page-buttons-container'>
             <button
-              onClick={ this.handleUpdate }
-              className='edit-page-buttons'>
+              className={ this.state.updatingUser ?
+                'edit-page-buttons locked' : 'edit-page-buttons' }
+              onClick={ this.handleUpdate }>
               Submit
             </button>
             <button
