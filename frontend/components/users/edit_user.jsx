@@ -7,7 +7,7 @@ class EditUser extends React.Component {
 
     this.state = {
       updateSuccess: false,
-      avatarFile: null,
+      avatar: null,
       avatarUrl: this.props.user.avatarUrl,
       fullname: this.props.user.fullname,
       username: this.props.user.username,
@@ -32,7 +32,7 @@ class EditUser extends React.Component {
 
     fileReader.onloadend = () => {
       this.setState({
-        avatarFile: newFile,
+        avatar: newFile,
         avatarUrl: fileReader.result
       })
     }
