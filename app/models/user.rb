@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :fullname, :username, length: { minimum: 3, maximum: 32 }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  validates :bio, length: { maximum: 150, message: "%{count} character limit" }
+  validates :bio, length: { maximum: 150, message: "character limit (%{count}) exceeded" }
 
   has_attached_file :avatar, default_url: "default-user-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
