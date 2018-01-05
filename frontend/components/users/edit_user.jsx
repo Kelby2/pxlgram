@@ -18,10 +18,28 @@ class EditUser extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearUserErrors();
+  }
+
+  updateFile(e) {
+    event.preventDefault();
+    const newFile = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onloadend = () => {
+      this.setState({
+        avatarFile: newFile,
+        avatarUrl: fileReader.result
+      })
+    }
+
+    if (newFile) {
+      fileReader.readAsDataURL(newFile)
+    }
   }
 
   handleInputChange(formField) {
@@ -53,8 +71,13 @@ class EditUser extends React.Component {
 
   handleUpdate() {
     event.preventDefault();
+    const formData = new FormData();
+    const that = this;
+    Object.keys(this.state).forEach((attr) => {
+      formData.append(`user[${attr}]`, that.state[attr])
+    })
     this.props.clearUserErrors();
-    this.props.editUser(this.state).then(
+    this.props.editUser(formData).then(
       success => this.setState( { updateSuccess: true } ),
       errors => this.setState( { updateSuccess: false } )
     )
@@ -73,7 +96,12 @@ class EditUser extends React.Component {
 
           <article className='user-avatar-container'>
             <div className='user-avatar'>
-              <img className='avatar' src={ this.state.avatarUrl } />
+              <input
+                type='file'
+                id='avatar-file-selector'
+                onChange={this.updateFile}>
+              </input>
+              <img className='avatar' src={ this.state.avatarUrl }/>
             </div>
           </article>
 

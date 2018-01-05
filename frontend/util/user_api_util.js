@@ -12,11 +12,14 @@ export const getUser = (id) => {
   })
 }
 
-export const editUser = (user) => {
+export const editUser = user => {
   return $.ajax({
     method: 'patch',
     url: `api/users/${user.id}`,
-    data: { user }
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    data: user,
   })
 }
 

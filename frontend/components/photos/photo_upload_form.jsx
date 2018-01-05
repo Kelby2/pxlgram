@@ -91,14 +91,14 @@ class PhotoUpload extends React.Component {
                     onChange={this.updateFile}>
                   </input>
                   <label
-                    className='file-upload-buttons'
+                    className='photo-upload-buttons'
                     htmlFor='file-selector'>
                     Choose a file
                   </label>
                 </div>
 
                 <div className='file-submit-button-container'>
-                  <button className='file-upload-buttons'
+                  <button className='photo-upload-buttons'
                     onClick={this.handleFormSubmit}>
                     Share
                   </button>
