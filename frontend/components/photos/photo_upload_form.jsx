@@ -22,7 +22,7 @@ class PhotoUpload extends React.Component {
     return (
       this.props.photoErrors.map((error, idx) => {
         return <li
-          className='errorMessages'
+          className='error-messages'
           key={`${idx}`}>
           { error }
         </li>
@@ -50,7 +50,7 @@ class PhotoUpload extends React.Component {
     };
   }
 
-  handleFormSubmit(event) {
+  handleFormSubmit() {
     event.preventDefault();
     const formData = new FormData();
     formData.append('photo[caption]', this.state.photoCaption);
