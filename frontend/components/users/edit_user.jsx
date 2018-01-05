@@ -75,9 +75,16 @@ class EditUser extends React.Component {
     this.setState( { updatingUser: true } )
     const formData = new FormData();
     const that = this;
-    Object.keys(this.state).forEach((attr) => {
-      if (that.state[attr] !== null) {
-        formData.append(`user[${attr}]`, that.state[attr])
+
+    const user = Object.assign(
+      {},
+      this.state,
+      { username: this.state.username.toLowerCase() }
+    );
+
+    Object.keys(user).forEach((attr) => {
+      if (user[attr] !== null) {
+        formData.append(`user[${attr}]`, user[attr])
       }
     })
     this.props.clearUserErrors();
