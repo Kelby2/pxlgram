@@ -24,8 +24,8 @@ class UserProfile extends React.Component {
     const user = this.props.user;
     let logOutButton;
     let profileButton;
-
-    if (user && user.photoIds) {
+    
+    if (user) {
       if (user.username === this.props.currentUser.username) {
         logOutButton = (
           <div
