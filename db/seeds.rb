@@ -189,3 +189,15 @@ end
 ###########
 # COMMENTS
 ###########
+
+Comment.destroy_all
+
+ALL_USERS.each do |user|
+
+  3.times do
+    Comment.create!(user_id: user.id,
+                    photo_id: PHOTO_IDS.sample,
+                    body: ALL_COMMENTS.sample)
+  end
+
+end
