@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   validates :email, :fullname, :username, :password_digest, :session_token, presence: true
   validates :email, :username, :session_token, uniqueness: true
-  validates :username, format: { with: /\A[a-zA-Z0-9_.]+\Z/,
-    message: "can only use letters, numbers, underscores and periods." }
+  validates :username, format: { with: /\A[a-zA-Z0-9_-]+\Z/,
+    message: "can only use letters, numbers, dashes and underscores." }
   validates_exclusion_of :username, in: %w(explore upload), message: "has already been taken"
   validates :fullname, :username, length: { minimum: 3, maximum: 32 }
   validates :password, length: { minimum: 6, allow_nil: true }
