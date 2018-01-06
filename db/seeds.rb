@@ -15,17 +15,18 @@ ALL_USERS = [];
   prefix = ["heyits", "hello", "super", "the", "xoxo"]
   suffix = ["theGreat", "#{rand(10)}"]
   user_uname = ["#{user_fname}",
-    "#{user_fname}.#{user_lname}",
+    "#{user_fname}-#{user_lname}",
     "#{user_fname}_#{user_lname}",
     "#{prefix.sample}#{user_fname}",
     "#{user_fname}#{user_lname}",
     "#{user_fname}#{suffix.sample}"].sample.downcase
   user_email = "pxlgramuser#{num}@pxlgram.com"
   user_bio = [Faker::Simpsons.quote, Faker::Seinfeld.quote].sample[0..140]
+  user_avatar = Faker::LoremPixel.image
 
   ALL_USERS.push(User.create!(username: user_uname, password: "password",
                 fullname: user_fullname, email: user_email,
-                bio: user_bio, avatar: Faker::Avatar.image(nil, "150x150")))
+                bio: user_bio, avatar: user_avatar))
 end
 
 10.times do |num|
@@ -35,6 +36,7 @@ end
   user_uname = "#{user_fname}".downcase
   user_email = "pxlguser#{num}@pxlgram.com"
   user_bio = Faker::Movie.quote[0..140]
+  user_avatar = [Faker::Avatar.image, nil].sample
 
   ALL_USERS.push(User.create!(username: user_uname, password: 'password',
                   fullname: user_fullname, email: user_email,
@@ -45,12 +47,12 @@ ALL_USERS.concat([
   User.create!(username: 'friend', password: 'password',
                   fullname: 'guest', email: 'friend@pxlgram.com',
                   avatar: File.open('app/assets/images/avatar.jpg'),
-                  bio: "Welcome to your page! You can see all the photos that you've posted below! They're lookin great!"),
+                  bio: "Welcome to your page! You can see all the photos that you've posted below!"),
 
   User.create!(username: 'admin', password: 'password',
                   fullname: 'administrator', email: 'admin@pxlgram.com',
                   avatar: File.open('app/assets/images/monkey.png'),
-                  bio: 'I am the moderator here, thank you for checking out pixelgram.'),
+                  bio: 'I am the moderator here, thank you for checking out Pxlgram.'),
 
   User.create!(username: 'kelbylu', password: 'password',
                   fullname: 'Kelby Lu', email: 'kelbylu@pxlgram.com',
@@ -66,6 +68,7 @@ ALL_USERS.concat([
 Photo.destroy_all
 
 PHOTO_CAPS = [
+  "New toys for the holidays",
   "The game doesn't wait for anyone",
   "You're next",
   "the bees knees",
@@ -126,7 +129,7 @@ PHOTO_CAPS = [
   "The new occulus down by the old WTC #beauty",
   "😑",
   "They got me... #applelife",
-  "zoom zoom"
+  "zoom zoom",
   "The Tube, 1am",
   "Bruh 😂😂😂 #burgers #letsgo #foodporn",
   "👀",
@@ -154,15 +157,35 @@ PHOTO_CAPS = [
   "low key feelin my outfit today 🔥🔥🔥"
 ]
 
-(1..82).to_a.each do |num|
+PHOTO_IDS = []
+
+(0..82).to_a.each do |num|
   new_photo = Photo.create({
     author_id: ALL_USERS.sample.id,
     caption: PHOTO_CAPS[num],
-    image: File.open("app/assets/images/seeds/pxl#{num}")
+    created_at: Faker::Time.backwards(180, :all),
+    image: File.open("app/assets/images/seeds/pxl#{num}.jpg")
     })
+
+  PHOTO_IDS.push(new_photo.id)
 end
-#
+
+########
+# LIKES
+########
+
 Like.destroy_all
 
 ALL_USERS.each do |user|
-  
+
+  photo_ids_to_like = PHOTO_IDS.dup.shuffle!
+
+  35.times do
+    Like.create!(user_id: user.id, photo_id: photo_ids_to_like.pop)
+  end
+
+end
+
+###########
+# COMMENTS
+###########
