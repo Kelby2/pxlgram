@@ -5,6 +5,7 @@ class Api::PhotosController < ApplicationController
       user = User.find_by(username: params[:user_id])
       @photos = user.photos
       .includes(:author, :likers, :commenters)
+      .order(created_at: :desc)
     elsif params[:explore]
       @photos = Photo
       .includes(:author, :likers, :commenters)
