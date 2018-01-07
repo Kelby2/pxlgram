@@ -6,7 +6,8 @@ import PhotoIndex from './photo_index';
 const mapStateToProps = state => {
   const users = state.entities.users
   const photos = Object.keys(state.entities.photos)
-  .map(id => state.entities.photos[id]).reverse()
+  .map(id => state.entities.photos[id])
+  .sort((photo1, photo2) => photo2.created_at.localeCompare(photo1.created_at))
 
   return ({
     photos,

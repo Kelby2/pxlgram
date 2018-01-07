@@ -6,15 +6,15 @@ import { getUserPhotos } from '../../actions/photo_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const user = state.entities.users[ownProps.match.params.username]
-  const photos = Object.values(state.entities.photos).filter((photo) => {
-    return (photo.author_name === ownProps.match.params.username)
-  })
+  const photos = Object.values(state.entities.photos)
+    .filter(photo => photo.author_name === ownProps.match.params.username)
+    .sort((photo1, photo2) => photo2.created_at.localeCompare(photo2.created_at))
+
   return ({
     user,
     currentUser: state.session.currentUser,
     photos: Object.keys(photos).map(
       id => photos[id])
-      .reverse()
   });
 }
 
