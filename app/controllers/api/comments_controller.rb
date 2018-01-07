@@ -28,13 +28,13 @@ class Api::CommentsController < ApplicationController
 
   def destroy
     #find the specific comment through current_users comments?
-    @comment = current_user.comments.find_by(id: params[:id])
+    @comment = Comment.find_by(id: params[:id])
     @photo = Photo.find(@comment.photo_id)
 
     if @comment.destroy
       render :show
     else
-      render json: @comment.errors.full_messages, status: 422
+      render json: @comment.errors.full_messages, status: 401
     end
   end
 
