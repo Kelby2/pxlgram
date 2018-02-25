@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.4'
 
 # For paperclip and AWS hosting files with S3
-gem "paperclip", "~> 5.0.0"
+gem "paperclip"
 gem 'figaro'
 gem 'aws-sdk', '< 3.0'
 
