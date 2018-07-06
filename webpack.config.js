@@ -1,9 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 
-var plugins = [];
+const isProduction = process.env.NODE_ENV === 'production';
 const devPlugins = [];
-
 const prodPlugins = [
 	new webpack.DefinePlugin({
 		'process.env': {
@@ -17,9 +16,9 @@ const prodPlugins = [
 	})
 ];
 
-plugins = plugins.concat(
-	process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
-);
+const plugins = [
+	...(isProduction ? prodPlugins : devPlugins)
+];
 
 module.exports = {
 	context: __dirname,
@@ -28,16 +27,13 @@ module.exports = {
 		path: path.join(__dirname, 'app', 'assets', 'javascripts'),
 		filename: 'bundle.js'
 	},
-	plugins: plugins,
+	plugins,
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: [/\.jsx?$/, /\.js?$/],
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
-				query: {
-					presets: ['env', 'react']
-				}
 			}
 		]
 	},
