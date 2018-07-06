@@ -1,0 +1,6 @@
+{
+  "presets": [["env", {
+      "targets": ["> 1%"]
+    }], "react"],
+  "plugins": ["transform-object-rest-spread", "transform-class-properties"]
+}

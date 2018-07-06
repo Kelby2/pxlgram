@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "new-cap": 0,
+    "semi": [1, "always"],
+    "no-unused-vars": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/jsx-no-comment-textnodes": 1,
+  },
+  "plugins": [
+    "react",
+  ]
+}
