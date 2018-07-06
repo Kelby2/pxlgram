@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { searchUsers, getUser } from './actions/user_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
@@ -19,8 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   ReactDOM.render(<Root store={ store } />, rootEl);
-
-  window.store = store;
-  window.searchUsers = searchUsers;
-  window.getUser = getUser;
 });
