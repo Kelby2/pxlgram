@@ -1,34 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignUpFormContainer from './signup_form_container'
-import LoginFormContainer from './login_form_container'
+import SignUpFormContainer from './signup_form_container';
+import LoginFormContainer from './login_form_container';
 
-class SessionPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {formType: 'signup'};
-    this.toggleForm = this.toggleForm.bind(this);
-  }
+class SessionEntryPage extends React.Component {
 
-  toggleForm(event) {
+  state = { newUser: true }
+
+  toggleForm() {
     event.preventDefault();
     this.props.clearSessionErrors();
-    const newType = (this.state.formType === 'signup') ? 'login' : 'signup';
-    this.setState({ formType: newType })
+    this.setState({ newUser : !this.state.newUser });
+  }
+
+  renderForm() {
+    return this.state.newUser ?
+      <SignUpFormContainer /> :
+        <LoginFormContainer />;
+  }
+
+  renderFormToggler() {
+    const { newUser } = this.state;
+
+    return (
+      <div id='alternate-form' className="main-entry-form">
+        <span className='alternate-form-text'>
+          { newUser ?
+            'Have an account? ' :
+            "Don't have an account? "}
+          <Link onClick={this.toggleForm.bind(this)} to={'/'}>
+            { newUser ? 'Log In' : 'Sign up'}
+          </Link>
+        </span>
+      </div>
+    );
   }
 
   render() {
-
-    let formToRender = (this.state.formType === 'signup') ?
-      <SignUpFormContainer /> : <LoginFormContainer />
-
-    const alternateEntryText = (this.state.formType === 'signup') ?
-                'Have an account?' : "Don't have an account?"
-
-    const alternateEntryLink = (this.state.formType === 'signup') ?
-    <Link onClick={this.toggleForm} to={'/'}>Log In</Link> :
-        <Link onClick={this.toggleForm} to={'/'}>Sign up</Link>
-
     return (
       <div className='entry-screen'>
         <article className='entry-screen-container'>
@@ -42,18 +50,13 @@ class SessionPage extends React.Component {
           </aside>
 
           <aside className='entry-form-container'>
-            {formToRender}
-
-            <div id='alternate-form' className="main-entry-form">
-              <span className='alternate-form-text'>
-                {alternateEntryText} {alternateEntryLink}
-              </span>
-            </div>
+            {this.renderForm()}
+            {this.renderFormToggler()}
           </aside>
         </article>
       </div>
-    )
+    );
   }
 }
 
-export default SessionPage;
+export default SessionEntryPage;
