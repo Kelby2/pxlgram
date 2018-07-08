@@ -16,7 +16,7 @@ const LandingPage = props => {
 };
 
 const mapStateToProps = state => {
-  const loggedIn = state.session.curentUser ? true : false;
+  const loggedIn = state.session.currentUser ? true : false;
   return { loggedIn };
 };
 
