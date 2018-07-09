@@ -82,13 +82,6 @@ class SignUpForm extends React.Component {
       </div>
     );
   }
-
-  _renderPlaceholderTag = field => {
-    const words = field.split(' ');
-    return words.map(word => {
-      word[0].toUpperCase();
-    }).join(' ');
-  };
 }
 
 export default SignUpForm;

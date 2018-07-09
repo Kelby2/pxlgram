@@ -1,113 +1,72 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import DemoButton from './demo_button';
+
+const inputFields = ['Username', 'Password'];
 
 class LoginForm extends React.Component {
-  constructor(props) {
 
-    super(props);
-    this.state = {
-      email: "",
-      fullname: "",
-      username: "",
-      password: "",
-    };
-
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.toggleForm = this.toggleForm.bind(this);
-    this.handleDemoLogin = this.handleDemoLogin.bind(this);
+  state = {
+    username: '',
+    password: ''
   }
 
   renderErrors() {
     return (
       this.props.sessionsErrors.map((error, idx) => {
-        return <li
-          className='error-messages'
-          key={`${idx}`}>
-          {error}
-        </li>
+        return (
+          <li
+            className='error-messages'
+            key={`${idx}`}>
+            {error}
+          </li>
+        );
       })
-    )
+    );
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-    const user = Object.assign(
-      {},
-      this.state,
-      { username: this.state.username.toLowerCase() }
-    );
+    const { username } = this.state;
+    const user = {...this.state, username: username.toLowerCase()};
     this.props.login(user);
   }
 
-  handleDemoLogin(event) {
-    event.preventDefault();
-    const user = { username: 'friend', password: 'password' };
-    this.props.login(user);
-  }
-
-  handleInputChange(formField) {
-    return (event) => {
-      this.setState({ [formField]: event.target.value });
+  handleInputChange(inputField) {
+    return e => {
+      this.setState({ [inputField]: e.target.value });
     };
   }
 
-  toggleForm(event) {
-    event.preventDefault();
-    this.props.clearSessionErrors();
-    this.setState({ username: "",
-                    password: "",
-                    fullname: "",
-                    email: ""})
-    }
-
-  render () {
-    const usernameInput = (
-      <div>
-        <input
-          className='session-form-input'
-          type='text'
-          value={this.state.username}
-          onChange={this.handleInputChange('username')}
-          placeholder='Username'>
-        </input>
-      </div>
-    )
-
-    const passwordInput = (
-      <div>
-        <input
-          className='session-form-input'
-          type='password'
-          value={this.state.password}
-          onChange={this.handleInputChange('password')}
-          placeholder='Password'>
-        </input>
-      </div>
-    )
+  renderInputField(field) {
+    const fieldValue = field.replace(/ /g,'').toLowerCase();
 
     return (
+      <input
+        key={field}
+        className='session-form-input'
+        type='text'
+        value={this.state[`${fieldValue}`]}
+        onChange={this.handleInputChange(`${fieldValue}`).bind(this)}
+        placeholder={field}
+      />
+    );
+  }
 
+  render () {
+    return (
         <div className='main-entry-form' id="main-form">
-          <h2 className='title'>pxlgram</h2>
-          <br />
-          <form onSubmit={this.handleFormSubmit} className='entry-form'>
-            {usernameInput}
-            {passwordInput}
+          <h2 className='title'>pxlgram</h2><br />
+          <form onSubmit={this.handleFormSubmit.bind(this)} className='entry-form'>
+            {inputFields.map(field => {
+              return this.renderInputField(field);
+            })}
             <input
               className='submit-button'
               type='submit'
               value='Log In' />
-            <input
-              onClick={this.handleDemoLogin}
-              className='submit-button'
-              type='submit'
-              value='Demo Login' />
+            <DemoButton />
           </form>
-          <ul>
-            {this.renderErrors()}
-            <br />
-          </ul>
+          <ul>{this.renderErrors()}<br /></ul>
         </div>
     );
   }
