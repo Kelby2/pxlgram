@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SignUpFormContainer from './signup_form_container';
 import LoginFormContainer from './login_form_container';
 
@@ -24,14 +23,14 @@ class SessionEntryPage extends React.Component {
 
     return (
       <div id='alternate-form' className="main-entry-form">
-        <span className='alternate-form-text'>
+        <p className='alternate-form-text'>
           { newUser ?
             'Have an account? ' :
             "Don't have an account? "}
-          <Link onClick={this.toggleForm.bind(this)} to={'/'}>
+          <span className='toggler' onClick={this.toggleForm.bind(this)}>
             { newUser ? 'Log In' : 'Sign up'}
-          </Link>
-        </span>
+          </span>
+        </p>
       </div>
     );
   }
