@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util'
+import { ProtectedRoute } from '../util/route_util';
 import HeaderContainer from './header/header_container';
 import LandingPage from './landing_page';
 import PhotoUploadContainer from './photos/photo_upload_container';

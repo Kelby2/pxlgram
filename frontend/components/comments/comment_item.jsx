@@ -12,7 +12,7 @@ class CommentItem extends React.Component {
 
   handleDelete(event) {
     event.preventDefault();
-    this.props.deleteComment(this.props.comment.id)
+    this.props.deleteComment(this.props.comment.id);
   }
 
   render() {
@@ -28,7 +28,7 @@ class CommentItem extends React.Component {
           id="delete-comment-button"
           onClick={ this.handleDelete }>
         </div>
-      )
+      );
     }
     return (
       <li className='comment'>
@@ -38,7 +38,7 @@ class CommentItem extends React.Component {
         { deleteCommentButton }
         <span className='comment-body'>{this.props.comment.body}</span>
       </li>
-    )
+    );
   }
 }
 
@@ -48,13 +48,13 @@ const mapStateToProps = state => {
 
   return {
     currentUser,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return ({
     deleteComment: comment_id => dispatch(deleteComment(comment_id)),
-  })
-}
+  });
+};
 export default connect(mapStateToProps, mapDispatchToProps)
                         (CommentItem);

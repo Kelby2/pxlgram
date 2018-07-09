@@ -12,7 +12,7 @@ class PhotoGrid extends React.Component {
     this.state = {
       page: 1,
       loadingPhotos: false,
-    }
+    };
 
     this.handleScroll = this.handleScroll.bind(this);
     this.getPhotosGrid = this.props.getPhotosGrid.bind(this);
@@ -32,10 +32,10 @@ class PhotoGrid extends React.Component {
   handleScroll() {
     const nearBottom = (window.scrollY
                           + window.innerHeight
-                          + 100 > document.body.clientHeight)
+                          + 100 > document.body.clientHeight);
     if (nearBottom
       && !this.state.loadingPhotos) {
-      this.setState( { page: this.state.page + 1, loadingPhotos: true } )
+      this.setState( { page: this.state.page + 1, loadingPhotos: true } );
       this.queueAdditionalPhotos();
     }
   }
@@ -43,12 +43,12 @@ class PhotoGrid extends React.Component {
   queueAdditionalPhotos() {
     this.queuePhotos = setTimeout(() => {
       this.getAdditionalPhotos();
-    }, FETCH_DELAY)
+    }, FETCH_DELAY);
   }
 
   getAdditionalPhotos() {
     this.getPhotosGrid(this.state.page)
-    .then(()=> this.setState( { loadingPhotos: false } ))
+    .then(()=> this.setState( { loadingPhotos: false } ));
   }
 
   render() {
@@ -58,7 +58,7 @@ class PhotoGrid extends React.Component {
           color={'#e2e2e2'}
           loading={ this.state.loadingPhotos }/>
       </div>
-    )
+    );
 
     return (
       <article className='explore-page'>
@@ -72,14 +72,14 @@ class PhotoGrid extends React.Component {
                   <PhotoGridItem
                     key={ photo.id }
                     photo={ photo }/>
-                )
+                );
               })
             }
           </ul>
           {loader}
         </div>
       </article>
-    )
+    );
   }
 }
 

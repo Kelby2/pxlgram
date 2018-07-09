@@ -12,7 +12,7 @@ class PhotoIndex extends React.Component {
       page: 1,
       loadingPhotos: false,
       photosFetched: false
-    }
+    };
 
     this.handleScroll = this.handleScroll.bind(this);
     this.getPhotosPage = this.props.getPhotosPage.bind(this);
@@ -22,7 +22,7 @@ class PhotoIndex extends React.Component {
   componentDidMount() {
     this.props.getUsers();
     this.props.getPhotosPage(this.state.page).then(
-      () => { this.setState( { photosFetched: true } ) }
+      () => { this.setState( { photosFetched: true } ); }
     );
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -34,10 +34,10 @@ class PhotoIndex extends React.Component {
   handleScroll() {
     const nearBottom = (window.scrollY
                           + window.innerHeight
-                          + 200 > document.body.clientHeight)
+                          + 200 > document.body.clientHeight);
     if (nearBottom
       && !this.state.loadingPhotos) {
-      this.setState( { page: this.state.page + 1, loadingPhotos: true } )
+      this.setState( { page: this.state.page + 1, loadingPhotos: true } );
       this.queueAdditionalPhotos();
     }
   }
@@ -45,12 +45,12 @@ class PhotoIndex extends React.Component {
   queueAdditionalPhotos() {
     this.queuePhotos = setTimeout(() => {
       this.getAdditionalPhotos();
-    }, FETCH_DELAY)
+    }, FETCH_DELAY);
   }
 
   getAdditionalPhotos() {
     this.getPhotosPage(this.state.page)
-    .then(() => this.setState( { loadingPhotos: false } ))
+    .then(() => this.setState( { loadingPhotos: false } ));
   }
 
   render() {
@@ -69,12 +69,12 @@ class PhotoIndex extends React.Component {
                   key={ photo.id }
                   photo={ photo }
                 />
-              )
+              );
             })
           }
         </ul>
       </div>
-    )
+    );
   }
 
 }

@@ -7,7 +7,7 @@ import CommentIndexContainer from '../comments/comment_index_container';
 
 const focusComment = id => {
   document.getElementById(id).focus();
-}
+};
 
 const PhotoModalItem = ( { photo } ) => {
   
@@ -54,7 +54,7 @@ const PhotoModalItem = ( { photo } ) => {
 
       </aside>
     </main>
-  )
-}
+  );
+};
 
 export default PhotoModalItem;

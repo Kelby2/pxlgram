@@ -2,15 +2,15 @@ export const getUsers = () => {
   return $.ajax({
     method: 'get',
     url: 'api/users',
-  })
-}
+  });
+};
 
 export const getUser = (id) => {
   return $.ajax({
     method: 'get',
     url: `api/users/${id}`,
-  })
-}
+  });
+};
 
 export const editUser = user => {
   return $.ajax({
@@ -20,13 +20,13 @@ export const editUser = user => {
     contentType: false,
     processData: false,
     data: user,
-  })
-}
+  });
+};
 
 export const searchUsers = (query) => {
   return $.ajax({
     method: 'get',
     url: `api/users`,
     data: { query }
-  })
-}
+  });
+};

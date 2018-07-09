@@ -5,12 +5,12 @@ import PhotoModal from './photo_modal.jsx';
 
 const mapStateToProps = (state, ownProps) => {
 
-  const photo = state.entities.photos[ownProps.match.params.photoId]
+  const photo = state.entities.photos[ownProps.match.params.photoId];
   
   return {
     photo
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return ({
@@ -18,8 +18,8 @@ const mapDispatchToProps = dispatch => {
     deleteComment: (id) => dispatch(deleteComment(id)),
     getPhoto: (id) => dispatch(getPhoto(id)),
     getPhotoComments: (photo_id) => dispatch(getPhotoComments(photo_id))
-  })
-}
+  });
+};
 
 export default connect(mapStateToProps,
-                        mapDispatchToProps)(PhotoModal)
+                        mapDispatchToProps)(PhotoModal);

@@ -19,7 +19,7 @@ const TimeStamp = ( { photoCreationTime } ) => {
     <div className='photo-creation-timestamp'>
       { creationTimeStamp }
     </div>
-  )
-}
+  );
+};
 
 export default TimeStamp;

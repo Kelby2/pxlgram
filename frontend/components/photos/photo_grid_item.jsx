@@ -18,7 +18,7 @@ const PhotoGridItem = ( { photo } ) => {
         </div>
       </Link>
     </main>
-  )
-}
+  );
+};
 
 export default PhotoGridItem;

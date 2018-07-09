@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CommentItem from './comment_item'
+import CommentItem from './comment_item';
 
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       commentBody: ""
-    }
+    };
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ class CommentIndex extends React.Component {
             {this.props.photo.caption}
           </span>
         </li>
-      )
+      );
     }
 
     return (
@@ -44,12 +44,12 @@ class CommentIndex extends React.Component {
                   comment={ comment }
                   photoAuthor= { this.props.photo.author_name }
                 />
-              )
+              );
             })
           }
         </ul>
       </div>
-    )
+    );
   }
 }
 

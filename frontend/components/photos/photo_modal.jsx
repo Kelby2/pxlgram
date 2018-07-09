@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 
 class PhotoModal extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       modalOpen: true
-    }
+    };
 
     Modal.setAppElement('body');
     this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
-    this.props.getPhoto(this.props.match.params.photoId)
+    this.props.getPhoto(this.props.match.params.photoId);
   }
 
   closeModal(event) {
@@ -25,7 +25,7 @@ class PhotoModal extends React.Component {
   }
 
   render() {
-    if (!this.props.photo) { return null }
+    if (!this.props.photo) { return null; }
 
     return (
       <main>
@@ -54,7 +54,7 @@ class PhotoModal extends React.Component {
           <PhotoModalItem photo={ this.props.photo }/>
         </Modal>
       </main>
-    )
+    );
   }
 }
 

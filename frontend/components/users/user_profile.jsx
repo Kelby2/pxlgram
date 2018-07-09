@@ -32,7 +32,7 @@ class UserProfile extends React.Component {
             onClick={() => this.props.logout()}
             className="fa fa-sign-out fa-lg">
           </div>
-        )
+        );
 
         profileButton = (
           <Link to={`/${user.username}/edit`}>
@@ -41,7 +41,7 @@ class UserProfile extends React.Component {
               Edit Profile
             </button>
           </Link>
-        )
+        );
       }
 
       return (
@@ -87,14 +87,14 @@ class UserProfile extends React.Component {
                         key={ photo.id }
                         photo={ photo }
                         />
-                      )
+                      );
                   })
                 }
               </ul>
             </article>
           </div>
         </main>
-      )
+      );
     } else {
       return null;
     }

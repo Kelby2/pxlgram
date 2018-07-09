@@ -7,22 +7,22 @@ const addNewLike = photo => {
   return ({
     type: ADD_LIKE,
     photo
-  })
-}
+  });
+};
 
 const removeLike = photo => {
   return ({
     type: REMOVE_LIKE,
     photo,
-  })
-}
+  });
+};
 
 export const addLike = photo_id => dispatch => {
   return LikeApiUtil.addLike(photo_id)
-              .then(photo => dispatch(addNewLike(photo)))
-}
+              .then(photo => dispatch(addNewLike(photo)));
+};
 
 export const deleteLike = photo_id => dispatch => {
   return LikeApiUtil.deleteLike(photo_id)
-              .then(photo => dispatch(removeLike(photo)))
-}
+              .then(photo => dispatch(removeLike(photo)));
+};

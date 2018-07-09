@@ -7,21 +7,21 @@ class Like extends React.Component {
     this.state = {
       like_state: this.props.photo.likers
                         .includes(this.props.currentUser.username)
-    }
+    };
     this.handleLike = this.handleLike.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.photo.likers.length !== this.props.photo.likers.length) {
-      this.setState({ like_state: !this.state.like_state })
+      this.setState({ like_state: !this.state.like_state });
     }
   }
 
   handleLike(event) {
     if (this.state.like_state) {
-      this.props.deleteLike(this.props.photo_id)
+      this.props.deleteLike(this.props.photo_id);
     } else {
-      this.props.addLike(this.props.photo_id)
+      this.props.addLike(this.props.photo_id);
     }
   }
 
@@ -32,7 +32,7 @@ class Like extends React.Component {
           onClick={this.handleLike}
           className='fa fa-heart fa-lg liked-icon'
         />
-      )
+      );
     } else {
       return (
         <div

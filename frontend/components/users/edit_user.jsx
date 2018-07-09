@@ -14,7 +14,7 @@ class EditUser extends React.Component {
       username: this.props.user.username,
       email: this.props.user.email,
       bio: this.props.user.bio || "",
-    }
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBack = this.handleBack.bind(this);
@@ -35,11 +35,11 @@ class EditUser extends React.Component {
       this.setState({
         avatar: newFile,
         avatarUrl: fileReader.result
-      })
-    }
+      });
+    };
 
     if (newFile) {
-      fileReader.readAsDataURL(newFile)
+      fileReader.readAsDataURL(newFile);
     }
   }
 
@@ -56,7 +56,7 @@ class EditUser extends React.Component {
           className='success-message'>
           Profile updated!
         </li>
-      )
+      );
     } else {
       return (
         this.props.userErrors.map((error, idx) => {
@@ -64,15 +64,15 @@ class EditUser extends React.Component {
             className='error-messages'
             key={`${idx}`}>
             { error }
-          </li>
+          </li>;
         })
-      )
+      );
     }
   }
 
   handleUpdate() {
     event.preventDefault();
-    this.setState( { updatingUser: true } )
+    this.setState( { updatingUser: true } );
     const formData = new FormData();
     const that = this;
 
@@ -84,19 +84,19 @@ class EditUser extends React.Component {
 
     Object.keys(user).forEach((attr) => {
       if (user[attr] !== null) {
-        formData.append(`user[${attr}]`, user[attr])
+        formData.append(`user[${attr}]`, user[attr]);
       }
-    })
+    });
     this.props.clearUserErrors();
     this.props.editUser(formData).then(
       success => this.setState( { updateSuccess: true, updatingUser: false } ),
       errors => this.setState( { updateSuccess: false, updatingUser: false } )
-    )
+    );
   }
 
   handleBack() {
     event.preventDefault();
-    this.props.history.push(`/${this.props.user.username}`)
+    this.props.history.push(`/${this.props.user.username}`);
   }
 
   render() {
@@ -180,7 +180,7 @@ class EditUser extends React.Component {
 
         </main>
       </div>
-    )
+    );
   }
 
 }

@@ -14,95 +14,95 @@ const fetchPhotos = photos => {
   return ({
     type: RECEIVE_ALL_PHOTOS,
     photos
-  })
-}
+  });
+};
 
 const fetchPhotoPage = photos => {
   return ({
     type: RECEIVE_PHOTO_PAGE,
     photos,
-  })
-}
+  });
+};
 
 const fetchUserPhotos = photos => {
   return ({
     type: RECEIVE_USER_PHOTOS,
     photos,
-  })
-}
+  });
+};
 
 const fetchPhotoGrid = photos => {
   return ({
     type: RECEIVE_PHOTO_GRID,
     photos,
-  })
-}
+  });
+};
 
 const fetchPhoto = photo => {
   return ({
     type: RECEIVE_PHOTO,
     photo
-  })
+  });
 };
 
 const removePhoto = photoId => {
   return ({
     type: REMOVE_PHOTO,
     photoId,
-  })
-}
+  });
+};
 
 const receivePhotoErrors = errors => {
   return ({
     type: RECEIVE_PHOTO_ERRORS,
     errors: errors.responseJSON
-  })
-}
+  });
+};
 
 const removePhotoErrors = () => {
   return ({
     type: CLEAR_PHOTO_ERRORS,
     errors: [],
-  })
-}
+  });
+};
 
 export const getPhotosPage = page => dispatch => {
   return PhotoApiUtil.getPhotosPage(page)
-              .then(photos => dispatch(fetchPhotoPage(photos)))
-}
+              .then(photos => dispatch(fetchPhotoPage(photos)));
+};
 
 export const getPhotosGrid = page => dispatch => {
   return PhotoApiUtil.getPhotosGrid(page)
-              .then(photos => dispatch(fetchPhotoGrid(photos)))
-}
+              .then(photos => dispatch(fetchPhotoGrid(photos)));
+};
 
 export const getUserPhotos = username => dispatch => {
   return PhotoApiUtil.getUserPhotos(username)
-              .then(photos => dispatch(fetchUserPhotos(photos)))
-}
+              .then(photos => dispatch(fetchUserPhotos(photos)));
+};
 
 export const getPhotos = () => dispatch => {
   return PhotoApiUtil.getPhotos()
-              .then(photos => dispatch(fetchPhotos(photos)))
-}
+              .then(photos => dispatch(fetchPhotos(photos)));
+};
 
 export const getPhoto = photoId => dispatch => {
   return PhotoApiUtil.getPhoto(photoId)
-              .then(photo => dispatch(fetchPhoto(photo)))
-}
+              .then(photo => dispatch(fetchPhoto(photo)));
+};
 
 export const addPhoto = photo => dispatch => {
   return PhotoApiUtil.addPhoto(photo)
     .then(photo => dispatch(fetchPhoto(photo)),
           errors => dispatch(receivePhotoErrors(errors))
-        )
-}
+        );
+};
 
 export const deletePhoto = photo => dispatch => {
   return PhotoApiUtil.deletePhoto(photo)
-              .then(photo => dispatch(removePhoto(photo)))
-}
+              .then(photo => dispatch(removePhoto(photo)));
+};
 
 export const clearPhotoErrors = () => dispatch => {
   return dispatch(removePhotoErrors());
-}
+};

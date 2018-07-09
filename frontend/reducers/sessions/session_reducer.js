@@ -18,11 +18,11 @@ const SessionReducer = (oldState = { currentUser: null }, action) => {
         {},
         oldState,
         { currentUser: action.user }
-      )
+      );
       return newState;
     default:
       return oldState;
   }
-}
+};
 
 export default SessionReducer;

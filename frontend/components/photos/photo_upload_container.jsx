@@ -8,14 +8,14 @@ const mapStateToProps = (state) => {
 
   return ({
     photoErrors
-  })
-}
+  });
+};
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     addPhoto: photo => dispatch(addPhoto(photo)),
     clearPhotoErrors: () => dispatch(clearPhotoErrors())
-  })
-}
+  });
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoUploadForm))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotoUploadForm));

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import LikeContainer from '../likes/like_container';
 import CommentIndexContainer from '../comments/comment_index_container';
 import CommentForm from '../comments/comment_form';
-import TimeStamp from './photo_time_stamp'
+import TimeStamp from './photo_time_stamp';
 
 class PhotoIndexItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   focusComment(id) {
@@ -60,7 +60,7 @@ class PhotoIndexItem extends React.Component {
 
         </div>
       </li>
-    )
+    );
   }
 };
 

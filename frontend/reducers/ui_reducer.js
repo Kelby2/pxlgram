@@ -12,7 +12,7 @@ const UIReducer = (oldState = {}, action) => {
 
       Object.keys(action.users).forEach(username => {
         newState.searchResults.push(action.users[username]);
-      })
+      });
       return newState;
 
     case CLEAR_USERS_SEARCH:
@@ -23,7 +23,7 @@ const UIReducer = (oldState = {}, action) => {
     default:
       return oldState;
   }
-}
+};
 
 
 export default UIReducer;

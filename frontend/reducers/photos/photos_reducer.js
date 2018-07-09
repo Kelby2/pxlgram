@@ -30,7 +30,7 @@ const PhotosReducer = (oldState = {}, action) => {
     case RECEIVE_COMMENT:
       const photo = oldState[action.comment.photo_id];
       const photoCopy = Object.assign({}, photo);
-      photoCopy.commentIds = photoCopy.commentIds.concat(action.comment.id)
+      photoCopy.commentIds = photoCopy.commentIds.concat(action.comment.id);
       newState = Object.assign(
         {},
         oldState,
@@ -45,14 +45,14 @@ const PhotosReducer = (oldState = {}, action) => {
       newState[action.comment.photo_id].commentIds = newState[action.comment.photo_id].commentIds.filter(id => id !== action.comment.id);
       return newState;
     case REMOVE_PHOTO:
-      newState = Object.assign({}, oldState)
-      delete newState[action.photoId]
+      newState = Object.assign({}, oldState);
+      delete newState[action.photoId];
       return newState;
     case CLEAR_PHOTOS:
       return [];
     default:
       return oldState;
   }
-}
+};
 
 export default PhotosReducer;

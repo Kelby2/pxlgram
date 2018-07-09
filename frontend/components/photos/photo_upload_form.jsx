@@ -26,9 +26,9 @@ class PhotoUpload extends React.Component {
           className='error-messages'
           key={`${idx}`}>
           { error }
-        </li>
+        </li>;
       })
-    )
+    );
   }
 
   updateFile(e) {
@@ -37,11 +37,11 @@ class PhotoUpload extends React.Component {
     this.props.clearPhotoErrors();
 
     fileReader.onloadend = () => {
-      this.setState({imageFile: newFile, imageUrl: fileReader.result })
-    }
+      this.setState({imageFile: newFile, imageUrl: fileReader.result });
+    };
 
     if (newFile) {
-      fileReader.readAsDataURL(newFile)
+      fileReader.readAsDataURL(newFile);
     }
   }
 
@@ -53,14 +53,14 @@ class PhotoUpload extends React.Component {
 
   handleFormSubmit() {
     event.preventDefault();
-    this.setState({ uploadingPhoto: true })
+    this.setState({ uploadingPhoto: true });
     const formData = new FormData();
     formData.append('photo[caption]', this.state.photoCaption);
     formData.append('photo[image]', this.state.imageFile);
 
     this.props.addPhoto(formData).then((result) => {
-      this.setState({ uploadingPhoto: false })
-      this.props.history.push(`/${result.photo.author_name}`)
+      this.setState({ uploadingPhoto: false });
+      this.props.history.push(`/${result.photo.author_name}`);
     }, error => this.setState({ uploadingPhoto: false }));
   }
 
@@ -116,7 +116,7 @@ class PhotoUpload extends React.Component {
             </div>
           </main>
       </div>
-    )
+    );
   }
 }
 

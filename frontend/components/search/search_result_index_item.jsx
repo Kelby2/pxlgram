@@ -13,7 +13,7 @@ const SearchResultsIndexItem = ({ user }) => {
         </aside>
       </Link>
     </li>
-  )
-}
+  );
+};
 
 export default SearchResultsIndexItem;

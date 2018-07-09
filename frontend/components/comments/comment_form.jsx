@@ -4,12 +4,12 @@ import { connect } from 'react-redux';;
 
 class CommentForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       commentBody: "",
       photo_id: this.props.photo.id,
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -46,14 +46,14 @@ class CommentForm extends React.Component {
           />
         </form>
       </div>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
     addComment: comment => dispatch(addComment(comment)),
-  })
-}
+  });
+};
 
 export default connect(null, mapDispatchToProps)(CommentForm);

@@ -19,17 +19,17 @@ const UsersReducer = (oldState = {}, action) => {
       return newState;
     case UPDATE_USER:
       const prevUsername = Object.keys(oldState).find((name) =>
-        oldState[name].id === action.user.id)
+        oldState[name].id === action.user.id);
       newState = Object.assign(
         {},
         oldState,
         { [action.user.username] : action.user }
-      )
+      );
       delete newState[prevUsername];
       return newState;
     default:
       return oldState;
   }
-}
+};
 
 export default UsersReducer;

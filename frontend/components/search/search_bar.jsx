@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResultsIndexItem from './search_result_index_item'
+import SearchResultsIndexItem from './search_result_index_item';
 
 const SEARCH_DELAY = 750;
 const SHOW_DROPDOWN_DELAY = 120;
@@ -10,7 +10,7 @@ class Searchbar extends React.Component {
     this.state = {
       usernameQuery: "",
       showResults: false,
-    }
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleEsc = this.handleEsc.bind(this);
@@ -36,10 +36,10 @@ class Searchbar extends React.Component {
   handleInputChange(e) {
     e.preventDefault();
     const usernameQuery = e.currentTarget.value;
-    this.setState( { usernameQuery } )
+    this.setState( { usernameQuery } );
 
     if (usernameQuery.length > 0) {
-      this._callSearch(usernameQuery)
+      this._callSearch(usernameQuery);
     } else {
       this.props.clearSearch();
     }
@@ -72,7 +72,7 @@ class Searchbar extends React.Component {
 
   //Highlights text in the search bar and activates display for results.
   handleFocus(event) {
-    event.currentTarget.select()
+    event.currentTarget.select();
     this._toggleShowResults();
   }
 
@@ -84,7 +84,7 @@ class Searchbar extends React.Component {
   }
 
   _toggleShowResults() {
-    this.setState( {showResults: !this.state.showResults} )
+    this.setState( {showResults: !this.state.showResults} );
   }
 
   render() {
@@ -102,17 +102,17 @@ class Searchbar extends React.Component {
                   <SearchResultsIndexItem
                   key={ user.username }
                   user={ user }/>
-                )
+                );
               })
             }
           </ul>
-        )
+        );
       } else {
         resultsIndex = (
           <ul className="search-results-index">
             <li className="results-none">No Results Found.</li>
           </ul>
-        )
+        );
       }
     }
 
@@ -130,7 +130,7 @@ class Searchbar extends React.Component {
         />
         {resultsIndex}
       </div>
-    )
+    );
   }
 }
 
