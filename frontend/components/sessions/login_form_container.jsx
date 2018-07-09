@@ -3,7 +3,7 @@ import { login, clearSessionErrors } from '../../actions/session_actions';
 import LoginForm from './login_form';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   const sessionsErrors = state.errors.sessionsErrors;
 
   return ({
@@ -11,11 +11,11 @@ const mapStateToProps = (state, ownProps) => {
   });
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return ({
     login: user => dispatch(login(user)),
     clearSessionErrors: () => dispatch(clearSessionErrors())
-  })
+  });
 };
 
 export default withRouter(connect(
