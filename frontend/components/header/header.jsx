@@ -9,7 +9,7 @@ class Header extends React.Component {
     this.scrollUp = this.scrollUp.bind(this);
   }
 
-  handleScroll(event) {
+  handleScroll() {
     const header = $(".fixed-header");
     const distanceFromTop = window.scrollY;
     header.toggleClass("mini-header", distanceFromTop > 20);
@@ -19,7 +19,7 @@ class Header extends React.Component {
     window.addEventListener('scroll', this.handleScroll);
   }
 
-  scrollUp(e) {
+  scrollUp() {
     setTimeout(() => window.scrollTo(0,0), 0);
   }
 

@@ -48,7 +48,7 @@ class Searchbar extends React.Component {
   // Debouncing search with setTimeout to limit the number of calls to
   // the database. If user makes another input within the delay, the
   // previous search is cleared and the delay restarts for a new search
-  _callSearch(query) {
+  _callSearch() {
     clearTimeout(this.queueSearch);
     this.queueSearch = setTimeout(this.startSearch, SEARCH_DELAY);
   }

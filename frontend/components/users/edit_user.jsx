@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class EditUser extends React.Component {
   constructor(props) {
@@ -74,7 +73,6 @@ class EditUser extends React.Component {
     event.preventDefault();
     this.setState( { updatingUser: true } );
     const formData = new FormData();
-    const that = this;
 
     const user = Object.assign(
       {},
@@ -89,8 +87,8 @@ class EditUser extends React.Component {
     });
     this.props.clearUserErrors();
     this.props.editUser(formData).then(
-      success => this.setState( { updateSuccess: true, updatingUser: false } ),
-      errors => this.setState( { updateSuccess: false, updatingUser: false } )
+      () => this.setState( { updateSuccess: true, updatingUser: false } ),
+      () => this.setState( { updateSuccess: false, updatingUser: false } )
     );
   }
 

@@ -2,10 +2,10 @@ import EditUser from './edit_user';
 import { connect } from 'react-redux';
 import { getUser, editUser, clearUserErrors } from '../../actions/user_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   const user = state.session.currentUser;
   const userErrors = state.errors.usersErrors;
-  
+
   return ({
     user,
     userErrors

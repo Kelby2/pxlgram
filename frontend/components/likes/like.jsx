@@ -17,7 +17,7 @@ class Like extends React.Component {
     }
   }
 
-  handleLike(event) {
+  handleLike() {
     if (this.state.like_state) {
       this.props.deleteLike(this.props.photo_id);
     } else {

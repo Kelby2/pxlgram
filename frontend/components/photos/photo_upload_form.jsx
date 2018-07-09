@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class PhotoUpload extends React.Component {
   constructor(props) {
@@ -61,7 +60,7 @@ class PhotoUpload extends React.Component {
     this.props.addPhoto(formData).then((result) => {
       this.setState({ uploadingPhoto: false });
       this.props.history.push(`/${result.photo.author_name}`);
-    }, error => this.setState({ uploadingPhoto: false }));
+    }, () => this.setState({ uploadingPhoto: false }));
   }
 
   render() {

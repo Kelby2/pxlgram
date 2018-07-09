@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PhotoIndexItem from './photo_index_item';
-import { BeatLoader } from 'react-spinners';
 
 const FETCH_DELAY = 500;
 

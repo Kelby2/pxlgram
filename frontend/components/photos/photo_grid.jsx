@@ -1,8 +1,6 @@
 import React from 'react';
 import PhotoGridItem from './photo_grid_item';
 import { BeatLoader } from 'react-spinners';
-import { Route } from 'react-router-dom';
-import PhotoModalContainer from '../photos/photo_modal_container';
 
 const FETCH_DELAY = 500;
 

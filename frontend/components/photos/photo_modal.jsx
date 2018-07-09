@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import PhotoModalItem from './photo_modal_item';
-import { Link } from 'react-router-dom';
 
 class PhotoModal extends React.Component {
   constructor(props) {
