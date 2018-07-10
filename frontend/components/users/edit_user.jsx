@@ -1,69 +1,70 @@
 import React from 'react';
+import EditUserAvatar from './edit_user_avatar';
+
+const inputFields = ["Full Name", "Username", "Email"];
 
 class EditUser extends React.Component {
+
   constructor(props) {
     super(props);
 
+    const { fullname, username, email, bio } = this.props.user;
+
     this.state = {
       updateSuccess: false,
-      avatar: null,
       updatingUser: false,
-      avatarUrl: this.props.user.avatarUrl,
-      fullname: this.props.user.fullname,
-      username: this.props.user.username,
-      email: this.props.user.email,
-      bio: this.props.user.bio || "",
+      avatar: null,
+      fullname,
+      username,
+      email,
+      bio: bio || "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-    this.updateFile = this.updateFile.bind(this);
   }
 
   componentWillUnmount() {
     this.props.clearUserErrors();
   }
 
-  updateFile(e) {
-    event.preventDefault();
-    const newFile = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-
-    fileReader.onloadend = () => {
-      this.setState({
-        avatar: newFile,
-        avatarUrl: fileReader.result
-      });
-    };
-
-    if (newFile) {
-      fileReader.readAsDataURL(newFile);
-    }
-  }
-
   handleInputChange(formField) {
-    return (event) => {
+    return event => {
       this.setState({ [formField]: event.target.value });
     };
   }
 
+  renderInputField(field) {
+    const fieldValue = field.replace(/ /g,'').toLowerCase();
+    field = (field === 'Full Name') ? 'Name' : field;
+
+    return (
+      <div key={field} className='edit-section'>
+        <aside className='form-field'><label>{`${field}`}</label></aside>
+        <input
+          className='edit-form-input'
+          type='text'
+          onChange={this.handleInputChange(fieldValue)}
+          value={ this.state[fieldValue] }>
+        </input>
+      </div>
+    );
+  }
+
   renderMessage() {
     if (this.state.updateSuccess) {
-      return (
-        <li
-          className='success-message'>
-          Profile updated!
-        </li>
-      );
+      return <li className='success-message'>Profile updated!</li>;
     } else {
       return (
         this.props.userErrors.map((error, idx) => {
-          return <li
-            className='error-messages'
-            key={`${idx}`}>
-            { error }
-          </li>;
+          return (
+            <li
+              className='error-messages'
+              key={`${idx}`}>
+              { error }
+            </li>
+          );
         })
       );
     }
@@ -74,11 +75,9 @@ class EditUser extends React.Component {
     this.setState( { updatingUser: true } );
     const formData = new FormData();
 
-    const user = Object.assign(
-      {},
-      this.state,
-      { username: this.state.username.toLowerCase() }
-    );
+    const { username } = this.state;
+
+    const user = {...this.state, username: username.toLowerCase()};
 
     Object.keys(user).forEach((attr) => {
       if (user[attr] !== null) {
@@ -97,54 +96,27 @@ class EditUser extends React.Component {
     this.props.history.push(`/${this.props.user.username}`);
   }
 
+  updateAvatar(avatar) {
+    this.setState({
+      avatar
+    });
+  }
+
   render() {
 
     return (
-      <div className='edit-page-container' >
-        <main className='edit-page' >
+      <div className='edit-page-container'>
+        <main className='edit-page'>
 
-          <article className='user-avatar-container'>
-            <div className='user-avatar'>
-              <input
-                type='file'
-                id='avatar-file-selector'
-                onChange={this.updateFile}>
-              </input>
-              <img className='avatar' src={ this.state.avatarUrl }/>
-            </div>
-          </article>
+          <EditUserAvatar
+            onAvaChange={avatar => this.updateAvatar(avatar)}
+            avatarUrl={this.props.user.avatarUrl} />
 
           <article className='user-info'>
 
-            <div className='edit-section'>
-              <aside className='form-field'><label>Name</label></aside>
-              <input
-                className='edit-form-input'
-                type='text'
-                onChange={this.handleInputChange('fullname')}
-                value={ this.state.fullname }>
-              </input>
-            </div>
-
-            <div className='edit-section'>
-              <aside className='form-field'><label>Username</label></aside>
-              <input
-                className='edit-form-input'
-                type='text'
-                onChange={this.handleInputChange('username')}
-                value={this.state.username}>
-              </input>
-            </div>
-
-            <div className='edit-section'>
-              <aside className='form-field'><label>Email</label></aside>
-              <input
-                className='edit-form-input'
-                type='text'
-                onChange={this.handleInputChange('email')}
-                value={ this.state.email }>
-              </input>
-            </div>
+            {inputFields.map(field => {
+              return this.renderInputField(field);
+            })}
 
             <div className='edit-section'>
               <aside className='form-field'><label>Bio</label></aside>
@@ -158,20 +130,17 @@ class EditUser extends React.Component {
           </article>
 
           <ul className='user-errors'>
-            { this.renderMessage()}
+            {this.renderMessage()}
           </ul>
 
-          <article
-            className='edit-page-buttons-container'>
+          <article className='edit-page-buttons-container'>
             <button
               className={ this.state.updatingUser ?
                 'edit-page-buttons locked' : 'edit-page-buttons' }
               onClick={ this.handleUpdate }>
               Submit
             </button>
-            <button
-              className='edit-page-buttons'
-              onClick={ this.handleBack }>
+            <button className='edit-page-buttons' onClick={ this.handleBack }>
               Back
             </button>
           </article>
