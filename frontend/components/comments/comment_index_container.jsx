@@ -5,18 +5,19 @@ import CommentIndex from './comment_index';
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photoId];
 
-  const comments = Object.values(state.entities.comments).filter((comment) => {
+  const comments = Object.values(state.entities.comments).filter(comment => {
     return (comment.photo_id === parseInt(ownProps.photoId));
   });
+
   return {
     photo,
     comments,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return ({
-    getPhotoComments: (photo_id) => dispatch(getPhotoComments(photo_id))
+    getPhotoComments: photo_id => dispatch(getPhotoComments(photo_id))
   });
 };
 
