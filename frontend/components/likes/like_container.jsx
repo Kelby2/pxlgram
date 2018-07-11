@@ -4,9 +4,10 @@ import Like from './like';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photo_id];
+  const likeState = photo.likers.includes(state.session.currentUser.username);
+
   return {
-    photo,
-    currentUser: state.session.currentUser
+    likeState,
   };
 };
 

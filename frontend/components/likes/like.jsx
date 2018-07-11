@@ -1,47 +1,27 @@
 import React from 'react';
 
-class Like extends React.Component {
-  constructor(props) {
-    super(props);
+const Like = props => {
 
-    this.state = {
-      like_state: this.props.photo.likers
-                        .includes(this.props.currentUser.username)
-    };
-    this.handleLike = this.handleLike.bind(this);
-  }
+  const handleLikeAction = () => {
+    const { photo_id, deleteLike, addLike } = props;
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.photo.likers.length !== this.props.photo.likers.length) {
-      this.setState({ like_state: !this.state.like_state });
-    }
-  }
-
-  handleLike() {
-    if (this.state.like_state) {
-      this.props.deleteLike(this.props.photo_id);
+    if (props.likeState) {
+      deleteLike(photo_id);
     } else {
-      this.props.addLike(this.props.photo_id);
+      addLike(photo_id);
     }
-  }
+  };
 
-  render () {
-    if (this.state.like_state) {
-      return (
-        <div
-          onClick={this.handleLike}
-          className='fa fa-heart fa-lg liked-icon'
-        />
-      );
-    } else {
-      return (
-        <div
-          onClick={this.handleLike}
-          className='fa fa-heart-o fa-lg likes-icon'
-        />
-      );
-    }
-  }
-}
+  const classes =
+  `fa fa-lg ${props.likeState ?
+    "fa-heart liked-icon" :
+    "fa-heart-o likes-icon"}`;
+
+  return (
+    <div
+      onClick={handleLikeAction}
+      className={classes} />
+  );
+};
 
 export default Like;
