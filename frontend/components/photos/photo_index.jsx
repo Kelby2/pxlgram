@@ -18,9 +18,8 @@ class PhotoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUsers();
     this.props.getPhotosPage(this.state.page).then(
-      () => { this.setState( { photosFetched: true } ); }
+      () => {this.setState({ photosFetched: true });}
     );
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -64,8 +63,8 @@ class PhotoIndex extends React.Component {
             this.props.photos.map(photo => {
               return(
                 <PhotoIndexItem
-                  key={ photo.id }
-                  photo={ photo }
+                  key={photo.id}
+                  photo={photo}
                 />
               );
             })

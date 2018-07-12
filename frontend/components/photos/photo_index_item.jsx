@@ -5,63 +5,65 @@ import CommentIndexContainer from '../comments/comment_index_container';
 import CommentForm from '../comments/comment_form';
 import TimeStamp from './photo_time_stamp';
 
-class PhotoIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const PhotoIndexItem = props => {
 
-  focusComment(id) {
+  const focusComment = id => {
     document.getElementById(id).focus();
-  }
+  };
 
-  render() {
+  const {
+    id,
+    author_name,
+    author_avatar,
+    imageUrl,
+    likers,
+    created_at } = props.photo;
 
-    return (
-      <li className='photo-post-container'>
-        <div className='photo-post'>
+  return (
+    <li className='photo-post-container'>
+      <div className='photo-post'>
 
-          <article className='photo-author-info'>
-            <div className='stream-avatar-container'>
-              <Link to={`/${this.props.photo.author_name}`}>
-                <img className='stream-avatar' src={this.props.photo.author_avatar} />
-              </Link>
-            </div>
+        <article className='photo-author-info'>
+          <div className='stream-avatar-container'>
+            <Link to={`/${author_name}`}>
+              <img className='stream-avatar' src={author_avatar} />
+            </Link>
+          </div>
 
-            <div className='author-username'>
-              <Link to={`${this.props.photo.author_name}`}>
-                 <div className='stream-username'>
-                   {this.props.photo.author_name}
-                </div>
-              </Link>
-            </div>
-          </article>
-
-          <article className='photo-container'>
-            <img className='photo' src={this.props.photo.imageUrl} />
-          </article>
-
-          <article className='photo-info-container'>
-            <div className='icon-container'>
-              <LikeContainer photo_id={this.props.photo.id} />
-              <div
-                className='fa fa-comment-o fa-lg comments-icon'
-                onClick={ () => this.focusComment(this.props.photo.id) }>
+          <div className='author-username'>
+            <Link to={`${author_name}`}>
+               <div className='stream-username'>
+                 {author_name}
               </div>
+            </Link>
+          </div>
+        </article>
+
+        <article className='photo-container'>
+          <img className='photo' src={imageUrl} />
+        </article>
+
+        <article className='photo-info-container'>
+          <div className='icon-container'>
+            <LikeContainer photo_id={id} />
+            <div
+              className='fa fa-comment-o fa-lg comments-icon'
+              onClick={ () => focusComment(id) }>
             </div>
+          </div>
 
-            <div className='like-count'>
-              {this.props.photo.likers.length} {(this.props.photo.likers.length === 1) ? 'like' : 'likes'}
-            </div>
+          <div className='like-count'>
+            {likers.length} {(likers.length === 1) ? 'like' : 'likes'}
+          </div>
 
-            <CommentIndexContainer photoId={this.props.photo.id} />
-            <TimeStamp photoCreationTime={this.props.photo.created_at} />
-            <CommentForm id={this.props.photo.id} photo={ this.props.photo } />
-          </article>
+          <CommentIndexContainer photoId={id} />
+          <TimeStamp photoCreationTime={created_at} />
+          <CommentForm id={id} photo={ props.photo } />
+        </article>
 
-        </div>
-      </li>
-    );
-  }
+      </div>
+    </li>
+  );
 };
 
 export default PhotoIndexItem;
