@@ -76,20 +76,24 @@
   cursor: pointer;
 }
 
-.toggle-follow-button, .edit-profile-button {
-  padding: 0 auto;
+.follow-btn, .unfollow-btn, .edit-profile-button {
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 14px;
-  width: 125px;
-  height: 35px;
-  font-family: sans-serif;
+  width: 100px;
+  height: 30px;
 }
 
-.toggle-follow-button {
+.follow-btn {
   color: #ffffff;
+  font-weight: 600;
   background-color: #3997f0;
   border: 1px solid #ffffff;
+}
+
+.unfollow-btn {
+  color: #000000;
+  background-color: #fafafa;
 }
 
 .edit-profile-button {

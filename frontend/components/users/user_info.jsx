@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 class UserInfo extends React.Component {
 
+  state = { currentUserFollows: false }
+
   componentDidMount() {
     this.props.getUser(this.props.username);
   }
@@ -14,9 +16,6 @@ class UserInfo extends React.Component {
   }
 
   renderEditProfileButton() {
-    //if self, renders a button to edit profile
-    //else, will show a button to follow/unfollow user
-
     return (
       <Link to={`/${this.props.username}/edit`}>
         <button
@@ -24,6 +23,18 @@ class UserInfo extends React.Component {
           Edit Profile
         </button>
       </Link>
+    );
+  }
+
+  renderFollowerButton() {
+    const { currentUserFollows } = this.state;
+
+    return (
+      <button
+        onClick={() => this.setState({ currentUserFollows: !this.state.currentUserFollows })}
+        className={currentUserFollows ? 'unfollow-btn' : 'follow-btn'}>
+        {currentUserFollows ? 'Following' : 'Follow'}
+      </button>
     );
   }
 
@@ -52,13 +63,16 @@ class UserInfo extends React.Component {
             <div className='user-info-container'>
               <div className='info-section-1'>
                 <span className='user-name'>{user.username}</span>
-                {isCurrentUser && this.renderEditProfileButton()}
+                {isCurrentUser ?
+                  this.renderEditProfileButton() : this.renderFollowerButton()}
                 {isCurrentUser && this.renderLogOutButton()}
               </div>
 
               <div className='info-section-2'>
                 <span className='user-stats'>
-                  <div className='stat photo-count'>{user.photoIds.length} </div> posts
+                  <div className='stat photo-count'>
+                    {user.photoIds.length}
+                  </div> {user.photoIds.length === 1 ? 'post' : 'posts'}
                   <div className='stat follower-count'></div>
                   <div className='stat following-count'></div>
                 </span>
