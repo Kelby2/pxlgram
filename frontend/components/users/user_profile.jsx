@@ -4,9 +4,6 @@ import PhotoGridItem from '../photos/photo_grid_item';
 import PhotoModalContainer from '../photos/photo_modal_container';
 
 class UserProfile extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.username !== this.props.match.params.username) {
@@ -16,34 +13,50 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.match.params.username);
-    this.props.getUserPhotos(this.props.match.params.username);
+    const { getUser, getUserPhotos, match } = this.props;
+    const { username } = match.params;
+
+    getUser(username);
+    getUserPhotos(username);
+  }
+
+  renderProfileButton() {
+    //if self, renders a button to edit profile
+    //else, will show a button to follow/unfollow user
+
+    const { isCurrentUser, user } = this.props;
+    if (isCurrentUser) {
+      return (
+        <Link to={`/${user.username}/edit`}>
+          <button
+            className='edit-profile-button'>
+            Edit Profile
+          </button>
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        className='toggle-follow-button'>
+        Follow
+      </button>
+    );
+  }
+
+  renderLogOutButton() {
+    return (
+      <div
+        onClick={() => this.props.logout()}
+        className="fa fa-sign-out fa-lg">
+      </div>
+    );
   }
 
   render () {
-    const user = this.props.user;
-    let logOutButton;
-    let profileButton;
+    const { user, photos } = this.props;
 
     if (user && user.photoIds) {
-      if (user.username === this.props.currentUser.username) {
-        logOutButton = (
-          <div
-            onClick={() => this.props.logout()}
-            className="fa fa-sign-out fa-lg">
-          </div>
-        );
-
-        profileButton = (
-          <Link to={`/${user.username}/edit`}>
-            <button
-              className='edit-profile-button'>
-              Edit Profile
-            </button>
-          </Link>
-        );
-      }
-
       return (
         <main className='user-profile-container'>
           <Route exact path='/:username/photos/:photoId' component={ PhotoModalContainer }/>
@@ -58,8 +71,8 @@ class UserProfile extends React.Component {
               <div className='user-info-container'>
                 <div className='info-section-1'>
                   <span className='user-name'>{user.username}</span>
-                  {profileButton}
-                  {logOutButton}
+                  {this.renderProfileButton()}
+                  {this.props.isCurrentUser && this.renderLogOutButton()}
                 </div>
 
                 <div className='info-section-2'>
@@ -81,7 +94,7 @@ class UserProfile extends React.Component {
             <article className='user-photos-container'>
               <ul className='photos-grid-container'>
                 {
-                  this.props.photos.map(photo => {
+                  photos.map(photo => {
                     return(
                       <PhotoGridItem
                         key={ photo.id }
