@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   validates :bio, length: { maximum: 150, message: "character limit (%{count}) exceeded" }
 
-  has_attached_file :avatar, styles: { thumb: "150x150x" }, default_url: "default-user-avatar.png"
+  has_attached_file :avatar, styles: { thumb: "150x150#" }, default_url: "default-user-avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   before_validation :ensure_session_token
@@ -48,6 +48,25 @@ class User < ApplicationRecord
 
   has_many :comments,
     dependent: :destroy
+
+  has_many :followerships,
+    foreign_key: :followee_id,
+    class_name: :Following,
+    dependent: :destroy
+
+  has_many :followeeships,
+    foreign_key: :follower_id,
+    class_name: :Following,
+    dependent: :destroy
+
+  has_many :followers,
+    through: :followerships,
+    source: :follower
+
+  has_many :followings,
+    through: :followeeships,
+    source: :followee
+
 
   def self.find_by_credentials(username, password)
     @user = User.find_by(username: username)
