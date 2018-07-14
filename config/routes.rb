@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show, :create, :update] do
       resources :photos, only: [:index]
+      collection do
+        get 'search'
+      end
+
+      member do
+        post 'follow'
+        delete 'unfollow'
+      end
     end
 
     resources :photos, only: [:index, :show, :create, :destroy] do
