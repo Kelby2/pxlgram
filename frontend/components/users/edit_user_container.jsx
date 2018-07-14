@@ -1,6 +1,6 @@
 import EditUser from './edit_user';
 import { connect } from 'react-redux';
-import { getUser, editUser, clearUserErrors } from '../../actions/user_actions';
+import { editUser, clearUserErrors } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
   const user = state.session.currentUser;
@@ -14,7 +14,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    getUser: username => dispatch(getUser(username)),
     editUser: user => dispatch(editUser(user)),
     clearUserErrors: () => dispatch(clearUserErrors())
   });
