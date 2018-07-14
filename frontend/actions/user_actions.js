@@ -1,19 +1,11 @@
 import * as UserApiUtil from '../util/user_api_util';
 
-export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const CLEAR_USERS_SEARCH = 'CLEAR_USERS_SEARCH';
 export const UPDATE_USER = 'UPDATE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 export const CLEAR_USER_ERRORS = 'CLEAR_USER_ERRORS';
-
-const fetchUsers = users => {
-  return ({
-    type: RECEIVE_ALL_USERS,
-    users
-  });
-};
 
 const fetchUser = user => {
   return ({
@@ -22,7 +14,7 @@ const fetchUser = user => {
   });
 };
 
-const fetchSearch = users => {
+const fetchSearchResults = users => {
   return ({
     type: RECEIVE_SEARCH_RESULTS,
     users
@@ -56,9 +48,6 @@ const removeUserErrors = () => {
   });
 };
 
-export const getUsers = () => dispatch => (
-  UserApiUtil.getUsers().then(users => dispatch(fetchUsers(users)))
-);
 
 export const getUser = username => dispatch => (
   UserApiUtil.getUser(username).then(user => dispatch(fetchUser(user)))
@@ -72,7 +61,7 @@ export const editUser = user => dispatch => {
 };
 
 export const searchUsers = query => dispatch => (
-  UserApiUtil.searchUsers(query).then(users => dispatch(fetchSearch(users)))
+  UserApiUtil.searchUsers(query).then(users => dispatch(fetchSearchResults(users)))
 );
 
 export const clearSearch = () => dispatch => (

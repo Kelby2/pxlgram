@@ -1,7 +1,8 @@
-export const getUsers = () => {
+export const searchUsers = query => {
   return $.ajax({
     method: 'get',
-    url: 'api/users',
+    url: `api/users/search`,
+    data: { query }
   });
 };
 
@@ -20,13 +21,5 @@ export const editUser = user => {
     contentType: false,
     processData: false,
     data: user,
-  });
-};
-
-export const searchUsers = (query) => {
-  return $.ajax({
-    method: 'get',
-    url: `api/users`,
-    data: { query }
   });
 };

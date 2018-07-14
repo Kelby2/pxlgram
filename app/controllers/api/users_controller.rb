@@ -1,14 +1,11 @@
 class Api::UsersController < ApplicationController
 
-  def index
+  def search
     userQuery = params[:query]
-    if userQuery
-      @users = User.where("username LIKE ? OR LOWER(fullname) LIKE ?",
-                            "#{userQuery}%", "#{userQuery}%")
-    else
-      @users = User.all
-    end
+    @users = User.where("username LIKE ? OR LOWER(fullname) LIKE ?",
+    "#{userQuery}%", "#{userQuery}%")
 
+    render :search
   end
 
   def show
