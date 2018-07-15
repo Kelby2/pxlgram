@@ -12,6 +12,7 @@
 class Following < ApplicationRecord
 
   validates :follower_id, :followee_id, presence: true
+  validates :followee_id, uniqueness: {scope: :follower_id}
   validate :disable_self_follow
 
   belongs_to :follower,
