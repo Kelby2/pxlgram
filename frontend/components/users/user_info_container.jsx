@@ -2,7 +2,7 @@ import UserInfo from './user_info';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { getUser } from '../../actions/user_actions';
-import { followUser } from '../../actions/follow_actions';
+import { followUser, unfollowUser } from '../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { username } = ownProps;
@@ -23,8 +23,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return ({
     getUser: username => dispatch(getUser(username)),
+    logout: () => dispatch(logout()),
     followUser: user => dispatch(followUser(user)),
-    logout: () => dispatch(logout())
+    unfollowUser: user => dispatch(unfollowUser(user)),
   });
 };
 

@@ -10,10 +10,10 @@ const startFollowing = following => {
   });
 };
 
-const endFollowing = user => {
+const endFollowing = following => {
   return ({
     type: UNFOLLOW_USER,
-    user
+    following
   });
 };
 
@@ -24,6 +24,9 @@ export const followUser = username => dispatch => {
     });
 };
 
-export const unfollowUser = user => dispatch => {
-  return dispatch(endFollowing(user));
+export const unfollowUser = username => dispatch => {
+  return FollowApiUtil.unfollowUser(username)
+    .then(following => {
+      dispatch(endFollowing(following));
+    });
 };

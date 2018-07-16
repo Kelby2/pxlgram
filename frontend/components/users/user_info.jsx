@@ -25,7 +25,17 @@ class UserInfo extends React.Component {
   }
 
   onFollowPress() {
-    this.props.followUser(this.props.username);
+    const { 
+      currentUserFollows,
+      username,
+      unfollowUser,
+      followUser } = this.props;
+
+    if (currentUserFollows) {
+      unfollowUser(username);
+    } else {
+      followUser(username);
+    }
   }
 
   renderFollowerButton() {

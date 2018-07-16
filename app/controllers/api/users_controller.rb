@@ -53,10 +53,14 @@ class Api::UsersController < ApplicationController
   def unfollow
     @user = current_user
     followee = User.find_by(username: params[:username])
-    @following = @user.followeeships.find_by(followee_id: followee_id)
+    @following = @user.followeeships.find_by(followee_id: followee.id)
 
-    @following.destroy!
-    render 'api/photos/show'
+    if @following.destroy
+      render json: {follower: @user.username, followee: followee.username}, status: 200
+    else
+      render json: @following.errors.full_messages, status: 401
+    end
+
   end
 
   private

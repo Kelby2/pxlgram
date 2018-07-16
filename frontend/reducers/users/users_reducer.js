@@ -23,6 +23,14 @@ const UsersReducer = (oldState = {}, action) => {
       newState[followee].followers.push(follower);
       // newState[follower].followings.push(followee);
       return newState;
+    case UNFOLLOW_USER:
+      newState = {...oldState };
+      newState[action.following.followee].followers =
+      newState[action.following.followee].followers.filter(follower => (
+        follower !== action.following.follower
+      ));
+
+      return newState;
     default:
       return oldState;
   }
