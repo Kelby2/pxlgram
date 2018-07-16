@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 class UserInfo extends React.Component {
 
-  state = { currentUserFollows: false }
-
   componentDidMount() {
     this.props.getUser(this.props.username);
   }
@@ -26,12 +24,16 @@ class UserInfo extends React.Component {
     );
   }
 
+  onFollowPress() {
+    this.props.followUser(this.props.username);
+  }
+
   renderFollowerButton() {
-    const { currentUserFollows } = this.state;
+    const { currentUserFollows } = this.props;
 
     return (
       <button
-        onClick={() => this.setState({ currentUserFollows: !this.state.currentUserFollows })}
+        onClick={this.onFollowPress.bind(this)}
         className={currentUserFollows ? 'unfollow-btn' : 'follow-btn'}>
         {currentUserFollows ? 'Following' : 'Follow'}
       </button>
@@ -71,10 +73,14 @@ class UserInfo extends React.Component {
               <div className='info-section-2'>
                 <span className='user-stats'>
                   <div className='stat photo-count'>
-                    {user.photoIds.length}
-                  </div> {user.photoIds.length === 1 ? 'post' : 'posts'}
-                  <div className='stat follower-count'></div>
-                  <div className='stat following-count'></div>
+                    {user.photoIds.length} {user.photoIds.length === 1 ? 'post' : 'posts'}
+                  </div>
+                  <div className='stat follower-count'>
+                    {user.followers.length} {user.followers.length === 1 ? 'follower' : 'followers'}
+                  </div>
+                  <div className='stat following-count'>
+                    {user.followings.length} following
+                  </div>
                 </span>
               </div>
 
