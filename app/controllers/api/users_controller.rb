@@ -23,7 +23,6 @@ class Api::UsersController < ApplicationController
       errors = first_message_for_each_error(@user.errors)
       render json: errors, status: 422
     end
-
   end
 
   def update
@@ -37,7 +36,27 @@ class Api::UsersController < ApplicationController
       errors = first_message_for_each_error(@user.errors)
       render json: errors, status: 422
     end
+  end
 
+  def follow
+    @user = current_user
+    followee = User.find_by(username: params[:username])
+    @following = @user.followeeships.create(followee_id: followee.id)
+
+    if @following.save
+      render json: {follower: @user.username, followee: followee.username}, status: 200
+    else
+      render json: @following.errors.full_messages, status: 422
+    end
+  end
+
+  def unfollow
+    @user = current_user
+    followee = User.find_by(username: params[:username])
+    @following = @user.followeeships.find_by(followee_id: followee_id)
+
+    @following.destroy!
+    render 'api/photos/show'
   end
 
   private
