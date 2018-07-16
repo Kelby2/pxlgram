@@ -52,7 +52,7 @@
 }
 
 .user-info-container {
-  width: 69%;
+  width: 50%;
   height: 150px;
   margin-top: 20px;
 }
@@ -108,14 +108,14 @@
 }
 
 .user-stats {
-  width: 320px;
   font-family: sans-serif;
   display: flex;
-  // justify-content: space-between;
-  .stat {
-    font-weight: bold;
-    margin-right: 5px;
-  }
+}
+
+.stat {
+  font-weight: bold;
+  margin-right: 35px;
+  word-spacing: 5px;
 }
 
 .user-bio {
