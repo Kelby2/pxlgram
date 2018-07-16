@@ -18,6 +18,7 @@ class PhotoIndex extends React.Component {
   }
 
   componentDidMount() {
+    this.props.resetPhotos();
     this.props.getPhotosPage(this.state.page).then(
       () => {this.setState({ photosFetched: true });}
     );

@@ -3,6 +3,7 @@ import * as PhotoApiUtil from '../util/photo_api_util';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const RECEIVE_PHOTO_PAGE = 'RECEIVE_PHOTO_PAGE';
 export const RECEIVE_PHOTO_GRID = 'RECEIVE_PHOTO_GRID';
+export const CLEAR_PHOTOS = 'CLEAR_PHOTOS';
 export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
@@ -59,6 +60,12 @@ const receivePhotoErrors = errors => {
   });
 };
 
+const clearPhotos = () => {
+  return ({
+    type: CLEAR_PHOTOS,
+  });
+};
+
 const removePhotoErrors = () => {
   return ({
     type: CLEAR_PHOTO_ERRORS,
@@ -69,6 +76,10 @@ const removePhotoErrors = () => {
 export const getPhotosPage = page => dispatch => {
   return PhotoApiUtil.getPhotosPage(page)
               .then(photos => dispatch(fetchPhotoPage(photos)));
+};
+
+export const resetPhotos = () => dispatch => {
+  return dispatch(clearPhotos());
 };
 
 export const getPhotosGrid = page => dispatch => {

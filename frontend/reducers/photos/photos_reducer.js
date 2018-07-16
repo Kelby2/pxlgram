@@ -12,11 +12,7 @@ const PhotosReducer = (oldState = {}, action) => {
     case RECEIVE_PHOTO_PAGE:
     case RECEIVE_PHOTO_GRID:
     case RECEIVE_USER_PHOTOS:
-      newState = Object.assign(
-        {},
-        oldState,
-        action.photos
-      );
+      newState = {...oldState, ...action.photos};
       return newState;
     case ADD_LIKE:
     case REMOVE_LIKE:

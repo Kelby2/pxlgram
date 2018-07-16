@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotosPage } from '../../actions/photo_actions';
+import { getPhotosPage, resetPhotos } from '../../actions/photo_actions';
 import PhotoIndex from './photo_index';
 
 const mapStateToProps = state => {
@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
+    resetPhotos: () => dispatch(resetPhotos()),
     getPhotosPage: page => dispatch(getPhotosPage(page)),
   });
 };
