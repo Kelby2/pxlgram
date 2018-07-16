@@ -6,10 +6,10 @@ export const searchUsers = query => {
   });
 };
 
-export const getUser = (id) => {
+export const getUser = username => {
   return $.ajax({
     method: 'get',
-    url: `api/users/${id}`,
+    url: `api/users/${username}`,
   });
 };
 
