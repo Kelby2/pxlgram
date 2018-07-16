@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
       <input
         key={field}
         className='session-form-input'
-        type='text'
+        type={fieldValue === 'password' ? 'password' : 'text'}
         value={this.state[`${fieldValue}`]}
         onChange={this.handleInputChange(`${fieldValue}`).bind(this)}
         placeholder={field}
