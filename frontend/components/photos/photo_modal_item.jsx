@@ -5,18 +5,10 @@ import CommentForm from '../comments/comment_form';
 import TimeStamp from '../photos/photo_time_stamp';
 import CommentIndexContainer from '../comments/comment_index_container';
 
-const onUserClick = () => {
-  debugger
-};
-
 class PhotoModalItem extends React.Component {
 
   focusComment = id => {
     document.getElementById(id).focus();
-  }
-
-  onPhotoOwnerClick() {
-    this.props.closeModal();
   }
 
   render() {
@@ -31,20 +23,18 @@ class PhotoModalItem extends React.Component {
         <aside id="modal-photo-information">
 
           <article className='photo-author-info'>
-            <div className='stream-avatar-container'>
+            <Link to={`/${photo.author_name}`} className='stream-avatar-container'>
               <img
                 className='stream-avatar'
-                onClick={() => this.onPhotoOwnerClick() }
                 src={photo.author_avatar} />
-            </div>
+            </Link>
 
-            <div className='author-username'>
+            <Link to={`/${photo.author_name}`} className='author-username'>
                <div
-                 onClick={() => this.onPhotoOwnerClick()}
                  className='stream-username'>
                  {photo.author_name}
               </div>
-            </div>
+            </Link>
           </article>
 
           <CommentIndexContainer photoId={photo.id} />
