@@ -60,6 +60,14 @@
   object-fit: cover;
 }
 
+.stream-avatar:hover, .stream-username:hover {
+  cursor: pointer;
+}
+
+.stream-username {
+  font-weight: 600;
+}
+
 .author-username a, .comment a {
   font-weight: 600;
   color: black;
@@ -112,7 +120,7 @@
 .comments-container {
   margin: 10px 0;
   flex-grow: 1;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .photo-comments {
@@ -156,6 +164,7 @@
 .comment {
   position: relative;
   padding-right: 5%;
+  word-wrap: break-word;
 }
 
 #delete-comment-button {
