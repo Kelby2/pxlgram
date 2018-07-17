@@ -15,11 +15,18 @@ class CommentForm extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  updateCommentScroll() {
+    const commentList = $('.photo-comments');
+    commentList.animate({ scrollTop: commentList.prop('scrollHeight')}, 2000);
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const comment = this.state;
-    this.props.addComment(comment).then(() =>
-      this.setState( { commentBody: "" } )
+    this.props.addComment(comment).then(() => {
+        this.setState( { commentBody: "" } );
+        this.updateCommentScroll();
+      }
     );
   }
 
