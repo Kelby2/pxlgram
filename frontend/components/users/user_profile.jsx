@@ -33,7 +33,6 @@ class UserProfile extends React.Component {
       modalActive: true
      });
     this.photoId = photo.id;
-    $('html').toggleClass('noscroll');
     history.pushState(
       {}, 'photo', `#/photos/${photo.id}/?taken-by=${photo.author_name}`
     );
