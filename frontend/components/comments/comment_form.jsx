@@ -16,8 +16,8 @@ class CommentForm extends React.Component {
   }
 
   updateCommentScroll() {
-    const commentList = $('.photo-comments');
-    commentList.animate({ scrollTop: commentList.prop('scrollHeight')}, 2000);
+    const commentList = $(`#comment-list-${this.props.photo.id}`);
+    commentList.animate({ scrollTop: commentList.prop('scrollHeight')}, 500);
   }
 
   handleSubmit(event) {
