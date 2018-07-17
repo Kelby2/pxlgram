@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoGridItem from './photo_grid_item';
-import { BeatLoader } from 'react-spinners';
+import PhotoModalContainer from './photo_modal_container';
 
 const FETCH_DELAY = 500;
 
@@ -10,6 +10,7 @@ class PhotoGrid extends React.Component {
     this.state = {
       page: 1,
       loadingPhotos: false,
+      modalActive: false,
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -17,8 +18,15 @@ class PhotoGrid extends React.Component {
     this.getAdditionalPhotos = this.getAdditionalPhotos.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({ modalActive: false });
+    }
+  }
+
   componentDidMount() {
-    $('html').scrollTop(0);
+    // $('html').scrollTop(0);
+    this.props.resetPhotos();
     this.props.getPhotosGrid(this.state.page);
     window.addEventListener('scroll', this.handleScroll);
   }
@@ -49,32 +57,42 @@ class PhotoGrid extends React.Component {
     .then(()=> this.setState( { loadingPhotos: false } ));
   }
 
-  render() {
-    let loader = (
-      <div className='loader'>
-        <BeatLoader
-          color={'#e2e2e2'}
-          loading={ this.state.loadingPhotos }/>
-      </div>
+  onPhotoClick(photo) {
+    this.setState({
+      modalActive: true
+     });
+    this.photoId = photo.id;
+    history.pushState(
+      {}, 'photo', `#/photos/${photo.id}/?taken-by=${photo.author_name}`
     );
+  }
+
+  onModalClose() {
+    this.setState({ modalActive: false });
+  }
+
+  render() {
 
     return (
       <article className='explore-page'>
         <div className='explore-photos-container'>
-
+          {this.state.modalActive &&
+            <PhotoModalContainer
+              onModalClose={() => this.onModalClose()}
+              photoId={this.photoId}/>}
           <ul className='photos-grid-container'>
             <div className='explore-header'>Explore</div>
             {
               this.props.photos.map(photo => {
                 return (
                   <PhotoGridItem
-                    key={ photo.id }
-                    photo={ photo }/>
+                    key={photo.id}
+                    photo={photo}
+                    onPhotoClick={() => this.onPhotoClick(photo)}/>
                 );
               })
             }
           </ul>
-          {loader}
         </div>
       </article>
     );

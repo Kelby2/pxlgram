@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getPhotosGrid } from '../../actions/photo_actions';
+import { getPhotosGrid, resetPhotos } from '../../actions/photo_actions';
 import PhotoGrid from './photo_grid';
 
 const mapStateToProps = state => {
@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
+    resetPhotos: () => dispatch(resetPhotos()),
     getPhotosGrid: pageNumber => dispatch(getPhotosGrid(pageNumber)),
   });
 };
