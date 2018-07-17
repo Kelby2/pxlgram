@@ -10,17 +10,22 @@ class PhotoModal extends React.Component {
       modalOpen: true
     };
 
+    this.props.location.pathname =
+      `#/photos/${this.props.photo.id}/?taken-by=${this.props.photo.author_name}`;
     Modal.setAppElement('body');
     this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
-    this.props.getPhoto(this.props.match.params.photoId);
+    this.props.getPhoto(this.props.photoId);
   }
 
-  closeModal(event) {
-    event.preventDefault();
+  closeModal() {
     this.props.history.goBack();
+    this.props.onModalClose();
+    this.setState({
+      modalOpen: false
+    });
   }
 
   render() {
@@ -31,10 +36,11 @@ class PhotoModal extends React.Component {
         <div
           className="fa fa-times fa-lg"
           id="close-button"
-          onClick={ this.closeModal }>
+          onClick={this.closeModal}>
         </div>
         <Modal
-          onRequestClose={ this.closeModal }
+          htmlOpenClassName='ReactModal__Html--open'
+          onRequestClose={this.closeModal}
           className={
             {
               base: 'baseClass',
@@ -49,8 +55,10 @@ class PhotoModal extends React.Component {
               beforeClose: ''
             }
           }
-          isOpen={ this.state.modalOpen }>
-          <PhotoModalItem photo={ this.props.photo }/>
+          isOpen={this.state.modalOpen}>
+          <PhotoModalItem
+            closeModal={this.closeModal}
+            photo={this.props.photo}/>
         </Modal>
       </main>
     );

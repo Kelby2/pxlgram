@@ -7,7 +7,6 @@ import PhotoUploadContainer from './photos/photo_upload_container';
 import UserContainer from './users/user_profile_container';
 import UserEditContainer from './users/edit_user_container';
 import PhotoGridContainer from './photos/photo_grid_container';
-import PhotoModalContainer from './photos/photo_modal_container';
 
 const App = () => (
   <div className='appDiv'>
@@ -16,7 +15,7 @@ const App = () => (
       <Switch>
         <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
         <ProtectedRoute exact path='/explore' component={ PhotoGridContainer } />
-        <ProtectedRoute path='/photos/:photoId' component={ PhotoModalContainer } />
+        {/* <ProtectedRoute path='/photos/:photoId' component={ PhotoModalContainer } /> */}
         <ProtectedRoute exact path='/:username/edit' component= { UserEditContainer } />
         <ProtectedRoute exact path='/:username' component={ UserContainer } />
         <Route exact path='/' component={LandingPage} />

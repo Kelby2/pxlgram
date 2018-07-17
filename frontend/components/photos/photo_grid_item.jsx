@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const PhotoGridItem = ( { photo } ) => {
+const PhotoGridItem = ( { photo, onPhotoClick } ) => {
   return (
     <main>
-      <Link className='grid-photo' to={`/photos/${photo.id}/?taken-by=${photo.author_name}`}>
+      <div className='grid-photo' onClick={onPhotoClick} >
         <img className='grid-photo-image' src={ photo.imageUrl } />
         <div className='grid-photo-stats'>
           <article className='stat-line'>
@@ -16,7 +15,7 @@ const PhotoGridItem = ( { photo } ) => {
             </div>
           </article>
         </div>
-      </Link>
+      </div>
     </main>
   );
 };

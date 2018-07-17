@@ -5,56 +5,69 @@ import CommentForm from '../comments/comment_form';
 import TimeStamp from '../photos/photo_time_stamp';
 import CommentIndexContainer from '../comments/comment_index_container';
 
-const focusComment = id => {
-  document.getElementById(id).focus();
+const onUserClick = () => {
+  debugger
 };
 
-const PhotoModalItem = ( { photo } ) => {
-  
-  return (
-    <main id="modal-container">
-      <aside id="modal-photo-container">
-        <img id="modal-photo" src={ photo.imageUrl }></img>
-      </aside>
+class PhotoModalItem extends React.Component {
 
-      <aside id="modal-photo-information">
+  focusComment = id => {
+    document.getElementById(id).focus();
+  }
 
-        <article className='photo-author-info'>
-          <div className='stream-avatar-container'>
-            <Link to={`/${photo.author_name}`}>
-              <img className='stream-avatar' src={photo.author_avatar} />
-            </Link>
-          </div>
+  onPhotoOwnerClick() {
+    this.props.closeModal();
+  }
 
-          <div className='author-username'>
-            <Link to={`/${photo.author_name}`}>
-               <div className='stream-username'>
+  render() {
+    const { photo } = this.props;
+
+    return (
+      <main id="modal-container">
+        <aside id="modal-photo-container">
+          <img id="modal-photo" src={ photo.imageUrl }></img>
+        </aside>
+
+        <aside id="modal-photo-information">
+
+          <article className='photo-author-info'>
+            <div className='stream-avatar-container'>
+              <img
+                className='stream-avatar'
+                onClick={() => this.onPhotoOwnerClick() }
+                src={photo.author_avatar} />
+            </div>
+
+            <div className='author-username'>
+               <div
+                 onClick={() => this.onPhotoOwnerClick()}
+                 className='stream-username'>
                  {photo.author_name}
               </div>
-            </Link>
+            </div>
+          </article>
+
+          <CommentIndexContainer photoId={photo.id} />
+
+          <div className='icon-container'>
+            <LikeContainer photo_id={photo.id} />
+            <div
+              className='fa fa-comment-o fa-lg comments-icon'
+              onClick={ () => this.focusComment(photo.id) }>
+            </div>
           </div>
-        </article>
 
-        <CommentIndexContainer photoId={photo.id} />
-
-        <div className='icon-container'>
-          <LikeContainer photo_id={photo.id} />
-          <div
-            className='fa fa-comment-o fa-lg comments-icon'
-            onClick={ () => focusComment(photo.id) }>
+          <div className='like-count'>
+            { photo.likers.length} {( photo.likers.length === 1) ? 'like' : 'likes'}
           </div>
-        </div>
 
-        <div className='like-count'>
-          { photo.likers.length} {( photo.likers.length === 1) ? 'like' : 'likes'}
-        </div>
+          <TimeStamp photoCreationTime={photo.created_at}/>
+          <CommentForm id={photo.id} photo={ photo }/>
 
-        <TimeStamp photoCreationTime={photo.created_at}/>
-        <CommentForm id={photo.id} photo={ photo }/>
-
-      </aside>
-    </main>
-  );
-};
+        </aside>
+      </main>
+    );
+  }
+}
 
 export default PhotoModalItem;
