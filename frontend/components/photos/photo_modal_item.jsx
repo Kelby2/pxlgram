@@ -8,7 +8,7 @@ import CommentIndexContainer from '../comments/comment_index_container';
 class PhotoModalItem extends React.Component {
 
   focusComment = id => {
-    document.getElementById(id).focus();
+    $(`#add-comment-${id}`).focus();
   }
 
   render() {

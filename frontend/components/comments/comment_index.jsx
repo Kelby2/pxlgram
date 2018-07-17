@@ -30,7 +30,9 @@ class CommentIndex extends React.Component {
   render () {
     return (
       <div className='comments-container'>
-        <ul className='photo-comments'>
+        <ul
+          id={`comment-list-${this.props.photo.id}`}
+          className='photo-comments'>
           { this.renderPhotoCaption() }
           {
             this.props.comments.map(comment => {

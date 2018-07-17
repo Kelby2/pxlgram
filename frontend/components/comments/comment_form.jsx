@@ -43,7 +43,7 @@ class CommentForm extends React.Component {
           className='form'
           onSubmit={this.handleSubmit}>
           <input
-            id={this.props.photo.id}
+            id={`add-comment-${this.props.photo.id}`}
             type='textarea'
             value={this.state.commentBody}
             className='add-comment-input'

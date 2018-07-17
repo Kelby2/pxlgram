@@ -8,7 +8,7 @@ import TimeStamp from './photo_time_stamp';
 const PhotoIndexItem = props => {
 
   const focusComment = id => {
-    document.getElementById(id).focus();
+    $(`#add-comment-${id}`).focus();
   };
 
   const {
