@@ -31,10 +31,22 @@ Users can upload their own photos to their profile through the upload button on 
 preview is displayed after they choose their photo with the file finder. Clicking the share button
 will update the main feed as well as the user's profile with the selected photo.
 
-## Future Directions for the Project
-
-These are additional features that I would be adding to the project as time goes on:
+![Upload](./app/assets/images/readme/upload.gif)
 
 ### User Follows
 
-Users will be able to follow other users so that their main page will only populate with photos from the users they are following. An explore page will be available to show photos from all users.
+Users are able to follow other users so that their main page will only populate with photos from the users they are following. An explore page will be available to show photos from all users.
+
+![Follows](./app/assets/images/readme/follow.gif)
+
+## Future Directions for the Project
+
+These are additional features that I would love to implement as the project continues:
+
+* Incorporating video into the posts that the user uploads.
+
+As you may be aware, Instagram allows their users to not only share photos, but video content as well, limited to <1min in length. Pxlgram currently has parameters set to only accept photo and gif uploads.
+
+* Incorporate multiple uploads/content into a single post
+
+Allowing users to upload a collection of photos/videos into one post. Users would then be able to scroll through the post to view the different photos in the collection.
