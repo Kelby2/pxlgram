@@ -51,24 +51,33 @@ class PhotoIndex extends React.Component {
     .then(() => this.setState( { loadingPhotos: false } ));
   }
 
+  renderContent() {
+    if (this.props.photos.length === 0) {
+      return (
+        <div>Placeholder for suggestions index</div>
+      );
+    }
+
+    return (
+      <ul className='photo-stream'>
+        {
+          this.props.photos.map(photo => {
+            return(
+              <PhotoIndexItem
+                key={photo.id}
+                photo={photo}
+              />
+            );
+          })
+        }
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className='photo-stream-container'>
-        {this.props.isNewUser ? null :
-          this.state.photosFetched &&
-            <ul className='photo-stream'>
-              {
-                this.props.photos.map(photo => {
-                  return(
-                    <PhotoIndexItem
-                      key={photo.id}
-                      photo={photo}
-                    />
-                  );
-                })
-              }
-            </ul>
-        }
+        {this.state.photosFetched && this.renderContent()}
       </div>
     );
   }
