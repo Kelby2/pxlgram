@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotoIndexItem from './photo_index_item';
+import SuggestionIndex from '../users/suggestion_index';
 
 const FETCH_DELAY = 500;
 
@@ -54,21 +55,19 @@ class PhotoIndex extends React.Component {
   renderContent() {
     if (this.props.photos.length === 0) {
       return (
-        <div>Placeholder for suggestions index</div>
+        <article id='suggestions-page'>
+          <div className='page-header'>Suggested for you</div>
+          <SuggestionIndex />
+        </article>
       );
     }
 
     return (
-      <ul className='photo-stream'>
-        {
-          this.props.photos.map(photo => {
-            return(
-              <PhotoIndexItem
-                key={photo.id}
-                photo={photo}
-              />
-            );
-          })
+      <ul id='photo-stream-container'>
+        {this.props.photos
+          .map(photo =>
+            <PhotoIndexItem key={photo.id} photo={photo} />
+          )
         }
       </ul>
     );
@@ -76,9 +75,9 @@ class PhotoIndex extends React.Component {
 
   render() {
     return (
-      <div className='photo-stream-container'>
+      <article id='home-page'>
         {this.state.photosFetched && this.renderContent()}
-      </div>
+      </article>
     );
   }
 
