@@ -3,7 +3,6 @@
 }
 
 .user-photos-container {
-  border-top: 1px solid #efefef;
   width: 950px;
   height: auto;
   padding: 20px 0;
@@ -33,11 +32,6 @@
   grid-template-columns: repeat(3, 290px);
   grid-gap: 28px;
   justify-content: center;
-}
-
-.loader {
-  margin: 0 auto;
-  margin-top: 1em;
 }
 
 .grid-photo {
