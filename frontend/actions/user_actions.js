@@ -6,11 +6,20 @@ export const CLEAR_USERS_SEARCH = 'CLEAR_USERS_SEARCH';
 export const UPDATE_USER = 'UPDATE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 export const CLEAR_USER_ERRORS = 'CLEAR_USER_ERRORS';
+export const RECEIVE_USER_SUGGESTIONS = 'RECEIVE_USER_SUGGESTIONS';
+export const CLEAR_USER_SUGGESTIONS = 'CLEAR_USER_SUGGESTIONS';
 
 const fetchUser = user => {
   return ({
     type: RECEIVE_USER,
     user
+  });
+};
+
+const updateUser = user => {
+  return ({
+    type: UPDATE_USER,
+    user,
   });
 };
 
@@ -21,18 +30,16 @@ const fetchSearchResults = users => {
   });
 };
 
-const clearUsersSearch = () => {
+const clearUsersSearch = () => ({ type: CLEAR_USERS_SEARCH });
+
+const fetchUserSuggestions = users => {
   return ({
-    type: CLEAR_USERS_SEARCH,
+    type: RECEIVE_USER_SUGGESTIONS,
+    users,
   });
 };
 
-const updateUser = user => {
-  return ({
-    type: UPDATE_USER,
-    user,
-  });
-};
+const clearUserSuggestions = () => ({ type: CLEAR_USER_SUGGESTIONS });
 
 const receiveUserErrors = errors => {
   return ({
@@ -66,6 +73,14 @@ export const searchUsers = query => dispatch => (
 
 export const clearSearch = () => dispatch => (
   dispatch(clearUsersSearch())
+);
+
+export const getUserSuggestions = dispatch => (
+  UserApiUtil.searchUserSuggestions().then(users => dispatch(fetchUserSuggestions(users)))
+);
+
+export const clearSuggestions = dispatch => (
+  dispatch(clearUserSuggestions())
 );
 
 export const clearUserErrors = () => dispatch => {
