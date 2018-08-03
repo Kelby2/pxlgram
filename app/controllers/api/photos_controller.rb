@@ -12,7 +12,9 @@ class Api::PhotosController < ApplicationController
       .order(created_at: :desc)
       .paginate(:page => params[:page], per_page: 12)
     else
+      followings = current_user.followings.map(&:id)
       @photos = Photo
+      .where(author_id: followings)
       .includes(:author, :likes, :comments, :likers, :commenters)
       .order(created_at: :desc)
       .paginate(:page => params[:page], per_page: 5)
