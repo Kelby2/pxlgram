@@ -7,7 +7,8 @@ import { getUserSuggestions, clearSuggestions } from '../../actions/user_actions
 class SuggestionIndex extends Component {
 
   state = {
-    suggestionsFetched: false
+    suggestionsFetched: false,
+    usersFollowed: 0,
   }
 
   componentDidMount() {
@@ -19,6 +20,10 @@ class SuggestionIndex extends Component {
     this.props.clearSuggestions();
   }
 
+  changeFollowCount(change) {
+    this.setState({ usersFollowed: this.state.usersFollowed += change });
+  }
+
   render() {
     if (!this.state.suggestionsFetched) {
       return (
@@ -27,19 +32,28 @@ class SuggestionIndex extends Component {
             loaderStyle={{ selfAlign: 'center' }}
             size={30}
             color={'#e2e2e2'}
-            loading={ this.state.photosLoaded } />
+            loading={this.state.photosLoaded} />
         </div>
       );
     }
 
     return (
       <section id='suggestion-index'>
-        
         <ul id='suggestion-page'>
           {
             this.props.suggestedUsers.map(user => {
-              return <SuggestedUserItem key={user.username} user={user} />;
+              return <SuggestedUserItem
+                key={user.username}
+                user={user}
+                changeFollowCount={this.changeFollowCount.bind(this)} />;
             })
+          }
+          {this.state.usersFollowed > 0 &&
+            <li id='get-started'>
+              <button onClick={() => window.location.reload()} className='follow-btn'>
+                Get Started
+              </button>
+            </li>
           }
         </ul>
       </section>

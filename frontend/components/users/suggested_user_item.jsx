@@ -8,16 +8,18 @@ class SuggestedUserItem extends React.Component {
   onFollowPress() {
     if (this.props.currentUserFollows) {
       this.props.unfollowUser(this.props.user.username);
+      this.props.changeFollowCount(-1);
     } else {
       this.props.followUser(this.props.user.username);
+      this.props.changeFollowCount(1);
     }
   }
 
   render() {
-    const { user } = this.props;
+    const { user, currentUserFollows } = this.props;
 
     return (
-      <li id='suggestion-results'>
+      <li className='suggestion-results'>
         <aside className='suggestion-info'>
           <Link style={{ marginRight: '16px' }} to={`${user.username}`}>
             <img className='suggestion-avatar' src={ user.avatarUrl} />
@@ -32,8 +34,8 @@ class SuggestedUserItem extends React.Component {
 
         <button
           onClick={() => this.onFollowPress()}
-          className={this.props.currentUserFollows ? 'mini-unfollow' : 'mini-follow'}
-          >{this.props.currentUserFollows ? 'Following' : 'Follow' }
+          className={currentUserFollows ? 'mini-unfollow' : 'mini-follow'}
+          >{currentUserFollows ? 'Following' : 'Follow' }
         </button>
       </li>
     );
