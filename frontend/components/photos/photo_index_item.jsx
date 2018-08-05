@@ -32,8 +32,8 @@ const PhotoIndexItem = props => {
 
           <div className='author-username'>
             <Link to={`${author_name}`}>
-               <div className='stream-username'>
-                 {author_name}
+              <div className='stream-username'>
+                {author_name}
               </div>
             </Link>
           </div>

@@ -1,8 +1,6 @@
-.photo-stream-container {
+#photo-stream-container {
   width: 600px;
   height: 100%;
-  margin: 100px auto;
-  margin-bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -200,7 +198,7 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-  .photo-stream-container {
+  #photo-stream-container {
     width: 100%;
   }
   .photo, .photo-container {

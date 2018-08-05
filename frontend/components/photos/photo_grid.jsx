@@ -74,14 +74,14 @@ class PhotoGrid extends React.Component {
   render() {
 
     return (
-      <article className='explore-page'>
+      <article id='explore-page'>
         <div className='explore-photos-container'>
+          <div className='page-header'>Explore</div>
           {this.state.modalActive &&
             <PhotoModalContainer
               onModalClose={() => this.onModalClose()}
               photoId={this.photoId}/>}
           <ul className='photos-grid-container'>
-            <div className='explore-header'>Explore</div>
             {
               this.props.photos.map(photo => {
                 return (

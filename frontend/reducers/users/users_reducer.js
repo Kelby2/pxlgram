@@ -1,5 +1,7 @@
-import { RECEIVE_USER,
-        UPDATE_USER } from '../../actions/user_actions';
+import {
+  RECEIVE_USER,
+  UPDATE_USER,
+  RECEIVE_USER_SUGGESTIONS } from '../../actions/user_actions';
 import { FOLLOW_USER, UNFOLLOW_USER } from '../../actions/follow_actions';
 
 const UsersReducer = (oldState = {}, action) => {
@@ -7,8 +9,20 @@ const UsersReducer = (oldState = {}, action) => {
   let newState;
 
   switch (action.type) {
+
     case RECEIVE_USER:
       newState = {...oldState, [action.user.username]: action.user };
+      return newState;
+    case RECEIVE_USER_SUGGESTIONS:
+      newState = {...oldState };
+      Object.keys(action.users).forEach(username => {
+        let existingUser = newState[username] || {};
+        existingUser.followers = existingUser.followers || [];
+        newState[username] = Object.assign(
+          {},
+          existingUser,
+          action.users[username]);
+      });
       return newState;
     case UPDATE_USER:
       const prevUsername = Object.keys(oldState).find(name =>
@@ -20,8 +34,8 @@ const UsersReducer = (oldState = {}, action) => {
     case FOLLOW_USER:
       const { follower, followee } = action.following;
       newState = {...oldState };
+      newState[followee].followers = oldState[followee].followers || [];
       newState[followee].followers.push(follower);
-      // newState[follower].followings.push(followee);
       return newState;
     case UNFOLLOW_USER:
       newState = {...oldState };

@@ -1,29 +1,16 @@
-.explore-page {
-  margin-top: 100px;
-}
-
 .user-photos-container {
-  border-top: 1px solid #efefef;
   width: 950px;
   height: auto;
   padding: 20px 0;
 }
 
 .explore-photos-container {
-  width: 950px;
+  width: 926px;
   margin: 0 auto;
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-}
-
-.explore-header {
-  grid-column: 1/4;
-  font-size: 16px;
-  color: #999999;
-  font-family: sans-serif;
-  font-weight: 600;
+  position: relative;
 }
 
 .photos-grid-container {
@@ -33,11 +20,6 @@
   grid-template-columns: repeat(3, 290px);
   grid-gap: 28px;
   justify-content: center;
-}
-
-.loader {
-  margin: 0 auto;
-  margin-top: 1em;
 }
 
 .grid-photo {

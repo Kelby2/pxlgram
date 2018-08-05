@@ -9,9 +9,9 @@ import UserEditContainer from './users/edit_user_container';
 import PhotoGridContainer from './photos/photo_grid_container';
 
 const App = () => (
-  <div className='appDiv'>
+  <div id='app'>
     <ProtectedRoute path='/' component={ HeaderContainer }/>
-    <header className='header'>
+    <main id='body'>
       <Switch>
         <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
         <ProtectedRoute exact path='/explore' component={ PhotoGridContainer } />
@@ -20,7 +20,7 @@ const App = () => (
         <ProtectedRoute exact path='/:username' component={ UserContainer } />
         <Route exact path='/' component={LandingPage} />
       </Switch>
-    </header>
+    </main>
   </div>
 );
 

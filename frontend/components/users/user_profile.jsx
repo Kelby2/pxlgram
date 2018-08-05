@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
      });
     this.photoId = photo.id;
     history.pushState(
-      {}, 'photo', `#/photos/${photo.id}/?taken-by=${photo.author_name}`
+      {}, 'photo', `#/photos/${photo.id}?taken-by=${photo.author_name}`
     );
   }
 

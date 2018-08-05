@@ -23,3 +23,11 @@ export const editUser = user => {
     data: user,
   });
 };
+
+export const searchUserSuggestions = () => {
+  return $.ajax({
+    method: 'get',
+    url: `api/users/search`,
+    data: { new_user: true }
+  });
+};
