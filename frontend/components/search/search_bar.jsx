@@ -30,6 +30,10 @@ class Searchbar extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearSearch();
+  }
+
   //Checks on every input to see if we should start a search to the database.
   //If the search bar is empty, we do not want to query the database and want
   //to clear our search results to null.
