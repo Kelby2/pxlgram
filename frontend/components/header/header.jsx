@@ -30,11 +30,11 @@ class Header extends React.Component {
         <article className='fixed-header'>
           <div className='header-bar'>
             <div className='logo-container'>
-              <a href="#/" onClick={ this.scrollUp } className='logo-icon'>
+              <a href="#/" onClick={this.scrollUp} className='logo-icon'>
                 <div></div>
               </a>
               <div>
-                <a href="#/" onClick={ this.scrollUp } className='logo'>pxlGram</a>
+                <a href="#/" onClick={this.scrollUp} className='logo'>pxlGram</a>
               </div>
             </div>
 
@@ -46,7 +46,7 @@ class Header extends React.Component {
               <Link className="fa fa-compass fa-lg"
                 to={'/explore'} />
               <Link className='fa fa-user fa-lg'
-                to={`/${this.props.currentUser.username}`} onClick={ this.scrollUp } />
+                to={`/${this.props.currentUser.username}`} onClick={this.scrollUp} />
             </div>
           </div>
         </article>
