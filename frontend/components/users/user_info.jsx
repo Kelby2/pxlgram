@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 
 class UserInfo extends React.Component {
 
+  state = { userProfileLoaded: false }
+
   componentDidMount() {
-    this.props.getUser(this.props.username);
+    this.props.getUser(this.props.username)
+    .then(() => this.setState({ userProfileLoaded: true }));
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.username !== this.props.username) {
-      this.props.getUser(this.props.username);
+      this.setState({ userProfileLoaded: false });
+      this.props.getUser(this.props.username)
+      .then(() => this.setState({ userProfileLoaded: true }));
     }
   }
 
@@ -25,7 +30,7 @@ class UserInfo extends React.Component {
   }
 
   onFollowPress() {
-    const { 
+    const {
       currentUserFollows,
       username,
       unfollowUser,
@@ -64,7 +69,7 @@ class UserInfo extends React.Component {
 
     return (
       <div>
-        {user &&
+        {this.state.userProfileLoaded && user.photoIds &&
           <article className='user-profile-header'>
             <div className='user-avatar-container'>
               <div className='user-avatar'>
@@ -96,7 +101,7 @@ class UserInfo extends React.Component {
 
               <div className='info-section-3'>
                 <p className='user-bio'>
-                    <span className='user-full-name'>{user.fullname} </span>  {user.bio}
+                  <span className='user-full-name'>{user.fullname} </span>  {user.bio}
                 </p>
               </div>
             </div>
