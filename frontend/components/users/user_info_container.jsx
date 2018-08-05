@@ -6,7 +6,7 @@ import { followUser, unfollowUser } from '../../actions/follow_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const { username } = ownProps;
-  const user = state.entities.users[username];
+  const user = state.entities.users[username] || state.session.currentUser;
   const isCurrentUser = username === state.session.currentUser.username;
   let currentUserFollows;
   if (user) {
