@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
       # pull users that the current user is not already following
       # for when the users they are already following have no photos
       @users = User
-      .where.not(id: current_user.followings.pluck(:id))
+      .where.not(id: [*current_user.followings.pluck(:id), current_user.id])
       .sample(10)
     else
       userQuery = params[:query]
