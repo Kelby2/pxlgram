@@ -9,8 +9,8 @@ class Api::UsersController < ApplicationController
       .sample(10)
     else
       userQuery = params[:query]
-      @users = User.where("username LIKE ? OR LOWER(fullname) LIKE ?",
-      "#{userQuery}%", "#{userQuery}%")
+      @users = User.where("username NOT LIKE ? AND username LIKE ? OR LOWER(fullname) LIKE ?",
+      "#{current_user.username}", "#{userQuery}%", "#{userQuery}%")
     end
 
     render :search
