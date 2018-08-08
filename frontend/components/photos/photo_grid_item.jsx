@@ -2,7 +2,7 @@ import React from 'react';
 
 const PhotoGridItem = ( { photo, onPhotoClick } ) => {
   return (
-    <main>
+    <li>
       <div className='grid-photo' onClick={onPhotoClick} >
         <img className='grid-photo-image' src={ photo.imageUrl } />
         <div className='grid-photo-stats'>
@@ -16,7 +16,7 @@ const PhotoGridItem = ( { photo, onPhotoClick } ) => {
           </article>
         </div>
       </div>
-    </main>
+    </li>
   );
 };
 
