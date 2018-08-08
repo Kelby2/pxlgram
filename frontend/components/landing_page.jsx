@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import SessionEntryPage from './sessions/session_entry_page';
 import HomePage from './home_page';
 
@@ -13,5 +12,5 @@ const mapStateToProps = state => {
   return { loggedIn };
 };
 
-export default withRouter(connect(
-  mapStateToProps, null)(LandingPage));
+export default connect(
+  mapStateToProps, null)(LandingPage);
