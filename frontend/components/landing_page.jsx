@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SessionEntryPage from './sessions/session_entry_page';
-import PhotoIndexContainer from './photos/photo_index_container';
+import HomePage from './home_page';
 
 const LandingPage = props => {
-  return props.loggedIn ? <PhotoIndexContainer /> : <SessionEntryPage />;
+  return props.loggedIn ? <HomePage /> : <SessionEntryPage />;
 };
 
 const mapStateToProps = state => {
