@@ -44,7 +44,7 @@ class SuggestionsIndex extends Component {
     }
 
     return (
-      <div id='suggestion-index'>
+      <section id='suggestion-index'>
         <div className='page-header'>Suggested for you</div>
         <ul id='suggestions'>
           {
@@ -63,7 +63,7 @@ class SuggestionsIndex extends Component {
             </li>
           }
         </ul>
-      </div>
+      </section>
     );
   }
 }
