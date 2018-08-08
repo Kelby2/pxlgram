@@ -1,4 +1,6 @@
 import React from 'react';
+
+import HeaderNavbar from '../navbar/navbar';
 import PhotoGridItem from './photo_grid_item';
 import PhotoModalContainer from './photo_modal_container';
 
@@ -25,7 +27,6 @@ class PhotoGrid extends React.Component {
   }
 
   componentDidMount() {
-    // $('html').scrollTop(0);
     this.props.resetPhotos();
     this.props.getPhotosGrid(this.state.page);
     window.addEventListener('scroll', this.handleScroll);
@@ -74,8 +75,9 @@ class PhotoGrid extends React.Component {
   render() {
 
     return (
-      <article id='explore-page'>
-        <div className='explore-photos-container'>
+      <main id='explore-page' className='main-wrapper'>
+        <HeaderNavbar />
+        <section className='explore-photos-container'>
           <div className='page-header'>Explore</div>
           {this.state.modalActive &&
             <PhotoModalContainer
@@ -93,8 +95,8 @@ class PhotoGrid extends React.Component {
               })
             }
           </ul>
-        </div>
-      </article>
+        </section>
+      </main>
     );
   }
 }
