@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../util/route_util';
 import LandingPage from './landing_page';
+import PhotoItem from './photos/photo_item';
 import PhotoUploadContainer from './photos/photo_upload_container';
 import UserContainer from './users/user_profile_container';
 import UserEditContainer from './users/edit_user_container';
@@ -12,9 +13,9 @@ const App = () => (
     <Switch>
       <ProtectedRoute exact path='/upload' component={ PhotoUploadContainer } />
       <ProtectedRoute exact path='/explore' component={ PhotoGridContainer } />
-      {/* <ProtectedRoute path='/photos/:photoId' component={ PhotoModalContainer } /> */}
       <ProtectedRoute exact path='/:username/edit' component= { UserEditContainer } />
       <ProtectedRoute exact path='/:username' component={ UserContainer } />
+      <ProtectedRoute path='/photos/:photoId' component={ PhotoItem } />
       <Route exact path='/' component={LandingPage} />
     </Switch>
   </div>
