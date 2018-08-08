@@ -36,21 +36,23 @@ class SessionEntryPage extends React.Component {
 
   render() {
     return (
-      <article id='entry-screen'>
-        <aside id='entry-photo-container'>
-          <div id='background-photo'>
-            <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/ig-backdrop.png"></img>
-            <div id='pxlg-img-container'>
-              <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-dev/pxlgram_content.png"></img>
+      <main id='auth-screen-wrapper'>
+        <article id='auth-screen'>
+          <aside id='entry-photo-container'>
+            <div id='background-photo'>
+              <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/ig-backdrop.png"></img>
+              <div id='pxlg-img-container'>
+                <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-dev/pxlgram_content.png"></img>
+              </div>
             </div>
-          </div>
-        </aside>
+          </aside>
 
-        <aside id='auth-form-container'>
-          {this.renderForm()}
-          {this.renderFormToggler()}
-        </aside>
-      </article>
+          <aside id='auth-form-container'>
+            {this.renderForm()}
+            {this.renderFormToggler()}
+          </aside>
+        </article>
+      </main>
     );
   }
 }

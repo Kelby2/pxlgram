@@ -1,6 +1,10 @@
-#entry-screen {
+#auth-screen-wrapper {
   display: flex;
-  margin-top: 50px;
+  align-items: center;
+}
+
+#auth-screen {
+  display: flex;
   justify-content: space-around;
   background-color: inherit;
 }
