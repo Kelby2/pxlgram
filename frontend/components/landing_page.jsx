@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SessionEntryPage from './sessions/session_entry_page';
 import PhotoIndexContainer from './photos/photo_index_container';
-import { clearSessionErrors } from '../actions/session_actions';
 
 const LandingPage = props => {
   if (props.loggedIn) {
@@ -11,7 +10,7 @@ const LandingPage = props => {
   }
 
   return (
-    <SessionEntryPage clearSessionErrors={ props.clearSessionErrors } />
+    <SessionEntryPage />
   );
 };
 
@@ -20,11 +19,5 @@ const mapStateToProps = state => {
   return { loggedIn };
 };
 
-const mapDispatchToProps = dispatch => {
-  return ({
-    clearSessionErrors: () => dispatch(clearSessionErrors),
-  });
-};
-
 export default withRouter(connect(
-  mapStateToProps, mapDispatchToProps)(LandingPage));
+  mapStateToProps, null)(LandingPage));

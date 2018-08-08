@@ -10,13 +10,15 @@ class LoginForm extends React.Component {
     password: ''
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
   renderErrors() {
     return (
       this.props.sessionsErrors.map((error, idx) => {
         return (
-          <li
-            className='error-messages'
-            key={`${idx}`}>
+          <li className='error-messages' key={`${idx}`}>
             {error}
           </li>
         );
