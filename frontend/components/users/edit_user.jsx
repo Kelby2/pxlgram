@@ -1,5 +1,6 @@
 import React from 'react';
 import EditUserAvatar from './edit_user_avatar';
+import HeaderNavBar from '../navbar/navbar';
 
 const inputFields = ["Full Name", "Username", "Email"];
 
@@ -105,9 +106,9 @@ class EditUser extends React.Component {
   render() {
 
     return (
-      <div className='edit-page-container'>
-        <main className='edit-page'>
-
+      <main id='edit-page-container' className='main-wrapper'>
+        <HeaderNavBar />
+        <div id='edit-panel'>
           <EditUserAvatar
             onAvaChange={avatar => this.updateAvatar(avatar)}
             avatarUrl={this.props.user.avatarUrl} />
@@ -133,7 +134,7 @@ class EditUser extends React.Component {
             {this.renderMessage()}
           </ul>
 
-          <article className='edit-page-buttons-container'>
+          <article id='edit-options-container'>
             <button
               className={ this.state.updatingUser ?
                 'edit-page-buttons locked' : 'edit-page-buttons' }
@@ -145,8 +146,8 @@ class EditUser extends React.Component {
             </button>
           </article>
 
-        </main>
-      </div>
+        </div>
+      </main>
     );
   }
 

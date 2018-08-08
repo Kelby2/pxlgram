@@ -1,13 +1,13 @@
-.edit-page-container {
-  width: 100%;
+#edit-page-container {
+  width: auto;
   height: auto;
-  margin-top: 100px;
+  display: flex;
+  justify-content: center;
 }
 
-.edit-page {
+#edit-panel {
   width: 600px;
   height: auto;
-  margin: 0 auto;
   padding: 30px 10px 20px 10px;
   display: flex;
   flex-direction: column;
@@ -86,12 +86,7 @@
   text-align: center;
 }
 
-.success-message.hidden {
-  opacity: 0;
-  transition: opacity 2s linear;
-}
-
-.edit-page-buttons-container {
+#edit-options-container {
   width: 400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
