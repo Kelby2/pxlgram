@@ -1,23 +1,24 @@
-.photo-upload-form-container {
+#photo-upload-wrapper {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.photo-upload-form {
+#photo-upload-form {
+  margin-top: 2%;
   width: 80%;
-  height: auto;
-  padding-top: 5%;
-  margin: 100px auto;
+  height: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.photo-preview-container {
+#photo-preview-container {
   width: 45%;
   height: auto;
 }
 
-.photo-preview {
+#photo-preview-pane {
   width: 100%;
   height: auto;
   max-width: 600px;
@@ -25,7 +26,7 @@
   object-fit: cover;
 }
 
-.photo-caption-container {
+#photo-caption-container {
   width: 45%;
   height: 350px;
   display: flex;
@@ -91,16 +92,16 @@
 }
 
 @media screen and (max-width: 900px) {
-  .photo-upload-form {
+  #photo-upload-form {
     flex-direction: column;
     align-items: center;
   }
 
-  .photo-caption-container, .photo-preview-container {
+  #photo-caption-container, #photo-preview-container {
     width: 85%;
   }
 
-  .photo-caption-container {
+  #photo-caption-container {
     height: 300px;
     margin-bottom: 50px;
   }

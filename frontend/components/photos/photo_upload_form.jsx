@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderNavBar from '../navbar/navbar';
 
 class PhotoUpload extends React.Component {
   constructor(props) {
@@ -65,56 +66,56 @@ class PhotoUpload extends React.Component {
 
   render() {
     return (
-      <div className='photo-upload-form-container'>
+      <main id='photo-upload-wrapper' className='main-wrapper'>
+        <HeaderNavBar />
+        <section id='photo-upload-form'>
+          <div id='photo-caption-container'>
 
-          <main className='photo-upload-form'>
-            <div className='photo-caption-container'>
+            <article className='update-caption-container'>
+              <textarea
+                className='user-caption'
+                value={ this.state.caption }
+                onChange={ this.handleInputChange() }
+                placeholder='Write a caption...'
+              />
+            </article>
 
-              <article className='update-caption-container'>
-                <textarea
-                  className='user-caption'
-                  value={ this.state.caption }
-                  onChange={ this.handleInputChange() }
-                  placeholder='Write a caption...'
-                />
-              </article>
+            <ul>
+              { this.renderErrors() }
+            </ul>
 
-              <ul>
-                { this.renderErrors() }
-              </ul>
+            <article
+              className='upload-buttons'>
 
-              <article
-                className='upload-buttons'>
+              <div className='label-container'>
+                <input
+                  type='file'
+                  id='file-selector'
+                  onChange={this.updateFile}>
+                </input>
+                <label
+                  className='photo-upload-buttons'
+                  htmlFor='file-selector'>
+                  Choose a file
+                </label>
+              </div>
 
-                <div className='label-container'>
-                  <input
-                    type='file'
-                    id='file-selector'
-                    onChange={this.updateFile}>
-                  </input>
-                  <label
-                    className='photo-upload-buttons'
-                    htmlFor='file-selector'>
-                    Choose a file
-                  </label>
-                </div>
+              <div className='file-submit-button-container'>
+                <button className={ this.state.uploadingPhoto ?
+                  'photo-upload-buttons locked' : 'photo-upload-buttons'}
+                  onClick={this.handleFormSubmit}>
+                  Share
+                </button>
+              </div>
 
-                <div className='file-submit-button-container'>
-                  <button className={ this.state.uploadingPhoto ?
-                    'photo-upload-buttons locked' : 'photo-upload-buttons'}
-                    onClick={this.handleFormSubmit}>
-                    Share
-                  </button>
-                </div>
+            </article>
+          </div>
 
-              </article>
-            </div>
-
-            <div className='photo-preview-container'>
-              <img className='photo-preview' src={ this.state.imageUrl } />
-            </div>
-          </main>
-      </div>
+          <div id='photo-preview-container'>
+            <img id='photo-preview-pane' src={ this.state.imageUrl } />
+          </div>
+        </section>
+      </main>
     );
   }
 }
