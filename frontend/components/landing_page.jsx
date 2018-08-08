@@ -5,13 +5,7 @@ import SessionEntryPage from './sessions/session_entry_page';
 import PhotoIndexContainer from './photos/photo_index_container';
 
 const LandingPage = props => {
-  if (props.loggedIn) {
-    return <PhotoIndexContainer />;
-  }
-
-  return (
-    <SessionEntryPage />
-  );
+  return props.loggedIn ? <PhotoIndexContainer /> : <SessionEntryPage />;
 };
 
 const mapStateToProps = state => {
