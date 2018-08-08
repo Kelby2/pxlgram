@@ -1,6 +1,5 @@
 import React from 'react';
 import PhotoIndexItem from './photo_index_item';
-import SuggestionIndex from '../users/suggestion_index';
 
 const FETCH_DELAY = 500;
 
@@ -10,7 +9,6 @@ class PhotoIndex extends React.Component {
     this.state = {
       page: 1,
       loadingPhotos: false,
-      photosFetched: false
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -19,10 +17,6 @@ class PhotoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.resetPhotos();
-    this.props.getPhotosPage(this.state.page).then(
-      () => {this.setState({ photosFetched: true });}
-    );
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -52,32 +46,17 @@ class PhotoIndex extends React.Component {
     .then(() => this.setState( { loadingPhotos: false } ));
   }
 
-  renderContent() {
-    if (this.props.photos.length === 0) {
-      return (
-        <article id='suggestions-page'>
-          <div className='page-header'>Suggested for you</div>
-          <SuggestionIndex />
-        </article>
-      );
-    }
-
-    return (
-      <ul id='photo-stream-container'>
-        {this.props.photos
-          .map(photo =>
-            <PhotoIndexItem key={photo.id} photo={photo} />
-          )
-        }
-      </ul>
-    );
-  }
-
   render() {
     return (
-      <article id='home-page'>
-        {this.state.photosFetched && this.renderContent()}
-      </article>
+      <section id='photo-index'>
+        <ul id='photo-stream-container'>
+          {this.props.photos
+            .map(photo =>
+              <PhotoIndexItem key={photo.id} photo={photo} />
+            )
+          }
+        </ul>
+      </section>
     );
   }
 
