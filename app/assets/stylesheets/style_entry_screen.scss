@@ -1,44 +1,59 @@
-.entry-screen-container {
-  width: 60%;
-  height: 700px;
+#entry-screen {
   display: flex;
-  margin: 0 auto;
   margin-top: 50px;
   justify-content: space-around;
   background-color: inherit;
 }
 
-.entry-photo-container {
+#entry-photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 410px;
   height: 700px;
+  margin-right: 50px;
 }
 
-.entry-form-container {
-  width: 350px;
-  height: 700px;
-  margin-left: 50px;
-}
-
-.background-photo {
-  margin-top: 2em;
+#background-photo {
   position: relative;
 }
 
-.main-entry-form {
+#pxlg-img-container {
+  position: absolute;
+  width: 59%;
+  height: 67%;
+  right: 8%;
+  top: 17%;
+}
+
+#pxlg-img-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#auth-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  height: 700px;
+}
+
+.auth-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  position: relative;
-  min-width: 350px;
+  width: 350px;
   text-align: center;
   border: 1px solid #e6e6e6;
-  margin-top: 4em;
 }
 
-#main-form {
+.auth-form-container {
   height: auto;
-  padding-bottom: 20px;
+  padding: 25px 0;
 }
 
 #alternate-form {
@@ -47,26 +62,11 @@
   justify-content: center;
 }
 
-.pxlgram-photo {
-  position: absolute;
-  width: 59%;
-  height: 67%;
-  right: 8%;
-  top: 17%;
+.auth-form {
+  padding: 15px;
 }
 
-.pxlgram-photo img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.entry-form {
-  margin: 15px;
-}
-
-.session-form-input {
+.auth-form-input {
   background-color: #fafafa;
   padding: 9px 0 7px 8px;
   width: 80%;
@@ -80,7 +80,7 @@
   color: #999999;
 }
 
-.session-form-input:focus {
+.auth-form-input:focus {
   border: 1px solid gray;
   outline: none;
 }
@@ -97,27 +97,26 @@
   width: 84%
 }
 
-.title {
+#pxlg-title {
   font-size: 4em;
   font-family: 'Leckerli One', cursive;
-  margin-top: 25px;
+  margin: 20px 0;
 }
 
-.entry-form-text, .alternate-form-text {
+.auth-text {
   display: block;
   width: 260px;
   justify-content: center;
   font-family: sans-serif;
-  color: gray;
+  color: #999999;
   line-height: 20px;
 }
 
-.alternate-form-text {
+#form-toggle-text {
   color: #262626;
 }
 
-.toggler {
-  text-decoration: none;
+#form-toggle-link {
   color: #3699f2;
 }
 
@@ -129,20 +128,18 @@
   text-align: center;
 }
 
-.policy-terms {
+#pxlg-policy-text {
   font-weight: 600;
-  color: #999999;
 }
 
-.submit-button:hover, .toggler:hover {
+.submit-button:hover, #form-toggle-link:hover {
   cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
-  .entry-photo-container {
+  #entry-photo-container {
     display: none;
   }
-  .entry-form-container {
-    margin: 0 auto;
+  #auth-form-container {
   }
 }

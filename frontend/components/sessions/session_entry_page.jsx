@@ -8,7 +8,6 @@ class SessionEntryPage extends React.Component {
 
   toggleForm() {
     event.preventDefault();
-    this.props.clearSessionErrors();
     this.setState({ newUser : !this.state.newUser });
   }
 
@@ -22,12 +21,12 @@ class SessionEntryPage extends React.Component {
     const { newUser } = this.state;
 
     return (
-      <div id='alternate-form' className="main-entry-form">
-        <p className='alternate-form-text'>
+      <div id='alternate-form' className="auth-text-container">
+        <p className='auth-text' id='form-toggle-text'>
           { newUser ?
             'Have an account? ' :
             "Don't have an account? "}
-          <span className='toggler' onClick={this.toggleForm.bind(this)}>
+          <span id='form-toggle-link' onClick={this.toggleForm.bind(this)}>
             { newUser ? 'Log In' : 'Sign up'}
           </span>
         </p>
@@ -37,23 +36,21 @@ class SessionEntryPage extends React.Component {
 
   render() {
     return (
-      <div className='entry-screen'>
-        <article className='entry-screen-container'>
-          <aside className='entry-photo-container'>
-            <div className='background-photo'>
-              <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/ig-backdrop.png"></img>
-              <div className='pxlgram-photo'>
-                <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-dev/pxlgram_content.png"></img>
-              </div>
+      <article id='entry-screen'>
+        <aside id='entry-photo-container'>
+          <div id='background-photo'>
+            <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-pro/photos/images/000/000/ig-backdrop.png"></img>
+            <div id='pxlg-img-container'>
+              <img src="https://s3.us-east-2.amazonaws.com/kelbylu-pxlgram-dev/pxlgram_content.png"></img>
             </div>
-          </aside>
+          </div>
+        </aside>
 
-          <aside className='entry-form-container'>
-            {this.renderForm()}
-            {this.renderFormToggler()}
-          </aside>
-        </article>
-      </div>
+        <aside id='auth-form-container'>
+          {this.renderForm()}
+          {this.renderFormToggler()}
+        </aside>
+      </article>
     );
   }
 }

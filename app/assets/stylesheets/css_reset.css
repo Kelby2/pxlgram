@@ -53,6 +53,10 @@ button:focus, a, input, textarea {
 	outline: none;
 }
 
+a {
+  color: inherit;
+}
+
 button:hover {
 	cursor: pointer;
 }

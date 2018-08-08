@@ -45,7 +45,7 @@ class LoginForm extends React.Component {
     return (
       <input
         key={field}
-        className='session-form-input'
+        className='auth-form-input'
         type={fieldValue === 'password' ? 'password' : 'text'}
         value={this.state[`${fieldValue}`]}
         onChange={this.handleInputChange(`${fieldValue}`).bind(this)}
@@ -56,9 +56,9 @@ class LoginForm extends React.Component {
 
   render () {
     return (
-        <div className='main-entry-form' id="main-form">
-          <h2 className='title'>pxlgram</h2><br />
-          <form onSubmit={this.handleFormSubmit.bind(this)} className='entry-form'>
+        <div className='auth-text-container auth-form-container'>
+          <h2 id='pxlg-title'>pxlgram</h2>
+          <form onSubmit={this.handleFormSubmit.bind(this)} className='auth-form'>
             {inputFields.map(field => {
               return this.renderInputField(field);
             })}

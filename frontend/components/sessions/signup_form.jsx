@@ -47,7 +47,7 @@ class SignUpForm extends React.Component {
     return (
       <input
         key={field}
-        className='session-form-input'
+        className='auth-form-input'
         type={fieldValue === 'password' ? 'password' : 'text'}
         value={this.state[`${fieldValue}`]}
         onChange={this.handleInputChange(`${fieldValue}`).bind(this)}
@@ -58,15 +58,14 @@ class SignUpForm extends React.Component {
 
   render () {
     return (
-      <div className="main-entry-form" id='main-form'>
-        <h2 className='title'>pxlgram</h2><br />
-        <span className='entry-form-text'>
+      <div className='auth-text-container auth-form-container'>
+        <h2 id='pxlg-title'>pxlgram</h2>
+        <span className='auth-text'>
           Sign up to share and see amazing photos with your friends!
         </span>
         <form
           onSubmit={this.handleFormSubmit.bind(this)}
-          className='entry-form'
-        >
+          className='auth-form'>
           {inputFields.map(field => {
             return this.renderInputField(field);
           })}
@@ -77,9 +76,9 @@ class SignUpForm extends React.Component {
             <DemoButton />
         </form>
         <ul>{this.renderErrors()}<br /></ul>
-        <span className='entry-form-text'>
+        <span className='auth-text'>
           By signing up, you agree to our
-          <div className='policy-terms'>Terms & Privacy Policy</div>
+          <div id='pxlg-policy-text'>Terms & Privacy Policy</div>
         </span>
       </div>
     );
