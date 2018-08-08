@@ -12,6 +12,7 @@ class UserProfile extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.username !== this.props.match.params.username) {
+      document.title = `${this.props.match.params.username} ∙ pxlg`;
       this.setState({ loadingPhotos: true, modalActive: false });
       this.props.getUserPhotos(this.props.match.params.username).then(() => {
         this.setState({ loadingPhotos: false });
@@ -28,6 +29,8 @@ class UserProfile extends React.Component {
     getUserPhotos(username).then(() =>
       {this.setState({ loadingPhotos: false });}
     );
+
+    document.title = `${username} ∙ pxlg`;
   }
 
   onPhotoClick(photo) {

@@ -24,6 +24,7 @@ class EditUser extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBack = this.handleBack.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    document.title = `Edit Profile ∙ pxlg`;
   }
 
   componentWillUnmount() {

@@ -13,6 +13,7 @@ class PhotoUpload extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    document.title = "Share ∙ pxlg;"
   }
 
   componentWillUnmount() {

@@ -29,6 +29,7 @@ class PhotoGrid extends React.Component {
   componentDidMount() {
     this.props.resetPhotos();
     this.props.getPhotosGrid(this.state.page);
+    document.title = "pxlg";
     window.addEventListener('scroll', this.handleScroll);
   }
 

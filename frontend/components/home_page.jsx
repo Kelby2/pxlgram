@@ -12,6 +12,7 @@ class HomePage extends React.Component {
   componentDidMount() {
     this.props.resetPhotos();
     this.props.getPhotosPage(1).then(() => this.setState({ loading: false }));
+    document.title = "pxlg";
   }
 
   renderContent() {
