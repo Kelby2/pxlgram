@@ -1,15 +1,14 @@
-.user-profile-container {
+#user-profile-container {
   width: 100%;
   height: auto;
+  display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 .user-profile {
   width: 950px;
   height: 100%;
   padding-top: 25px;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -149,6 +148,18 @@
   .user-info-container {
     width: 70%;
     height: 15vw;
+  }
+}
+
+#user-photos-container {
+  width: 950px;
+  height: auto;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 950px) {
+  #user-photos-container {
+    width: 100%;
   }
 }
 

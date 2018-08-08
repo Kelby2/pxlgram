@@ -1,5 +1,7 @@
 import React from 'react';
 import { BeatLoader } from 'react-spinners';
+
+import HeaderNavBar from '../navbar/navbar';
 import UserInfoContainer from './user_info_container';
 import PhotoGridItem from '../photos/photo_grid_item';
 import PhotoModalContainer from '../photos/photo_modal_container';
@@ -46,7 +48,8 @@ class UserProfile extends React.Component {
     const { photos, username } = this.props;
 
     return (
-      <main className='user-profile-container'>
+      <main id='user-profile-container' className='main-wrapper'>
+        <HeaderNavBar />
         {this.state.modalActive &&
           <PhotoModalContainer
             onModalClose={() => this.onModalClose()}
@@ -54,7 +57,7 @@ class UserProfile extends React.Component {
         <div className='user-profile'>
           <UserInfoContainer username={username} />
           { !this.state.loadingPhotos ?
-            <article className='user-photos-container'>
+            <article id='user-photos-container'>
               <ul className='photos-grid-container'>
                 {
                   photos.map(photo => {

@@ -1,13 +1,6 @@
-.user-photos-container {
-  width: 950px;
-  height: auto;
-  padding: 20px 0;
-}
-
 .explore-photos-container {
   width: 926px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -83,9 +76,6 @@
 
 @media screen and (max-width: 950px) {
   .explore-photos-container,
-  .user-photos-container {
-    width: 100%;
-  }
   .grid-photo {
     width: 30vw;
     height: 30vw;
