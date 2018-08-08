@@ -1,14 +1,10 @@
-#suggestions-page {
-  width: 615px;
-  height: 100%;
-  position: relative;
-}
-
 #suggestion-index {
-  margin-top: 28px;
+  width: 615px;
+  position: relative;
+  margin-top: 30px;
 }
 
-.suggestion-results, #get-started {
+.suggestions-result-item, #get-started-container {
   height: 72px;
   width: auto;
   padding: 5px 12px;
@@ -21,7 +17,7 @@
   justify-content: space-between;
 }
 
-#get-started {
+#get-started-container {
   height: 55px;
   justify-content: center;
 }
