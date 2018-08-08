@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getPhotosPage, resetPhotos } from '../actions/photo_actions';
 import HeaderNavBar from './navbar/navbar';
-import SuggestionIndex from './users/suggestion_index';
+import SuggestionsIndex from './users/suggestions_index';
 import PhotoIndexContainer from './photos/photo_index_container';
 
 class HomePage extends React.Component {
@@ -15,7 +15,7 @@ class HomePage extends React.Component {
   }
 
   renderContent() {
-    return this.props.isNewUser ? <SuggestionIndex /> : <PhotoIndexContainer />;
+    return this.props.isNewUser ? <SuggestionsIndex /> : <PhotoIndexContainer />;
   }
 
   render() {
