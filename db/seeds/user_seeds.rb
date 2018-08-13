@@ -58,14 +58,18 @@ User.create!(username: 'admin', password: 'password123',
                 bio: 'I am the moderator here, thank you for checking out Pxlgram!'
 )
 
-User.create!(username: 'kelby', password: 'password123',
-                fullname: 'Kelby Lu', email: 'kelby.lu28@gmail.com',
-                avatar: File.open('app/assets/images/kelby.png'),
-                bio: 'Welcome to my site! Thanks for checking it out. Check out the photos below to see the source code on Github or if you want to see my other projects!'
-)
-
-USER_IDS.push(
+USER_IDS.concat([
       User.create!(username: 'friend', password: 'password',
         fullname: 'pxlgram demo', email: 'friend@pxlgram.com',
         avatar: File.open('app/assets/images/avatar.jpg'),
-        bio: "Welcome to your page! You can see all the photos that you've posted below!").id)
+        bio: "Welcome to your page! You can see all the photos that you've posted below!"
+      ).id,
+
+      User.create!(username: 'kelby', password: 'password123',
+        fullname: 'Kelby Lu', email: 'kelby.lu28@gmail.com',
+        avatar: File.open('app/assets/images/kelby.png'),
+        bio: 'Welcome to my site! Thanks for checking it out. Check out the photos below to see the source code on Github or if you want to see my other projects!'
+      ).id,
+      ])
+
+KELBY_ID = User.find_by(username: 'kelby').id
