@@ -3,8 +3,7 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   height: 75px;
   border-bottom: 1px solid #e6e6e6;
   background-color: #FFFFFF;
@@ -19,7 +18,6 @@
   height: 100%;
   width: 75%;
   display: flex;
-  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -145,7 +143,7 @@
 }
 
 .nav-bar {
-  width: 125px;
+  width: 150px;
   display: flex;
   vertical-align: bottom;
   justify-content: space-between;

@@ -40,6 +40,8 @@ class NavBar extends React.Component {
             <SearchBarContainer/>
 
             <div className="nav-bar">
+              <Link className='fa fa-info-circle fa-lg'
+                to={'/kelby'}/>
               <Link className="fa fa-upload fa-lg"
                 to={'/upload'}/>
               <Link className="fa fa-compass fa-lg"
