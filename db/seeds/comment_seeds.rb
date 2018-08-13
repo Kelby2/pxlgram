@@ -1,4 +1,4 @@
-ALL_PHOTO_COMMENTS = [
+comments = [
   "Woah!",
   "Where did you take this?",
   "That's so cool!!",
@@ -159,3 +159,15 @@ ALL_PHOTO_COMMENTS = [
   "Back at it again with the short shorts",
   "Thisss is amazing!!!! Keep it up!",
 ]
+
+###########
+# COMMENTS
+###########
+
+Comment.destroy_all
+
+220.times do
+  Comment.create!(user_id: USER_IDS.sample,
+    photo_id: PHOTO_IDS.sample,
+    body: comments.sample)
+end

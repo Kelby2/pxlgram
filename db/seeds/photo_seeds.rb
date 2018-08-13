@@ -1,4 +1,8 @@
-ALL_PHOTO_CAPTIONS = [
+#########
+# PHOTOS
+#########
+
+captions = [
   "New toys for the holidays",
   "The game doesn't wait for anyone",
   "You're next",
@@ -87,3 +91,19 @@ ALL_PHOTO_CAPTIONS = [
   "I spy",
   "low key feelin my outfit today 🔥🔥🔥"
 ]
+
+
+Photo.destroy_all
+
+PHOTO_IDS = []
+
+(0..86).each do |num|
+  new_photo = Photo.create!({
+    author_id: USER_IDS.sample,
+    caption: captions[num],
+    created_at: Faker::Time.backward(90, :all),
+    image: File.open("app/assets/images/seeds/pxl#{num}.jpg")
+    })
+
+  PHOTO_IDS.push(new_photo.id)
+end
