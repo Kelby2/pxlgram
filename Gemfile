@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'rails_12factor'
-gem 'faker'
+gem 'faker', '~> 1.9.0'
 gem 'will_paginate', '~> 3.1.0'
 gem "auto_strip_attributes", "~> 2.2"
 
