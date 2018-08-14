@@ -7,6 +7,13 @@ import CommentIndexContainer from '../comments/comment_index_container';
 
 class PhotoModalItem extends React.Component {
 
+  onProfileClick() {
+    if (this.props.fromProfile) {
+      event.preventDefault();
+      this.props.closeModal();
+    }
+  }
+
   focusComment = id => {
     $(`#add-comment-${id}`).focus();
   }
@@ -21,15 +28,14 @@ class PhotoModalItem extends React.Component {
         </aside>
 
         <aside id="modal-photo-information">
-
           <article className='photo-author-info'>
-            <Link to={`/${photo.author_name}`} className='stream-avatar-container'>
+            <Link to={`${photo.author_name}`} onClick={this.onProfileClick.bind(this)} className='stream-avatar-container'>
               <img
                 className='stream-avatar'
                 src={photo.author_avatar} />
             </Link>
 
-            <Link to={`/${photo.author_name}`} className='author-username'>
+            <Link to={`${photo.author_name}`} onClick={this.onProfileClick.bind(this)} className='author-username'>
                <div
                  className='stream-username'>
                  {photo.author_name}
@@ -37,7 +43,10 @@ class PhotoModalItem extends React.Component {
             </Link>
           </article>
 
-          <CommentIndexContainer photoId={photo.id} />
+          <CommentIndexContainer
+            closeModal={this.props.closeModal}
+            fromProfile={this.props.fromProfile}
+            photoId={photo.id} />
 
           <div className='icon-container'>
             <LikeContainer photo_id={photo.id} />

@@ -60,6 +60,7 @@ class PhotoModal extends React.Component {
           }
           isOpen={this.state.modalOpen}>
           <PhotoModalItem
+            fromProfile={this.props.fromProfile}
             closeModal={this.closeModal}
             photo={this.props.photo}/>
         </Modal>

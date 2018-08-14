@@ -6,8 +6,11 @@ import PhotoModal from './photo_modal.jsx';
 
 const mapStateToProps = (state, ownProps) => {
   const photo = state.entities.photos[ownProps.photoId];
+  const fromProfile = ownProps.fromProfile;
+  
   return {
-    photo
+    photo,
+    fromProfile
   };
 };
 
