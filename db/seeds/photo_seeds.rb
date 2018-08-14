@@ -99,7 +99,7 @@ PHOTO_IDS = []
 
 (0..86).each do |num|
   new_photo = Photo.create!({
-    author_id: USER_IDS.reject { |id| id == KELBY_ID }.sample,
+    author_id: USER_IDS.sample,
     caption: captions[num],
     created_at: Faker::Time.backward(90, :all),
     image: File.open("app/assets/images/seeds/pxl#{num}.jpg")

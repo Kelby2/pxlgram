@@ -1,5 +1,4 @@
 Following.destroy_all
-kelby_id = User.find_by(username: 'kelby')
 
 USER_IDS.each do |id|
 

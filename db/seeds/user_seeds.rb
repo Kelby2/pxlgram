@@ -65,11 +65,9 @@ USER_IDS.concat([
         bio: "Welcome to your page! You can see all the photos that you've posted below!"
       ).id,
 
-      User.create!(username: 'kelby', password: 'password123',
+      User.create!(username: 'kelbylu', password: 'password123',
         fullname: 'Kelby Lu', email: 'kelby.lu28@gmail.com',
         avatar: File.open('app/assets/images/kelby.png'),
-        bio: 'Welcome to my site! Thanks for checking it out. Check out the photos below to see the source code on Github or if you want to see my other projects!'
+        bio: 'Thanks for checking out Pxlgram! Check out the github link above to see the source code or send me a message/connect on LinkedIn!'
       ).id,
-      ])
-
-KELBY_ID = User.find_by(username: 'kelby').id
+    ])
