@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const githubURL = 'https://github.com/Kelby2/pxlgram';
+const linkedInURL = 'https://www.linkedin.com/in/kelbylu/';
+
 class UserInfo extends React.Component {
 
   state = { userProfileLoaded: false }
@@ -59,8 +62,17 @@ class UserInfo extends React.Component {
     return (
       <div
         onClick={() => this.props.logout()}
-        className="fa fa-sign-out fa-lg">
+        className="fa fa-sign-out fa-2x">
       </div>
+    );
+  }
+
+  renderExternalLinks() {
+    return (
+      <nav className='profile-btns'>
+        <a href={githubURL} className='fa fa-github-square fa-2x' />
+        <a href={linkedInURL} className='fa fa-linkedin-square fa-2x' />
+      </nav>
     );
   }
 
@@ -82,6 +94,7 @@ class UserInfo extends React.Component {
                 <span className='user-name'>{user.username}</span>
                 {isCurrentUser ?
                   this.renderEditProfileButton() : this.renderFollowerButton()}
+                {user.username === 'kelby' && this.renderExternalLinks()}
                 {isCurrentUser && this.renderLogOutButton()}
               </div>
 
