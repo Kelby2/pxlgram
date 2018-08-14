@@ -71,6 +71,13 @@
   margin-right: 30px;
 }
 
+.profile-btns {
+  width: 75px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
 .grid-photo:hover {
   cursor: pointer;
 }
@@ -81,6 +88,7 @@
   font-size: 14px;
   width: 100px;
   height: 30px;
+  margin-right: 20px;
 }
 
 .follow-btn {
@@ -129,7 +137,6 @@
 }
 
 .fa-sign-out {
-  margin-left: 19px;
   text-decoration: none;
   color: #000000;
 }
