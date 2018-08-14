@@ -50,6 +50,7 @@ class UserProfile extends React.Component {
         <HeaderNavBar />
         {this.state.modalActive &&
           <PhotoModalContainer
+            fromProfile={true}
             onModalClose={() => this.onModalClose()}
             photoId={this.photoId}/>}
         <div className='user-profile'>
