@@ -37,7 +37,7 @@ class Api::UsersController < ApplicationController
     @user = current_user
 
     if ((current_user.username == "friend" && user_params[:username] != "friend") ||
-        (current_user.username == "kelby" && user_params[:username] != "kelby"))
+        (current_user.username == "kelby" && user_params[:username] != "kelbylu"))
       render json: ["Please do not change this account's username, Thank you!"], status: 401
     elsif @user.update(user_params)
       render :show
