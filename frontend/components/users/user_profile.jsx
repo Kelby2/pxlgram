@@ -34,13 +34,8 @@ class UserProfile extends React.Component {
   }
 
   onPhotoClick(photo) {
-    this.setState({
-      modalActive: true
-     });
+    this.setState({ modalActive: true });
     this.photoId = photo.id;
-    history.pushState(
-      {}, 'photo', `#/photos/${photo.id}?taken-by=${photo.author_name}`
-    );
   }
 
   onModalClose() {

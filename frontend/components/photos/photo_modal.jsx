@@ -10,8 +10,9 @@ class PhotoModal extends React.Component {
       modalOpen: true
     };
 
-    this.props.location.pathname =
-      `#/photos/${this.props.photo.id}/?taken-by=${this.props.photo.author_name}`;
+    history.pushState(
+      {}, 'photo', `#/photos/${props.photo.id}?taken-by=${props.photo.author_name}`
+    );
     Modal.setAppElement('body');
     this.closeModal = this.closeModal.bind(this);
   }
@@ -21,7 +22,9 @@ class PhotoModal extends React.Component {
   }
 
   closeModal() {
-    this.props.history.goBack();
+    history.pushState(
+      {}, 'user', `#/${this.props.photo.author_name}`
+    );
     this.props.onModalClose();
     this.setState({
       modalOpen: false
