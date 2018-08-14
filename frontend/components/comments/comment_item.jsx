@@ -15,14 +15,17 @@ class CommentItem extends React.Component {
     this.props.deleteComment(this.props.comment.id);
   }
 
-  render() {
+  onProfileClick() {
+    const { fromProfile, closeModal, photoAuthor, comment } = this.props;
 
-    let deleteCommentButton;
+    if (fromProfile && photoAuthor === comment.author_name) {
+      closeModal();
+    }
+  }
 
-    if (this.props.comment.author_name === this.props.currentUser
-        || this.props.photoAuthor === this.props.currentUser
-        || this.props.currentUser === "admin") {
-      deleteCommentButton = (
+  renderDeleteCommentButton() {
+    if (this.props.hasDeleteAccess) {
+      return (
         <div
           className="fa fa-times"
           id="delete-comment-button"
@@ -30,12 +33,15 @@ class CommentItem extends React.Component {
         </div>
       );
     }
+  }
+
+  render() {
     return (
       <li className='comment'>
-        <Link to={`/${this.props.comment.author_name}`}>
+        <Link to={`/${this.props.comment.author_name}`} onClick={this.onProfileClick.bind(this)}>
           <span className='comment-author'>{this.props.comment.author_name}</span>
         </Link>
-        { deleteCommentButton }
+        {this.renderDeleteCommentButton()}
         <span className='comment-body'>{this.props.comment.body}</span>
       </li>
     );
@@ -43,11 +49,15 @@ class CommentItem extends React.Component {
 }
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   const currentUser = state.session.currentUser.username;
+  const hasDeleteAccess = ownProps.comment.author_name === currentUser
+    || ownProps.photoAuthor === currentUser
+    || currentUser === 'admin';
 
   return {
     currentUser,
+    hasDeleteAccess,
   };
 };
 

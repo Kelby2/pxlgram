@@ -8,6 +8,13 @@ class CommentIndex extends React.Component {
     this.props.getPhotoComments(this.props.photoId);
   }
 
+  onProfileClick() {
+    if (this.props.fromProfile) {
+      event.preventDefault();
+      this.props.closeModal();
+    }
+  }
+
   renderPhotoCaption() {
     const { photo } = this.props;
 
@@ -15,7 +22,7 @@ class CommentIndex extends React.Component {
       return (
         <li className='caption-container'>
           <span className='author-username'>
-            <Link to={`/${photo.author_name}`}>
+            <Link to={`/${photo.author_name}`} onClick={this.onProfileClick.bind(this)}>
               {photo.author_name}
             </Link>
           </span>
@@ -28,19 +35,23 @@ class CommentIndex extends React.Component {
   }
 
   render () {
+    const { photo, comments, fromProfile, closeModal } = this.props;
+
     return (
       <div className='comments-container'>
         <ul
-          id={`comment-list-${this.props.photo.id}`}
+          id={`comment-list-${photo.id}`}
           className='photo-comments'>
           { this.renderPhotoCaption() }
           {
-            this.props.comments.map(comment => {
+            comments.map(comment => {
               return (
                 <CommentItem
+                  closeModal={ closeModal }
+                  fromProfile={ fromProfile }
                   key={ comment.id }
                   comment={ comment }
-                  photoAuthor= { this.props.photo.author_name }
+                  photoAuthor= { photo.author_name }
                 />
               );
             })
