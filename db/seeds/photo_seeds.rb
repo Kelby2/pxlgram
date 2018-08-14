@@ -96,10 +96,11 @@ captions = [
 Photo.destroy_all
 
 PHOTO_IDS = []
+kelby_uid = User.find_by(username: 'kelbylu')
 
 (0..86).each do |num|
   new_photo = Photo.create!({
-    author_id: USER_IDS.sample,
+    author_id: USER_IDS.reject { |id| id == kelby_uid }.sample,
     caption: captions[num],
     created_at: Faker::Time.backward(90, :all),
     image: File.open("app/assets/images/seeds/pxl#{num}.jpg")

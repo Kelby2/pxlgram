@@ -68,6 +68,6 @@ USER_IDS.concat([
       User.create!(username: 'kelbylu', password: 'password123',
         fullname: 'Kelby Lu', email: 'kelby.lu28@gmail.com',
         avatar: File.open('app/assets/images/kelby.png'),
-        bio: 'Thanks for checking out Pxlgram! Check out the github link above to see the source code or send me a message/connect on LinkedIn!'
+        bio: 'Thanks for checking out my site! Check out the github link above to see the source code or send me a message/connect on LinkedIn!'
       ).id,
     ])
