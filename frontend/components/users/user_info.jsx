@@ -100,9 +100,10 @@ class UserInfo extends React.Component {
               </div>
 
               <div className='info-section-3'>
-                <p className='user-bio'>
-                  <span className='user-full-name'>{user.fullname} </span>  {user.bio}
-                </p>
+                <div className='user-bio'>
+                  <p className='user-full-name'>{user.fullname}</p>
+                  <p>{user.bio}</p>
+                </div>
               </div>
             </div>
           </article>
