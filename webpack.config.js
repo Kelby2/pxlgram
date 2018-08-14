@@ -16,9 +16,7 @@ const prodPlugins = [
 	})
 ];
 
-const plugins = [
-	...(isProduction ? prodPlugins : devPlugins)
-];
+const plugins = isProduction ? prodPlugins : devPlugins;
 
 module.exports = {
 	context: __dirname,
