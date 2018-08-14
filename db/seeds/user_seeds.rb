@@ -13,7 +13,8 @@ def create_username(fname, lname)
     "hello_#{fname}",
     "#{fname}#{lname}",
     "#{fname}#{rand(20)}",
-    Faker::Internet.user_name("#{fname} #{lname}", ["-", "_"])
+    Faker::Internet.user_name("#{fname} #{lname}", ["-", "_"]),
+    Faker::GameOfThrones.unique.character,
   ]
 
   username_styles.sample.downcase
@@ -36,9 +37,7 @@ end
   user_fname = Faker::Name.unique.first_name
   user_lname = Faker::Name.last_name
   user_fullname = [
-    "#{user_fname} #{user_lname}",
-    Faker::GameOfThrones.unique.character,
-    Faker::FunnyName.two_word_name
+    "#{user_fname} #{user_lname}"
   ].sample
   user_username = create_username(user_fname, user_lname)
   user_email = Faker::Internet.free_email("#{user_username}")

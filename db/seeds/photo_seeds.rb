@@ -96,7 +96,7 @@ captions = [
 Photo.destroy_all
 
 PHOTO_IDS = []
-kelby_uid = User.find_by(username: 'kelbylu')
+kelby_uid = User.find_by(username: 'kelbylu').id
 
 (0..86).each do |num|
   new_photo = Photo.create!({
