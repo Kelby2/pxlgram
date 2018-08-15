@@ -23,7 +23,7 @@ class UserInfo extends React.Component {
 
   renderEditProfileButton() {
     return (
-      <Link to={`/${this.props.username}/edit`}>
+      <Link style={{ marginRight: '20px' }} to={`/${this.props.username}/edit`}>
         <button
           className='edit-profile-button'>
           Edit Profile
@@ -61,7 +61,7 @@ class UserInfo extends React.Component {
   renderLogOutButton() {
     return (
       <div
-        onClick={() => this.props.logout()}
+        onClick={this.props.onLogoutClick}
         className="fa fa-sign-out fa-2x">
       </div>
     );
