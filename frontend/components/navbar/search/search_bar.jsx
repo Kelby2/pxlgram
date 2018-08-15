@@ -1,3 +1,4 @@
+
 import React from 'react';
 import SearchResultsIndexItem from './search_result_index_item';
 
@@ -40,10 +41,10 @@ class Searchbar extends React.Component {
   handleInputChange(e) {
     e.preventDefault();
     const usernameQuery = e.currentTarget.value;
-    this.setState( { usernameQuery } );
+    this.setState({usernameQuery});
 
     if (usernameQuery.length > 0) {
-      this._callSearch(usernameQuery);
+      this._callSearch();
     } else {
       this.props.clearSearch();
     }
@@ -62,7 +63,7 @@ class Searchbar extends React.Component {
   // empty.
   startSearch() {
     if (this.state.usernameQuery.length > 0) {
-      this.searchUsers(this.state.usernameQuery);
+      this.searchUsers(this.state.usernameQuery.toLowerCase());
     }
   }
 
@@ -88,7 +89,7 @@ class Searchbar extends React.Component {
   }
 
   _toggleShowResults() {
-    this.setState( {showResults: !this.state.showResults} );
+    this.setState({showResults: !this.state.showResults});
   }
 
   render() {
@@ -104,8 +105,8 @@ class Searchbar extends React.Component {
               searchResults.map(user => {
                 return(
                   <SearchResultsIndexItem
-                  key={ user.username }
-                  user={ user }/>
+                  key={user.username}
+                  user={user}/>
                 );
               })
             }
@@ -126,11 +127,11 @@ class Searchbar extends React.Component {
           className="user-search-bar"
           type="search"
           placeholder="Search"
-          value={ this.state.usernameQuery }
-          onFocus={ this.handleFocus }
-          onBlur={ this.handleBlur }
-          onChange={ this.handleInputChange }
-          onKeyDown={ this.handleEsc }
+          value={this.state.usernameQuery}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          onChange={this.handleInputChange}
+          onKeyDown={this.handleEsc}
         />
         {resultsIndex}
       </div>

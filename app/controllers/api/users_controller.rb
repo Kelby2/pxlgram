@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
       .where.not(id: [*current_user.followings.pluck(:id), current_user.id])
       .sample(10)
     else
-      userQuery = params[:query]
+      userQuery = params[:query].downcase
       @users = User.where("username NOT LIKE ? AND username LIKE ? OR LOWER(fullname) LIKE ?",
       "#{current_user.username}", "#{userQuery}%", "#{userQuery}%")
     end
