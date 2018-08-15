@@ -75,7 +75,7 @@
   width: 75px;
   display: flex;
   justify-content: space-between;
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .grid-photo:hover {
@@ -88,7 +88,6 @@
   font-size: 14px;
   width: 100px;
   height: 30px;
-  margin-right: 20px;
 }
 
 .follow-btn {
@@ -143,6 +142,37 @@
 
 .fa-sign-out:hover {
   cursor:pointer;
+}
+
+.logoutModalBaseClass {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  outline: none;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 90px;
+}
+
+.logout-btns {
+  flex: 1;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: baseline;
+  padding: 12px;
+}
+
+#logout-text {
+  color: #ff0000;
+}
+
+.logout-btns:hover {
+  background: #e3e3e3;
 }
 
 @media screen and (max-width: 950px) {
