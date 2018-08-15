@@ -6,6 +6,10 @@ class SessionEntryPage extends React.Component {
 
   state = { newUser: true }
 
+  componentDidMount() {
+    document.title = "pxlg";
+  }
+
   toggleForm() {
     event.preventDefault();
     this.setState({ newUser : !this.state.newUser });
