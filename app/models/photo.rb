@@ -21,7 +21,7 @@ class Photo < ApplicationRecord
 
   validates_attachment :image,
     content_type: { content_type: /\Aimage\/.*\Z/, message: 'Invalid content type, please choose an image' },
-    size: { in: 0..1.megabytes, message: "File size too large (Limit 1 MB)" }
+    size: { in: 0..5.megabytes, message: "File size too large (Limit 5 MB)" }
 
   belongs_to :author,
     foreign_key: :author_id,
