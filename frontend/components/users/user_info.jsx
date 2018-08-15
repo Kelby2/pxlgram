@@ -94,7 +94,7 @@ class UserInfo extends React.Component {
                 <span className='user-name'>{user.username}</span>
                 {isCurrentUser ?
                   this.renderEditProfileButton() : this.renderFollowerButton()}
-                {user.username === 'kelby' && this.renderExternalLinks()}
+                {user.username === 'kelbylu' && this.renderExternalLinks()}
                 {isCurrentUser && this.renderLogOutButton()}
               </div>
 
