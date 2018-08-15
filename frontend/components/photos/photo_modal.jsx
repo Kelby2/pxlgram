@@ -22,9 +22,13 @@ class PhotoModal extends React.Component {
   }
 
   closeModal() {
-    history.pushState(
-      {}, 'user', `#/${this.props.photo.author_name}`
-    );
+    if (this.props.fromProfile) {
+      history.pushState(
+        {}, 'user', `#/${this.props.photo.author_name}`
+      );
+    } else {
+      history.pushState({}, 'explore', '#/explore');
+    }
     this.props.onModalClose();
     this.setState({
       modalOpen: false
