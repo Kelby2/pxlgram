@@ -17,6 +17,8 @@
 .overlay-default {
   position: fixed;
   display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
@@ -41,10 +43,8 @@
 .baseClass {
   display: flex;
   position: relative;
-  max-width: 935px;
   width: auto;
   height: 600px;
-  margin: auto;
   background: #fff;
   border-radius: 2px;
   overflow: hidden;
@@ -63,7 +63,6 @@
   display: flex;
   width: auto;
   height: auto;
-  min-width: 480px;
   min-height: 480px;
   max-width: 600px;
   overflow: hidden;
@@ -74,11 +73,10 @@
 #modal-photo {
   width: auto;
   height: auto;
-  min-width: 480px;
   max-width: 600px;
   min-height: 600px;
   max-height: 750px;
-  object-fit: contain;
+  object-fit: none;
 }
 
 #modal-photo-information {
