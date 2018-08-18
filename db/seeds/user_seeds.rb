@@ -14,7 +14,7 @@ def create_username(fname, lname)
     "#{fname}#{lname}",
     "#{fname}#{rand(20)}",
     Faker::Internet.user_name("#{fname} #{lname}", ["-", "_"]),
-    Faker::GameOfThrones.unique.character,
+    Faker::GameOfThrones.unique.character.delete(' '),
   ]
 
   username_styles.sample.downcase
