@@ -38,6 +38,7 @@ gem 'rails_12factor'
 gem 'faker', '~> 1.9.0'
 gem 'will_paginate', '~> 3.1.0'
 gem "auto_strip_attributes", "~> 2.2"
+gem "fastimage"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
