@@ -16,7 +16,7 @@
 class Photo < ApplicationRecord
 
   validates :author_id, presence: true
-  has_attached_file :image, default_url: "default.png"
+  has_attached_file :image, styles: { resized: '600x600' }, default_url: "default.png"
   validates :image, attachment_presence: { message: "Please upload a photo to share"}
 
   validates_attachment :image,
