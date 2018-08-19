@@ -23,6 +23,7 @@ class Api::PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @width, @height = FastImage.size(@photo.image.url);
   end
 
   def create
@@ -34,6 +35,7 @@ class Api::PhotosController < ApplicationController
     end
 
     if @photo.save
+      @width, @height = FastImage.size(@photo.image.url)
       render :show
     else
       errors = first_message_for_each_error(@photo.errors)
