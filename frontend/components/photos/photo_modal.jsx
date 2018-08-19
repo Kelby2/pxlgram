@@ -7,7 +7,8 @@ class PhotoModal extends React.Component {
     super(props);
 
     this.state = {
-      modalOpen: true
+      modalOpen: true,
+      photoFetched: false,
     };
 
     history.pushState(
@@ -18,7 +19,8 @@ class PhotoModal extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPhoto(this.props.photoId);
+    this.props.getPhoto(this.props.photoId)
+      .then(() => this.setState({ photoFetched: true }));
   }
 
   closeModal() {
@@ -36,7 +38,7 @@ class PhotoModal extends React.Component {
   }
 
   render() {
-    if (!this.props.photo) { return null; }
+    if (!this.props.photo || !this.state.photoFetched) { return null; }
 
     return (
       <main>
