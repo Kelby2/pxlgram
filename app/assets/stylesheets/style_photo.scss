@@ -15,6 +15,7 @@
 
 .photo-img-container {
   max-width: 600px;
+  min-height: 400px;
   max-height: 700px;
   background-color: black;
   display: flex;
@@ -24,12 +25,12 @@
 .photo-img {
   max-width: 100%;
   max-height: 100%;
-  vertical-align: bottom;
+  object-fit: none;
 }
 
 .photo-information {
   background-color: #ffffff;
-  width: 335px;
+  width: 275px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
