@@ -14,10 +14,10 @@ def create_username(fname, lname)
     "#{fname}#{lname}",
     "#{fname}#{rand(20)}",
     Faker::Internet.user_name("#{fname} #{lname}", ["-", "_"]),
-    Faker::GameOfThrones.unique.character.delete(' '),
+    Faker::GameOfThrones.unique.character,
   ]
 
-  username_styles.sample.downcase
+  username_styles.sample.delete(" .,;:'\"!?").downcase
 end
 
 def generate_avatar
