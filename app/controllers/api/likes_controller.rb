@@ -7,7 +7,7 @@ class Api::LikesController < ApplicationController
     @like = @user.likes.create(photo_id: @photo.id)
 
     if @like.save
-      render 'api/photos/show'
+      render 'api/photos/like'
     else
       render json: @like.errors.full_messages, status: 422
     end
@@ -20,7 +20,7 @@ class Api::LikesController < ApplicationController
     @photo = Photo.find(@like.photo_id)
 
     @like.destroy!
-    render 'api/photos/show'
+    render 'api/photos/like'
   end
 
   def like_params
