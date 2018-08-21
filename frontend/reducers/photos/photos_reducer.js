@@ -17,7 +17,6 @@ const PhotosReducer = (oldState = {}, action) => {
     case ADD_LIKE:
     case REMOVE_LIKE:
       const updatedPhoto = {...oldState[action.photo.id], ...action.photo };
-      debugger
       newState = Object.assign({}, oldState, { [action.photo.id]: updatedPhoto });
       return newState;
     case RECEIVE_PHOTO:
