@@ -16,6 +16,10 @@ const PhotosReducer = (oldState = {}, action) => {
       return newState;
     case ADD_LIKE:
     case REMOVE_LIKE:
+      const updatedPhoto = {...oldState[action.photo.id], ...action.photo };
+      debugger
+      newState = Object.assign({}, oldState, { [action.photo.id]: updatedPhoto });
+      return newState;
     case RECEIVE_PHOTO:
       newState = Object.assign(
         {},
@@ -34,11 +38,10 @@ const PhotosReducer = (oldState = {}, action) => {
       );
       return newState;
     case DELETE_COMMENT:
-      newState = Object.assign(
-        {},
-        oldState
-      );
-      newState[action.comment.photo_id].commentIds = newState[action.comment.photo_id].commentIds.filter(id => id !== action.comment.id);
+      newState = Object.assign({}, oldState);
+      newState[action.comment.photo_id].commentIds =
+        newState[action.comment.photo_id].commentIds
+        .filter(id => id !== action.comment.id);
       return newState;
     case REMOVE_PHOTO:
       newState = Object.assign({}, oldState);
